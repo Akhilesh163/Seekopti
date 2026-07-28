@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrandLogo } from "./BrandLogo";
+import { BookSessionDialog } from "./BookSessionDialog";
 import { motion } from "framer-motion";
-import { Zap } from "lucide-react";
+import { Zap, Calendar, ArrowRight } from "lucide-react";
 
 export const FeaturesDiagram: React.FC = () => {
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
+
   const leftFeatures = [
     {
       title: "675+ Score Guarantee* or Get Your Money Back",
@@ -35,21 +38,21 @@ export const FeaturesDiagram: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-950 text-white border-t border-b border-slate-800/80 relative overflow-hidden">
+    <section className="pt-14 pb-20 md:pt-16 md:pb-24 bg-slate-950 text-white border-t border-b border-slate-800/80 relative overflow-hidden">
       {/* Decorative background glows */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none -z-10 animate-pulse" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-[1360px] mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-white border border-blue-200 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-xl mb-4">
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-white border border-blue-200 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-xl mb-3">
             <Zap className="w-4 h-4 text-blue-600 stroke-[2.5]" />
             <span>THE SEEK YOUR Y ADVANTAGE</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold font-display text-white mt-4 mb-2 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold font-display text-white mt-3 mb-2 tracking-tight">
             Built for Elite Performance
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto my-5" />
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto my-3" />
           <p className="text-slate-400 max-w-2xl mx-auto leading-relaxed" style={{ fontSize: "20px" }}>
             Why leading GMAT and GRE aspirants trust our structured preparation model.
           </p>
@@ -83,24 +86,24 @@ export const FeaturesDiagram: React.FC = () => {
 
               {/* LEFT COLUMN CONNECTING LINES (Pointing Left towards Left Cards) */}
               {/* Left Top Line (45° angle upwards) */}
-              <line x1="400" y1="230" x2="335" y2="90" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-left)" />
+              <line x1="405" y1="235" x2="315" y2="83" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-left)" />
               {/* Left Middle Line (0° / 90° straight horizontal) */}
-              <line x1="390" y1="250" x2="335" y2="250" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-left)" />
+              <line x1="392" y1="250" x2="312" y2="250" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-left)" />
               {/* Left Bottom Line (45° angle downwards) */}
-              <line x1="400" y1="270" x2="335" y2="410" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-left)" />
+              <line x1="405" y1="265" x2="315" y2="417" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-left)" />
 
               {/* RIGHT COLUMN CONNECTING LINES (Pointing Right towards Right Cards) */}
               {/* Right Top Line (45° angle upwards) */}
-              <line x1="600" y1="230" x2="665" y2="90" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-right)" />
+              <line x1="595" y1="235" x2="685" y2="83" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-right)" />
               {/* Right Middle Line (0° / 90° straight horizontal) */}
-              <line x1="610" y1="250" x2="665" y2="250" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-right)" />
+              <line x1="608" y1="250" x2="688" y2="250" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-right)" />
               {/* Right Bottom Line (45° angle downwards) */}
-              <line x1="600" y1="270" x2="665" y2="410" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-right)" />
+              <line x1="595" y1="265" x2="685" y2="417" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-right)" />
             </svg>
           </div>
 
           {/* Left Features Column */}
-          <div className="flex flex-col gap-10 z-10">
+          <div className="flex flex-col gap-16 z-10">
             {leftFeatures.map((feat, index) => (
               <motion.div
                 key={index}
@@ -143,7 +146,7 @@ export const FeaturesDiagram: React.FC = () => {
           </div>
 
           {/* Right Features Column */}
-          <div className="flex flex-col gap-10 z-10">
+          <div className="flex flex-col gap-16 z-10">
             {rightFeatures.map((feat, index) => (
               <motion.div
                 key={index}
@@ -197,7 +200,26 @@ export const FeaturesDiagram: React.FC = () => {
           </div>
         </div>
 
+        {/* CTA Button */}
+        <div className="mt-12 text-center flex justify-center z-10 relative">
+          <button
+            onClick={() => setIsBookSessionOpen(true)}
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-extrabold text-base md:text-lg shadow-xl shadow-blue-500/25 hover:from-blue-500 hover:to-indigo-500 hover:scale-105 transition-all duration-200 cursor-pointer"
+          >
+            <Calendar className="w-5 h-5 text-white" />
+            <span>Book a Session</span>
+            <ArrowRight className="w-5 h-5 text-white/90" />
+          </button>
+        </div>
+
       </div>
+
+      <BookSessionDialog
+        open={isBookSessionOpen}
+        onOpenChange={setIsBookSessionOpen}
+        title="Book a Session"
+        description="Select your target exam and fill in your details to book a consultation with Aman."
+      />
     </section>
   );
 };

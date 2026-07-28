@@ -12,9 +12,9 @@ export const ProgramHero: React.FC<ProgramHeroProps> = ({ type }) => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
 
   return (
-    <section className="overflow-hidden pt-28 md:pt-32 pb-16 md:pb-20 relative bg-white">
+    <section className="overflow-hidden pt-[76px] md:pt-[84px] pb-16 md:pb-20 relative bg-white">
       <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] items-center overflow-visible">
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] items-start overflow-visible">
           {/* Left Column: Heading and Info */}
           <div className="space-y-6 text-left max-w-[680px]">
             <div className={`inline-flex rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-[0.24em] shadow-sm ${
@@ -44,7 +44,10 @@ export const ProgramHero: React.FC<ProgramHeroProps> = ({ type }) => {
               )}
             </h1>
 
-            <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-[580px]">
+            <p
+              className="leading-relaxed text-muted-foreground max-w-[580px]"
+              style={{ fontSize: "clamp(1.2rem, 1.8vw, 1.375rem)" }}
+            >
               {isGre 
                 ? "Premium GRE coaching designed for ambitious learners. Build the test skills, speed, and confidence you need to compete for top programs."
                 : "Learn faster, practice smarter, and get the exact GMAT strategy you need for your target business school."
@@ -77,10 +80,10 @@ export const ProgramHero: React.FC<ProgramHeroProps> = ({ type }) => {
             <div className="absolute -left-6 top-10 hidden h-48 w-48 rounded-full bg-primary/5 blur-3xl lg:block" />
             <div className="w-full max-w-[520px] lg:max-w-none overflow-visible">
               <div className="text-center lg:text-left mb-2 md:mb-4 px-2">
-                <h3 className="text-xs uppercase tracking-[0.24em] font-bold text-muted-foreground">
+                <h3 className="text-sm md:text-base uppercase tracking-[0.24em] font-extrabold text-muted-foreground" style={{ fontSize: "16px" }}>
                   {isGre ? "Top GRE Achievers" : "Top GMAT Results"}
                 </h3>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <p className="mt-1 text-muted-foreground font-medium" style={{ fontSize: "18px" }}>
                   Real students. Real scores. Verified results.
                 </p>
               </div>

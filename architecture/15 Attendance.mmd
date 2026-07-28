@@ -1,0 +1,97 @@
+sequenceDiagram
+    autonumber
+    actor Emp as Employee
+    actor Mgr as Manager App
+    participant Dev as Mobile/POS/Biometric
+    participant API as API Gateway
+    participant AttS as Attendance Service
+    participant SS as Shift Service
+    participant ES as Employee Service
+    participant NS as Notification Service
+    participant Cache as Redis
+    participant DB as PostgreSQL
+
+    %% 1. Clock-In Validation
+    rect rgb(240, 248, 255)
+        note right of Emp: 1 & 2. Clock-In Methods & Validation
+        Emp->>Dev: Action: Clock-In (GPS / PIN / Biometric)
+        Dev->>API: POST /attendance/clock-in {emp_id, method, location, device}
+        API->>AttS: processClockIn()
+        
+        AttS->>Cache: Check idempotency / Rate limit
+        AttS->>ES: validateEmployee(emp_id)
+        ES-->>AttS: {status: ACTIVE, branch_id}
+        
+        AttS->>DB: checkExistingActiveClockIn(emp_id)
+        DB-->>AttS: null (No active session)
+        
+        AttS->>SS: getCurrentShift(emp_id, time)
+        SS->>DB: SELECT shift_details
+        DB-->>SS: shift_data
+        SS-->>AttS: {shift_start, shift_end, grace_period}
+        
+        alt Late Arrival
+            AttS->>AttS: Calculate late_minutes
+            AttS->>NS: alertManager(Late Clock-in)
+        else No Shift Assigned
+            AttS->>NS: alertManager(Unscheduled Clock-in)
+        end
+        
+        AttS->>DB: INSERT INTO attendance_logs (clock_in_time, status)
+        DB-->>AttS: log_id
+        AttS-->>API: 200 OK (Clock-In Success)
+        API-->>Dev: Show Success / Dashboard
+    end
+
+    %% 3. During Shift
+    rect rgb(255, 250, 240)
+        note right of Emp: 3. During Shift (Breaks & Monitoring)
+        Emp->>Dev: Action: Start Break
+        Dev->>API: POST /attendance/break/start
+        API->>AttS: startBreak(log_id)
+        AttS->>DB: UPDATE attendance_logs (append break_start)
+        DB-->>AttS: Success
+        AttS-->>Dev: Break Started
+        
+        Mgr->>API: GET /attendance/real-time-dashboard
+        API->>DB: SELECT active staff
+        DB-->>API: Active staff list
+        API-->>Mgr: Render Dashboard (Live Monitoring)
+    end
+
+    %% 4. Clock-Out
+    rect rgb(245, 245, 245)
+        note right of Emp: 4. Clock-Out & Calculations
+        Emp->>Dev: Action: Clock-Out
+        Dev->>API: POST /attendance/clock-out
+        API->>AttS: processClockOut(emp_id)
+        
+        AttS->>DB: Fetch active attendance_log
+        DB-->>AttS: log_details
+        
+        AttS->>AttS: Calculate total_hours_worked
+        AttS->>AttS: Calculate break_duration
+        AttS->>AttS: effective_hours = total - breaks
+        
+        alt Overtime Exists
+            AttS->>AttS: calculateOvertime(effective_hours, shift_length)
+        end
+        
+        AttS->>DB: UPDATE attendance_logs (clock_out_time, effective_hours, overtime)
+        AttS-->>API: 200 OK (Clock-Out Success)
+        API-->>Dev: Summary Shown
+    end
+
+    %% 5 & 6. Summaries & Anomalies (Cron Jobs)
+    rect rgb(250, 240, 255)
+        note right of AttS: 5, 6, 7 & 8. Background Jobs (End of Day/Month)
+        loop Daily Cron (e.g., 2 AM)
+            AttS->>DB: Find missed clock-outs (shift_end + 2hrs)
+            DB-->>AttS: missing_logs
+            AttS->>DB: Auto clock-out & Flag for review
+            
+            AttS->>DB: Aggregate daily summaries per branch
+            AttS->>AttS: Check for Buddy Punching / Irregularities
+            AttS->>NS: sendAnomalyReport(Manager)
+        end
+    end

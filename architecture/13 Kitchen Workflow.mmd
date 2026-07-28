@@ -1,0 +1,78 @@
+sequenceDiagram
+    autonumber
+    participant SRC as Order Source (POS, QR, App)
+    participant API as API Server
+    participant OS as Order Service
+    participant KS as Kitchen Service
+    participant SS as Socket Server
+    participant EXP as Expeditor (KDS Main)
+    participant ST as Station KDS (Grill/Fry/Salad)
+    participant DB as PostgreSQL
+
+    SRC->>API: Submit Order
+    API->>OS: Validate & Save Order
+    OS->>DB: Insert Order (Status: PLACED)
+    OS->>KS: Process for Kitchen
+
+    KS->>KS: Generate KOT (Order #, Table #, Type, Priority, Modifiers)
+    KS->>DB: Save KOT
+    
+    loop For each item in KOT
+        KS->>KS: Determine Station based on Category Mapping
+    end
+
+    par Route to Stations
+        KS->>SS: Emit 'new-kot-item' to Station Rooms
+        SS->>ST: Display items (FIFO, Color-coded urgency)
+    and Route to Expeditor
+        KS->>SS: Emit 'new-kot' to Expeditor Room
+        SS->>EXP: Display full order summary
+    end
+
+    note over ST: Kitchen Staff starts preparation
+    ST->>SS: Tap item -> Start
+    SS->>KS: Update item status: IN_PROGRESS
+    KS->>DB: Save item status (Start Timer)
+    KS->>SS: Emit 'item-status-update'
+    SS->>EXP: Show item in progress
+
+    alt Item 86'd (Out of Stock)
+        ST->>SS: Flag Item -> 86'd
+        SS->>KS: Update stock & notify
+        KS->>SS: Emit 'item-cancelled' (Notify Waiter/POS)
+    else Prep Delayed
+        ST->>SS: Flag Item -> Delayed (Timer turns Yellow/Red >80% estimated time)
+    end
+
+    note over ST: Item Prep Finished
+    ST->>SS: Tap item -> READY
+    SS->>KS: Update item status: READY
+    KS->>DB: Save item status (Stop Timer)
+    KS->>SS: Emit 'item-ready'
+    SS->>EXP: Mark item ready in order view
+
+    opt All Items Ready
+        KS->>KS: Check if all items in order are READY
+        KS->>OS: Update Order Status -> READY_TO_SERVE
+        OS->>SS: Emit 'order-ready-to-serve'
+        SS->>EXP: Highlight order as complete
+    end
+
+    note over EXP: Expeditor Verification
+    EXP->>SS: Bump Order (Send to Service)
+    SS->>KS: Update Order Status -> BUMPED
+    KS->>DB: Log completion time for metrics
+    KS->>SS: Emit 'serve-order' (Notify Waiter/Runner)
+
+    opt Recall & Refire
+        EXP->>SS: Recall Item (Returned/Mod mid-prep)
+        SS->>KS: Generate Refire Ticket / Updated Ticket
+        KS->>SS: Emit 'refire-item' to ST
+    end
+
+    par Background Metrics (Real-time)
+        KS->>DB: Calculate Avg Prep Time (Item/Category)
+        KS->>DB: Update Station Throughput
+        KS->>DB: Log SLA Breaches
+        KS->>DB: Log Items 86'd today
+    end

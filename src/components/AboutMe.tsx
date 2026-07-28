@@ -157,12 +157,13 @@ export const AboutMe = () => {
             </motion.h2>
 
             {/* Paragraphs */}
-            <div className="space-y-6 text-2xl sm:text-[28px] md:text-[30px] font-medium text-slate-950 dark:text-slate-950 leading-[1.6] mb-10 max-w-[880px]">
+            <div className="space-y-6 font-medium text-slate-950 dark:text-slate-950 leading-[1.5] mb-10 max-w-[1040px]">
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.14 }}
+                style={{ fontSize: "22px" }}
               >
                 For the past 9 years, I've dedicated my life to one mission:{" "}
                 <strong className="text-black font-extrabold">
@@ -175,6 +176,7 @@ export const AboutMe = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
+                style={{ fontSize: "22px" }}
               >
                 I've mentored over 10,000 students from all backgrounds—engineers, artists, working professionals, and fresh
                 graduates. Many came to me believing they were "just not math people." Today, they're in top business schools
@@ -186,6 +188,7 @@ export const AboutMe = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.26 }}
+                style={{ fontSize: "22px" }}
               >
                 My approach is simple:{" "}
                 <strong className="text-black font-extrabold">understand the "why" behind every concept.</strong> When you
@@ -197,6 +200,7 @@ export const AboutMe = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.32 }}
+                style={{ fontSize: "22px" }}
               >
                 I don't just teach test strategies—I rebuild confidence. I help students bridge the gap between understanding
                 concepts and executing under pressure on test day.
@@ -216,7 +220,7 @@ export const AboutMe = () => {
                 onClick={() => setIsBookDemoOpen(true)}
               >
                 <Play className="w-4 h-4 fill-current" />
-                Book Free Demo
+                Book a Session
               </Button>
             </motion.div>
           </div>

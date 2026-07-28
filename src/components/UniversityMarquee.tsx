@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Award, MapPin } from "lucide-react";
+import { BookSessionDialog } from "./BookSessionDialog";
+import { Award, MapPin, Calendar, ArrowRight } from "lucide-react";
 
 interface UniversityCard {
   name: string;
@@ -79,6 +80,7 @@ const universities: UniversityCard[] = [
 ];
 
 export const UniversityMarquee: React.FC = () => {
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
   // Quadruple the array for infinite seamless looping ticker
   const marqueeItems = [...universities, ...universities, ...universities, ...universities];
 
@@ -174,6 +176,25 @@ export const UniversityMarquee: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* CTA Button */}
+      <div className="mt-12 text-center flex justify-center z-10 relative">
+        <button
+          onClick={() => setIsBookSessionOpen(true)}
+          className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-extrabold text-base md:text-lg shadow-lg shadow-blue-500/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 cursor-pointer"
+        >
+          <Calendar className="w-5 h-5 text-white" />
+          <span>Book a Session</span>
+          <ArrowRight className="w-5 h-5 text-white/90" />
+        </button>
+      </div>
+
+      <BookSessionDialog
+        open={isBookSessionOpen}
+        onOpenChange={setIsBookSessionOpen}
+        title="Book a Session"
+        description="Select your target exam and fill in your details to book a consultation with Aman."
+      />
     </section>
   );
 };

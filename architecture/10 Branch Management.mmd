@@ -1,0 +1,104 @@
+sequenceDiagram
+    autonumber
+    
+    actor Admin as Restaurant Admin
+    participant Web as Frontend
+    participant API as API Gateway
+    participant BranchSvc as Branch Service
+    participant MenuSvc as Menu Service
+    participant InvSvc as Inventory Service
+    participant QRSvc as QR Service
+    participant DB as PostgreSQL (Multi-Tenant)
+
+    %% BRANCH CREATION
+    rect rgb(240, 248, 255)
+    note right of Admin: 1. Branch Creation
+    Admin->>Web: Submit New Branch Details
+    Web->>API: POST /api/branches (name, address, hours)
+    API->>BranchSvc: createBranch(details, tenantId)
+    
+    BranchSvc->>BranchSvc: Validate Subscription Limits
+    alt Limit Exceeded
+        BranchSvc-->>API: 402 Payment Required
+        API-->>Web: Error: Upgrade Plan
+    else Limit OK
+        BranchSvc->>DB: INSERT INTO branches (branch_code, ...)
+        DB-->>BranchSvc: branchId
+        
+        par Initialization Tasks
+            BranchSvc->>MenuSvc: cloneRestaurantMenu(tenantId, branchId)
+            MenuSvc->>DB: Copy base menu to branch
+            BranchSvc->>InvSvc: initializeInventory(branchId)
+            InvSvc->>DB: Create default stock locations
+            BranchSvc->>DB: Set default branch settings (taxes, POS)
+        end
+        
+        BranchSvc-->>API: 201 Created (branchId)
+        API-->>Web: Branch created successfully
+    end
+    end
+
+    %% BRANCH CONFIGURATION
+    rect rgb(245, 245, 245)
+    note right of Admin: 2. Branch Configuration
+    Admin->>Web: Configure Taxes & Hardware
+    Web->>API: PUT /api/branches/{id}/settings
+    API->>BranchSvc: updateSettings()
+    BranchSvc->>DB: UPDATE branch_settings (tax_rates, printers)
+    BranchSvc-->>Web: 200 OK
+    
+    Admin->>Web: Define Table Layout
+    Web->>API: POST /api/branches/{id}/tables
+    API->>BranchSvc: createTables(layout)
+    BranchSvc->>DB: INSERT INTO tables
+    
+    BranchSvc->>QRSvc: generateTableQRs(branchId, tables)
+    QRSvc-->>BranchSvc: QR URLs
+    BranchSvc->>DB: UPDATE tables SET qr_url = ...
+    BranchSvc-->>Web: Table layout saved
+    end
+
+    %% MENU SYNC & OVERRIDES
+    rect rgb(255, 250, 240)
+    note right of Admin: 3. Menu Sync & Overrides
+    Admin->>Web: Toggle Item Availability / Update Price for Branch
+    Web->>API: PATCH /api/branches/{id}/menu/{itemId}
+    API->>MenuSvc: overrideMenuItem(branchId, itemId, overrides)
+    MenuSvc->>DB: UPSERT branch_menu_overrides (price, is_available)
+    MenuSvc-->>Web: 200 OK
+    
+    note over BranchSvc, MenuSvc: Future orders fetch (Base Item + Branch Overrides)
+    end
+
+    %% INTER-BRANCH STOCK TRANSFER
+    rect rgb(240, 255, 240)
+    note right of Admin: 4. Stock Transfer Request (Branch A -> Branch B)
+    Admin->>Web: Request Stock Transfer
+    Web->>API: POST /api/inventory/transfers
+    API->>InvSvc: createTransfer(fromBranch, toBranch, items)
+    InvSvc->>DB: Check stock availability in fromBranch
+    
+    alt Insufficient Stock
+        InvSvc-->>API: 400 Bad Request
+        API-->>Web: Error: Insufficient stock
+    else Stock Available
+        InvSvc->>DB: INSERT INTO stock_transfers (status: PENDING)
+        InvSvc-->>Web: Transfer request created
+        
+        %% Dispatch & Receive
+        note over Admin, InvSvc: Later: Branch A Manager dispatches
+        Admin->>Web: Mark Dispatch
+        Web->>API: POST /api/inventory/transfers/{id}/dispatch
+        API->>InvSvc: updateTransfer(DISPATCHED)
+        InvSvc->>DB: UPDATE stock_transfers (status: DISPATCHED)
+        InvSvc->>DB: Deduct inventory from Branch A
+        
+        note over Admin, InvSvc: Later: Branch B Manager receives
+        Admin->>Web: Mark Received
+        Web->>API: POST /api/inventory/transfers/{id}/receive
+        API->>InvSvc: updateTransfer(COMPLETED)
+        InvSvc->>DB: UPDATE stock_transfers (status: COMPLETED)
+        InvSvc->>DB: Add inventory to Branch B
+        InvSvc-->>Web: Transfer completed
+    end
+    end

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
+import { WebinarSection } from "@/components/WebinarSection";
 import { Activity, BookOpen, Gift, Zap, ChevronDown, CheckCircle2 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { ProgramHero } from "@/components/ProgramHero";
@@ -57,8 +58,8 @@ const GmatLive: React.FC = () => {
           <div className="w-full">
             <div className="prose max-w-none">
               <h2 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-4">Live GMAT Online Prep That Fits Your Schedule</h2>
-              <p className="text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed mb-4">Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high scoring aspirants.</p>
-              <ul className="mt-6 space-y-4 list-disc pl-6 text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium">
+              <p className="text-lg md:text-xl text-slate-950 font-bold leading-relaxed mb-4">Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high scoring aspirants.</p>
+              <ul className="mt-6 space-y-4 list-disc pl-6 text-lg md:text-xl text-slate-950 font-bold">
                 <li>Interactive trainer-led sessions with personalised doubt resolution.</li>
                 <li>Performance analytics, weekly mocks, and strategy reviews.</li>
                 <li>Flexible timings that suit both working professionals and students.</li>
@@ -76,9 +77,13 @@ const GmatLive: React.FC = () => {
 
       <section className="py-12 bg-background">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <p className="text-center text-sm font-bold uppercase tracking-[0.28em] text-primary">WHAT YOU GET</p>
-          <h2 className="mt-2 text-center text-4xl md:text-5xl font-extrabold text-foreground">Built for the Focus Edition</h2>
-          <div className="mx-auto mt-4 h-1.5 w-28 rounded-full bg-gradient-to-r from-primary to-accent" />
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center gap-2 px-5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/50 text-blue-600 text-sm md:text-base font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
+              WHAT YOU GET
+            </div>
+            <h2 className="mt-2 text-center text-4xl md:text-5xl font-extrabold text-foreground">Built for the Focus Edition</h2>
+            <div className="mx-auto mt-4 h-1.5 w-28 rounded-full bg-gradient-to-r from-primary to-accent" />
+          </div>
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
             <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-soft hover:shadow-elevated transform transition duration-200 hover:-translate-y-2">
@@ -123,13 +128,26 @@ const GmatLive: React.FC = () => {
               </div>
             </div>
           </div>
+
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setIsBookSessionOpen(true)}
+              className="rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-white font-extrabold text-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300"
+            >
+              Book a Session
+            </button>
+          </div>
         </div>
       </section>
 
       <section className="py-12 bg-[hsl(var(--card-bg, 0 0% 100%))]">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.28em] text-primary">Batches</p>
-          <h2 className="mt-2 text-center text-4xl font-extrabold text-foreground">Upcoming batches</h2>
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center gap-2 px-5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/50 text-blue-600 text-sm md:text-base font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
+              BATCHES
+            </div>
+            <h2 className="mt-2 text-center text-4xl font-extrabold text-foreground">Upcoming batches</h2>
+          </div>
           <p className="mt-3 text-center text-muted-foreground">Sample schedule — to be replaced with live batch data.</p>
 
           <div className="mt-8">
@@ -227,19 +245,40 @@ const GmatLive: React.FC = () => {
               <div className="rounded-3xl bg-card p-6 shadow-elevated relative">
                 <div className="absolute -top-3 left-6 right-6 h-2 rounded-t-[12px] bg-gradient-to-r from-primary to-accent" />
                 <div className="space-y-6">
-                  <div className="rounded-xl bg-card/95 p-6 shadow-sm">
-                    <div className="text-3xl font-extrabold text-primary">80% <span className="text-foreground font-semibold text-base">Success</span></div>
-                    <div className="text-sm text-muted-foreground mt-2">Students achieve their target scores with personalized tutoring</div>
+                  {/* Card 1: 80% Success */}
+                  <div className="rounded-2xl bg-gradient-to-br from-blue-50/90 via-sky-50/60 to-cyan-50/70 p-6 border-2 border-blue-200/90 shadow-md relative overflow-hidden group">
+                    <div className="absolute -top-3 -right-3 w-20 h-20 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 opacity-15 blur-xl pointer-events-none" />
+                    <div className="flex items-baseline gap-3 mb-1">
+                      <span className="text-4xl md:text-5xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">80%</span>
+                      <span className="text-blue-950 font-extrabold text-lg md:text-xl">Success</span>
+                    </div>
+                    <p className="text-base text-blue-900/90 font-medium leading-relaxed mt-2">
+                      Students achieve their target scores with personalized tutoring
+                    </p>
                   </div>
 
-                  <div className="rounded-xl bg-card/95 p-6 shadow-sm">
-                    <div className="text-3xl font-extrabold text-primary">+120 <span className="text-foreground font-semibold text-base">Avg. Gain</span></div>
-                    <div className="text-sm text-muted-foreground mt-2">Average score improvement with our complete program</div>
+                  {/* Card 2: +120 Avg. Gain */}
+                  <div className="rounded-2xl bg-gradient-to-br from-purple-50/90 via-indigo-50/60 to-pink-50/70 p-6 border-2 border-purple-200/90 shadow-md relative overflow-hidden group">
+                    <div className="absolute -top-3 -right-3 w-20 h-20 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 opacity-15 blur-xl pointer-events-none" />
+                    <div className="flex items-baseline gap-3 mb-1">
+                      <span className="text-4xl md:text-5xl font-black bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">+120</span>
+                      <span className="text-purple-950 font-extrabold text-lg md:text-xl">Avg. Gain</span>
+                    </div>
+                    <p className="text-base text-purple-900/90 font-medium leading-relaxed mt-2">
+                      Average score improvement with our complete program
+                    </p>
                   </div>
 
-                  <div className="rounded-xl bg-card/95 p-6 shadow-sm">
-                    <div className="text-3xl font-extrabold text-primary">9+ <span className="text-foreground font-semibold text-base">Years</span></div>
-                    <div className="text-sm text-muted-foreground mt-2">Expert faculty with proven track record since 1993</div>
+                  {/* Card 3: 9+ Years */}
+                  <div className="rounded-2xl bg-gradient-to-br from-emerald-50/90 via-teal-50/60 to-green-50/70 p-6 border-2 border-emerald-200/90 shadow-md relative overflow-hidden group">
+                    <div className="absolute -top-3 -right-3 w-20 h-20 rounded-full bg-gradient-to-br from-emerald-400 to-teal-400 opacity-15 blur-xl pointer-events-none" />
+                    <div className="flex items-baseline gap-3 mb-1">
+                      <span className="text-4xl md:text-5xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">9+</span>
+                      <span className="text-emerald-950 font-extrabold text-lg md:text-xl">Years</span>
+                    </div>
+                    <p className="text-base text-emerald-900/90 font-medium leading-relaxed mt-2">
+                      Expert faculty with proven track record since 1993
+                    </p>
                   </div>
                 </div>
               </div>

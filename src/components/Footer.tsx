@@ -71,7 +71,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-[hsl(var(--logic-navy))] text-white relative">
+    <footer className="bg-black text-white relative">
       <div className="absolute top-0 left-0 right-0 h-1" style={{ backgroundImage: "var(--gradient-primary)" }} />
       <div className="container-narrow pt-20 md:pt-28 lg:pt-32 pb-8 md:pb-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">

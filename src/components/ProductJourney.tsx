@@ -100,7 +100,7 @@ export const ProductJourney = () => {
                   onClick={() => setIsBookDemoOpen(true)}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all mt-auto text-left bg-transparent border-none p-0 cursor-pointer outline-none font-sans"
                 >
-                  Book Demo
+                  Book a Session
                   <ArrowRight className="w-4 h-4" />
                 </button>
               ) : (
@@ -110,7 +110,7 @@ export const ProductJourney = () => {
                   className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all mt-auto text-left bg-transparent border-none p-0 cursor-pointer outline-none font-sans"
                 >
                   <Play className="w-4 h-4" />
-                  Book a free demo
+                  Book a Session
                 </button>
               )}
             </div>

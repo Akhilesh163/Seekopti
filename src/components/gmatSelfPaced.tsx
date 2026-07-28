@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Activity, BookOpen, BarChart3, Zap } from "lucide-react";
+import { Activity, BookOpen, BarChart3, Zap, Sparkles, ArrowRight, Check } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { ProgramHero } from "@/components/ProgramHero";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
+import { WebinarSection } from "@/components/WebinarSection";
 
 const gmatSelfPacedFaqs = [
   {
@@ -18,111 +19,108 @@ const gmatSelfPacedFaqs = [
   },
   {
     question: "Can I upgrade my self-paced package to live prep or tutoring?",
-    answer: "Yes, you can easily upgrade to our GMAT Live classes or 1-on-1 tutoring sessions at any point during your prep by contacting us."
+    answer: "Yes! You can easily upgrade to our GMAT Live Batch or 1-on-1 Tutoring at any point in your preparation."
   },
   {
-    question: "Are mock tests and practice question banks included?",
-    answer: "Absolutely. You get access to full-length GMAT Focus simulated mocks and a robust question bank with step-by-step logic explanations."
+    question: "How do I clear my doubts during self-study?",
+    answer: "You get full access to our online student doubt portal and community, where GMAT experts answer your questions within 24 hours."
   }
 ];
 
 const GmatSelfPaced: React.FC = () => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
-  const [selectedTrack, setSelectedTrack] = useState<"quant" | "verbal" | "mixed">("quant");
+  const [selectedTrack, setSelectedTrack] = useState<"quant" | "verbal" | "mixed">("mixed");
   
   const trackOptions = {
     quant: [
       {
-        id: "quant-syllabus",
-        icon: "📊",
-        title: "Full GMAT Quant syllabus",
-        description: "Arithmetic and Algebra — every topic, with Data Sufficiency logic and logic-based Problem Solving.",
+        id: "quant-1",
+        title: "Complete Quant Focus Syllabus",
+        desc: "All Arithmetic, Algebra and Problem Solving logic tailored to the GMAT Focus format."
       },
       {
-        id: "quant-logic",
-        icon: "🧠",
-        title: "Logic over formulas",
-        description: "Aman's signature approach: estimation, number sense, and smart substitution that beats the clock.",
+        id: "quant-2",
+        title: "2,000+ Practice Questions",
+        desc: "Categorized by difficulty (Easy, Medium, Hard) with video step-by-step explanations."
       },
       {
-        id: "quant-drills",
-        icon: "⏱️",
-        title: "Timed drills",
-        description: "Practice sets under time pressure (21 questions in 45 minutes) that build a target 85+ score pace.",
-      },
+        id: "quant-3",
+        title: "Timed Sectional Drills",
+        desc: "Build pacing and speed under actual 45-minute timed sectional conditions."
+      }
     ],
     verbal: [
       {
-        id: "verbal-rc-cr",
-        icon: "📖",
-        title: "RC & Critical Reasoning",
-        description: "A repeatable, logic-based process for Reading Comprehension and CR questions without Sentence Correction.",
+        id: "verbal-1",
+        title: "Reading Comp & Critical Reasoning",
+        desc: "Master GMAT RC passages and CR assumption/weakening question types without fluff."
       },
       {
-        id: "verbal-structure",
-        icon: "✏️",
-        title: "Argument structure",
-        description: "Learn to map argument components, spot logical fallacies, and pre-think assumptions instantly.",
+        id: "verbal-2",
+        title: "1,500+ Verbal Practice Questions",
+        desc: "Topic-wise practice sets with deep analytical reasoning breakdowns."
       },
       {
-        id: "verbal-practice",
-        icon: "💡",
-        title: "Target practice",
-        description: "Topic-wise timed sets and sectional quizzes tailored to GMAT's verbal adaptivity.",
-      },
+        id: "verbal-3",
+        title: "Sectional Verbal Tests",
+        desc: "Full timed verbal sectional tests to refine elimination strategies."
+      }
     ],
     mixed: [
       {
-        id: "mixed-syllabus",
-        icon: "📚",
-        title: "100+ video lessons",
-        description: "Every GMAT Focus concept covered — Arithmetic, Algebra, CR, RC, and the new Data Insights section.",
+        id: "mixed-1",
+        title: "Full Focus Syllabus (Quant + Verbal + DI)",
+        desc: "Covers all 3 sections of the GMAT Focus Edition from foundations to advanced."
       },
       {
-        id: "mixed-practice",
-        icon: "🎯",
-        title: "3,000+ practice questions",
-        description: "Adaptive question banks, timed quizzes, and full-length test series with detailed solutions.",
+        id: "mixed-2",
+        title: "4,000+ Practice Questions",
+        desc: "Exhaustive question bank covering all Focus Edition question types."
       },
       {
-        id: "mixed-di",
-        icon: "📈",
-        title: "Comprehensive DI modules",
-        description: "Focused prep for Data Sufficiency, Multi-Source Reasoning, Table Analysis, Graphics Interpretation, and Two-Part Analysis.",
-      },
-    ],
-  };
-
-  const getTrackIcon = (icon: string) => {
-    const iconMap: Record<string, React.ReactNode> = {
-      "📊": <BookOpen className="h-8 w-8" />,
-      "🧠": <Zap className="h-8 w-8" />,
-      "⏱️": <Activity className="h-8 w-8" />,
-      "📖": <BookOpen className="h-8 w-8" />,
-      "✏️": <Activity className="h-8 w-8" />,
-      "💡": <Zap className="h-8 w-8" />,
-      "📚": <BookOpen className="h-8 w-8" />,
-      "🎯": <Activity className="h-8 w-8" />,
-      "📈": <BarChart3 className="h-8 w-8" />,
-    };
-    return iconMap[icon] || null;
+        id: "mixed-3",
+        title: "Full GMAT Test Series Included",
+        desc: "Full-length adaptive mock exams mirroring GMAC official interface."
+      }
+    ]
   };
 
   const getCardColors = (index: number) => {
-    const colors = [
-      { bg: "bg-card", border: "border-border", icon: "bg-primary text-primary-foreground" },
-      { bg: "bg-card", border: "border-border", icon: "bg-accent text-accent-foreground" },
-      { bg: "bg-card", border: "border-border", icon: "bg-[hsl(var(--exam-gold))] text-foreground" },
+    const themes = [
+      {
+        bg: "bg-gradient-to-br from-purple-50/90 via-indigo-50/60 to-pink-50/70",
+        border: "border-2 border-purple-200/90 hover:border-purple-400",
+        icon: "bg-gradient-to-tr from-purple-600 to-indigo-500 text-white shadow-lg shadow-purple-500/30",
+        title: "text-purple-950",
+        desc: "text-purple-900/90",
+        glow: "from-purple-400 to-pink-400",
+      },
+      {
+        bg: "bg-gradient-to-br from-blue-50/90 via-sky-50/60 to-cyan-50/70",
+        border: "border-2 border-blue-200/90 hover:border-blue-400",
+        icon: "bg-gradient-to-tr from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/30",
+        title: "text-blue-950",
+        desc: "text-blue-900/90",
+        glow: "from-blue-400 to-cyan-400",
+      },
+      {
+        bg: "bg-gradient-to-br from-emerald-50/90 via-teal-50/60 to-green-50/70",
+        border: "border-2 border-emerald-200/90 hover:border-emerald-400",
+        icon: "bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-500/30",
+        title: "text-emerald-950",
+        desc: "text-emerald-900/90",
+        glow: "from-emerald-400 to-teal-400",
+      },
     ];
-    return colors[index % 3];
+    return themes[index % themes.length];
   };
 
   const plans = [
     {
-      id: 'sectional',
-      title: 'Sectional',
-      price: '₹10,999',
-      subtitle: 'Any one section • 6 months',
+      id: 'quant-verbal',
+      title: 'Quant or Verbal Track',
+      price: '₹14,999',
+      subtitle: '6-month access • single track',
       bullets: [
         'Quant, Verbal or DI module',
         '1,000+ practice questions',
@@ -131,23 +129,23 @@ const GmatSelfPaced: React.FC = () => {
       ],
     },
     {
-      id: 'full',
-      title: 'Full Course',
-      price: '₹19,999',
-      subtitle: 'All 3 sections • 12 months',
+      id: 'complete-mixed',
+      title: 'Complete (Mixed)',
+      price: '₹24,999',
+      subtitle: '12-month access • full Focus Edition',
+      recommended: true,
       bullets: [
         'Complete Quant + Verbal + DI',
         '3,000+ practice questions',
         'Full GMAT Test Series included',
         'Monthly live strategy session',
       ],
-      recommended: true,
     },
     {
-      id: 'mentor',
-      title: 'Full Course + Mentor',
-      price: '₹27,999',
-      subtitle: '12 months + mentor check-ins',
+      id: 'complete-tutoring',
+      title: 'Complete + 1-on-1',
+      price: '₹39,999',
+      subtitle: '12-month access • 4 1-on-1 calls',
       bullets: [
         'Everything in Full Course',
         'Monthly 1-on-1 mentor call',
@@ -160,18 +158,31 @@ const GmatSelfPaced: React.FC = () => {
     <div className="bg-background text-foreground flex flex-col gap-8">
       <ProgramHero type="gmat" />
 
-      <section className="py-12">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="w-full">
-            <div className="prose max-w-none">
-              <h2 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-4">Self-Paced GMAT Online Prep: An Overview</h2>
-              <p className="text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed mb-4">Learn at your own pace with Seekyoury’s self-paced GMAT online prep program. Anytime, anywhere, and at your leisure – our program ensures you are not bound by a schedule, making it ideal for working professionals and busy students.</p>
-              <p className="text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed">Get access to world-class preparation material, practice tests, and expert guidance through a dedicated portal designed for high-scoring GMAT aspirants.</p>
+      {/* OVERVIEW BANNER CARD */}
+      <section className="py-12 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+            <div className="relative z-10 max-w-4xl">
+              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                <Sparkles className="w-4 h-4 stroke-[2.5]" />
+                <span>SELF-PACED GMAT PREPARATION</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
+                Self-Paced GMAT Online Prep <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Built Around Your Schedule</span>
+              </h2>
+              <p className="text-slate-700 font-medium leading-relaxed mb-4" style={{ fontSize: "24px" }}>
+                Learn at your own pace with Seekyoury’s self-paced GMAT online prep program. Anytime, anywhere, and at your leisure – our program ensures you are not bound by a schedule, making it ideal for working professionals and busy students.
+              </p>
+              <p className="text-slate-600 font-semibold leading-relaxed mb-6" style={{ fontSize: "22px" }}>
+                Get access to world-class preparation material, practice tests, and expert guidance through a dedicated portal designed for high-scoring GMAT aspirants.
+              </p>
               <button 
                 onClick={() => setIsBookSessionOpen(true)}
-                className="mt-6 rounded-full px-8 py-3.5 text-base font-bold text-primary-foreground bg-primary shadow-md hover:brightness-95 transition hover:scale-105 transform"
+                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
               >
-                TALK TO A GMAT EXPERT
+                <span>Talk to a GMAT Expert</span>
+                <ArrowRight className="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -213,80 +224,112 @@ const GmatSelfPaced: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
             {trackOptions[selectedTrack].map((option, idx) => {
               const cardColors = getCardColors(idx);
+              const cardIcons = [BookOpen, Zap, Activity];
+              const IconComp = cardIcons[idx % cardIcons.length];
               return (
                 <motion.div
                   key={option.id}
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  className="bg-card rounded-[28px] border border-slate-200/60 p-8 flex flex-col gap-4 relative overflow-hidden transition-all duration-300 shadow-soft hover:shadow-elevated"
+                  className={`relative overflow-hidden rounded-[28px] ${cardColors.border} ${cardColors.bg} p-8 flex flex-col gap-4 transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-1`}
                 >
+                  {/* Decorative background glow circle */}
+                  <div className={`absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br ${cardColors.glow} opacity-15 blur-2xl pointer-events-none`} />
+
                   <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${cardColors.icon}`}>
-                    {getTrackIcon(option.icon)}
+                    <IconComp className="h-7 w-7 text-white stroke-[2.2]" />
                   </div>
-                  <h3 className="text-2xl font-extrabold font-display text-slate-950">
+                  <h3 className={`text-2xl font-extrabold font-display ${cardColors.title}`}>
                     {option.title}
                   </h3>
-                  <p className="text-base md:text-lg text-slate-600 leading-relaxed font-medium">
-                    {option.description}
+                  <p className={`text-lg md:text-[21px] leading-relaxed font-medium ${cardColors.desc}`}>
+                    {option.desc}
                   </p>
                 </motion.div>
               );
             })}
           </div>
+
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setIsBookSessionOpen(true)}
+              className="rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-white font-extrabold text-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300"
+            >
+              Book a Session
+            </button>
+          </div>
         </div>
       </section>
       
-      <section className="py-12 bg-background">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary/40" />
-            <span className="text-sm font-bold uppercase tracking-[0.14em] text-primary">PRICING</span>
-            <div className="h-px w-12 bg-primary/40" />
+      {/* TRACK COMPARISON / PRICING SECTION - Matched to GRE Pricing Design */}
+      <section className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center gap-2 px-5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/50 text-blue-600 text-sm md:text-base font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
+              PRICING
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-950 tracking-tight text-center">
+              Plans & Pricing
+            </h2>
+            <p className="mt-4 leading-7 text-slate-600 font-medium text-center" style={{ fontSize: "21px" }}>
+              Priced below every major alternative — without cutting a single corner.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">Plans & pricing</h2>
-          <div className="mx-auto mt-4 h-1.5 w-28 rounded-full bg-gradient-to-r from-primary to-accent" />
 
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-3 mb-14 items-stretch">
             {plans.map((plan) => (
               <div
                 key={plan.id}
-                className={`relative overflow-hidden rounded-[28px] bg-card p-8 transition-transform hover:translate-y-[-6px] ${plan.recommended ? 'ring-1 ring-primary/20' : 'border border-border'}`}
-                style={{ WebkitTapHighlightColor: 'transparent' }}
+                className={`relative rounded-[32px] border-2 border-blue-300/80 bg-gradient-to-b from-blue-50/70 via-indigo-50/30 to-white p-8 md:p-10 shadow-xl shadow-blue-500/10 hover:shadow-2xl hover:border-blue-500 transition-all duration-300 flex flex-col justify-between group ${
+                  plan.recommended ? "ring-2 ring-blue-500/50" : ""
+                }`}
               >
-                <div className="absolute left-6 right-6 -top-3 h-2 rounded-t-[18px] bg-gradient-to-r from-primary to-accent shadow-glow" />
-
+                {/* Floating Top Badge */}
                 {plan.recommended && (
-                  <div className="absolute left-1/2 top-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground px-4 py-1 text-sm font-semibold text-primary-foreground">Best value</div>
+                  <div className="absolute -top-4 right-8 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-blue-500/30">
+                    Best value
+                  </div>
                 )}
 
-                <div className="flex flex-col h-full">
-                  <h3 className="text-xl md:text-2xl font-extrabold text-foreground">{plan.title}</h3>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-6">
+                    {plan.title}
+                  </h3>
 
-                  <div className="mt-6 flex items-baseline gap-4">
-                    <p className="text-4xl md:text-5xl font-black text-primary leading-none">{plan.price}</p>
-                    <p className="text-base text-muted-foreground font-medium">{plan.subtitle}</p>
+                  {/* Price display with vertical accent bar */}
+                  <div className="flex items-center gap-3.5 mb-2">
+                    <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-blue-600 to-indigo-600 flex-shrink-0" />
+                    <p className="text-4xl md:text-5xl font-black text-blue-600 font-display tracking-tight">
+                      {plan.price}
+                    </p>
                   </div>
 
-                  <ul className="mt-6 space-y-4 flex-1">
-                    {plan.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3 text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium">
-                        <svg className="mt-1 h-5 w-5 flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                          <path d="M5 12l4 4L19 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        <span className="leading-6">{b}</span>
+                  <p className="text-slate-600 font-bold mb-8" style={{ fontSize: "18px" }}>
+                    {plan.subtitle}
+                  </p>
+
+                  <ul className="space-y-4 mb-10">
+                    {plan.bullets.map((b, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 mt-1">
+                          <div className="flex items-center justify-center h-5 w-5 rounded-full bg-blue-100 text-blue-600">
+                            <Check className="h-3.5 w-3.5 stroke-[3]" />
+                          </div>
+                        </div>
+                        <span className="text-slate-800 font-semibold text-base md:text-lg">{b}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
 
-                  <div className="mt-8">
-                    <button 
-                      onClick={() => setIsBookSessionOpen(true)}
-                      className="w-full rounded-[14px] bg-primary px-6 py-3.5 text-base md:text-lg font-bold text-primary-foreground shadow-lg hover:bg-primary/90 transition-colors"
-                    >
-                      Enroll Now
-                    </button>
-                  </div>
+                <div>
+                  <button 
+                    onClick={() => setIsBookSessionOpen(true)}
+                    className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-4 text-white font-extrabold text-lg shadow-lg shadow-blue-500/25 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+                  >
+                    Enroll Now
+                  </button>
                 </div>
               </div>
             ))}

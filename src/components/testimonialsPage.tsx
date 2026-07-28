@@ -222,7 +222,7 @@ export const TestimonialsPage: React.FC = () => {
   return (
     <div className="bg-slate-50/50 text-foreground min-h-screen">
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-slate-50 to-white pt-20 pb-24 text-slate-900 border-b border-slate-200/60">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-slate-50 to-white pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-slate-200/60">
         {/* Soft decorative glow */}
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
         <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none" />

@@ -1,0 +1,75 @@
+flowchart TD
+    %% Global styling
+    classDef normal fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef failure fill:#ffebee,stroke:#c62828,stroke-width:2px;
+    classDef action fill:#fff3e0,stroke:#ef6c00,stroke-width:1px;
+
+    %% Disaster Recovery Overview
+    Start[System Operation] --> DetectFailure{Failure Detected?}
+
+    %% High Availability Subgraph
+    subgraph HighAvailability [High Availability]
+        direction TB
+        HA_LB[Cloudflare/DNS Failover] --> HA_Nginx1[Active Nginx]
+        HA_LB --> HA_Nginx2[Passive Nginx + Keepalived]
+        
+        HA_Nginx1 --> HA_App[Multiple App Instances behind LB]
+        HA_Nginx2 --> HA_App
+        
+        HA_App --> HA_Redis[Redis Sentinel]
+        HA_Redis -->|Auto Failover| HA_Redis_Replica[Redis Replicas]
+        
+        HA_App --> HA_DB_Primary[(PostgreSQL Primary)]
+        HA_DB_Primary -->|Sync Replication| HA_DB_Standby[(Sync Standby - Same AZ)]
+        HA_DB_Primary -->|Async Replication| HA_DB_Async[(Async Replica - Diff AZ)]
+        
+        HA_Patroni[Patroni/Managed DB Failover] -.-> HA_DB_Primary
+    end
+
+    %% Backup Strategy Subgraph
+    subgraph BackupStrategy [Backup Strategy]
+        direction TB
+        B_Full[Daily Full Backups: pg_dump compressed]
+        B_WAL[WAL Archiving: Continuous]
+        B_PITR[Point-in-Time Recovery]
+        B_Rotation[Retention: 7 Daily, 4 Weekly, 12 Monthly]
+        B_Test[Automated Weekly Restore Test]
+        
+        B_WAL --> B_S3[S3 Storage + Cross-Region Replication]
+        B_Full --> B_S3
+        
+        B_Redis_Bkp[Redis: RDB Snapshots 1hr + AOF] --> B_S3
+    end
+
+    %% Disaster Recovery Procedures
+    subgraph DRProcedures [Disaster Recovery Procedures]
+        direction TB
+        DR_Metrics[RTO: < 1 hr | RPO: < 5 min]
+        
+        S1{S1: Single Server Failure} -->|Auto-failover| R1[Recover in < 1 min]
+        S2{S2: Database Corruption} -->|PITR Backup| R2[Recover to last good state < 30 min]
+        S3{S3: AZ Failure} -->|Failover to Standby AZ| R3[Recover in < 15 min]
+        S4{S4: Region Failure} -->|DNS Failover DR Region| R4[Recover in < 1 hr]
+        S5{S5: Data Breach} -->|Isolate & Restore| R5[Manual Assessment & Recovery]
+    end
+
+    %% Recovery Runbook
+    subgraph RecoveryRunbook [Recovery Runbook]
+        direction TB
+        RR_Detect[Detection: Health Check Alert]
+        RR_Assess[Assessment: Scope & Severity]
+        RR_Communicate[Communication: Stakeholders & Status Page]
+        RR_Execute[Recovery: Execute Procedure]
+        RR_Verify[Verification: Data Integrity & Smoke Tests]
+        RR_PostMortem[Post-mortem: Root Cause & Prevention]
+        
+        RR_Detect --> RR_Assess --> RR_Communicate --> RR_Execute --> RR_Verify --> RR_PostMortem
+    end
+
+    %% Flow connections
+    DetectFailure -->|Yes| RR_Detect
+    RR_Execute --> DRProcedures
+    
+    class S1,S2,S3,S4,S5 failure;
+    class R1,R2,R3,R4,R5 normal;
+    class RR_Detect,RR_Assess,RR_Communicate,RR_Execute,RR_Verify action;

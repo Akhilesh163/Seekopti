@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
 import { Footer } from "@/components/Footer";
-import { BookOpen, Zap, Activity, Gift, ChevronDown } from "lucide-react";
+import { BookOpen, Zap, Activity, Gift, ChevronDown, Sparkles, Video, MessageSquare, BookOpenCheck, ArrowRight, Clock, Headphones, Timer, BarChart3, Users, PackageCheck } from "lucide-react";
 import { ProgramHero } from "@/components/ProgramHero";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
@@ -47,34 +47,34 @@ const GreLive: React.FC = () => {
 
   const featureCards = [
     {
-      icon: since1993Icon,
+      icon: Video,
       title: "Daily live classes",
       description:
         "Concept sessions covering the full ETS syllabus — Quant, RC, Critical Reasoning, TC/SE and AWA — with same-day recordings.",
     },
     {
-      icon: analyticsIcon,
+      icon: Headphones,
       title: "Live doubt-solving",
       description: "Dedicated doubt hours every week — no question waits more than 24 hours.",
     },
     {
-      icon: teacherIcon,
+      icon: Timer,
       title: "Timed drills in class",
       description: "Solve under exam pressure with the batch, then break down every trap together.",
     },
     {
-      icon: booksIcon,
+      icon: BarChart3,
       title: "Weekly mock analysis",
       description:
         "Full mock every weekend followed by a live analysis session on strategy and pacing.",
     },
     {
-      icon: studentIcon,
+      icon: Users,
       title: "Small batches",
       description: "Capped batch size so faculty know your name, weak areas and your target.",
     },
     {
-      icon: qaIcon,
+      icon: PackageCheck,
       title: "Everything included",
       description: "Self-paced course access, 30-test series and study material bundled with every batch.",
     },
@@ -86,25 +86,89 @@ const GreLive: React.FC = () => {
     <div className="bg-background text-foreground">
       <ProgramHero type="gre" />
 
-      {/* MAIN CONTENT - Description + Form */}
-      <section className="py-16">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="w-full">
-            <div className="prose max-w-none text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed space-y-4">
-              <p>
+      {/* MAIN CONTENT - Professional Colorful Feature Cards */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
+          {/* Header Card / Intro Banner */}
+          <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+            <div className="relative z-10 max-w-4xl">
+              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                <Sparkles className="w-4 h-4 stroke-[2.5]" />
+                <span>LIVE INTERACTIVE CLASSES</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
+                Master the GRE with <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Expert Live Coaching</span>
+              </h2>
+              <p className="text-slate-700 font-medium leading-relaxed mb-4" style={{ fontSize: "24px" }}>
                 GRE online classes are live, scheduled sessions that combine classroom rigor with online convenience. Our live GRE training provides in-depth concept clarity, application practice and continuous doubt resolution so you progress with confidence.
               </p>
-
-              <p>
+              <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
                 Students attending live online classes get access to structured schedules, live doubt-clearing, recordings and an integrated LMS to revise lessons at their own pace.
               </p>
-
-              <ul className="mt-6 space-y-4 list-disc pl-6 text-lg md:text-xl">
-                <li className="text-slate-800 dark:text-slate-200"><strong>Comprehensive GRE online course:</strong> 48 hrs of GRE live online classes with faculty for in-depth understanding and practice.</li>
-                <li className="text-slate-800 dark:text-slate-200"><strong>Unlimited doubt-clearing sessions:</strong> Schedule live doubt-clearing sessions with faculty from 7am to midnight every day.</li>
-                <li className="text-slate-800 dark:text-slate-200"><strong>GRE practice tests and books:</strong> Course includes books, full-length tests and online preparation tools.</li>
-              </ul>
             </div>
+          </div>
+
+          {/* 3 Colorful Professional Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1: Comprehensive GRE Online Course */}
+            <div className="rounded-[28px] border-2 border-purple-200/80 bg-gradient-to-br from-purple-50/80 via-pink-50/50 to-indigo-50/70 p-8 shadow-md hover:shadow-xl hover:border-purple-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 opacity-15 blur-2xl pointer-events-none" />
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-500 flex items-center justify-center text-white shadow-lg mb-6">
+                  <Video className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-purple-900 bg-purple-100/70 px-3 py-1 rounded-full border border-purple-200/80">48 Hours Live</span>
+                <h3 className="text-2xl font-extrabold text-purple-950 mt-4 mb-2">Comprehensive GRE Course</h3>
+                <div className="inline-block text-purple-700 font-bold mb-3" style={{ fontSize: "19px" }}>48 hrs of GRE live online classes with faculty</div>
+                <p className="text-purple-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Interactive live sessions with top faculty for in-depth understanding, problem solving, and application practice.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2: Unlimited Doubt-Clearing Sessions */}
+            <div className="rounded-[28px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/80 via-sky-50/50 to-cyan-50/70 p-8 shadow-md hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 opacity-15 blur-2xl pointer-events-none" />
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg mb-6">
+                  <Clock className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-100/70 px-3 py-1 rounded-full border border-blue-200/80">7 AM to Midnight</span>
+                <h3 className="text-2xl font-extrabold text-blue-950 mt-4 mb-2">Unlimited Doubt Clearing</h3>
+                <div className="inline-block text-blue-700 font-bold mb-3" style={{ fontSize: "19px" }}>Faculty assistance 7am to midnight daily</div>
+                <p className="text-blue-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Schedule live 1-on-1 doubt-clearing sessions whenever you need help clearing tricky concept bottlenecks.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3: GRE Practice Tests & Books */}
+            <div className="rounded-[28px] border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-50/80 via-teal-50/50 to-green-50/70 p-8 shadow-md hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-emerald-400 to-teal-400 opacity-15 blur-2xl pointer-events-none" />
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-lg mb-6">
+                  <BookOpenCheck className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-900 bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200/80">Books & Mocks</span>
+                <h3 className="text-2xl font-extrabold text-emerald-950 mt-4 mb-2">Practice Tests & Books</h3>
+                <div className="inline-block text-emerald-700 font-bold mb-3" style={{ fontSize: "19px" }}>Complete prep kit & test series</div>
+                <p className="text-emerald-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Includes study books, full-length computer-adaptive tests, and online preparation tools for full test readiness.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Action CTA Button */}
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => setIsBookSessionOpen(true)}
+              className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-10 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+            >
+              <span>Book a Free Session</span>
+              <ArrowRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </section>
@@ -113,7 +177,9 @@ const GreLive: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-bold uppercase tracking-[0.14em] text-blue-600 mb-4">WHAT YOU GET</p>
+            <div className="inline-flex items-center justify-center gap-2 px-5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/50 text-blue-600 text-sm md:text-base font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
+              WHAT YOU GET
+            </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground mb-6">Everything, live</h2>
             <div className="flex justify-center">
               <div className="h-1.5 w-24 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full" />
@@ -121,26 +187,86 @@ const GreLive: React.FC = () => {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featureCards.map((card, index) => (
-              <div
-                key={index}
-                className="group relative rounded-2xl border border-slate-200/60 bg-gradient-to-br from-white via-blue-50/30 to-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-blue-400 hover:-translate-y-1"
-              >
-                {/* Gradient accent top-left corner */}
-                <div className="absolute -top-0.5 -left-0.5 w-20 h-20 bg-gradient-to-br from-blue-400/20 to-transparent rounded-2xl" />
-                <div className="absolute -bottom-0.5 -right-0.5 w-16 h-16 bg-gradient-to-tl from-indigo-300/10 to-transparent rounded-2xl" />
-                
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-400 to-blue-600 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative">
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 via-blue-400 to-cyan-400 shadow-lg shadow-blue-500/30 group-hover:shadow-2xl group-hover:shadow-blue-500/40 transition-all duration-300">
-                    <img src={card.icon} alt={card.title} className="h-8 w-8 object-contain filter drop-shadow-md" />
+            {featureCards.map((card, index) => {
+              const themes = [
+                {
+                  bg: "bg-gradient-to-br from-blue-50/90 via-sky-50/60 to-cyan-50/70",
+                  border: "border-2 border-blue-200/90 hover:border-blue-400",
+                  icon: "bg-gradient-to-tr from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/30",
+                  title: "text-blue-950",
+                  desc: "text-blue-900/90",
+                  glow: "from-blue-400 to-cyan-400",
+                },
+                {
+                  bg: "bg-gradient-to-br from-purple-50/90 via-indigo-50/60 to-pink-50/70",
+                  border: "border-2 border-purple-200/90 hover:border-purple-400",
+                  icon: "bg-gradient-to-tr from-purple-600 to-indigo-500 text-white shadow-lg shadow-purple-500/30",
+                  title: "text-purple-950",
+                  desc: "text-purple-900/90",
+                  glow: "from-purple-400 to-pink-400",
+                },
+                {
+                  bg: "bg-gradient-to-br from-amber-50/90 via-orange-50/60 to-yellow-50/70",
+                  border: "border-2 border-amber-200/90 hover:border-amber-400",
+                  icon: "bg-gradient-to-tr from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30",
+                  title: "text-amber-950",
+                  desc: "text-amber-900/90",
+                  glow: "from-amber-400 to-orange-400",
+                },
+                {
+                  bg: "bg-gradient-to-br from-emerald-50/90 via-teal-50/60 to-green-50/70",
+                  border: "border-2 border-emerald-200/90 hover:border-emerald-400",
+                  icon: "bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-500/30",
+                  title: "text-emerald-950",
+                  desc: "text-emerald-900/90",
+                  glow: "from-emerald-400 to-teal-400",
+                },
+                {
+                  bg: "bg-gradient-to-br from-rose-50/90 via-pink-50/60 to-red-50/70",
+                  border: "border-2 border-rose-200/90 hover:border-rose-400",
+                  icon: "bg-gradient-to-tr from-rose-500 to-pink-500 text-white shadow-lg shadow-rose-500/30",
+                  title: "text-rose-950",
+                  desc: "text-rose-900/90",
+                  glow: "from-rose-400 to-pink-400",
+                },
+                {
+                  bg: "bg-gradient-to-br from-indigo-50/90 via-violet-50/60 to-purple-50/70",
+                  border: "border-2 border-indigo-200/90 hover:border-indigo-400",
+                  icon: "bg-gradient-to-tr from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/30",
+                  title: "text-indigo-950",
+                  desc: "text-indigo-900/90",
+                  glow: "from-indigo-400 to-violet-400",
+                },
+              ];
+              const theme = themes[index % themes.length];
+              const IconComponent = card.icon;
+              return (
+                <div
+                  key={index}
+                  className={`group relative rounded-[28px] ${theme.border} ${theme.bg} p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+                >
+                  {/* Glowing background blur shape */}
+                  <div className={`absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br ${theme.glow} opacity-20 blur-2xl pointer-events-none`} />
+
+                  <div className="relative">
+                    <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl ${theme.icon} transition-all duration-300`}>
+                      <IconComponent className="h-8 w-8 text-white stroke-[2.2]" />
+                    </div>
+                    <h3 className={`text-2xl font-extrabold ${theme.title} leading-tight`}>{card.title}</h3>
+                    <p className={`mt-3 text-base md:text-lg leading-relaxed ${theme.desc} font-medium`}>{card.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-950 leading-tight">{card.title}</h3>
-                  <p className="mt-3 text-base md:text-lg leading-relaxed text-slate-600 group-hover:text-slate-700 transition-colors">{card.description}</p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <button 
+              onClick={() => setIsBookSessionOpen(true)}
+              className="rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-white font-extrabold text-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300"
+            >
+              Book a Session
+            </button>
           </div>
         </div>
       </section>
@@ -149,7 +275,9 @@ const GreLive: React.FC = () => {
       <section className="py-20 bg-slate-50">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-bold uppercase tracking-[0.14em] text-blue-600 mb-4">BATCHES</p>
+            <div className="inline-flex items-center justify-center gap-2 px-5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/50 text-blue-600 text-sm md:text-base font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
+              BATCHES
+            </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground mb-6">Upcoming batches</h2>
             <div className="flex justify-center">
               <div className="h-1.5 w-24 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full" />
@@ -226,7 +354,9 @@ const GreLive: React.FC = () => {
           <div className="grid gap-12 lg:grid-cols-[1fr_420px]">
             {/* Left: Curriculum */}
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.14em] text-blue-600 mb-4">CURRICULUM</p>
+              <div className="inline-flex items-center justify-center gap-2 px-5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/50 text-blue-600 text-sm md:text-base font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
+                CURRICULUM
+              </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground mb-8">10 weeks, fully mapped</h2>
               
               <div className="space-y-5">

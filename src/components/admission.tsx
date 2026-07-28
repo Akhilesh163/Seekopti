@@ -126,7 +126,7 @@ const Admission: React.FC = () => {
       <Navbar />
       <main>
         {/* HERO SECTION: 2-Column Layout (Left: Text & CTAs, Right: Dynamic Changing University Image & Name) */}
-        <section className="overflow-hidden bg-background pt-28 md:pt-32 lg:pt-36 pb-16 md:pb-24">
+        <section className="overflow-hidden bg-background pt-[76px] md:pt-[84px] pb-16 md:pb-24">
           <div className="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center">
               

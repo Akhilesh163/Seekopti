@@ -1,27 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { BookSessionDialog } from "./BookSessionDialog";
 import {
   Zap,
   Lightbulb,
   Target,
   LineChart,
   CheckCircle2,
-  Users,
-  BookOpen,
-  BarChart2,
-  Play,
-  Calculator,
-  GraduationCap,
-  Video,
-  FileText,
-  ArrowRight
+  Calendar,
+  ArrowRight,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { BookSessionDialog } from "@/components/BookSessionDialog";
 
 export const SeekMethod = () => {
-  const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
   return (
     <section className="pt-20 pb-20 px-8 md:px-16 lg:px-24 xl:px-16 bg-gradient-to-b from-blue-50/40 via-indigo-50/20 to-background relative overflow-hidden mesh-blue-indigo" id="programs">
       {/* Decorative colorful glows */}
@@ -67,7 +58,7 @@ export const SeekMethod = () => {
         </div>
 
         {/* FRAMEWORK CARDS */}
-        <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-0 mb-20 pt-8">
+        <div className="flex flex-col lg:flex-row items-stretch gap-8 lg:gap-0 pt-8">
           {[
             {
               num: "01",
@@ -182,172 +173,25 @@ export const SeekMethod = () => {
           ))}
         </div>
 
-        {/* COURSES HEADER */}
-        <div className="text-center max-w-[900px] mx-auto mt-24 mb-16 px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-6"
+        {/* CTA Button */}
+        <div className="mt-14 text-center flex justify-center z-10 relative">
+          <button
+            onClick={() => setIsBookSessionOpen(true)}
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white font-extrabold text-base md:text-lg shadow-xl shadow-blue-500/20 hover:opacity-95 hover:scale-105 transition-all duration-200 cursor-pointer"
           >
-            <BookOpen className="w-4 h-4 text-blue-600 stroke-[2.5]" />
-            <span>COURSES</span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-3xl md:text-4xl lg:text-4xl font-bold font-display text-foreground leading-[1.1] tracking-tight mb-6"
-          >
-            Choose Your <span className="text-primary">Journey</span>
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-muted-foreground leading-relaxed max-w-[620px] mx-auto"
-            style={{ fontSize: "20px" }}
-          >
-            Whether you're starting from scratch or fine-tuning for test day, we have the right course for you.
-          </motion.p>
+            <Calendar className="w-5 h-5 text-white" />
+            <span>Book a Session</span>
+            <ArrowRight className="w-5 h-5 text-white/90" />
+          </button>
         </div>
-
-        {/* SUPPORT STRIP */}
-        <div className="flex flex-wrap justify-center gap-6 mb-14">
-          {[
-            {
-              title: "GRE Quants",
-              desc: "Master quantitative reasoning with focused concepts, logic shortcuts, and targeted drills.",
-              logoText: "GRE",
-              logoSub: "QUANT",
-              gradient: "from-emerald-500 to-teal-600 shadow-emerald-500/20",
-              icon: Target,
-            },
-            {
-              title: "GRE Verbal",
-              desc: "Elevate your verbal score using advanced reading comprehension and vocabulary frameworks.",
-              logoText: "GRE",
-              logoSub: "VERBAL",
-              gradient: "from-teal-500 to-cyan-600 shadow-teal-500/20",
-              icon: BookOpen,
-            },
-            {
-              title: "GMAT Quants",
-              desc: "Build speed and accuracy with structured concept videos and logic-based practice quizzes.",
-              logoText: "GMAT",
-              logoSub: "QUANT",
-              gradient: "from-blue-600 to-indigo-600 shadow-blue-500/20",
-              icon: Calculator,
-            },
-            {
-              title: "GMAT Verbal",
-              desc: "Ace critical reasoning and sentence correction with systematic reasoning strategies.",
-              logoText: "GMAT",
-              logoSub: "VERBAL",
-              gradient: "from-indigo-600 to-violet-600 shadow-indigo-500/20",
-              icon: GraduationCap,
-            },
-            {
-              title: "Private Tutoring",
-              desc: "1-on-1 personalized mentoring tailored directly to your score goals and timelines.",
-              logoText: "1:1",
-              logoSub: "PRIVATE",
-              gradient: "from-amber-500 to-orange-600 shadow-orange-500/20",
-              icon: Users,
-              href: "/tutoring",
-              isInternal: true,
-            },
-            {
-              title: "Live Classes",
-              desc: "Interactive live preparation cohorts with real-time doubt solving and peer learning.",
-              logoText: "LIVE",
-              logoSub: "CLASSES",
-              gradient: "from-rose-500 to-pink-600 shadow-rose-500/20",
-              icon: Video,
-            },
-            {
-              title: "Test Series",
-              desc: "High-quality mock tests and sectional practice with in-depth performance analytics.",
-              logoText: "TEST",
-              logoSub: "SERIES",
-              gradient: "from-slate-600 to-slate-800 shadow-slate-500/20",
-              icon: FileText,
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] min-w-[270px] max-w-[340px] bg-card border border-border/80 hover:border-primary/40 rounded-[24px] p-8 flex flex-col items-center text-center gap-6 shadow-soft hover:shadow-medium transition-all duration-300"
-            >
-              {/* Logo / Badge container (size w-20 h-20, gradient, shadow) */}
-              <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${item.gradient} flex flex-col items-center justify-center shrink-0 shadow-lg text-white group-hover:scale-105 transition-transform duration-300`}>
-                <span className="text-sm font-black tracking-wider leading-none">
-                  {item.logoText}
-                </span>
-                <span className="text-[8px] font-bold uppercase tracking-widest opacity-80 mt-1.5">
-                  {item.logoSub}
-                </span>
-                <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-white text-foreground flex items-center justify-center shadow-md border border-border/20">
-                  <item.icon className="w-3.5 h-3.5 stroke-[2] text-primary" />
-                </div>
-              </div>
-
-              <div className="flex-grow flex flex-col items-center">
-                <h4 className="text-xl md:text-2xl font-extrabold text-foreground mb-3 transition-colors duration-200 group-hover:text-primary">
-                  {item.title}
-                </h4>
-                <p className="text-lg md:text-[19px] text-muted-foreground leading-relaxed max-w-[270px] font-medium">
-                  {item.desc}
-                </p>
-              </div>
-              {item.isInternal ? (
-                <Link
-                  to={item.href || "/"}
-                  className="mt-auto text-lg md:text-xl font-extrabold text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5 group/btn"
-                >
-                  Explore <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
-                </Link>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => setIsBookDemoOpen(true)}
-                  className="mt-auto text-lg md:text-xl font-extrabold text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1.5 group/btn cursor-pointer bg-transparent border-none p-0 outline-none align-baseline font-sans"
-                >
-                  Book Demo <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
-                </button>
-              )}
-            </motion.div>
-          ))}
-        </div>
-
-        {/* BOOK FREE DEMO BUTTON */}
-        <div className="flex justify-center mt-10">
-          <Button
-            size="lg"
-            className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground gap-2 shadow-soft hover-lift"
-            onClick={() => setIsBookDemoOpen(true)}
-          >
-            <Play className="w-4 h-4 fill-current" />
-            Book Free Demo
-          </Button>
-        </div>
-
-        {/* BOOK DEMO DIALOG */}
-        <BookSessionDialog
-          open={isBookDemoOpen}
-          onOpenChange={setIsBookDemoOpen}
-          title="Book a free demo"
-          description="Share your details and we'll schedule a free 30-minute consultation with Aman."
-        />
       </div>
+
+      <BookSessionDialog
+        open={isBookSessionOpen}
+        onOpenChange={setIsBookSessionOpen}
+        title="Book a Session"
+        description="Select your target exam and fill in your details to book a consultation with Aman."
+      />
     </section>
   );
 };

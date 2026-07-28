@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle, Play, User, Mail, Phone as PhoneIcon, MessageSquare } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { CheckCircle, Play, User, Mail, Phone as PhoneIcon, GraduationCap } from "lucide-react";
 import { buildMessageWithPhone, useContactFormSubmit } from "@/hooks/useContactFormSubmit";
 
-const emptyForm = { name: "", email: "", phone: "", message: "" };
+const emptyForm = { name: "", email: "", phone: "", course: "" };
 
 export const BookDemoForm = () => {
   const [formData, setFormData] = useState(emptyForm);
@@ -16,14 +16,22 @@ export const BookDemoForm = () => {
     successMessage: "Demo request submitted! We'll contact you within 24 hours.",
   });
 
+  const canSubmit =
+    formData.name.trim().length > 0 &&
+    formData.email.trim().length > 0 &&
+    formData.phone.trim().length > 0 &&
+    formData.course !== "" &&
+    !isSubmitting;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!canSubmit) return;
 
     await submit(
       {
         name: formData.name,
         email: formData.email,
-        message: buildMessageWithPhone(formData.message, formData.phone) || "Book a free demo request",
+        message: buildMessageWithPhone(`Selected Course: ${formData.course}`, formData.phone) || "Book a free demo request",
       },
       () => setFormData(emptyForm),
     );
@@ -127,25 +135,84 @@ export const BookDemoForm = () => {
               </div>
 
               <div className="space-y-1.5">
-                <Label htmlFor="demo-message" className="text-sm font-semibold text-foreground/80 flex items-center gap-1.5">
-                  <MessageSquare className="w-4 h-4 text-muted-foreground/75" />
-                  Anything you like to share (optional)
+                <Label htmlFor="demo-course" className="text-sm font-semibold text-foreground/80 flex items-center gap-1.5">
+                  <GraduationCap className="w-4 h-4 text-muted-foreground/75" />
+                  Course
                 </Label>
-                <Textarea
-                  id="demo-message"
-                  name="message"
-                  placeholder="Tell us about your goals, current score, target score..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="px-3.5 py-2.5 border-border/80 focus-visible:ring-primary/20 focus-visible:border-primary transition-all rounded-lg placeholder:text-muted-foreground/60 min-h-[100px]"
-                />
+                <Select
+                  value={formData.course}
+                  onValueChange={(val) => setFormData((p) => ({ ...p, course: val }))}
+                >
+                  <SelectTrigger 
+                    id="demo-course" 
+                    className="min-h-[54px] h-auto py-2.5 px-4 border-border/80 focus:ring-primary/20 focus:border-primary transition-all rounded-xl text-left bg-background [&>span]:line-clamp-none flex items-center justify-between gap-3"
+                  >
+                    <SelectValue placeholder="Interested in" />
+                  </SelectTrigger>
+                  <SelectContent className="rounded-xl shadow-lg border-border/80 max-h-[320px] p-1.5">
+                    <SelectItem value="GRE Online" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                      <div className="flex flex-col gap-0.5">
+                        <span className="font-bold text-sm text-foreground">GRE Online</span>
+                        <span className="text-xs text-muted-foreground font-normal">Live Online Coaching & Interactive Sessions</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="GRE Live Class" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                      <div className="flex flex-col gap-0.5">
+                        <span className="font-bold text-sm text-foreground">GRE Live Class</span>
+                        <span className="text-xs text-muted-foreground font-normal">Interactive Live Batch Training</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="GRE Self-Paced" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                      <div className="flex flex-col gap-0.5">
+                        <span className="font-bold text-sm text-foreground">GRE Self-Paced</span>
+                        <span className="text-xs text-muted-foreground font-normal">On-Demand Comprehensive Video Course</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="GRE Private Tutoring" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                      <div className="flex flex-col gap-0.5">
+                        <span className="font-bold text-sm text-foreground">GRE Private Tutoring</span>
+                        <span className="text-xs text-muted-foreground font-normal">1-on-1 Personalized Tutors</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="GMAT Online" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                      <div className="flex flex-col gap-0.5">
+                        <span className="font-bold text-sm text-foreground">GMAT Online</span>
+                        <span className="text-xs text-muted-foreground font-normal">Live Online Coaching & Interactive Sessions</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="GMAT Live Class" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                      <div className="flex flex-col gap-0.5">
+                        <span className="font-bold text-sm text-foreground">GMAT Live Class</span>
+                        <span className="text-xs text-muted-foreground font-normal">Interactive Live Batch Training</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="GMAT Self-Paced" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                      <div className="flex flex-col gap-0.5">
+                        <span className="font-bold text-sm text-foreground">GMAT Self-Paced</span>
+                        <span className="text-xs text-muted-foreground font-normal">On-Demand Comprehensive Video Course</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="GMAT Private Tutoring" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                      <div className="flex flex-col gap-0.5">
+                        <span className="font-bold text-sm text-foreground">GMAT Private Tutoring</span>
+                        <span className="text-xs text-muted-foreground font-normal">1-on-1 Personalized Tutors</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="Admissions Consulting" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                      <div className="flex flex-col gap-0.5">
+                        <span className="font-bold text-sm text-foreground">Admissions Consulting</span>
+                        <span className="text-xs text-muted-foreground font-normal">B-School Application & Essay Mentoring</span>
+                      </div>
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <Button 
                 type="submit" 
                 size="lg" 
                 className="w-full h-12 rounded-xl font-bold bg-gradient-to-r from-primary to-accent hover:opacity-95 text-white shadow-md shadow-primary/10 transition-all flex items-center justify-center gap-2 group mt-6" 
-                disabled={isSubmitting}
+                disabled={!canSubmit}
               >
                 {isSubmitting ? (
                   "Submitting..."

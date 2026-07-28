@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { BookSessionDialog } from "./BookSessionDialog";
 import {
   ShieldCheck,
   CalendarDays,
@@ -8,6 +9,8 @@ import {
   Trophy,
   BookOpen,
   Sparkles,
+  Calendar,
+  ArrowRight,
 } from "lucide-react";
 
 const advantageData = [
@@ -88,6 +91,7 @@ const advantageData = [
 ];
 
 export const SeekAdvantageCards: React.FC = () => {
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
   return (
     <section className="py-20 md:py-28 bg-white dark:bg-background relative overflow-hidden">
       <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -174,7 +178,26 @@ export const SeekAdvantageCards: React.FC = () => {
             );
           })}
         </div>
+
+        {/* CTA Button */}
+        <div className="mt-14 text-center flex justify-center z-10 relative">
+          <button
+            onClick={() => setIsBookSessionOpen(true)}
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white font-extrabold text-base md:text-lg shadow-xl shadow-blue-500/20 hover:opacity-95 hover:scale-105 transition-all duration-200 cursor-pointer"
+          >
+            <Calendar className="w-5 h-5 text-white" />
+            <span>Book a Session</span>
+            <ArrowRight className="w-5 h-5 text-white/90" />
+          </button>
+        </div>
       </div>
+
+      <BookSessionDialog
+        open={isBookSessionOpen}
+        onOpenChange={setIsBookSessionOpen}
+        title="Book a Session"
+        description="Select your target exam and fill in your details to book a consultation with Aman."
+      />
     </section>
   );
 };

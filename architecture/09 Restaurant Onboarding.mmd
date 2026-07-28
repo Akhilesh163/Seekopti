@@ -1,0 +1,108 @@
+sequenceDiagram
+    autonumber
+    
+    actor Owner as Restaurant Owner
+    participant Web as Frontend App
+    participant API as API Gateway
+    participant Auth as Auth Service
+    participant RestSvc as Restaurant Service
+    participant SubSvc as Subscription Service
+    participant PayGW as Payment Gateway (Razorpay/Stripe)
+    participant DB as PostgreSQL
+    participant S3 as S3/Wasabi
+    participant Notif as Notification Service
+
+    %% Initial Signup
+    rect rgb(240, 248, 255)
+    note right of Owner: Phase 1: Account Creation
+    Owner->>Web: Visits Signup Page & Enters Details
+    Web->>API: POST /api/onboarding/register
+    API->>Auth: Validate Data (Zod)
+    Auth->>DB: Check email/phone uniqueness
+    Auth->>DB: Create User (Role: Restaurant Owner)
+    Auth->>DB: Create Company Record
+    Auth->>Notif: Send Email Verification Link
+    Notif-->>Owner: Email with OTP/Link
+    Owner->>Web: Clicks Link / Enters OTP
+    Web->>API: POST /api/auth/verify
+    API->>Auth: Update User Status = VERIFIED
+    Auth-->>Web: Success + Auth Tokens
+    Web-->>Owner: Redirect to Setup Wizard
+    end
+
+    %% Setup Wizard
+    rect rgb(245, 245, 245)
+    note right of Owner: Phase 2: Setup Wizard
+    
+    %% Step 1: Profile
+    Owner->>Web: Enter Restaurant Profile (Name, Cuisine)
+    Owner->>Web: Upload Logo
+    Web->>S3: PUT Image
+    S3-->>Web: Image URL
+    Web->>API: POST /api/restaurants
+    API->>RestSvc: Create Restaurant Record
+    RestSvc->>DB: INSERT INTO restaurants
+    DB-->>RestSvc: restaurantId
+    
+    %% Step 2: Branch
+    Owner->>Web: Enter First Branch Details (Address, Hours)
+    Web->>API: POST /api/branches
+    API->>RestSvc: Create Branch
+    RestSvc->>DB: INSERT INTO branches
+    
+    %% Step 3: Menu
+    Owner->>Web: Setup Menu or Import Template
+    Web->>API: POST /api/menus/bulk
+    API->>RestSvc: Create Categories & Items
+    RestSvc->>DB: Bulk INSERT menu_items
+    
+    %% Step 4: Tables
+    opt If Dine-In Enabled
+        Owner->>Web: Define Table Layout
+        Web->>API: POST /api/tables
+        API->>RestSvc: Create Tables & Generate QR Codes
+        RestSvc->>S3: Upload QR Images
+    end
+    
+    %% Step 5: Employees
+    Owner->>Web: Add First Employees (Manager, Chef)
+    Web->>API: POST /api/employees/bulk
+    API->>Auth: Create Users & Assign Roles
+    Auth->>Notif: Send Welcome Emails to Employees
+    end
+
+    %% Subscription & Payment
+    rect rgb(240, 255, 240)
+    note right of Owner: Phase 3: Subscription & Activation
+    Owner->>Web: Select Subscription Plan
+    Web->>API: POST /api/subscriptions/checkout
+    API->>SubSvc: Create Order
+    SubSvc->>PayGW: Initialize Payment (Amount, Currency)
+    PayGW-->>SubSvc: Payment Session / Order ID
+    SubSvc-->>Web: Payment Gateway URL / Token
+    
+    Owner->>PayGW: Completes Payment
+    
+    alt Payment Failed
+        PayGW-->>Web: Payment Failed
+        Web-->>Owner: Show Error, Retry Prompt
+    else Payment Success
+        PayGW->>API: Webhook (payment.success)
+        API->>SubSvc: Verify Signature
+        SubSvc->>DB: Update Subscription Status = ACTIVE
+        SubSvc->>RestSvc: Update Restaurant Status = ACTIVE
+        
+        par Background Tasks
+            RestSvc->>DB: Setup Default Settings
+            RestSvc->>DB: Seed Sample Dashboard Data
+        end
+        
+        SubSvc->>Notif: Send Payment Receipt
+        SubSvc->>Notif: Send Welcome SMS/Email to Owner
+        Notif-->>Owner: Welcome Communication
+        
+        Web->>API: GET /api/restaurants/status
+        API-->>Web: Status ACTIVE
+        Web-->>Owner: Redirect to Main Dashboard
+    end
+    end

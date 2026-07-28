@@ -96,10 +96,10 @@ const GmatPrivateTut: React.FC = () => {
       <section className="py-16">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
-            <div className="prose max-w-none text-base text-muted-foreground">
-              <h2>GMAT Private Tutoring That Works</h2>
-              <p>Our private tutoring program gives you 1-on-1 coaching with GMAT experts, personalised lesson plans, and targeted support to improve your scores quickly.</p>
-              <ul className="mt-6 space-y-3 list-disc pl-5 text-muted-foreground">
+            <div className="prose max-w-none text-lg text-slate-950 font-bold">
+              <h2 className="text-3xl font-black text-slate-950 mb-4">GMAT Private Tutoring That Works</h2>
+              <p className="text-slate-950 font-bold leading-relaxed">Our private tutoring program gives you 1-on-1 coaching with GMAT experts, personalised lesson plans, and targeted support to improve your scores quickly.</p>
+              <ul className="mt-6 space-y-3 list-disc pl-5 text-slate-950 font-bold">
                 <li>Custom study plan built around your current score and goals.</li>
                 <li>Live sessions, feedback, and section-level strategy reviews.</li>
                 <li>Performance monitoring with mock tests and adaptive corrections.</li>
@@ -162,6 +162,15 @@ const GmatPrivateTut: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <button
+              onClick={() => setIsBookSessionOpen(true)}
+              className="rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-white font-extrabold text-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-all duration-300"
+            >
+              Book a Session
+            </button>
           </div>
         </div>
       </section>

@@ -236,9 +236,9 @@ export const SupportTabs = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-3xl md:text-5xl font-extrabold font-display text-white leading-[1.1] tracking-tight mb-6"
+            className="text-3xl md:text-5xl font-extrabold font-display text-white leading-[1.25] tracking-tight mb-6"
           >
-            Personalized 1-on-1 <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-indigo-300 bg-clip-text text-transparent">Tutoring</span>
+            Personalized 1-on-1 <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-indigo-300 bg-clip-text text-transparent inline-block pb-3 pt-1">Tutoring</span>
           </motion.h2>
 
           <motion.p
@@ -286,9 +286,9 @@ export const SupportTabs = () => {
                 <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
                   {/* Left Column: Text & Features */}
                   <div className="lg:col-span-6 flex flex-col text-left">
-                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-950 mb-4 leading-tight tracking-tight">
+                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-950 mb-4 leading-[1.25] tracking-tight">
                       {activeContent.headingNormal}{" "}
-                      <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent block">{activeContent.headingAccent}</span>
+                      <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent block pb-3 pt-1">{activeContent.headingAccent}</span>
                     </h3>
                     <p className="text-lg md:text-xl text-slate-700 font-medium mt-5 mb-8 leading-relaxed">
                       {activeContent.content}

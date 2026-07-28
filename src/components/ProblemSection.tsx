@@ -214,7 +214,7 @@ export const ProblemSection = () => {
             onClick={() => setIsBookDemoOpen(true)}
           >
             <Play className="w-4 h-4 fill-current" />
-            Book Free Demo
+            Book a Session
           </Button>
         </div>
 

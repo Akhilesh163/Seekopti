@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Users, Award, GraduationCap, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { StatCounter } from "./StatCounter";
+import { BookSessionDialog } from "@/components/BookSessionDialog";
 
 // Student photos
 import PraffulPhoto from "@/assets/student_pics/Prafful.jpeg";
@@ -43,6 +44,7 @@ const achievers = [
 ];
 
 export const TopAchievers: React.FC = () => {
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
   const len = achievers.length;
   
   // Clone cards: prepend last 2, append first 2
@@ -271,12 +273,32 @@ export const TopAchievers: React.FC = () => {
         </div>
 
         {/* Bottom Stats Row */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-8 md:gap-16 lg:gap-24 mt-20 border-t border-slate-100 pt-14 max-w-[1000px] mx-auto px-4">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-8 md:gap-16 lg:gap-24 mt-16 border-t border-slate-100 pt-14 max-w-[1000px] mx-auto px-4">
           <StatCounter value="4000+" label="Students Mentored" icon={Users} color="blue" />
           <StatCounter value="96th" label="Percentile Achievers" icon={Award} color="violet" />
           <StatCounter value="8+" label="Years Experience" icon={GraduationCap} color="emerald" />
         </div>
+
+        {/* BOOK A SESSION CTA */}
+        <div className="mt-14 flex justify-center">
+          <button
+            onClick={() => setIsBookSessionOpen(true)}
+            className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white font-extrabold text-lg shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+          >
+            <span>Book a Session</span>
+            <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+              <Award className="w-4 h-4 text-white" />
+            </div>
+          </button>
+        </div>
       </div>
+
+      <BookSessionDialog
+        open={isBookSessionOpen}
+        onOpenChange={setIsBookSessionOpen}
+        title="Book a free session"
+        description="Share your details and we'll schedule a 1-on-1 strategy session with our mentors."
+      />
     </section>
   );
 };

@@ -36,7 +36,7 @@ const ContactUs = () => {
       <Navbar />
 
       {/* Hero */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-slate-50 to-white pt-28 md:pt-36 pb-20 text-slate-900 border-b border-slate-200/60">
+      <header className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-slate-50 to-white pt-[76px] md:pt-[84px] pb-20 text-slate-900 border-b border-slate-200/60">
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
         <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none" />
         <div className="absolute inset-0 pointer-events-none opacity-50">

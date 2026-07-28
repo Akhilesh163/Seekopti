@@ -32,7 +32,7 @@ const SuccessStories: React.FC = () => {
   ];
   return (
     <section className="bg-background">
-      <div className="mx-auto max-w-[1200px] px-6 py-20">
+      <div className="mx-auto max-w-[1200px] px-6 pt-[76px] md:pt-[84px] pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left column - heading + text */}
           <div className="relative">

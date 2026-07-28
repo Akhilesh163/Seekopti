@@ -1,0 +1,60 @@
+flowchart TB
+    %% Client Apps
+    subgraph ClientApps["Client Applications"]
+        WebApp("Web Application\n[React SPA]\nRestaurant Admin, POS Interface")
+        QRApp("QR Ordering Web App\n[React]\nCustomer Menu & Ordering")
+        AdminApp("Admin Portal\n[React]\nPlatform Administration")
+    end
+
+    %% Gateway
+    Gateway("API Gateway\n[Nginx]\nRouting, SSL, Rate Limiting")
+
+    %% Microservices
+    subgraph Services["Microservices (Express.js / Node.js)"]
+        AuthSvc("Auth Service\nJWT, RBAC, Sessions")
+        CoreSvc("Core API\nRestaurant, Branch, Menu, Orders")
+        POSSvc("POS API\nBilling, Payments, Receipts")
+        NotifSvc("Notification Service\nPush, Email, SMS")
+        ReportSvc("Report Service\nPDF Gen, Analytics")
+    end
+
+    %% Real-time
+    WebSocket("WebSocket Server\n[Socket.IO]\nReal-time KDS, Status Updates")
+
+    %% Background Processing
+    subgraph AsyncWorker["Background Processing"]
+        MsgQueue("Message Queue\n[Redis / BullMQ]")
+        Workers("Background Workers\n[Node.js / BullMQ]\nAsync Job Processing")
+    end
+
+    %% Data Stores
+    subgraph DataStores["Data Stores"]
+        DB("Primary Database\n[PostgreSQL]")
+        Cache("Cache / PubSub\n[Redis]")
+        ObjectStore("Object Storage\n[AWS S3]")
+    end
+
+    %% Connections
+    WebApp -->|HTTPS| Gateway
+    QRApp -->|HTTPS| Gateway
+    AdminApp -->|HTTPS| Gateway
+    WebApp -->|WSS| WebSocket
+    QRApp -->|WSS| WebSocket
+
+    Gateway -->|HTTP| AuthSvc
+    Gateway -->|HTTP| CoreSvc
+    Gateway -->|HTTP| POSSvc
+    Gateway -->|HTTP| NotifSvc
+    Gateway -->|HTTP| ReportSvc
+
+    Services -->|TCP| DB
+    Services -->|TCP| Cache
+    Services -->|HTTPS| ObjectStore
+    Services -->|Enqueue Jobs| MsgQueue
+
+    MsgQueue -->|Pop Jobs| Workers
+    Workers -->|TCP| DB
+    Workers -->|HTTPS| ObjectStore
+
+    WebSocket -->|Pub/Sub| Cache
+    CoreSvc -->|Publish Events| Cache

@@ -1,0 +1,91 @@
+flowchart TB
+    subgraph ClientLayer["Client Layer"]
+        WebApp["Web App (React)"]
+        MobileWeb["Mobile Web (PWA)"]
+        QRScanner["QR Scanner App"]
+        AdminPortal["Admin Portal (React)"]
+    end
+
+    subgraph EdgeLayer["CDN / Edge"]
+        Cloudflare["Cloudflare CDN & WAF\n(DDoS Protection)"]
+    end
+
+    subgraph LoadBalancing["Load Balancer"]
+        Nginx["Nginx Reverse Proxy\n(SSL Termination, Routing)"]
+    end
+
+    subgraph APIGateway["API Gateway"]
+        Gateway["API Gateway\n(Rate Limiting, Auth Check, Routing)"]
+    end
+
+    subgraph AppLayer["Application Layer (Express.js)"]
+        AuthSvc["Auth Service"]
+        RestSvc["Restaurant Service"]
+        OrderSvc["Order Service"]
+        MenuSvc["Menu Service"]
+        InvSvc["Inventory Service"]
+        EmpSvc["Employee Service"]
+        PaySvc["Payment Service"]
+        NotifSvc["Notification Service"]
+        ReportSvc["Report Service"]
+        AnalSvc["Analytics Service"]
+    end
+
+    subgraph RealTimeLayer["Real-time Layer"]
+        SocketIO["Socket.IO Server\n(KDS, Order Status)"]
+    end
+
+    subgraph BackgroundLayer["Background Jobs"]
+        BullMQ["BullMQ Workers\n(Reports, Payroll, Sync)"]
+    end
+
+    subgraph CacheLayer["Cache Layer"]
+        Redis["Redis\n(Sessions, Config, Rate Limit)"]
+    end
+
+    subgraph DataLayer["Database Layer"]
+        DBPrimary["PostgreSQL Primary"]
+        DBReplica["PostgreSQL Read Replicas"]
+        DBPrimary -->|Async Replication| DBReplica
+    end
+
+    subgraph StorageLayer["Storage Layer"]
+        S3["AWS S3 / Wasabi\n(Images, Docs, Backups)"]
+    end
+
+    subgraph ExtServices["External Services"]
+        PayGateway["Payment Gateway\n(Razorpay, Stripe)"]
+        SMS["SMS Provider\n(Twilio, MSG91)"]
+        Email["Email Service\n(SMTP, SES)"]
+        Push["Push Notification\n(FCM)"]
+        Delivery["Delivery Partners\n(Swiggy, Zomato)"]
+    end
+
+    subgraph MonitoringLayer["Monitoring & Logging"]
+        Prometheus["Prometheus"]
+        Grafana["Grafana"]
+        Sentry["Sentry (Errors)"]
+    end
+
+    %% Connections
+    ClientLayer -->|HTTPS / WSS| EdgeLayer
+    EdgeLayer -->|HTTPS| LoadBalancing
+    LoadBalancing -->|HTTP| APIGateway
+    LoadBalancing -->|WS| RealTimeLayer
+    
+    APIGateway --> AppLayer
+    
+    AppLayer --> CacheLayer
+    AppLayer --> DataLayer
+    AppLayer --> StorageLayer
+    AppLayer --> BackgroundLayer
+    AppLayer -.-> ExtServices
+    
+    RealTimeLayer --> CacheLayer
+    BackgroundLayer --> CacheLayer
+    BackgroundLayer --> DataLayer
+    BackgroundLayer -.-> ExtServices
+    
+    AppLayer -.->|Metrics/Logs| MonitoringLayer
+    BackgroundLayer -.->|Metrics/Logs| MonitoringLayer
+    RealTimeLayer -.->|Metrics/Logs| MonitoringLayer

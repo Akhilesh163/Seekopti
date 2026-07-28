@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, ChevronDown, HelpCircle } from "lucide-react";
+import { Play, Plus, Minus, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
 
@@ -27,8 +27,8 @@ export const CustomFAQ: React.FC<CustomFAQProps> = ({
       <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-blue-400/5 blur-3xl pointer-events-none -z-10 animate-pulse" />
       <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-purple-400/5 blur-3xl pointer-events-none -z-10" />
       
-      <div className="container-narrow">
-        <div className="max-w-3xl mx-auto">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="w-full md:w-[80%] max-w-[1400px] mx-auto">
           {/* Centered Heading */}
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
@@ -46,31 +46,30 @@ export const CustomFAQ: React.FC<CustomFAQProps> = ({
             </h2>
           </div>
 
-          {/* FAQ Accordion List using the exact glass-card styles from the landing page */}
-          <div className="space-y-4">
+          {/* FAQ Accordion List without card borders */}
+          <div className="divide-y divide-slate-300 border-t border-b border-slate-300 dark:divide-slate-700 dark:border-slate-700">
             {faqs.map((faq, idx) => {
               const isOpen = openIndex === idx;
 
               return (
-                <div
-                  key={idx}
-                  className={`bg-white px-6 border-2 rounded-2xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md ${
-                    isOpen
-                      ? "border-blue-600 ring-2 ring-blue-500/20 shadow-blue-500/10"
-                      : "border-blue-300 hover:border-blue-500"
-                  }`}
-                >
+                <div key={idx} className="py-1">
                   {/* Trigger Button */}
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : idx)}
-                    className="w-full flex items-center justify-between text-left text-lg font-bold text-slate-900 py-6 cursor-pointer focus:outline-none hover:no-underline hover:text-blue-600 transition-colors"
+                    className="w-full flex items-center justify-between text-left text-lg md:text-xl font-bold py-5 cursor-pointer focus:outline-none hover:no-underline transition-colors"
                   >
-                    <span className="font-display font-bold tracking-tight pr-4">{faq.question}</span>
-                    <ChevronDown
-                      className={`w-5 h-5 transition-transform duration-300 shrink-0 ${
-                        isOpen ? "rotate-180 text-blue-600" : "rotate-0 text-slate-400"
-                      }`}
-                    />
+                    <span className={`font-display font-bold tracking-tight pr-4 transition-colors ${
+                      isOpen ? "text-blue-600" : "text-slate-900 hover:text-blue-600"
+                    }`}>
+                      {faq.question}
+                    </span>
+                    <div className="shrink-0 ml-2">
+                      {isOpen ? (
+                        <Minus className="w-5 h-5 text-blue-600 stroke-[2.5]" />
+                      ) : (
+                        <Plus className="w-5 h-5 text-slate-800 stroke-[2.5]" />
+                      )}
+                    </div>
                   </button>
 
                   {/* Collapsible Content */}
@@ -81,8 +80,9 @@ export const CustomFAQ: React.FC<CustomFAQProps> = ({
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.25, ease: "easeInOut" }}
+                        className="overflow-hidden"
                       >
-                        <div className="text-base text-slate-600 pb-6 leading-relaxed">
+                        <div className="text-base text-slate-600 pb-6 leading-relaxed pt-1">
                           {faq.answer}
                         </div>
                       </motion.div>

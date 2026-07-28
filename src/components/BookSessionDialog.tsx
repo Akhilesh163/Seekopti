@@ -131,7 +131,7 @@ export function BookSessionDialog({
           <div className="space-y-1.5">
             <Label htmlFor="book-session-exam" className="text-sm font-semibold text-foreground/80 flex items-center gap-1.5">
               <GraduationCap className="w-4 h-4 text-muted-foreground/75" />
-              Select Course
+              Course
             </Label>
             <Select
               value={formData.exam}
@@ -139,27 +139,63 @@ export function BookSessionDialog({
             >
               <SelectTrigger 
                 id="book-session-exam" 
-                className="h-11 px-3.5 border-border/80 focus:ring-primary/20 focus:border-primary transition-all rounded-lg text-left bg-background"
+                className="min-h-[54px] h-auto py-2.5 px-4 border-border/80 focus:ring-primary/20 focus:border-primary transition-all rounded-xl text-left bg-background [&>span]:line-clamp-none flex items-center justify-between gap-3"
               >
-                <SelectValue placeholder="Choose GRE or GMAT" />
+                <SelectValue placeholder="Interested in" />
               </SelectTrigger>
-              <SelectContent className="rounded-xl shadow-lg border-border/80">
-                <SelectItem value="GMAT" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors [&>span:first-child]:hidden">
-                  <div className="flex items-center justify-between w-full gap-4 pr-1">
-                    <div className="flex flex-col gap-0.5">
-                      <span className="font-semibold text-sm">GMAT</span>
-                      <span className="text-xs text-muted-foreground font-normal">Graduate Management Admission Test</span>
-                    </div>
-                    {formData.exam === "GMAT" && <span className="text-primary text-base">✓</span>}
+              <SelectContent className="rounded-xl shadow-lg border-border/80 max-h-[320px] p-1.5">
+                <SelectItem value="GRE Online" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-bold text-sm text-foreground">GRE Online</span>
+                    <span className="text-xs text-muted-foreground font-normal">Live Online Coaching & Interactive Sessions</span>
                   </div>
                 </SelectItem>
-                <SelectItem value="GRE" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors [&>span:first-child]:hidden">
-                  <div className="flex items-center justify-between w-full gap-4 pr-1">
-                    <div className="flex flex-col gap-0.5">
-                      <span className="font-semibold text-sm">GRE</span>
-                      <span className="text-xs text-muted-foreground font-normal">Graduate Record Examinations</span>
-                    </div>
-                    {formData.exam === "GRE" && <span className="text-primary text-base">✓</span>}
+                <SelectItem value="GRE Live Class" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-bold text-sm text-foreground">GRE Live Class</span>
+                    <span className="text-xs text-muted-foreground font-normal">Interactive Live Batch Training</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="GRE Self-Paced" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-bold text-sm text-foreground">GRE Self-Paced</span>
+                    <span className="text-xs text-muted-foreground font-normal">On-Demand Comprehensive Video Course</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="GRE Private Tutoring" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-bold text-sm text-foreground">GRE Private Tutoring</span>
+                    <span className="text-xs text-muted-foreground font-normal">1-on-1 Personalized Tutors</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="GMAT Online" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-bold text-sm text-foreground">GMAT Online</span>
+                    <span className="text-xs text-muted-foreground font-normal">Live Online Coaching & Interactive Sessions</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="GMAT Live Class" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-bold text-sm text-foreground">GMAT Live Class</span>
+                    <span className="text-xs text-muted-foreground font-normal">Interactive Live Batch Training</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="GMAT Self-Paced" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-bold text-sm text-foreground">GMAT Self-Paced</span>
+                    <span className="text-xs text-muted-foreground font-normal">On-Demand Comprehensive Video Course</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="GMAT Private Tutoring" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-bold text-sm text-foreground">GMAT Private Tutoring</span>
+                    <span className="text-xs text-muted-foreground font-normal">1-on-1 Personalized Tutors</span>
+                  </div>
+                </SelectItem>
+                <SelectItem value="Admissions Consulting" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-bold text-sm text-foreground">Admissions Consulting</span>
+                    <span className="text-xs text-muted-foreground font-normal">B-School Application & Essay Mentoring</span>
                   </div>
                 </SelectItem>
               </SelectContent>

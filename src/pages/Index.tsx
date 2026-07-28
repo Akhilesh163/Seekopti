@@ -7,6 +7,7 @@ import { AboutMe } from "@/components/AboutMe";
 import { UniversityMarquee } from "@/components/UniversityMarquee";
 import { SupportTabs } from "@/components/SupportTabs";
 import { BookDemoForm } from "@/components/BookDemoForm";
+import { WebinarSection } from "@/components/WebinarSection";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { ScrollToSection } from "@/components/ScrollToSection";
@@ -114,6 +115,9 @@ const Index = () => {
 
         {/* BOOK A DEMO */}
         <BookDemoForm />
+
+        {/* WEBINARS & MASTERCLASSES */}
+        <WebinarSection />
 
         {/* FAQ */}
         <FAQ />

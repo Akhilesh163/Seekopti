@@ -7,7 +7,8 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
-import { Play, HelpCircle } from "lucide-react";
+import { Play, HelpCircle, Plus, Minus } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const faqs = [
   {
@@ -33,14 +34,15 @@ const faqs = [
 
 export const FAQ = () => {
   const [isBookDemoOpen, setIsBookDemoOpen] = useState(false);
+  const [openItem, setOpenItem] = useState<string | undefined>(undefined);
 
   return (
     <section className="section-padding bg-gradient-to-b from-background via-blue-50/20 to-background relative overflow-hidden mesh-purple-teal" id="faq">
       {/* Decorative colorful glows */}
       <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-blue-400/5 blur-3xl pointer-events-none -z-10 animate-pulse" />
       <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-purple-400/5 blur-3xl pointer-events-none -z-10" />
-      <div className="container-narrow">
-        <div className="max-w-3xl mx-auto">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="w-full md:w-[80%] max-w-[1400px] mx-auto">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-4">
               <HelpCircle className="w-4 h-4 text-blue-600 stroke-[2.5]" />
@@ -51,27 +53,50 @@ export const FAQ = () => {
             </h2>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="bg-white border-2 border-blue-300 hover:border-blue-500 data-[state=open]:border-blue-600 data-[state=open]:ring-2 data-[state=open]:ring-blue-500/20 px-6 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-md"
-              >
-                <AccordionTrigger className="text-left text-lg md:text-lg font-bold text-slate-900 hover:no-underline py-6 hover:text-blue-600 transition-colors">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-base text-slate-600 pb-6 leading-relaxed">
-                  {index === 1 ? (
-                    <>
-                      You can enroll by booking a free demo session on our website, or you can contact us directly. We will guide you through the enrollment process and get you started on your preparation journey with Seek Your Y.
-                    </>
-                  ) : (
-                    faq.answer
-                  )}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
+          <Accordion
+            type="single"
+            collapsible
+            value={openItem}
+            onValueChange={setOpenItem}
+            className="divide-y divide-slate-300 border-t border-b border-slate-300 dark:divide-slate-700 dark:border-slate-700"
+          >
+            {faqs.map((faq, index) => {
+              const itemValue = `item-${index}`;
+              const isOpen = openItem === itemValue;
+
+              return (
+                <AccordionItem
+                  key={index}
+                  value={itemValue}
+                  className="border-b-0 py-1"
+                >
+                  <AccordionTrigger
+                    className={cn(
+                      "text-left text-lg md:text-xl font-bold py-5 hover:no-underline transition-colors flex items-center justify-between gap-4 [&>svg]:hidden",
+                      isOpen ? "text-blue-600" : "text-slate-900 hover:text-blue-600"
+                    )}
+                  >
+                    <span className="flex-1 text-left">{faq.question}</span>
+                    <div className="shrink-0 ml-2">
+                      {isOpen ? (
+                        <Minus className="w-5 h-5 text-blue-600 stroke-[2.5]" />
+                      ) : (
+                        <Plus className="w-5 h-5 text-slate-800 stroke-[2.5]" />
+                      )}
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-base text-slate-600 pb-6 leading-relaxed pt-1">
+                    {index === 1 ? (
+                      <>
+                        You can enroll by booking a free demo session on our website, or you can contact us directly. We will guide you through the enrollment process and get you started on your preparation journey with Seek Your Y.
+                      </>
+                    ) : (
+                      faq.answer
+                    )}
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
           </Accordion>
 
           {/* Still have questions CTA */}

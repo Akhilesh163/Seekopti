@@ -1,0 +1,78 @@
+flowchart TD
+    %% 16 Inventory Management Flow
+
+    %% Subgraph: Purchase Flow
+    subgraph PurchaseFlow["1. Purchase Flow (P2P)"]
+        direction TB
+        PO_Create["Create Purchase Order (PO)"] --> PO_Approve{"Approval Req?"}
+        PO_Approve -- Yes --> PO_Manager["Manager Approval"]
+        PO_Approve -- No --> PO_Send
+        PO_Manager -- Approved --> PO_Send["Send PO to Vendor (Email/Print)"]
+        PO_Manager -- Rejected --> PO_End["End"]
+        
+        PO_Send --> GRN_Create["Receive Goods (GRN)"]
+        GRN_Create --> QC{"Quality Check"}
+        QC -- Full Accept --> GRN_Accept["Accept All Quantities"]
+        QC -- Partial --> GRN_Partial["Log Rejections / Shortages"]
+        QC -- Reject All --> GRN_Reject["Reject Delivery"]
+        
+        GRN_Accept --> StockUpdate["Update Stock Levels"]
+        GRN_Partial --> StockUpdate
+        
+        StockUpdate --> AP_Update["Update Accounts Payable (Vendor Ledger)"]
+        AP_Update --> 3WayMatch{"3-Way Match (PO=GRN=Inv)"}
+        3WayMatch -- Matched --> Inv_Cleared["Invoice Cleared for Pmt"]
+        3WayMatch -- Mismatch --> Inv_Hold["Hold & Raise Dispute"]
+    end
+
+    %% Subgraph: Recipe Management & Auto Deduction
+    subgraph RecipeFlow["2 & 3. Recipe Mgmt & Auto-Deduction"]
+        direction TB
+        Rec_Def["Define Recipe (Finished Good -> Ingredients)"]
+        Rec_Sub["Define Sub-Recipes (e.g., Dough, Sauce)"]
+        Rec_Def --> Rec_Sub
+        
+        Order_Pl["Order Placed in POS/Online"] --> Fetch_Rec["Fetch Recipe for Order Items"]
+        Fetch_Rec --> Ded_Stock["Deduct Ingredients from Branch Inventory"]
+        
+        Ded_Stock --> Check_Stock{"Stock < Reorder Level?"}
+        Check_Stock -- Yes --> Alert_Low["Generate Low Stock Alert"]
+        Check_Stock -- No --> Stock_Ok["Stock OK"]
+        
+        Alert_Low --> Check_Zero{"Stock = 0?"}
+        Check_Zero -- Yes --> Mark_86["Mark Item 86'd (Unavailable)"]
+        Check_Zero -- No --> Reorder_Q["Queue for Next PO"]
+    end
+
+    %% Subgraph: Stock Alerts & Audits
+    subgraph AuditFlow["4 & 6. Alerts & Physical Audits"]
+        direction TB
+        Cron_Alert["Daily Cron Check"] --> Exp_Alert["Expiry Date Alerts (FIFO)"]
+        Cron_Alert --> Waste_Log["Waste Tracking (Damaged/Spilled)"]
+        
+        Sched_Audit["Schedule Physical Stock Take"] --> Enter_Actual["Enter Actual Quantities"]
+        Enter_Actual --> Calc_Var{"Calculate Variance (Actual vs Sys)"}
+        Calc_Var -- Match --> Audit_Close["Close Audit"]
+        Calc_Var -- Mismatch --> Reason_Code["Input Reason Codes (Theft/Spoilage)"]
+        Reason_Code --> Adj_Stock["Adjust System Stock"]
+        Adj_Stock --> Var_Rep["Generate Variance Report"]
+    end
+
+    %% Subgraph: Stock Transfer
+    subgraph TransferFlow["5. Inter-Branch Stock Transfer"]
+        direction TB
+        TR_Req["Source Branch Creates Transfer Request"] --> TR_App{"Dest Branch Approves?"}
+        TR_App -- Yes --> TR_Disp["Source Dispatches (Stock Deducted)"]
+        TR_App -- No --> TR_Cancel["Transfer Cancelled"]
+        
+        TR_Disp --> TR_Transit["In Transit State"]
+        TR_Transit --> TR_Recv["Dest Receives (Stock Added)"]
+        TR_Recv --> TR_Recon{"Reconciliation Match?"}
+        TR_Recon -- Match --> TR_Close["Transfer Complete"]
+        TR_Recon -- Mismatch --> TR_Dispute["Log Transfer Dispute"]
+    end
+
+    %% Connections across subgraphs
+    Inv_Cleared -.-> Sched_Audit
+    Reorder_Q -.-> PO_Create
+    Var_Rep -.-> AP_Update

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { BrandLogo } from "@/components/BrandLogo";
+import { BookSessionDialog } from "./BookSessionDialog";
 import {
   Lightbulb,
   Target,
@@ -9,6 +10,8 @@ import {
   Video,
   Users,
   Sparkles,
+  Calendar,
+  ArrowRight,
   type LucideIcon,
 } from "lucide-react";
 
@@ -222,8 +225,8 @@ const timelineData: TimelineItem[] = [
     icon: Users,
     gradient: "from-amber-500 to-orange-600",
     iconColor: "bg-amber-50 text-amber-600 border-amber-200/50",
-    cardActiveBg: "bg-gradient-to-br from-amber-50/95 via-white to-orange-50/60 dark:from-white dark:via-white dark:to-amber-50/80 border-amber-300 shadow-xl shadow-amber-500/10",
-    cardInactiveBg: "bg-white dark:bg-white border-border/80 hover:bg-amber-50/40",
+    cardActiveBg: "bg-white border-2 border-amber-500 shadow-xl shadow-amber-500/15",
+    cardInactiveBg: "bg-white border-2 border-amber-200/90 hover:border-amber-400",
     accentBorder: "bg-gradient-to-b from-amber-500 to-orange-600",
     tagBg: "bg-amber-50 text-amber-700 border-amber-200 shadow-xs",
     visual: (
@@ -261,7 +264,10 @@ const timelineData: TimelineItem[] = [
 /* ─── Main Section Component ────────────────────────────────────── */
 export const MethodTimeline: React.FC = () => {
   const [activeCard, setActiveCard] = useState(0);
+  const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isHandingOff = useRef(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -302,13 +308,36 @@ export const MethodTimeline: React.FC = () => {
     container.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
+    // ── Scroll handoff: when inner container is at bottom/top, pass scroll to page ──
+    const handleWheel = (e: WheelEvent) => {
+      const scrollTop = container.scrollTop;
+      const maxScroll = container.scrollHeight - container.clientHeight;
+      const atBottom = scrollTop >= maxScroll - 2;
+      const atTop = scrollTop <= 2;
+
+      const scrollingDown = e.deltaY > 0;
+      const scrollingUp = e.deltaY < 0;
+
+      if ((atBottom && scrollingDown) || (atTop && scrollingUp)) {
+        // Prevent inner container from consuming the event
+        e.preventDefault();
+        if (isHandingOff.current) return;
+        isHandingOff.current = true;
+        setTimeout(() => { isHandingOff.current = false; }, 800);
+        window.scrollBy({ top: e.deltaY * 3, behavior: "smooth" });
+      }
+    };
+
+    container.addEventListener("wheel", handleWheel, { passive: false });
+
     return () => {
       container.removeEventListener("scroll", handleScroll);
+      container.removeEventListener("wheel", handleWheel);
     };
   }, []);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-background via-blue-50/20 to-indigo-50/20 dark:from-background dark:via-blue-950/10 dark:to-background relative overflow-hidden" id="methodology">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-gradient-to-b from-background via-blue-50/20 to-indigo-50/20 dark:from-background dark:via-blue-950/10 dark:to-background relative overflow-hidden" id="methodology">
       <div className="max-w-[1340px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -350,7 +379,7 @@ export const MethodTimeline: React.FC = () => {
         {/* Sticky Scroll Container - DESKTOP ONLY */}
         <div
           ref={containerRef}
-          className="hidden lg:flex method-timeline-container relative justify-between gap-8 overflow-y-auto rounded-[32px] border border-border/80 bg-card/60 backdrop-blur-md shadow-elevated p-4"
+          className="hidden lg:flex method-timeline-container relative justify-between gap-8 overflow-y-auto rounded-[32px] border border-border/80 bg-[#E0EFF2] backdrop-blur-md shadow-elevated p-4"
           style={{ height: "42rem" }}
         >
           {/* Custom scrollbar styling */}
@@ -480,7 +509,7 @@ export const MethodTimeline: React.FC = () => {
         </div>
 
         {/* MOBILE VIEW (lg:hidden): Full-width stacked methodology cards */}
-        <div className="lg:hidden mt-8 space-y-6">
+        <div className="lg:hidden mt-8 space-y-6 bg-[#E0EFF2] rounded-[32px] p-4 sm:p-6 border border-border/80">
           {timelineData.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -536,7 +565,26 @@ export const MethodTimeline: React.FC = () => {
             );
           })}
         </div>
+
+        {/* CTA Button */}
+        <div className="mt-12 text-center flex justify-center z-10 relative">
+          <button
+            onClick={() => setIsBookSessionOpen(true)}
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-extrabold text-base md:text-lg shadow-lg shadow-blue-500/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 cursor-pointer"
+          >
+            <Calendar className="w-5 h-5 text-white" />
+            <span>Book a Session</span>
+            <ArrowRight className="w-5 h-5 text-white/90" />
+          </button>
+        </div>
       </div>
+
+      <BookSessionDialog
+        open={isBookSessionOpen}
+        onOpenChange={setIsBookSessionOpen}
+        title="Book a Session"
+        description="Select your target exam and fill in your details to book a consultation with Aman."
+      />
     </section>
   );
 };

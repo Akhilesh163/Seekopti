@@ -1,0 +1,105 @@
+sequenceDiagram
+    autonumber
+    actor HR as HR/Admin
+    participant FE as Frontend
+    participant API as API Gateway
+    participant PS as Payroll Service
+    participant AS as Attendance Service
+    participant LS as Leave Service
+    participant ES as Employee Service
+    participant TS as Tax Service
+    participant NS as Notification Service
+    participant DB as PostgreSQL
+    participant Cache as Redis Cache
+
+    %% 1. Payroll Configuration (One-time Setup)
+    rect rgb(240, 248, 255)
+        note right of HR: 1. Payroll Configuration (One-Time Setup)
+        HR->>FE: Define components, deductions, structures, cycle
+        FE->>API: POST /payroll/config (tenant_id)
+        API->>PS: setupPayrollConfiguration()
+        PS->>DB: UPSERT salary_components, deductions, structures
+        DB-->>PS: Configuration Saved
+        PS->>Cache: Invalidate payroll_config cache
+        PS-->>API: 200 OK
+        API-->>FE: Config Updated
+    end
+
+    %% 2. Payroll Processing (Monthly Cycle)
+    rect rgb(245, 245, 245)
+        note right of HR: 2. Payroll Processing (Monthly Cycle)
+        HR->>FE: Initiate Payroll Run (Month, Branch)
+        FE->>API: POST /payroll/run {month, branch_id}
+        API->>PS: initiatePayrollRun(month, branch_id)
+        
+        PS->>ES: fetchActiveEmployees(branch_id)
+        ES->>DB: SELECT * FROM employees WHERE status='ACTIVE'
+        DB-->>ES: employee_list
+        ES-->>PS: return employee_list
+        
+        loop For Each Employee
+            PS->>AS: getAttendanceSummary(emp_id, month)
+            AS->>DB: Aggregate present, absent, half-days, overtime
+            DB-->>AS: attendance_data
+            AS-->>PS: attendance_summary
+            
+            PS->>LS: getApprovedLeaves(emp_id, month)
+            LS->>DB: SELECT * FROM leaves WHERE status='APPROVED'
+            DB-->>LS: leave_data
+            LS-->>PS: approved_leaves
+            
+            PS->>PS: Calculate Gross Salary (Base structure)
+            PS->>PS: Apply LOP (Loss of Pay) for unapproved absences
+            PS->>PS: Calculate Overtime Pay
+            
+            PS->>TS: calculateTaxes(gross, regime, emp_id)
+            TS->>DB: Fetch Tax slabs, PF, ESI, PT rules
+            DB-->>TS: tax_rules
+            TS->>TS: Compute TDS, PF, ESI, PT
+            TS-->>PS: tax_deductions
+            
+            PS->>PS: Apply loan EMI, advances, reimbursements
+            PS->>PS: Calculate Net Salary (Gross - Deductions + Additions)
+            PS->>DB: INSERT INTO payroll_records (DRAFT status)
+        end
+        PS-->>API: Payroll Summary Generated
+        API-->>FE: Show Draft Payroll for Review
+    end
+
+    %% 3. Review & Approval
+    rect rgb(255, 250, 240)
+        note right of HR: 3. Review, Adjust, and Approve
+        HR->>FE: Review adjustments, approve payroll
+        FE->>API: PUT /payroll/run/{id}/approve
+        API->>PS: approvePayroll(run_id)
+        PS->>DB: UPDATE payroll_records SET status='APPROVED'
+        
+        %% Payslip Generation & Payment
+        par Async Processing (BullMQ)
+            PS->>PS: generatePDFPayslips(Puppeteer)
+            PS->>DB: Save S3 URLs to payroll_records
+            
+            PS->>NS: sendPayslipNotifications()
+            NS->>DB: Fetch employee email & push tokens
+            NS->>NS: Route (SMTP, FCM)
+            NS-->>PS: Notifications Queued
+            
+            PS->>API: triggerPaymentGateway(Bank Transfer/NEFT)
+            API->>PS: Payment processing initiated
+        end
+        PS->>DB: UPDATE payroll_records SET status='COMPLETED'
+        PS-->>API: 200 OK (Payroll Finalized)
+        API-->>FE: Payroll Completed Successfully
+    end
+
+    %% 4. Error Handling
+    rect rgb(255, 235, 235)
+        note right of HR: Error Handling Example
+        HR->>FE: Initiate Run
+        FE->>API: POST /payroll/run
+        API->>PS: initiatePayrollRun()
+        PS->>AS: getAttendanceSummary()
+        AS-->>PS: Error (Missing Attendance Data for X days)
+        PS-->>API: 400 Bad Request (Attendance Incomplete)
+        API-->>FE: Show Error: "Resolve attendance for Emp #102 before processing"
+    end
