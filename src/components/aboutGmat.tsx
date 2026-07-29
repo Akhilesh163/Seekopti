@@ -3,7 +3,6 @@ import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
 import { ArrowRight, BookOpen, Zap, Activity, ShieldCheck, Calculator, BarChart3, Sparkles, PlayCircle, Video, UserCheck, CheckCircle2, Clock3, PenTool, Trophy, GraduationCap, Layers, RotateCcw, Globe2 } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { Footer } from "@/components/Footer";
 import { ProgramHero } from "@/components/ProgramHero";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
@@ -22,7 +21,6 @@ const AboutGmat: React.FC = () => {
   const [activeMode, setActiveMode] = useState("classroom");
   const [activeGmatFocus, setActiveGmatFocus] = useState("learn");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
   const [openSyllabusSection, setOpenSyllabusSection] = useState<string | null>(null);
 
   const gmatPrepModes = [
@@ -37,6 +35,16 @@ const AboutGmat: React.FC = () => {
         "Hybrid mode for flexible classroom and online attendance",
       ],
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
+      icon: Video,
+      theme: {
+        card: "border-blue-200 bg-gradient-to-br from-blue-50 via-cyan-50 to-white",
+        active: "border-blue-400 bg-gradient-to-br from-blue-100 via-cyan-50 to-white shadow-[0_20px_45px_-18px_rgba(37,99,235,0.35)]",
+        icon: "bg-gradient-to-br from-blue-600 to-cyan-500 text-white",
+        badge: "bg-blue-600/10 text-blue-700",
+        button: "from-blue-600 via-cyan-600 to-sky-600",
+        detail: "from-blue-50 to-cyan-50",
+        bullet: "bg-blue-600",
+      },
     },
     {
       id: "online",
@@ -49,6 +57,16 @@ const AboutGmat: React.FC = () => {
         "Access to lesson recordings and study dashboards",
       ],
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
+      icon: PlayCircle,
+      theme: {
+        card: "border-indigo-200 bg-gradient-to-br from-indigo-50 via-violet-50 to-white",
+        active: "border-indigo-400 bg-gradient-to-br from-indigo-100 via-violet-50 to-white shadow-[0_20px_45px_-18px_rgba(79,70,229,0.35)]",
+        icon: "bg-gradient-to-br from-indigo-600 to-violet-500 text-white",
+        badge: "bg-indigo-600/10 text-indigo-700",
+        button: "from-indigo-600 via-violet-600 to-purple-600",
+        detail: "from-indigo-50 to-violet-50",
+        bullet: "bg-indigo-600",
+      },
     },
     {
       id: "self-paced",
@@ -61,6 +79,16 @@ const AboutGmat: React.FC = () => {
         "Self-study support and progress tracking",
       ],
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
+      icon: BookOpen,
+      theme: {
+        card: "border-purple-200 bg-gradient-to-br from-purple-50 via-fuchsia-50 to-white",
+        active: "border-purple-400 bg-gradient-to-br from-purple-100 via-fuchsia-50 to-white shadow-[0_20px_45px_-18px_rgba(168,85,247,0.35)]",
+        icon: "bg-gradient-to-br from-purple-600 to-fuchsia-500 text-white",
+        badge: "bg-purple-600/10 text-purple-700",
+        button: "from-purple-600 via-fuchsia-600 to-violet-600",
+        detail: "from-purple-50 to-fuchsia-50",
+        bullet: "bg-purple-600",
+      },
     },
     {
       id: "private",
@@ -73,6 +101,16 @@ const AboutGmat: React.FC = () => {
         "Focused doubt clearing for verbal, quant, and IR",
       ],
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
+      icon: UserCheck,
+      theme: {
+        card: "border-emerald-200 bg-gradient-to-br from-emerald-50 via-teal-50 to-white",
+        active: "border-emerald-400 bg-gradient-to-br from-emerald-100 via-teal-50 to-white shadow-[0_20px_45px_-18px_rgba(16,185,129,0.35)]",
+        icon: "bg-gradient-to-br from-emerald-600 to-teal-500 text-white",
+        badge: "bg-emerald-600/10 text-emerald-700",
+        button: "from-emerald-600 via-teal-600 to-cyan-600",
+        detail: "from-emerald-50 to-teal-50",
+        bullet: "bg-emerald-600",
+      },
     },
   ];
 
@@ -186,6 +224,31 @@ const AboutGmat: React.FC = () => {
       text: "Handling a 5 year old homeschooler with ease. Dhruv is an amazing teacher. I sincerely appreciate his patience with my daughter and the fun learning vibe.",
       footer: "Sreethy, 3 months ago",
     },
+    {
+      name: "Sneha",
+      title: "GMAT coach",
+      image: ManyaPhoto,
+      rating: 5,
+      text: "Sneha is incredibly clear and motivating. Her structured approach helped me finally improve my timing and accuracy on both Quant and Verbal.",
+      footer: "Aarav, 1 month ago",
+    },
+    {
+      name: "Rohan",
+      title: "GMAT mentor",
+      image: PraffulPhoto,
+      rating: 5,
+      text: "Rohan tailored each session to my weak areas and kept me accountable. The personalized feedback made a real difference in my confidence.",
+      footer: "Nisha, 3 weeks ago",
+    },
+  ];
+
+  const reviewCardGradients = [
+    "from-cyan-100 via-sky-100 to-blue-100",
+    "from-fuchsia-100 via-pink-100 to-violet-100",
+    "from-emerald-100 via-lime-100 to-teal-100",
+    "from-amber-100 via-orange-100 to-rose-100",
+    "from-slate-100 via-sky-100 to-indigo-100",
+    "from-rose-100 via-orange-100 to-amber-100",
   ];
 
   const gmatFaqs = [
@@ -214,18 +277,6 @@ const AboutGmat: React.FC = () => {
       answer: "No, the Analytical Writing Assessment (AWA) has been completely removed in the GMAT Focus Edition, making the exam shorter and more focused."
     }
   ];
-
-  useEffect(() => {
-    if (!carouselApi) {
-      return;
-    }
-
-    const interval = window.setInterval(() => {
-      carouselApi.scrollNext();
-    }, 5000);
-
-    return () => window.clearInterval(interval);
-  }, [carouselApi]);
 
   return (
     <div className="bg-background text-foreground">
@@ -494,20 +545,34 @@ const AboutGmat: React.FC = () => {
                 </div>
               </div>
 
-              <div className="rounded-[32px] border border-border bg-card p-8 md:p-10 shadow-soft">
-                <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950">Why GMAT matters</h3>
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  {[
-                    "Global business schools use it to compare applicants.",
-                    "Strong GMAT scores improve scholarship chances.",
-                    "It shows you can think critically under pressure.",
-                    "A strong score boosts confidence in your application.",
-                  ].map((item) => (
-                    <div key={item} className="flex gap-3.5 rounded-3xl bg-background p-6 border border-border/60">
-                      <span className="mt-1.5 h-3 w-3 rounded-full bg-primary shrink-0" />
-                      <p className="text-base md:text-lg font-bold text-slate-950 leading-relaxed">{item}</p>
-                    </div>
-                  ))}
+              <div className="relative overflow-hidden rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-50 via-white to-indigo-50 p-8 md:p-10 shadow-soft">
+                <div className="absolute -top-16 right-0 h-36 w-36 rounded-full bg-gradient-to-br from-blue-400/25 to-violet-400/25 blur-3xl" />
+                <div className="relative">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-blue-700 shadow-sm">
+                    <Sparkles className="h-3.5 w-3.5" />
+                    Why GMAT matters
+                  </div>
+                  <h3 className="mt-4 text-2xl md:text-3xl font-extrabold text-slate-950">Why GMAT matters</h3>
+                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                    {[
+                      "Global business schools use it to compare applicants.",
+                      "Strong GMAT scores improve scholarship chances.",
+                      "It shows you can think critically under pressure.",
+                      "A strong score boosts confidence in your application.",
+                    ].map((item, index) => (
+                      <div
+                        key={item}
+                        className={`flex gap-3.5 rounded-3xl border border-blue-100/80 p-6 shadow-sm ${
+                          index % 2 === 0
+                            ? "bg-gradient-to-br from-blue-50/90 to-white"
+                            : "bg-gradient-to-br from-indigo-50/90 to-white"
+                        }`}
+                      >
+                        <span className="mt-1.5 h-3 w-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 shrink-0" />
+                        <p className="text-base md:text-lg font-bold text-slate-950 leading-relaxed">{item}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -887,73 +952,76 @@ const AboutGmat: React.FC = () => {
 
       <section className="mt-16 px-6">
         <div className="mx-auto max-w-[1200px]">
-          <div className="rounded-[36px] border border-border bg-card p-5 sm:p-8 md:p-10 shadow-soft">
+          <div className="rounded-[36px] border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-blue-50 p-5 sm:p-8 md:p-10 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.18)]">
             <div className="text-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">GMAT Prep Modes</p>
-              <h2 className="mt-4 text-3xl font-semibold text-foreground">Pick the GMAT preparation mode that works best for you</h2>
-              <p className="mt-4 mx-auto max-w-2xl text-sm leading-7 text-muted-foreground">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700 shadow-sm">
+                <Sparkles className="h-3.5 w-3.5" />
+                GMAT Prep Modes
+              </div>
+              <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-slate-950">Pick the GMAT preparation mode that works best for you</h2>
+              <p className="mt-4 mx-auto max-w-2xl text-sm md:text-base leading-7 text-slate-600">
                 Choose from classroom, online, self-paced or private tutoring. Each plan is designed to fit your study habits and timeline.
               </p>
             </div>
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-              {gmatPrepModes.map((mode) => (
-                <button
-                  key={mode.id}
-                  onClick={() => setActiveMode(mode.id)}
-                  className={`group flex h-full flex-col overflow-hidden rounded-[28px] border p-5 sm:p-6 text-left transition duration-300 ${
-                    activeMode === mode.id
-                      ? "border-primary bg-primary/10 shadow-soft"
-                      : "border-border bg-card hover:border-primary/70 hover:bg-background hover:shadow-sm"
-                  }`}
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.14em] sm:tracking-[0.24em] text-muted-foreground truncate">{mode.label}</p>
-                    <div className={`flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl ${
-                      activeMode === mode.id ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
-                    }`}>
-                      <span className="text-sm font-bold">{mode.title.split(" ")[1]?.charAt(0) ?? mode.title.charAt(0)}</span>
+              {gmatPrepModes.map((mode) => {
+                const Icon = mode.icon;
+                const isActive = activeMode === mode.id;
+                return (
+                  <button
+                    key={mode.id}
+                    onClick={() => setActiveMode(mode.id)}
+                    className={`group flex h-full flex-col overflow-hidden rounded-[28px] border p-5 sm:p-6 text-left transition duration-300 ${
+                      isActive ? mode.theme.active : `${mode.theme.card} hover:shadow-sm`
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.14em] sm:tracking-[0.24em] text-slate-500 truncate">{mode.label}</p>
+                      <div className={`flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl ${isActive ? mode.theme.icon : "bg-slate-100 text-slate-600"}`}>
+                        <Icon className="h-5 w-5" />
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="mt-6 text-lg font-semibold text-foreground">{mode.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-muted-foreground">{mode.description}</p>
-                  <div className="mt-auto pt-6">
-                    <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-primary transition group-hover:bg-primary/20">
-                      Learn More
-                    </span>
-                  </div>
-                </button>
-              ))}
+                    <h3 className="mt-6 text-lg font-semibold text-slate-950">{mode.title}</h3>
+                    <p className="mt-4 text-sm leading-6 text-slate-600">{mode.description}</p>
+                    <div className="mt-auto pt-6">
+                      <span className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] transition ${isActive ? mode.theme.badge : "bg-slate-100 text-slate-700 group-hover:bg-white group-hover:text-slate-900"}`}>
+                        Learn More
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
 
-            <div className="mt-8 rounded-[32px] border border-border bg-background p-6 shadow-soft">
+            <div className={`mt-8 rounded-[32px] border border-slate-200 bg-gradient-to-br ${gmatPrepModes.find((mode) => mode.id === activeMode)?.theme.detail ?? "from-slate-50 to-white"} p-6 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.2)]`}>
               {gmatPrepModes.filter((mode) => mode.id === activeMode).map((mode) => (
                 <div key={mode.id} className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-center">
                   <div>
                     <div className="mb-4 flex flex-wrap items-center gap-3">
-                      <span className="text-xl font-semibold text-foreground">{mode.title}</span>
-                      <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">{mode.label}</span>
+                      <span className="text-xl font-semibold text-slate-950">{mode.title}</span>
+                      <span className={`rounded-full px-3 py-1 text-sm font-semibold text-white bg-gradient-to-r ${mode.theme.button}`}>{mode.label}</span>
                     </div>
-                    <p className="text-muted-foreground">{mode.description}</p>
-                    <ul className="mt-6 space-y-3 text-muted-foreground">
+                    <p className="text-slate-600">{mode.description}</p>
+                    <ul className="mt-6 space-y-3 text-slate-600">
                       {mode.bullets.map((bullet) => (
                         <li key={bullet} className="flex items-start gap-3 text-sm leading-6">
-                          <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-primary" />
+                          <span className={`mt-1.5 inline-block h-2.5 w-2.5 rounded-full bg-gradient-to-r ${mode.theme.button}`} />
                           <span>{bullet}</span>
                         </li>
                       ))}
                     </ul>
                     <div className="mt-7 flex flex-wrap gap-3">
-                      <button className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-6 py-3 text-sm font-semibold text-primary-foreground shadow hover:opacity-95 transition">
+                      <button className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${mode.theme.button} px-6 py-3 text-sm font-semibold text-white shadow-lg hover:opacity-95 transition`}>
                         Book a Demo
                       </button>
-                      <a href="#" className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-background">
+                      <a href="#" className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">
                         Know More
                       </a>
                     </div>
                   </div>
-                  <div className="flex items-center justify-center rounded-[2rem] bg-card p-4">
-                    <img src={mode.image} alt={mode.title} className="h-auto w-full max-w-[320px] rounded-[2rem] object-cover" />
+                  <div className={`flex items-center justify-center rounded-[2rem] border border-slate-200 bg-gradient-to-br ${mode.theme.detail} p-4`}>
+                    <img src={mode.image} alt={mode.title} className="h-auto w-full max-w-[320px] rounded-[2rem] object-cover shadow-md" />
                   </div>
                 </div>
               ))}
@@ -962,49 +1030,64 @@ const AboutGmat: React.FC = () => {
         </div>
       </section>
       
-      <section className="px-6 pb-20">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="rounded-[32px] border border-border bg-card p-8 shadow-soft">
-            <div className="text-center mb-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-primary">GMAT Tutor Reviews</p>
-              <h2 className="mt-4 text-3xl font-semibold text-foreground">What our students say</h2>
-              <p className="mt-3 mx-auto max-w-2xl text-sm leading-7 text-muted-foreground">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-background via-blue-50/20 to-background border-t border-b border-border/40 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.08),_transparent_35%)] pointer-events-none" />
+        <div className="mx-auto max-w-[1180px] relative px-4">
+          <div className="rounded-[36px] border border-slate-200/80 bg-white/80 p-6 sm:p-8 md:p-10 shadow-[0_20px_70px_-28px_rgba(2,8,23,0.22)] backdrop-blur-sm">
+            <div className="text-center mb-8 md:mb-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">GMAT Tutor Reviews</p>
+              <h2 className="mt-4 text-4xl md:text-5xl font-semibold text-foreground">What our students say</h2>
+              <p className="mt-3 mx-auto max-w-2xl text-base md:text-lg leading-8 text-muted-foreground">
                 Read the experiences of students who improved their GMAT score with Seekyoury coaching.
               </p>
             </div>
-            <Carousel
-              opts={{
-                containScroll: "trimSnaps",
-                slidesToScroll: 1,
-                loop: true,
-                align: "start",
-              }}
-              setApi={setCarouselApi}
-              className="relative"
-            >
-              <CarouselContent className="flex gap-4">
-                {studentReviews.map((review) => (
-                  <CarouselItem key={`${review.name}-${review.footer}`} className="min-w-full sm:basis-[calc(50%-1rem)] lg:basis-[calc(33.333%-1rem)]">
-                    <div className="rounded-[32px] border border-border bg-background p-6 shadow-soft min-h-full">
-                      <div className="flex items-center gap-4">
-                        <img src={review.image} alt={review.name} className="h-16 w-16 rounded-full object-cover" />
-                        <div>
-                          <p className="text-lg font-semibold text-foreground">{review.name}</p>
-                          <p className="text-sm text-muted-foreground">{review.title}</p>
-                          <div className="mt-2 flex items-center gap-1 text-[hsl(var(--exam-gold))]">
-                            {Array.from({ length: review.rating }).map((_, index) => (
-                              <span key={index}>★</span>
-                            ))}
+
+            <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white/80 shadow-[0_24px_70px_-32px_rgba(15,23,42,0.24)]">
+              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-sky-100/70 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-100/80 to-transparent pointer-events-none" />
+
+              <div className="flex items-center justify-center pt-6">
+                <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-violet-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white shadow-lg shadow-blue-500/20">
+                  GMAT Tutor Reviews
+                </span>
+              </div>
+
+              <style>{`
+                @keyframes gmatReviewMarquee {
+                  0% { transform: translate3d(0, 0, 0); }
+                  100% { transform: translate3d(-50%, 0, 0); }
+                }
+              `}</style>
+
+              <div className="relative overflow-hidden px-4 pb-8 pt-6">
+                <div className="hidden md:block absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+                <div className="hidden md:block absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+
+                <div className="flex gap-5 md:gap-6 w-max min-w-full will-change-transform" style={{ animationName: "gmatReviewMarquee", animationDuration: "70s", animationTimingFunction: "linear", animationIterationCount: "infinite", animationPlayState: "running" }}>
+                  {[...studentReviews, ...studentReviews].map((review, index) => {
+                    const accent = reviewCardGradients[index % reviewCardGradients.length];
+                    return (
+                      <div key={`${review.name}-${review.footer}-${index}`} className={`w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-white/90 bg-gradient-to-br ${accent} p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1`}>
+                        <div className="flex items-center gap-4">
+                          <img src={review.image} alt={review.name} className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                          <div>
+                            <p className="text-xl md:text-2xl font-semibold text-slate-950">{review.name}</p>
+                            <p className="text-base md:text-lg text-slate-700">{review.title}</p>
+                            <div className="mt-2 flex items-center gap-1 text-amber-500 text-lg">
+                              {Array.from({ length: review.rating }).map((_, starIndex) => (
+                                <span key={starIndex}>★</span>
+                              ))}
+                            </div>
                           </div>
                         </div>
+                        <p className="mt-5 text-base md:text-lg leading-8 text-slate-700">{review.text}</p>
+                        <p className="mt-5 text-base md:text-base font-semibold text-slate-900">{review.footer}</p>
                       </div>
-                      <p className="mt-5 text-sm leading-7 text-muted-foreground">{review.text}</p>
-                      <p className="mt-6 text-sm font-semibold text-foreground">{review.footer}</p>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

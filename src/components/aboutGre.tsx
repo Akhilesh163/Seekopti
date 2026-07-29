@@ -77,6 +77,15 @@ const AboutGre = () => {
     },
   ];
 
+  const reviewCardGradients = [
+    "from-cyan-100 via-sky-100 to-blue-100",
+    "from-fuchsia-100 via-pink-100 to-violet-100",
+    "from-emerald-100 via-lime-100 to-teal-100",
+    "from-amber-100 via-orange-100 to-rose-100",
+    "from-slate-100 via-sky-100 to-indigo-100",
+    "from-rose-100 via-orange-100 to-amber-100",
+  ];
+
   useEffect(() => {
     if (isReviewPaused || studentReviews.length <= 1) return;
 
@@ -1100,6 +1109,70 @@ const AboutGre = () => {
 
           </div>
         </section>
+
+
+            <section className="py-20 md:py-28 bg-gradient-to-b from-background via-blue-50/20 to-background border-t border-b border-border/40 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.08),_transparent_35%)] pointer-events-none" />
+        <div className="mx-auto max-w-[1180px] relative px-4">
+          <div className="rounded-[36px] border border-slate-200/80 bg-white/80 p-6 sm:p-8 md:p-10 shadow-[0_20px_70px_-28px_rgba(2,8,23,0.22)] backdrop-blur-sm">
+            <div className="text-center mb-8 md:mb-10">
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">GMAT Tutor Reviews</p>
+              <h2 className="mt-4 text-4xl md:text-5xl font-semibold text-foreground">What our students say</h2>
+              <p className="mt-3 mx-auto max-w-2xl text-base md:text-lg leading-8 text-muted-foreground">
+                Read the experiences of students who improved their GMAT score with Seekyoury coaching.
+              </p>
+            </div>
+
+            <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white/80 shadow-[0_24px_70px_-32px_rgba(15,23,42,0.24)]">
+              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-sky-100/70 to-transparent pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-100/80 to-transparent pointer-events-none" />
+
+              <div className="flex items-center justify-center pt-6">
+                <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-violet-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white shadow-lg shadow-blue-500/20">
+                  GRE Tutor Reviews
+                </span>
+              </div>
+
+              <style>{`
+                @keyframes gmatReviewMarquee {
+                  0% { transform: translate3d(0, 0, 0); }
+                  100% { transform: translate3d(-50%, 0, 0); }
+                }
+              `}</style>
+
+              <div className="relative overflow-hidden px-4 pb-8 pt-6">
+                <div className="hidden md:block absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+                <div className="hidden md:block absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+
+                <div className="flex gap-5 md:gap-6 w-max min-w-full will-change-transform" style={{ animationName: "gmatReviewMarquee", animationDuration: "70s", animationTimingFunction: "linear", animationIterationCount: "infinite", animationPlayState: "running" }}>
+                  {[...studentReviews, ...studentReviews].map((review, index) => {
+                    const accent = reviewCardGradients[index % reviewCardGradients.length];
+                    return (
+                      <div key={`${review.name}-${review.footer}-${index}`} className={`w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-white/90 bg-gradient-to-br ${accent} p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1`}>
+                        <div className="flex items-center gap-4">
+                          <img src={review.image} alt={review.name} className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                          <div>
+                            <p className="text-xl md:text-2xl font-semibold text-slate-950">{review.name}</p>
+                            <p className="text-base md:text-lg text-slate-700">{review.title}</p>
+                            <div className="mt-2 flex items-center gap-1 text-amber-500 text-lg">
+                              {Array.from({ length: review.rating }).map((_, starIndex) => (
+                                <span key={starIndex}>★</span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                        <p className="mt-5 text-base md:text-lg leading-8 text-slate-700">{review.text}</p>
+                        <p className="mt-5 text-base md:text-base font-semibold text-slate-900">{review.footer}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
         <CallToAction />
         <CustomFAQ faqs={greFaqs} />

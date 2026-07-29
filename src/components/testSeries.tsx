@@ -86,11 +86,10 @@ const TestSeriesComponent: React.FC = () => {
   return (
     <div className="bg-background text-foreground">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/70 via-slate-50 to-white pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-slate-200/60">
-        {/* Soft decorative glow */}
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none" />
-        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none opacity-50">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/80 via-white to-indigo-50/70 pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-slate-200/60">
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-blue-500/10 blur-[140px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[320px] h-[320px] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none opacity-60">
           <div
             className="h-full w-full"
             style={{
@@ -102,12 +101,17 @@ const TestSeriesComponent: React.FC = () => {
         </div>
         
         <div className="max-w-[1200px] mx-auto px-6 text-left relative z-10">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2.5 rounded-full border-2 border-blue-400/50 bg-blue-500/10 px-6 py-3 text-sm md:text-base font-black uppercase tracking-[0.18em] text-blue-700 shadow-sm mb-6">
+              <span className="h-2.5 w-2.5 rounded-full bg-blue-600" />
+              Test Series
+            </div>
+
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display leading-[1.1] tracking-tight mb-6 text-slate-900"
+              className="text-5xl sm:text-6xl md:text-7xl font-black font-display leading-[1.05] tracking-tight mb-6 text-slate-950"
             >
               GRE & GMAT Test Series
             </motion.h1>
@@ -116,7 +120,7 @@ const TestSeriesComponent: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed mb-8"
+              className="text-xl sm:text-2xl text-slate-700 font-medium leading-relaxed mb-8 max-w-3xl"
             >
               30 realistic tests per exam — 10 full-length adaptive mocks plus 20 sectionals — with the analytics to turn every attempt into a score improvement.
             </motion.p>
@@ -128,7 +132,7 @@ const TestSeriesComponent: React.FC = () => {
             >
               <button 
                 onClick={() => setIsBookSessionOpen(true)}
-                className="inline-flex items-center justify-center rounded-[14px] bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-8 py-4 font-bold text-white shadow-lg shadow-indigo-500/20 transition hover:opacity-95 duration-200"
+                className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-lg font-extrabold text-white shadow-xl shadow-indigo-500/25 transition hover:opacity-95 hover:scale-[1.02] duration-200"
               >
                 Book a Free Demo
               </button>
@@ -138,41 +142,44 @@ const TestSeriesComponent: React.FC = () => {
       </section>
 
       {/* 2. GRE TEST SERIES SECTION */}
-      <section className="py-20 px-6 bg-slate-50/50">
-        <div className="max-w-[1200px] mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary/40" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">GRE</span>
-            <div className="h-px w-12 bg-primary/40" />
+      <section className="py-20 px-6 bg-slate-50/60">
+        <div className="max-w-[1280px] mx-auto text-center">
+          <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+            <div className="relative z-10 max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                <span className="h-2.5 w-2.5 rounded-full bg-white" />
+                GRE
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
+                GRE Test Series — <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">₹4,999</span>
+              </h2>
+              <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
+                Section-adaptive mocks calibrated to the shorter GRE, with percentile benchmarking against thousands of test-takers.
+              </p>
+            </div>
           </div>
-          
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">
-            GRE Test Series — ₹4,999
-          </h2>
-          
-          <p className="text-base md:text-lg text-muted-foreground font-normal leading-relaxed max-w-3xl mx-auto mb-14">
-            Section-adaptive mocks calibrated to the shorter GRE, with percentile benchmarking against thousands of test-takers.
-          </p>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12">
             {greCards.map((card, idx) => {
               const Icon = card.icon;
               return (
                 <motion.div
                   key={idx}
-                  whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(59, 130, 246, 0.1)" }}
-                  className="bg-card rounded-[24px] border border-border/50 p-6 flex flex-col gap-4 relative overflow-hidden transition-all duration-300 shadow-soft"
+                  whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(59, 130, 246, 0.2)" }}
+                  className="rounded-[28px] border-2 border-purple-200/80 bg-gradient-to-br from-purple-50/80 via-pink-50/50 to-indigo-50/70 p-8 shadow-md hover:shadow-xl hover:border-purple-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
                 >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-tr ${card.gradient}`}>
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 opacity-15 blur-2xl pointer-events-none" />
+                  <div>
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-tr ${card.gradient} shadow-lg mb-6`}>
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-purple-900 bg-purple-100/70 px-3 py-1 rounded-full border border-purple-200/80">GRE</span>
+                    <h3 className="text-2xl font-extrabold text-purple-950 mt-4 mb-2">{card.title}</h3>
+                    <p className="text-purple-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                      {card.description}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold font-display text-foreground">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {card.description}
-                  </p>
                 </motion.div>
               );
             })}
@@ -180,48 +187,53 @@ const TestSeriesComponent: React.FC = () => {
 
           <button 
             onClick={() => setIsBookSessionOpen(true)}
-            className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700 hover:shadow-xl duration-200"
+            className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-10 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
           >
-            Get GRE Test Series — ₹4,999
+            <span>Get GRE Test Series</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-5 h-5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
           </button>
         </div>
       </section>
 
       {/* 3. GMAT TEST SERIES SECTION */}
-      <section className="py-20 px-6 bg-white border-t border-slate-100">
-        <div className="max-w-[1200px] mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary/40" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">GMAT</span>
-            <div className="h-px w-12 bg-primary/40" />
+      <section className="py-20 px-6 bg-white border-t border-slate-200/70">
+        <div className="max-w-[1280px] mx-auto text-center">
+          <div className="rounded-[32px] border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-50/90 via-violet-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+            <div className="relative z-10 max-w-4xl mx-auto">
+              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-indigo-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                <span className="h-2.5 w-2.5 rounded-full bg-white" />
+                GMAT
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
+                GMAT Focus Test Series — <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">₹5,999</span>
+              </h2>
+              <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
+                Question-adaptive Focus Edition mocks with sectional and sub-sectional gap analysis across Quant, Verbal and DI.
+              </p>
+            </div>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">
-            GMAT Focus Test Series — ₹5,999
-          </h2>
-          
-          <p className="text-base md:text-lg text-muted-foreground font-normal leading-relaxed max-w-3xl mx-auto mb-14">
-            Question-adaptive Focus Edition mocks with sectional and sub-sectional gap analysis across Quant, Verbal and DI.
-          </p>
 
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left mb-12">
             {gmatCards.map((card, idx) => {
               const Icon = card.icon;
               return (
                 <motion.div
                   key={idx}
-                  whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(59, 130, 246, 0.1)" }}
-                  className="bg-card rounded-[24px] border border-border/50 p-6 flex flex-col gap-4 relative overflow-hidden transition-all duration-300 shadow-soft"
+                  whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(79, 70, 229, 0.2)" }}
+                  className="rounded-[28px] border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-50/80 via-violet-50/50 to-purple-50/70 p-8 shadow-md hover:shadow-xl hover:border-indigo-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
                 >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-tr ${card.gradient}`}>
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-indigo-400 to-violet-400 opacity-15 blur-2xl pointer-events-none" />
+                  <div>
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-tr ${card.gradient} shadow-lg mb-6`}>
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-900 bg-indigo-100/70 px-3 py-1 rounded-full border border-indigo-200/80">GMAT</span>
+                    <h3 className="text-2xl font-extrabold text-indigo-950 mt-4 mb-2">{card.title}</h3>
+                    <p className="text-indigo-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                      {card.description}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold font-display text-foreground">
-                    {card.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {card.description}
-                  </p>
                 </motion.div>
               );
             })}
@@ -229,39 +241,37 @@ const TestSeriesComponent: React.FC = () => {
 
           <button 
             onClick={() => setIsBookSessionOpen(true)}
-            className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700 hover:shadow-xl duration-200"
+            className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-10 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
           >
-            Get GMAT Test Series — ₹5,999
+            <span>Get GMAT Test Series</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-5 h-5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
           </button>
         </div>
       </section>
 
       {/* 4. VALUE CHECK SECTION */}
-      <section className="py-20 px-6 bg-slate-50/50 border-t border-slate-100">
+      <section className="py-20 px-6 bg-slate-50/70 border-t border-slate-200/70">
         <div className="max-w-[1200px] mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary/40" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">VALUE CHECK</span>
-            <div className="h-px w-12 bg-primary/40" />
+          <div className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-blue-400/50 bg-blue-500/10 px-6 py-3 text-sm md:text-base font-black uppercase tracking-[0.18em] text-blue-700 shadow-sm mb-5">
+            VALUE CHECK
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">
-            Why this is the <span className="text-primary">best-value</span> series anywhere
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-950 tracking-tight text-center">
+            Why this is the <span className="text-blue-600">best-value</span> series anywhere
           </h2>
 
-          {/* Table Container */}
-          <div className="mt-12 overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-soft text-left">
+          <div className="mt-12 overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_20px_60px_-20px_rgba(37,99,235,0.18)] text-left">
             <div className="overflow-x-auto">
               <table className="w-full border-collapse text-left text-sm md:text-base">
                 <thead>
                   <tr className="border-b border-slate-200">
                     <th className="px-6 py-4 bg-slate-50 w-1/4"></th>
-                    <th className="px-6 py-4 bg-[#0052CC] text-white font-bold text-center text-lg rounded-t-none">
+                    <th className="px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-black text-center text-lg rounded-t-none">
                       Seek Your Y
                     </th>
-                    <th className="px-6 py-4 bg-slate-950 text-white font-bold text-center text-lg rounded-t-none">
+                    <th className="px-6 py-4 bg-slate-950 text-white font-black text-center text-lg rounded-t-none">
                       Official Mocks
                     </th>
-                    <th className="px-6 py-4 bg-slate-600 text-white font-bold text-center text-lg rounded-t-none">
+                    <th className="px-6 py-4 bg-slate-600 text-white font-black text-center text-lg rounded-t-none">
                       Other Prep
                     </th>
                   </tr>
@@ -269,37 +279,37 @@ const TestSeriesComponent: React.FC = () => {
                 <tbody className="divide-y divide-slate-100">
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Total tests</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">30 tests</td>
+                    <td className="px-6 py-5 text-blue-700 font-extrabold text-center bg-blue-50/70">30 tests</td>
                     <td className="px-6 py-5 text-slate-700 text-center">3–4 mocks</td>
                     <td className="px-6 py-5 text-slate-700 text-center">15–25 tests</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Full-length mocks</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">10 adaptive mocks</td>
+                    <td className="px-6 py-5 text-blue-700 font-extrabold text-center bg-blue-50/70">10 adaptive mocks</td>
                     <td className="px-6 py-5 text-slate-700 text-center">3–4 mocks</td>
                     <td className="px-6 py-5 text-slate-700 text-center">5–10 mocks</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Sectional drills</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">20 sectionals</td>
+                    <td className="px-6 py-5 text-blue-700 font-extrabold text-center bg-blue-50/70">20 sectionals</td>
                     <td className="px-6 py-5 text-slate-700 text-center">None</td>
                     <td className="px-6 py-5 text-slate-700 text-center">10–15 sectionals</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Live mock debriefs</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">Faculty-led strategy review</td>
+                    <td className="px-6 py-5 text-blue-700 font-extrabold text-center bg-blue-50/70">Faculty-led strategy review</td>
                     <td className="px-6 py-5 text-slate-700 text-center">None</td>
                     <td className="px-6 py-5 text-slate-700 text-center">None / Recorded only</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Performance tracking</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-bold text-center bg-blue-50/10">Advanced gap analysis</td>
+                    <td className="px-6 py-5 text-blue-700 font-extrabold text-center bg-blue-50/70">Advanced gap analysis</td>
                     <td className="px-6 py-5 text-slate-700 text-center">Basic score report</td>
                     <td className="px-6 py-5 text-slate-700 text-center">Standard report</td>
                   </tr>
                   <tr>
                     <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Approx. price</td>
-                    <td className="px-6 py-5 text-[#0052CC] font-extrabold text-center bg-blue-50/10 text-lg">
+                    <td className="px-6 py-5 text-blue-700 font-black text-center bg-blue-50/70 text-lg">
                       ₹4,999 (GRE) / ₹5,999 (GMAT)
                     </td>
                     <td className="px-6 py-5 text-slate-700 text-center">
@@ -317,24 +327,22 @@ const TestSeriesComponent: React.FC = () => {
       </section>
 
       {/* 5. DIAGNOSTIC CTA */}
-      <section className="py-20 px-6 bg-white border-t border-slate-100">
+      <section className="py-20 px-6 bg-white border-t border-slate-200/70">
         <div className="max-w-[800px] mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-px w-12 bg-primary/40" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">FREE TRIAL</span>
-            <div className="h-px w-12 bg-primary/40" />
+          <div className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-blue-400/50 bg-blue-500/10 px-6 py-3 text-sm md:text-base font-black uppercase tracking-[0.18em] text-blue-700 shadow-sm mb-5">
+            FREE TRIAL
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight text-center">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-950 tracking-tight text-center">
             Take a free diagnostic mock
           </h2>
           
-          <p className="text-base md:text-lg text-muted-foreground font-normal leading-relaxed max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto mb-8">
             Not sure where you stand? Start with one free full-length mock — GRE or GMAT — and get a strategy call on your report.
           </p>
 
           <button 
             onClick={() => setIsBookSessionOpen(true)}
-            className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-700 hover:shadow-xl duration-200"
+            className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-lg font-extrabold text-white shadow-xl shadow-indigo-500/25 transition hover:opacity-95 hover:scale-[1.02] duration-200"
           >
             Take the Free Diagnostic
           </button>

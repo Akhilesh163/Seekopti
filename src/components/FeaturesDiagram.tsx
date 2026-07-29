@@ -86,19 +86,19 @@ export const FeaturesDiagram: React.FC = () => {
 
               {/* LEFT COLUMN CONNECTING LINES (Pointing Left towards Left Cards) */}
               {/* Left Top Line (45° angle upwards) */}
-              <line x1="405" y1="235" x2="315" y2="83" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-left)" />
+              <line x1="405" y1="235" x2="315" y2="83" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" markerEnd="url(#arrow-left)" />
               {/* Left Middle Line (0° / 90° straight horizontal) */}
-              <line x1="392" y1="250" x2="312" y2="250" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-left)" />
+              <line x1="392" y1="250" x2="312" y2="250" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" markerEnd="url(#arrow-left)" />
               {/* Left Bottom Line (45° angle downwards) */}
-              <line x1="405" y1="265" x2="315" y2="417" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-left)" />
+              <line x1="405" y1="265" x2="315" y2="417" stroke="url(#gradient-line-left)" strokeWidth="2.5" strokeDasharray="6 4" markerEnd="url(#arrow-left)" />
 
               {/* RIGHT COLUMN CONNECTING LINES (Pointing Right towards Right Cards) */}
               {/* Right Top Line (45° angle upwards) */}
-              <line x1="595" y1="235" x2="685" y2="83" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-right)" />
+              <line x1="595" y1="235" x2="685" y2="83" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" markerEnd="url(#arrow-right)" />
               {/* Right Middle Line (0° / 90° straight horizontal) */}
-              <line x1="608" y1="250" x2="688" y2="250" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-right)" />
+              <line x1="608" y1="250" x2="688" y2="250" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" markerEnd="url(#arrow-right)" />
               {/* Right Bottom Line (45° angle downwards) */}
-              <line x1="595" y1="265" x2="685" y2="417" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" marker-end="url(#arrow-right)" />
+              <line x1="595" y1="265" x2="685" y2="417" stroke="url(#gradient-line-right)" strokeWidth="2.5" strokeDasharray="6 4" markerEnd="url(#arrow-right)" />
             </svg>
           </div>
 

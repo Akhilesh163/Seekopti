@@ -180,7 +180,7 @@ export const SeekAdvantageCards: React.FC = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-14 text-center flex justify-center z-10 relative">
+        <div className="mt-16 pt-4 pb-8 text-center flex justify-center z-10 relative">
           <button
             onClick={() => setIsBookSessionOpen(true)}
             className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white font-extrabold text-base md:text-lg shadow-xl shadow-blue-500/20 hover:opacity-95 hover:scale-105 transition-all duration-200 cursor-pointer"

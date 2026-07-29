@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
-import { Activity, BookOpen, Gift, Zap, ChevronDown, CheckCircle2 } from "lucide-react";
+import { Activity, BookOpen, Gift, Zap, ChevronDown, CheckCircle2, Check } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { ProgramHero } from "@/components/ProgramHero";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
@@ -96,17 +96,17 @@ const GmatPrivateTut: React.FC = () => {
       <section className="py-16">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
-            <div className="prose max-w-none text-lg text-slate-950 font-bold">
-              <h2 className="text-3xl font-black text-slate-950 mb-4">GMAT Private Tutoring That Works</h2>
-              <p className="text-slate-950 font-bold leading-relaxed">Our private tutoring program gives you 1-on-1 coaching with GMAT experts, personalised lesson plans, and targeted support to improve your scores quickly.</p>
-              <ul className="mt-6 space-y-3 list-disc pl-5 text-slate-950 font-bold">
-                <li>Custom study plan built around your current score and goals.</li>
-                <li>Live sessions, feedback, and section-level strategy reviews.</li>
-                <li>Performance monitoring with mock tests and adaptive corrections.</li>
+            <div className="prose max-w-none text-lg text-slate-950">
+              <h2 className="text-5xl sm:text-6xl font-black text-primary mb-4">GMAT Private Tutoring That Works</h2>
+              <p className="text-lg md:text-xl text-slate-900 font-semibold leading-relaxed">Experience expert-led GMAT coaching from anywhere, with personalised live sessions, real-time problem discussion, and a structured plan designed for high-scoring aspirants.</p>
+              <ul className="mt-6 space-y-3 list-disc pl-5 text-slate-800 text-lg font-medium">
+                <li>Interactive trainer-led sessions with personalised doubt resolution.</li>
+                <li>Performance analytics, weekly mocks, and strategy reviews.</li>
+                <li>Flexible timings for both working professionals and students.</li>
               </ul>
               <button 
                 onClick={() => setIsBookSessionOpen(true)}
-                className="mt-6 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground bg-primary shadow hover:brightness-95 transition"
+                className="mt-8 rounded-full px-10 py-4 text-base md:text-lg font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 shadow-lg hover:shadow-xl transition-transform duration-300 hover:-translate-y-0.5"
               >
                 TALK TO A GMAT EXPERT
               </button>
@@ -120,45 +120,45 @@ const GmatPrivateTut: React.FC = () => {
       <section className="py-12 bg-background">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <p className="text-center text-sm font-semibold uppercase tracking-[0.28em] text-primary">Why 1-on-1</p>
-          <h2 className="mt-2 text-center text-4xl font-extrabold text-foreground">Why 1-on-1 works</h2>
-          <div className="mx-auto mt-4 h-1.5 w-28 rounded-full bg-gradient-to-r from-primary to-accent" />
+          <h2 className="mt-2 text-center text-5xl md:text-6xl font-extrabold text-primary">Why 1-on-1 works</h2>
+          <div className="mx-auto mt-4 h-1.5 w-32 rounded-full bg-gradient-to-r from-primary to-accent" />
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-soft">
-              <div className="absolute left-6 right-6 -top-3 h-2 rounded-t-[12px] bg-gradient-to-r from-primary to-accent" />
+            <div className="relative overflow-hidden rounded-[28px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-sky-50/70 to-cyan-50/70 p-8 shadow-md hover:shadow-xl hover:border-blue-400 transition-all duration-300">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 opacity-15 blur-2xl pointer-events-none" />
               <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-card shadow-sm">
-                  <BookOpen className="h-6 w-6 text-primary" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-lg">
+                  <BookOpen className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground">Real diagnosis</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">Mock data + live observation reveals whether your issue is concepts, process or pacing.</p>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-blue-950">Real diagnosis</h3>
+                  <p className="mt-3 text-base md:text-lg leading-relaxed text-blue-900/80">Mock data + live observation reveals whether your issue is concepts, process or pacing.</p>
                 </div>
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-soft md:scale-105 md:ring-1 md:ring-primary/20">
-              <div className="absolute left-6 right-6 -top-3 h-2 rounded-t-[12px] bg-gradient-to-r from-primary to-accent" />
+            <div className="relative overflow-hidden rounded-[28px] border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-50/90 via-violet-50/70 to-purple-50/70 p-8 shadow-md hover:shadow-xl hover:border-indigo-400 transition-all duration-300 md:scale-[1.02]">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-indigo-400 to-violet-400 opacity-15 blur-2xl pointer-events-none" />
               <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-card shadow-sm">
-                  <Activity className="h-6 w-6 text-primary" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-500 text-white shadow-lg">
+                  <Activity className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground">Targeted fixes</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">Every session attacks your specific faltering points — nothing generic, nothing wasted.</p>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-indigo-950">Targeted fixes</h3>
+                  <p className="mt-3 text-base md:text-lg leading-relaxed text-indigo-900/80">Every session attacks your specific faltering points — nothing generic, nothing wasted.</p>
                 </div>
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-soft">
-              <div className="absolute left-6 right-6 -top-3 h-2 rounded-t-[12px] bg-gradient-to-r from-primary to-accent" />
+            <div className="relative overflow-hidden rounded-[28px] border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-50/90 via-teal-50/70 to-green-50/70 p-8 shadow-md hover:shadow-xl hover:border-emerald-400 transition-all duration-300">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-emerald-400 to-teal-400 opacity-15 blur-2xl pointer-events-none" />
               <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-card shadow-sm">
-                  <Zap className="h-6 w-6 text-primary" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 text-white shadow-lg">
+                  <Zap className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground">Faster improvement</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">Our 1-on-1 students typically improve 2x faster than self-study on the same schedule.</p>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-emerald-950">Faster improvement</h3>
+                  <p className="mt-3 text-base md:text-lg leading-relaxed text-emerald-900/80">Our 1-on-1 students typically improve 2x faster than self-study on the same schedule.</p>
                 </div>
               </div>
             </div>
@@ -176,59 +176,69 @@ const GmatPrivateTut: React.FC = () => {
       </section>
 
 
-<section className="py-12 bg-background">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.28em] text-primary">Pricing</p>
-          <h2 className="mt-2 text-center text-4xl font-extrabold text-foreground">Packages</h2>
-          <div className="mx-auto mt-4 h-1.5 w-28 rounded-full bg-gradient-to-r from-primary to-accent" />
+<section className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-full bg-blue-500/10 border-2 border-blue-400/50 text-blue-600 text-xl md:text-2xl font-black uppercase tracking-[0.16em] shadow-sm mb-5">
+              PRICING
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-950 tracking-tight text-center">
+              Plans & Pricing
+            </h2>
+            <p className="mt-4 leading-7 text-slate-600 font-medium" style={{ fontSize: "23px" }}>
+              Priced below every major alternative — without cutting a single corner.
+            </p>
+          </div>
 
-          <div className="mt-10 grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-3 mb-14 items-stretch">
             {plans.map((plan) => (
               <div
                 key={plan.id}
-                className={`relative overflow-hidden rounded-[28px] bg-card p-8 transition-transform hover:translate-y-[-6px] ${plan.recommended ? 'ring-1 ring-primary/20' : 'border border-border'}`}
+                className={`relative rounded-[32px] border-2 border-blue-300/80 bg-gradient-to-b from-blue-50/70 via-indigo-50/30 to-white p-8 md:p-10 shadow-xl shadow-blue-500/10 hover:shadow-2xl hover:border-blue-500 transition-all duration-300 flex flex-col justify-between group ${plan.recommended ? 'ring-2 ring-blue-500/50' : ''}`}
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
-                <div className="absolute left-6 right-6 -top-3 h-2 rounded-t-[18px] bg-gradient-to-r from-primary to-accent shadow-glow" />
-
                 {plan.recommended && (
-                  <div className="absolute left-1/2 top-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground px-4 py-1 text-sm font-semibold text-primary-foreground">Recommended</div>
+                  <div className="absolute -top-4 right-8 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-blue-500/30">
+                    Recommended
+                  </div>
                 )}
 
-                <div className="flex flex-col h-full">
-                  <h3 className="text-lg font-semibold text-foreground">{plan.title}</h3>
-
-                  <div className="mt-6 flex items-baseline gap-4">
-                    <p className="text-4xl font-extrabold text-primary leading-none">{plan.price}</p>
-                    <p className="text-sm text-muted-foreground">{plan.subtitle}</p>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-6">{plan.title}</h3>
+                  <div className="flex items-center gap-3.5 mb-2">
+                    <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-blue-600 to-indigo-600 flex-shrink-0" />
+                    <p className="text-4xl md:text-5xl font-black text-blue-600 font-display tracking-tight">{plan.price}</p>
                   </div>
+                  <p className="text-slate-600 font-bold mb-8" style={{ fontSize: "18px" }}>{plan.subtitle}</p>
 
-                  <ul className="mt-6 space-y-4 flex-1">
-                    {plan.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3 text-sm text-muted-foreground">
-                        <svg className="mt-1 h-4 w-4 flex-shrink-0 text-primary" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                          <path d="M5 12l4 4L19 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        <span className="leading-6">{b}</span>
+                  <ul className="space-y-4 mb-10">
+                    {plan.bullets.map((b, i) => (
+                      <li key={`${plan.id}-${i}`} className="flex items-start gap-3.5">
+                        <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                            <path d="M20 6 9 17l-5-5" />
+                          </svg>
+                        </div>
+                        <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>{b}</span>
                       </li>
                     ))}
                   </ul>
-
-                  <div className="mt-8">
-                    <button 
-                      onClick={() => setIsBookSessionOpen(true)}
-                      className="w-full rounded-[14px] px-8 py-4 text-sm font-semibold text-primary-foreground bg-primary shadow-lg hover:brightness-105 transition"
-                    >
-                      Get Started
-                    </button>
-                  </div>
                 </div>
+
+                <button
+                  onClick={() => setIsBookSessionOpen(true)}
+                  className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer mt-4"
+                >
+                  Get Started
+                </button>
               </div>
             ))}
           </div>
 
-          <div className="mt-8">
-            <div className="mx-auto max-w-[900px] rounded-2xl border border-border bg-card/50 p-6 text-muted-foreground">How we compare: GMAT private tutoring typically costs ₹3,000–5,000/hour in India and $250+/hour with US firms. Our Complete package works out to ~₹3,437/session with course and mocks included.</div>
+          <div className="rounded-2xl bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border-2 border-blue-200/80 p-8 text-center shadow-sm">
+            <p className="text-lg text-slate-800 font-medium leading-relaxed">
+              <span className="font-extrabold text-slate-950">How we compare:</span> Private GRE tutoring in India typically runs ₹2,500–4,000 per hour (and US firms like Manhattan Prep or Princeton Review charge $200–300/hr). Our Complete package works out to ~₹2,812/session — with course, mocks and mentoring included free.
+            </p>
           </div>
         </div>
       </section>

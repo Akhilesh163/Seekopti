@@ -277,137 +277,174 @@ const GrePrivateTut: React.FC = () => {
 
       {/* Pricing */}
       <section className="py-16 bg-gradient-to-b from-background via-muted/10 to-background border-t border-border">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-primary mb-2">PRICING</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">Packages</h2>
-            <div className="mx-auto w-32 h-1.5 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-full bg-blue-500/10 border-2 border-blue-400/50 text-blue-600 text-xl md:text-2xl font-black uppercase tracking-[0.16em] shadow-sm mb-5">
+              PRICING
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-950 tracking-tight text-center">
+              Plans & Pricing
+            </h2>
+            <p className="mt-4 leading-7 text-slate-600 font-medium" style={{ fontSize: "23px" }}>
+              Priced below every major alternative — without cutting a single corner.
+            </p>
           </div>
 
-          <div className="mt-16 grid gap-8 lg:grid-cols-3 md:grid-cols-2">
+          <div className="grid gap-8 lg:grid-cols-3 mb-14 items-stretch">
             {/* Booster Card */}
-            <div className="relative rounded-3xl border border-border bg-card p-8 shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 group">
-              <h3 className="text-2xl font-extrabold text-foreground mb-4">Booster</h3>
-              <div className="mb-2">
-                <span className="text-5xl font-extrabold text-primary">₹24,999</span>
-              </div>
-              <p className="text-sm text-muted-foreground mb-6">8 sessions • single section • ~₹3,125/session</p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex gap-3">
-                  <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-muted-foreground font-medium">8 × 60-min 1-on-1 sessions</span>
+            <div className="relative rounded-[32px] border-2 border-blue-300/80 bg-gradient-to-b from-blue-50/70 via-indigo-50/30 to-white p-8 md:p-10 shadow-xl shadow-blue-500/10 hover:shadow-2xl hover:border-blue-500 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-6">Booster</h3>
+                <div className="flex items-center gap-3.5 mb-2">
+                  <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-blue-600 to-indigo-600 flex-shrink-0" />
+                  <p className="text-4xl md:text-5xl font-black text-blue-600 font-display tracking-tight">₹24,999</p>
                 </div>
-                <div className="flex gap-3">
-                  <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-muted-foreground font-medium">Custom drills & homework</span>
-                </div>
-                <div className="flex gap-3">
-                  <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-muted-foreground font-medium">WhatsApp doubt support</span>
-                </div>
+                <p className="text-slate-600 font-bold mb-8" style={{ fontSize: "18px" }}>8 sessions • single section • ~₹3,125/session</p>
+                
+                <ul className="space-y-4 mb-10">
+                  <li className="flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>8 × 60-min 1-on-1 sessions</span>
+                  </li>
+                  <li className="flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>Custom drills & homework</span>
+                  </li>
+                  <li className="flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>WhatsApp doubt support</span>
+                  </li>
+                </ul>
               </div>
 
-              <button 
+              <button
                 onClick={() => setIsBookSessionOpen(true)}
-                className="w-full rounded-[14px] px-8 py-4 text-sm font-semibold text-primary-foreground bg-primary shadow-lg hover:brightness-105 transition"
+                className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer mt-4"
               >
                 Get Started
               </button>
             </div>
 
             {/* Complete Card (Recommended) */}
-            <div className="relative rounded-3xl border border-border bg-card p-8 shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 group lg:scale-105">
-              <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span className="inline-flex px-4 py-1 rounded-full bg-foreground text-primary-foreground text-xs font-bold">Recommended</span>
+            <div className="relative rounded-[32px] border-2 border-blue-300/80 bg-gradient-to-b from-blue-50/70 via-indigo-50/30 to-white p-8 md:p-10 shadow-xl shadow-blue-500/10 hover:shadow-2xl hover:border-blue-500 transition-all duration-300 flex flex-col justify-between group ring-2 ring-blue-500/50">
+              <div className="absolute -top-4 right-8 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-blue-500/30">
+                BEST VALUE
               </div>
-              <h3 className="text-2xl font-extrabold text-foreground mb-4 mt-2">Complete</h3>
-              <div className="mb-2">
-                <span className="text-5xl font-extrabold text-primary">₹44,999</span>
-              </div>
-              <p className="text-sm text-muted-foreground mb-6">16 sessions • full GRE • ~₹2,812/session</p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex gap-3">
-                  <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-muted-foreground font-medium">16 × 60-min 1-on-1 sessions</span>
+              <div>
+                <h3 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-6 mt-2">Complete</h3>
+                <div className="flex items-center gap-3.5 mb-2">
+                  <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-blue-600 to-indigo-600 flex-shrink-0" />
+                  <p className="text-4xl md:text-5xl font-black text-blue-600 font-display tracking-tight">₹44,999</p>
                 </div>
-                <div className="flex gap-3">
-                  <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-muted-foreground font-medium">Self-paced course + 30-test series</span>
-                </div>
-                <div className="flex gap-3">
-                  <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-muted-foreground font-medium">Mock reviews after every test</span>
-                </div>
-                <div className="flex gap-3">
-                  <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-muted-foreground font-medium">Priority doubt support</span>
-                </div>
+                <p className="text-slate-600 font-bold mb-8" style={{ fontSize: "18px" }}>16 sessions • full GRE • ~₹2,812/session</p>
+                
+                <ul className="space-y-4 mb-10">
+                  <li className="flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>16 × 60-min 1-on-1 sessions</span>
+                  </li>
+                  <li className="flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>Self-paced course + 30-test series</span>
+                  </li>
+                  <li className="flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>Mock reviews after every test</span>
+                  </li>
+                  <li className="flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>Priority doubt support</span>
+                  </li>
+                </ul>
               </div>
 
-              <button 
+              <button
                 onClick={() => setIsBookSessionOpen(true)}
-                className="w-full rounded-[14px] px-8 py-4 text-sm font-semibold text-primary-foreground bg-primary shadow-lg hover:brightness-105 transition"
+                className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer mt-4"
               >
                 Get Started
               </button>
             </div>
 
             {/* Elite Card */}
-            <div className="relative rounded-3xl border border-border bg-card p-8 shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 group">
-              <h3 className="text-2xl font-extrabold text-foreground mb-4">Elite 330+</h3>
-              <div className="mb-2">
-                <span className="text-5xl font-extrabold text-primary">₹69,999</span>
-              </div>
-              <p className="text-sm text-muted-foreground mb-6">24 sessions • directly with Aman</p>
-              
-              <div className="space-y-4 mb-8">
-                <div className="flex gap-3">
-                  <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-muted-foreground font-medium">24 sessions with Aman himself</span>
+            <div className="relative rounded-[32px] border-2 border-blue-300/80 bg-gradient-to-b from-blue-50/70 via-indigo-50/30 to-white p-8 md:p-10 shadow-xl shadow-blue-500/10 hover:shadow-2xl hover:border-blue-500 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-6">Elite 330+</h3>
+                <div className="flex items-center gap-3.5 mb-2">
+                  <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-blue-600 to-indigo-600 flex-shrink-0" />
+                  <p className="text-4xl md:text-5xl font-black text-blue-600 font-display tracking-tight">₹69,999</p>
                 </div>
-                <div className="flex gap-3">
-                  <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-muted-foreground font-medium">Everything in Complete</span>
-                </div>
-                <div className="flex gap-3">
-                  <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-muted-foreground font-medium">MBA/MS admissions strategy session</span>
-                </div>
+                <p className="text-slate-600 font-bold mb-8" style={{ fontSize: "18px" }}>24 sessions • directly with Aman</p>
+                
+                <ul className="space-y-4 mb-10">
+                  <li className="flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>24 sessions with Aman himself</span>
+                  </li>
+                  <li className="flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>Everything in Complete</span>
+                  </li>
+                  <li className="flex items-start gap-3.5">
+                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check w-4 h-4 stroke-[3]">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                    </div>
+                    <span className="text-slate-800 font-semibold leading-snug" style={{ fontSize: "19px" }}>MBA/MS admissions strategy session</span>
+                  </li>
+                </ul>
               </div>
 
-              <button 
+              <button
                 onClick={() => setIsBookSessionOpen(true)}
-                className="w-full rounded-[14px] px-8 py-4 text-sm font-semibold text-primary-foreground bg-primary shadow-lg hover:brightness-105 transition"
+                className="w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-[1.02] active:scale-95 transition-all duration-300 cursor-pointer mt-4"
               >
                 Get Started
               </button>
             </div>
           </div>
 
-          <div className="mt-12 rounded-2xl border border-border bg-card/50 p-6 max-w-4xl mx-auto text-muted-foreground text-sm">
-            <span className="font-bold text-foreground">How we compare:</span> private GRE tutoring in India typically runs ₹2,500–4,000 per hour (and US firms like Manhattan Prep or Princeton Review charge $200–300/hr). Our Complete package works out to ~₹2,812/session — with course, mocks and mentoring included free.
+          <div className="rounded-2xl bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border-2 border-blue-200/80 p-8 text-center shadow-sm">
+            <p className="text-lg text-slate-800 font-medium leading-relaxed">
+              <span className="font-extrabold text-slate-950">How we compare:</span> private GRE tutoring in India typically runs ₹2,500–4,000 per hour (and US firms like Manhattan Prep or Princeton Review charge $200–300/hr). Our Complete package works out to ~₹2,812/session — with course, mocks and mentoring included free.
+            </p>
           </div>
         </div>
       </section>
