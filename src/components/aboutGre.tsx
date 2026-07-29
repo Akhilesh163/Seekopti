@@ -501,6 +501,92 @@ const AboutGre = () => {
         </div>
       </section>
 
+      <section className="py-20 bg-gradient-to-b from-slate-50 via-sky-50 to-white">
+        <div className="max-w-[1180px] mx-auto px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-100/90 px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm ring-1 ring-blue-200">
+                <Sparkles className="w-4 h-4" />
+                <span>Live GMAT Online Prep</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
+                Live GMAT Online Prep That Fits Your Schedule
+              </h2>
+              <p className="max-w-3xl text-lg leading-8 text-slate-700">
+                Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high scoring aspirants.
+              </p>
+
+              <div className="grid gap-3 text-slate-700">
+                <div className="flex items-start gap-3 rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
+                  <span className="mt-1 flex h-8 w-8 items-center justify-center rounded-2xl bg-blue-600 text-white">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </span>
+                  <p className="text-base font-medium">Interactive trainer-led sessions with personalised doubt resolution.</p>
+                </div>
+                <div className="flex items-start gap-3 rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
+                  <span className="mt-1 flex h-8 w-8 items-center justify-center rounded-2xl bg-blue-600 text-white">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </span>
+                  <p className="text-base font-medium">Performance analytics, weekly mocks, and strategy reviews.</p>
+                </div>
+                <div className="flex items-start gap-3 rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
+                  <span className="mt-1 flex h-8 w-8 items-center justify-center rounded-2xl bg-blue-600 text-white">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </span>
+                  <p className="text-base font-medium">Flexible timings that suit both working professionals and students.</p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsBookSessionOpen(true)}
+                className="inline-flex items-center gap-3 rounded-2xl bg-blue-600 px-7 py-3.5 text-white font-semibold shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition-all duration-200"
+              >
+                TALK TO A GMAT EXPERT
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-50 via-slate-50 to-white p-8 shadow-soft">
+              <div className="space-y-5">
+                <div className="rounded-[26px] border border-slate-200/70 bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-blue-600 text-white shadow-lg">
+                      <Play className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-950">Live problem discussions</p>
+                      <p className="text-sm text-slate-600">Solve GMAT challenges together in real time with expert guidance.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-[26px] border border-slate-200/70 bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-sky-600 text-white shadow-lg">
+                      <BarChart3 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-950">Weekly mock review</p>
+                      <p className="text-sm text-slate-600">Track progress with live mock analytics and improvement plans.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-[26px] border border-slate-200/70 bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-cyan-600 text-white shadow-lg">
+                      <Clock3 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-950">Flexible study schedule</p>
+                      <p className="text-sm text-slate-600">Join sessions that fit your work or college timetable without compromise.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-slate-50 py-20">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
@@ -508,6 +594,43 @@ const AboutGre = () => {
 
 
               {/* Premium GRE Exam Pattern Table */}
+              <div className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
+                <div className="border-b border-slate-200/80 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-5 md:px-8 text-white text-center">
+                  <p className="text-xs md:text-sm uppercase tracking-[0.24em] text-slate-300 font-semibold mb-2">Value Check</p>
+                  <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">Why this is the best-value series anywhere</h3>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-slate-100/90 border-b-2 border-slate-300 text-sm md:text-base font-semibold uppercase tracking-wider text-slate-700">
+                        <th className="px-6 py-5.5 md:py-6">&nbsp;</th>
+                        <th className="px-6 py-5.5 md:py-6">Seek Your Y</th>
+                        <th className="px-6 py-5.5 md:py-6">Official Mocks</th>
+                        <th className="px-6 py-5.5 md:py-6">Other Prep</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-300 text-base">
+                      {[
+                        { label: "Total tests", seek: "30 tests", official: "3–4 mocks", other: "15–25 tests" },
+                        { label: "Full-length mocks", seek: "10 adaptive mocks", official: "3–4 mocks", other: "5–10 mocks" },
+                        { label: "Sectional drills", seek: "20 sectionals", official: "None", other: "10–15 sectionals" },
+                        { label: "Live mock debriefs", seek: "Faculty-led strategy review", official: "None", other: "Recorded only" },
+                        { label: "Performance tracking", seek: "Advanced gap analysis", official: "Basic score report", other: "Standard report" },
+                        { label: "Approx. price", seek: "₹4,999 (GRE) / ₹5,999 (GMAT)", official: "₹9,200 (GMAT) / ₹10,000 (GRE)", other: "₹6,000 – ₹12,000" },
+                      ].map((row, idx) => (
+                        <tr key={idx} className={idx % 2 === 0 ? "bg-slate-50/80" : "bg-white"}>
+                          <td className="px-6 py-5 md:py-6 font-semibold text-slate-900">{row.label}</td>
+                          <td className="px-6 py-5 md:py-6 text-slate-700">{row.seek}</td>
+                          <td className="px-6 py-5 md:py-6 text-slate-700">{row.official}</td>
+                          <td className="px-6 py-5 md:py-6 text-slate-700">{row.other}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
               <div className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
                 {/* Header Title Bar */}
                 <div className="border-b border-slate-200/80 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-5 md:px-8 text-white text-center">
@@ -1145,27 +1268,24 @@ const AboutGre = () => {
                 <div className="hidden md:block absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
 
                 <div className="flex gap-5 md:gap-6 w-max min-w-full will-change-transform" style={{ animationName: "gmatReviewMarquee", animationDuration: "70s", animationTimingFunction: "linear", animationIterationCount: "infinite", animationPlayState: "running" }}>
-                  {[...studentReviews, ...studentReviews].map((review, index) => {
-                    const accent = reviewCardGradients[index % reviewCardGradients.length];
-                    return (
-                      <div key={`${review.name}-${review.footer}-${index}`} className={`w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-white/90 bg-gradient-to-br ${accent} p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1`}>
-                        <div className="flex items-center gap-4">
-                          <img src={review.image} alt={review.name} className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
-                          <div>
-                            <p className="text-xl md:text-2xl font-semibold text-slate-950">{review.name}</p>
-                            <p className="text-base md:text-lg text-slate-700">{review.title}</p>
-                            <div className="mt-2 flex items-center gap-1 text-amber-500 text-lg">
-                              {Array.from({ length: review.rating }).map((_, starIndex) => (
-                                <span key={starIndex}>★</span>
-                              ))}
-                            </div>
+                  {[...studentReviews, ...studentReviews].map((review, index) => (
+                    <div key={`${review.name}-${review.footer}-${index}`} className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+                      <div className="flex items-center gap-4">
+                        <img src={review.image} alt={review.name} className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                        <div>
+                          <p className="text-xl md:text-2xl font-semibold text-slate-950">{review.name}</p>
+                          <p className="text-base md:text-lg text-slate-700">{review.title}</p>
+                          <div className="mt-2 flex items-center gap-1 text-amber-500 text-lg">
+                            {Array.from({ length: review.rating }).map((_, starIndex) => (
+                              <span key={starIndex}>★</span>
+                            ))}
                           </div>
                         </div>
-                        <p className="mt-5 text-base md:text-lg leading-8 text-slate-700">{review.text}</p>
-                        <p className="mt-5 text-base md:text-base font-semibold text-slate-900">{review.footer}</p>
                       </div>
-                    );
-                  })}
+                      <p className="mt-5 text-base md:text-lg leading-8 text-slate-700">{review.text}</p>
+                      <p className="mt-5 text-base md:text-base font-semibold text-slate-900">{review.footer}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

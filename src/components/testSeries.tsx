@@ -259,64 +259,124 @@ const TestSeriesComponent: React.FC = () => {
             Why this is the <span className="text-blue-600">best-value</span> series anywhere
           </h2>
 
-          <div className="mt-12 overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-[0_20px_60px_-20px_rgba(37,99,235,0.18)] text-left">
+          <div className="mt-12 overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50 text-left">
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-left text-sm md:text-base">
+              <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-200">
-                    <th className="px-6 py-4 bg-slate-50 w-1/4"></th>
-                    <th className="px-6 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-black text-center text-lg rounded-t-none">
-                      Seek Your Y
-                    </th>
-                    <th className="px-6 py-4 bg-slate-950 text-white font-black text-center text-lg rounded-t-none">
-                      Official Mocks
-                    </th>
-                    <th className="px-6 py-4 bg-slate-600 text-white font-black text-center text-lg rounded-t-none">
-                      Other Prep
-                    </th>
+                  <tr className="bg-slate-100/90 border-b-2 border-slate-300 text-sm md:text-base font-semibold uppercase tracking-wider text-slate-700">
+                    <th className="px-6 py-5.5 md:py-6">&nbsp;</th>
+                    <th className="px-6 py-5.5 md:py-6">Seek Your Y</th>
+                    <th className="px-6 py-5.5 md:py-6">Official Mocks</th>
+                    <th className="px-6 py-5.5 md:py-6">Other Prep</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Total tests</td>
-                    <td className="px-6 py-5 text-blue-700 font-extrabold text-center bg-blue-50/70">30 tests</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">3–4 mocks</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">15–25 tests</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Full-length mocks</td>
-                    <td className="px-6 py-5 text-blue-700 font-extrabold text-center bg-blue-50/70">10 adaptive mocks</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">3–4 mocks</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">5–10 mocks</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Sectional drills</td>
-                    <td className="px-6 py-5 text-blue-700 font-extrabold text-center bg-blue-50/70">20 sectionals</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">None</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">10–15 sectionals</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Live mock debriefs</td>
-                    <td className="px-6 py-5 text-blue-700 font-extrabold text-center bg-blue-50/70">Faculty-led strategy review</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">None</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">None / Recorded only</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Performance tracking</td>
-                    <td className="px-6 py-5 text-blue-700 font-extrabold text-center bg-blue-50/70">Advanced gap analysis</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">Basic score report</td>
-                    <td className="px-6 py-5 text-slate-700 text-center">Standard report</td>
-                  </tr>
-                  <tr>
-                    <td className="px-6 py-5 font-semibold text-slate-900 bg-slate-50/30">Approx. price</td>
-                    <td className="px-6 py-5 text-blue-700 font-black text-center bg-blue-50/70 text-lg">
-                      ₹4,999 (GRE) / ₹5,999 (GMAT)
+                <tbody className="divide-y divide-slate-300 text-base">
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">Total tests</td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        30 tests
+                      </span>
                     </td>
-                    <td className="px-6 py-5 text-slate-700 text-center">
-                      ₹9,200 (GMAT) / ₹10,000 (GRE)
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        3–4 mocks
+                      </span>
                     </td>
-                    <td className="px-6 py-5 text-slate-700 text-center">
-                      ₹6,000 – ₹12,000
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        15–25 tests
+                      </span>
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">Full-length mocks</td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        10 adaptive mocks
+                      </span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        3–4 mocks
+                      </span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        5–10 mocks
+                      </span>
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">Sectional drills</td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        20 sectionals
+                      </span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        None
+                      </span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        10–15 sectionals
+                      </span>
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">Live mock debriefs</td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        Faculty-led strategy review
+                      </span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        None
+                      </span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        None / Recorded only
+                      </span>
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">Performance tracking</td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        Advanced gap analysis
+                      </span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        Basic score report
+                      </span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        Standard report
+                      </span>
+                    </td>
+                  </tr>
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">Approx. price</td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg font-bold">
+                        ₹4,999 (GRE) / ₹5,999 (GMAT)
+                      </span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        ₹9,200 (GMAT) / ₹10,000 (GRE)
+                      </span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
+                        ₹6,000 – ₹12,000
+                      </span>
                     </td>
                   </tr>
                 </tbody>

@@ -37,12 +37,12 @@ const AboutGmat: React.FC = () => {
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
       icon: Video,
       theme: {
-        card: "border-blue-200 bg-gradient-to-br from-blue-50 via-cyan-50 to-white",
-        active: "border-blue-400 bg-gradient-to-br from-blue-100 via-cyan-50 to-white shadow-[0_20px_45px_-18px_rgba(37,99,235,0.35)]",
+        card: "border-blue-200 bg-gradient-to-br from-blue-100 via-cyan-100 to-blue-50",
+        active: "border-blue-400 bg-gradient-to-br from-blue-100 via-cyan-100 to-blue-50 shadow-[0_20px_45px_-18px_rgba(37,99,235,0.35)]",
         icon: "bg-gradient-to-br from-blue-600 to-cyan-500 text-white",
         badge: "bg-blue-600/10 text-blue-700",
         button: "from-blue-600 via-cyan-600 to-sky-600",
-        detail: "from-blue-50 to-cyan-50",
+        detail: "from-blue-100 to-cyan-100",
         bullet: "bg-blue-600",
       },
     },
@@ -59,12 +59,12 @@ const AboutGmat: React.FC = () => {
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
       icon: PlayCircle,
       theme: {
-        card: "border-indigo-200 bg-gradient-to-br from-indigo-50 via-violet-50 to-white",
-        active: "border-indigo-400 bg-gradient-to-br from-indigo-100 via-violet-50 to-white shadow-[0_20px_45px_-18px_rgba(79,70,229,0.35)]",
+        card: "border-indigo-200 bg-gradient-to-br from-indigo-100 via-violet-100 to-indigo-50",
+        active: "border-indigo-400 bg-gradient-to-br from-indigo-100 via-violet-100 to-indigo-50 shadow-[0_20px_45px_-18px_rgba(79,70,229,0.35)]",
         icon: "bg-gradient-to-br from-indigo-600 to-violet-500 text-white",
         badge: "bg-indigo-600/10 text-indigo-700",
         button: "from-indigo-600 via-violet-600 to-purple-600",
-        detail: "from-indigo-50 to-violet-50",
+        detail: "from-indigo-100 to-violet-100",
         bullet: "bg-indigo-600",
       },
     },
@@ -81,12 +81,12 @@ const AboutGmat: React.FC = () => {
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
       icon: BookOpen,
       theme: {
-        card: "border-purple-200 bg-gradient-to-br from-purple-50 via-fuchsia-50 to-white",
-        active: "border-purple-400 bg-gradient-to-br from-purple-100 via-fuchsia-50 to-white shadow-[0_20px_45px_-18px_rgba(168,85,247,0.35)]",
+        card: "border-purple-200 bg-gradient-to-br from-purple-100 via-fuchsia-100 to-purple-50",
+        active: "border-purple-400 bg-gradient-to-br from-purple-100 via-fuchsia-100 to-purple-50 shadow-[0_20px_45px_-18px_rgba(168,85,247,0.35)]",
         icon: "bg-gradient-to-br from-purple-600 to-fuchsia-500 text-white",
         badge: "bg-purple-600/10 text-purple-700",
         button: "from-purple-600 via-fuchsia-600 to-violet-600",
-        detail: "from-purple-50 to-fuchsia-50",
+        detail: "from-purple-100 to-fuchsia-100",
         bullet: "bg-purple-600",
       },
     },
@@ -103,13 +103,13 @@ const AboutGmat: React.FC = () => {
       image: "https://www.jamboreeindia.com/assets/version-2/img/product/prep-products/online-coaching.webp",
       icon: UserCheck,
       theme: {
-        card: "border-emerald-200 bg-gradient-to-br from-emerald-50 via-teal-50 to-white",
-        active: "border-emerald-400 bg-gradient-to-br from-emerald-100 via-teal-50 to-white shadow-[0_20px_45px_-18px_rgba(16,185,129,0.35)]",
-        icon: "bg-gradient-to-br from-emerald-600 to-teal-500 text-white",
-        badge: "bg-emerald-600/10 text-emerald-700",
-        button: "from-emerald-600 via-teal-600 to-cyan-600",
-        detail: "from-emerald-50 to-teal-50",
-        bullet: "bg-emerald-600",
+        card: "border-amber-200 bg-gradient-to-br from-amber-100 via-orange-100 to-amber-50",
+        active: "border-amber-400 bg-gradient-to-br from-amber-100 via-orange-100 to-amber-50 shadow-[0_20px_45px_-18px_rgba(251,146,60,0.35)]",
+        icon: "bg-gradient-to-br from-amber-600 to-orange-500 text-white",
+        badge: "bg-amber-600/10 text-amber-700",
+        button: "from-amber-600 via-orange-600 to-red-500",
+        detail: "from-amber-100 to-orange-100",
+        bullet: "bg-amber-600",
       },
     },
   ];
@@ -952,7 +952,7 @@ const AboutGmat: React.FC = () => {
 
       <section className="mt-16 px-6">
         <div className="mx-auto max-w-[1200px]">
-          <div className="rounded-[36px] border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-blue-50 p-5 sm:p-8 md:p-10 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.18)]">
+          <div className="rounded-[36px] border border-slate-300/80 bg-gradient-to-br from-slate-100 via-slate-100 to-slate-200 p-5 sm:p-8 md:p-10 shadow-[0_20px_60px_-20px_rgba(15,23,42,0.18)]">
             <div className="text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700 shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" />
@@ -1064,27 +1064,24 @@ const AboutGmat: React.FC = () => {
                 <div className="hidden md:block absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
 
                 <div className="flex gap-5 md:gap-6 w-max min-w-full will-change-transform" style={{ animationName: "gmatReviewMarquee", animationDuration: "70s", animationTimingFunction: "linear", animationIterationCount: "infinite", animationPlayState: "running" }}>
-                  {[...studentReviews, ...studentReviews].map((review, index) => {
-                    const accent = reviewCardGradients[index % reviewCardGradients.length];
-                    return (
-                      <div key={`${review.name}-${review.footer}-${index}`} className={`w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-white/90 bg-gradient-to-br ${accent} p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1`}>
-                        <div className="flex items-center gap-4">
-                          <img src={review.image} alt={review.name} className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
-                          <div>
-                            <p className="text-xl md:text-2xl font-semibold text-slate-950">{review.name}</p>
-                            <p className="text-base md:text-lg text-slate-700">{review.title}</p>
-                            <div className="mt-2 flex items-center gap-1 text-amber-500 text-lg">
-                              {Array.from({ length: review.rating }).map((_, starIndex) => (
-                                <span key={starIndex}>★</span>
-                              ))}
-                            </div>
+                  {[...studentReviews, ...studentReviews].map((review, index) => (
+                    <div key={`${review.name}-${review.footer}-${index}`} className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+                      <div className="flex items-center gap-4">
+                        <img src={review.image} alt={review.name} className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                        <div>
+                          <p className="text-xl md:text-2xl font-semibold text-slate-950">{review.name}</p>
+                          <p className="text-base md:text-lg text-slate-700">{review.title}</p>
+                          <div className="mt-2 flex items-center gap-1 text-amber-500 text-lg">
+                            {Array.from({ length: review.rating }).map((_, starIndex) => (
+                              <span key={starIndex}>★</span>
+                            ))}
                           </div>
                         </div>
-                        <p className="mt-5 text-base md:text-lg leading-8 text-slate-700">{review.text}</p>
-                        <p className="mt-5 text-base md:text-base font-semibold text-slate-900">{review.footer}</p>
                       </div>
-                    );
-                  })}
+                      <p className="mt-5 text-base md:text-lg leading-8 text-slate-700">{review.text}</p>
+                      <p className="mt-5 text-base md:text-base font-semibold text-slate-900">{review.footer}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

@@ -378,24 +378,76 @@ const SelfPaced = () => {
       <section className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50">
         <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-blue-600 mb-2">WHAT YOU GET</p>
+            <div className="inline-flex items-center justify-center gap-2.5 px-7 py-3 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 text-white text-sm md:text-base font-black uppercase tracking-[0.22em] shadow-lg shadow-blue-500/20 mb-5">
+              <Sparkles className="w-4 h-4" />
+              WHAT YOU GET
+            </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-950 tracking-tight">Built for Maximum GRE Improvement</h2>
             <p className="mt-4 text-xl text-slate-600 font-medium max-w-2xl mx-auto">Everything you need to excel in GRE Quant, Verbal and Analytical Writing.</p>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {featureCards.map((card, index) => (
-              <div
-                key={index}
-                className="group relative rounded-[28px] border-2 border-blue-200/70 bg-gradient-to-br from-blue-50/60 via-sky-50/30 to-white p-8 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
-              >
-                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-md">
-                  <img src={card.icon} alt={card.title} className="h-8 w-8 object-contain filter drop-shadow-md brightness-0 invert" />
+            {featureCards.map((card, index) => {
+              const colors = [
+                {
+                  shell: "border-purple-200/80 bg-gradient-to-br from-purple-50/90 via-fuchsia-50/70 to-indigo-50/80",
+                  icon: "bg-gradient-to-br from-purple-600 to-indigo-500",
+                  title: "text-purple-950",
+                  desc: "text-purple-900/80",
+                  badge: "text-purple-900 bg-purple-100/80 border-purple-200/80",
+                },
+                {
+                  shell: "border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-sky-50/70 to-cyan-50/80",
+                  icon: "bg-gradient-to-br from-blue-600 to-cyan-500",
+                  title: "text-blue-950",
+                  desc: "text-blue-900/80",
+                  badge: "text-blue-900 bg-blue-100/80 border-blue-200/80",
+                },
+                {
+                  shell: "border-emerald-200/80 bg-gradient-to-br from-emerald-50/90 via-teal-50/70 to-green-50/80",
+                  icon: "bg-gradient-to-br from-emerald-600 to-teal-500",
+                  title: "text-emerald-950",
+                  desc: "text-emerald-900/80",
+                  badge: "text-emerald-900 bg-emerald-100/80 border-emerald-200/80",
+                },
+                {
+                  shell: "border-amber-200/80 bg-gradient-to-br from-amber-50/90 via-orange-50/70 to-yellow-50/80",
+                  icon: "bg-gradient-to-br from-amber-500 to-orange-500",
+                  title: "text-amber-950",
+                  desc: "text-amber-900/80",
+                  badge: "text-amber-900 bg-amber-100/80 border-amber-200/80",
+                },
+                {
+                  shell: "border-rose-200/80 bg-gradient-to-br from-rose-50/90 via-pink-50/70 to-red-50/80",
+                  icon: "bg-gradient-to-br from-rose-500 to-pink-500",
+                  title: "text-rose-950",
+                  desc: "text-rose-900/80",
+                  badge: "text-rose-900 bg-rose-100/80 border-rose-200/80",
+                },
+                {
+                  shell: "border-indigo-200/80 bg-gradient-to-br from-indigo-50/90 via-violet-50/70 to-slate-50/80",
+                  icon: "bg-gradient-to-br from-indigo-600 to-violet-500",
+                  title: "text-indigo-950",
+                  desc: "text-indigo-900/80",
+                  badge: "text-indigo-900 bg-indigo-100/80 border-indigo-200/80",
+                },
+              ][index % 6];
+
+              return (
+                <div
+                  key={index}
+                  className={`group relative rounded-[28px] border-2 ${colors.shell} p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+                >
+                  <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-white/70 to-transparent opacity-70 blur-2xl pointer-events-none" />
+                  <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl ${colors.icon} text-white shadow-lg`}>
+                    <img src={card.icon} alt={card.title} className="h-8 w-8 object-contain drop-shadow-md brightness-0 invert" />
+                  </div>
+                  <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] ${colors.badge}`}>Feature</span>
+                  <h3 className={`text-2xl font-extrabold ${colors.title} mt-4 mb-3 leading-tight`}>{card.title}</h3>
+                  <p className={`text-lg font-medium leading-relaxed ${colors.desc}`}>{card.description}</p>
                 </div>
-                <h3 className="text-2xl font-extrabold text-slate-950 mb-3 leading-tight">{card.title}</h3>
-                <p className="text-lg text-slate-700 font-medium leading-relaxed">{card.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

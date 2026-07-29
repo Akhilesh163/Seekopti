@@ -139,52 +139,52 @@ const accentStyles: Record<
   }
 > = {
   purple: {
-    card: "border-2 border-purple-200/80 bg-gradient-to-br from-purple-50/95 via-fuchsia-50/85 to-indigo-50/90 shadow-[0_18px_45px_rgba(139,92,246,0.14)]",
-    overlay: "from-purple-500/10 via-fuchsia-500/10 to-indigo-500/10",
-    glowTop: "bg-purple-400/25",
-    glowBottom: "bg-indigo-400/20",
+    card: "border border-white/40 bg-gradient-to-br from-purple-200/98 via-fuchsia-200/95 to-indigo-200/98 shadow-[0_22px_65px_rgba(139,92,246,0.3)]",
+    overlay: "from-purple-700/25 via-fuchsia-700/20 to-indigo-700/25",
+    glowTop: "bg-purple-600/50",
+    glowBottom: "bg-indigo-600/40",
     quote: "text-purple-500/20",
-    badge: "bg-purple-100 text-purple-700",
+    badge: "bg-purple-200 text-purple-900",
   },
   blue: {
-    card: "border-2 border-sky-200/80 bg-gradient-to-br from-sky-50/95 via-blue-50/85 to-cyan-50/90 shadow-[0_18px_45px_rgba(56,189,248,0.14)]",
-    overlay: "from-blue-500/10 via-cyan-500/10 to-sky-500/10",
-    glowTop: "bg-blue-400/25",
-    glowBottom: "bg-cyan-400/20",
+    card: "border border-white/40 bg-gradient-to-br from-sky-200/98 via-blue-200/95 to-cyan-200/98 shadow-[0_22px_65px_rgba(56,189,248,0.3)]",
+    overlay: "from-blue-700/25 via-cyan-700/20 to-sky-700/25",
+    glowTop: "bg-blue-600/50",
+    glowBottom: "bg-cyan-600/40",
     quote: "text-blue-500/20",
-    badge: "bg-sky-100 text-sky-700",
+    badge: "bg-sky-200 text-sky-900",
   },
   emerald: {
-    card: "border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-50/95 via-teal-50/85 to-cyan-50/90 shadow-[0_18px_45px_rgba(16,185,129,0.14)]",
-    overlay: "from-emerald-500/10 via-teal-500/10 to-cyan-500/10",
-    glowTop: "bg-emerald-400/25",
-    glowBottom: "bg-teal-400/20",
+    card: "border border-white/40 bg-gradient-to-br from-emerald-200/98 via-teal-200/95 to-cyan-200/98 shadow-[0_22px_65px_rgba(16,185,129,0.3)]",
+    overlay: "from-emerald-700/25 via-teal-700/20 to-cyan-700/25",
+    glowTop: "bg-emerald-600/50",
+    glowBottom: "bg-teal-600/40",
     quote: "text-emerald-500/20",
-    badge: "bg-emerald-100 text-emerald-700",
+    badge: "bg-emerald-200 text-emerald-900",
   },
   amber: {
-    card: "border-2 border-amber-200/80 bg-gradient-to-br from-amber-50/95 via-orange-50/85 to-yellow-50/90 shadow-[0_18px_45px_rgba(251,191,36,0.14)]",
-    overlay: "from-amber-500/10 via-orange-500/10 to-yellow-500/10",
-    glowTop: "bg-amber-400/25",
-    glowBottom: "bg-orange-400/20",
+    card: "border border-white/40 bg-gradient-to-br from-amber-200/98 via-orange-200/95 to-yellow-200/98 shadow-[0_22px_65px_rgba(251,191,36,0.3)]",
+    overlay: "from-amber-700/25 via-orange-700/20 to-yellow-700/25",
+    glowTop: "bg-amber-600/50",
+    glowBottom: "bg-orange-600/40",
     quote: "text-amber-500/20",
-    badge: "bg-amber-100 text-amber-700",
+    badge: "bg-amber-200 text-amber-900",
   },
   indigo: {
-    card: "border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-50/95 via-blue-50/85 to-sky-50/90 shadow-[0_18px_45px_rgba(79,70,229,0.14)]",
-    overlay: "from-indigo-500/10 via-violet-500/10 to-blue-500/10",
-    glowTop: "bg-indigo-400/25",
-    glowBottom: "bg-violet-400/20",
+    card: "border border-white/40 bg-gradient-to-br from-indigo-200/98 via-blue-200/95 to-sky-200/98 shadow-[0_22px_65px_rgba(79,70,229,0.3)]",
+    overlay: "from-indigo-700/25 via-violet-700/20 to-blue-700/25",
+    glowTop: "bg-indigo-600/50",
+    glowBottom: "bg-violet-600/40",
     quote: "text-indigo-500/20",
-    badge: "bg-indigo-100 text-indigo-700",
+    badge: "bg-indigo-200 text-indigo-900",
   },
   rose: {
-    card: "border-2 border-rose-200/80 bg-gradient-to-br from-rose-50/95 via-fuchsia-50/85 to-violet-50/90 shadow-[0_18px_45px_rgba(236,72,153,0.14)]",
-    overlay: "from-rose-500/10 via-pink-500/10 to-violet-500/10",
-    glowTop: "bg-rose-400/25",
-    glowBottom: "bg-pink-400/20",
+    card: "border border-white/40 bg-gradient-to-br from-rose-200/98 via-fuchsia-200/95 to-violet-200/98 shadow-[0_22px_65px_rgba(236,72,153,0.3)]",
+    overlay: "from-rose-700/25 via-pink-700/20 to-violet-700/25",
+    glowTop: "bg-rose-600/50",
+    glowBottom: "bg-pink-600/40",
     quote: "text-rose-500/20",
-    badge: "bg-rose-100 text-rose-700",
+    badge: "bg-rose-200 text-rose-900",
   },
 };
 
@@ -197,9 +197,9 @@ export default function Testimonials(): JSX.Element {
   return (
     <section
       id="testimonials"
-      className="relative min-h-[680px] overflow-hidden py-16 sm:py-20 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.18),transparent_28%),radial-gradient(circle_at_80%_18%,rgba(59,130,246,0.2),transparent_22%),linear-gradient(180deg,#f8fcff_0%,#eef6ff_55%,#f8fbff_100%)]"
+      className="relative min-h-[680px] overflow-hidden py-16 sm:py-20 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.3),transparent_24%),radial-gradient(circle_at_80%_18%,rgba(59,130,246,0.26),transparent_20%),linear-gradient(180deg,#f4faff_0%,#e7f4ff_55%,#f7fbff_100%)]"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.95),rgba(240,249,255,0.92),rgba(255,255,255,0.96))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,255,255,0.9),rgba(240,249,255,0.95),rgba(255,255,255,0.92))]" />
       <div className="pointer-events-none absolute inset-x-0 top-20 hidden lg:block">
         <div className="mx-auto h-72 w-72 rounded-full bg-blue-300/20 blur-3xl" />
       </div>
@@ -256,10 +256,10 @@ export default function Testimonials(): JSX.Element {
                           <p className="text-base sm:text-lg leading-8 text-slate-700 italic">“{person.quote}”</p>
                         </div>
 
-                        <div className="flex flex-wrap gap-3 text-sm text-slate-600">
-                          <span className="rounded-2xl bg-white/80 px-4 py-2 shadow-sm">Study plan clarity</span>
-                          <span className="rounded-2xl bg-white/80 px-4 py-2 shadow-sm">Personal coaching</span>
-                          <span className="rounded-2xl bg-white/80 px-4 py-2 shadow-sm">Result-driven prep</span>
+                        <div className="flex flex-wrap gap-3 text-sm text-slate-700 font-medium">
+                          <span className="rounded-2xl bg-white/70 px-4 py-2 shadow-md">Study plan clarity</span>
+                          <span className="rounded-2xl bg-white/70 px-4 py-2 shadow-md">Personal coaching</span>
+                          <span className="rounded-2xl bg-white/70 px-4 py-2 shadow-md">Result-driven prep</span>
                         </div>
                       </div>
                     </div>
