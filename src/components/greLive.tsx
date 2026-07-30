@@ -297,7 +297,7 @@ const GreLive: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-white border-b border-slate-100 hover:bg-blue-50/50 transition-colors duration-200 group">
+                <tr className="bg-white border-b border-black/40 hover:bg-blue-50/50 transition-colors duration-200 group">
                   <td className="px-7 py-6 text-slate-950 font-extrabold text-base md:text-lg">
                     <span className="inline-flex items-center gap-2.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-blue-500 group-hover:bg-blue-600 transition-colors"></span>
@@ -309,7 +309,7 @@ const GreLive: React.FC = () => {
                   <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm md:text-base font-bold">10 weeks</span></td>
                   <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm md:text-base font-bold">Online</span></td>
                 </tr>
-                <tr className="bg-slate-50/40 border-b border-slate-100 hover:bg-blue-50/50 transition-colors duration-200 group">
+                <tr className="bg-slate-50/40 border-b border-black/40 hover:bg-blue-50/50 transition-colors duration-200 group">
                   <td className="px-7 py-6 text-slate-950 font-extrabold text-base md:text-lg">
                     <span className="inline-flex items-center gap-2.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-purple-500 group-hover:bg-purple-600 transition-colors"></span>
@@ -321,7 +321,7 @@ const GreLive: React.FC = () => {
                   <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm md:text-base font-bold">12 weeks</span></td>
                   <td className="px-7 py-6 text-slate-800 text-base md:text-lg"><span className="inline-flex px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm md:text-base font-bold">Online</span></td>
                 </tr>
-                <tr className="bg-white hover:bg-blue-50/50 transition-colors duration-200 group">
+                <tr className="bg-white border-b border-black/40 hover:bg-blue-50/50 transition-colors duration-200 group">
                   <td className="px-7 py-6 text-slate-950 font-extrabold text-base md:text-lg">
                     <span className="inline-flex items-center gap-2.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-orange-500 group-hover:bg-orange-600 transition-colors"></span>

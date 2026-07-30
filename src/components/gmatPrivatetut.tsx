@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
-import { Activity, BookOpen, Gift, Zap, ChevronDown, CheckCircle2, Check } from "lucide-react";
+import { Activity, ArrowRight, BookOpen, Gift, Zap, ChevronDown, CheckCircle2, Check, Sparkles } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { ProgramHero } from "@/components/ProgramHero";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
@@ -95,20 +95,42 @@ const GmatPrivateTut: React.FC = () => {
 
       <section className="py-16">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <div className="w-full">
-            <div className="prose max-w-none text-lg text-slate-950">
-              <h2 className="text-5xl sm:text-6xl font-black text-primary mb-4">GMAT Private Tutoring That Works</h2>
-              <p className="text-lg md:text-xl text-slate-900 font-semibold leading-relaxed">Experience expert-led GMAT coaching from anywhere, with personalised live sessions, real-time problem discussion, and a structured plan designed for high-scoring aspirants.</p>
-              <ul className="mt-6 space-y-3 list-disc pl-5 text-slate-800 text-lg font-medium">
-                <li>Interactive trainer-led sessions with personalised doubt resolution.</li>
-                <li>Performance analytics, weekly mocks, and strategy reviews.</li>
-                <li>Flexible timings for both working professionals and students.</li>
-              </ul>
-              <button 
+          <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+            <div className="relative z-10 max-w-4xl">
+              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                <Sparkles className="w-4 h-4 stroke-[2.5]" />
+                <span>GMAT PRIVATE TUTORING</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
+                GMAT Private Tutoring That Works
+              </h2>
+              <p className="text-slate-700 font-medium leading-relaxed mb-4" style={{ fontSize: 24 }}>
+                Experience expert-led GMAT coaching from anywhere, with personalised live sessions, real-time problem discussion, and a structured plan designed for high-scoring aspirants.
+              </p>
+              <p className="text-slate-600 font-semibold leading-relaxed mb-8" style={{ fontSize: 22 }}>
+                Get access to one-on-one mentoring, live course correction, and a goal-driven plan that keeps your GMAT prep on track.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-3 mb-8">
+                <div className="rounded-[28px] border border-fuchsia-300/90 bg-gradient-to-br from-fuchsia-200 via-fuchsia-100 to-fuchsia-50 p-5 shadow-[0_20px_40px_-20px_rgba(139,92,246,0.35)]">
+                  <p className="text-base md:text-lg font-semibold text-slate-950">Interactive trainer-led sessions</p>
+                  <p className="mt-2 text-slate-600">Personalised doubt resolution and live problem solving.</p>
+                </div>
+                <div className="rounded-[28px] border border-sky-300/90 bg-gradient-to-br from-sky-200 via-sky-100 to-sky-50 p-5 shadow-[0_20px_40px_-20px_rgba(14,165,233,0.35)]">
+                  <p className="text-base md:text-lg font-semibold text-slate-950">Performance analytics & weekly mocks</p>
+                  <p className="mt-2 text-slate-600">Review scores, pace, and strategy with expert feedback.</p>
+                </div>
+                <div className="rounded-[28px] border border-emerald-300/90 bg-gradient-to-br from-emerald-200 via-emerald-100 to-emerald-50 p-5 shadow-[0_20px_40px_-20px_rgba(16,185,129,0.35)]">
+                  <p className="text-base md:text-lg font-semibold text-slate-950">Flexible session timings</p>
+                  <p className="mt-2 text-slate-600">Schedule coaching around your work or study routine.</p>
+                </div>
+              </div>
+              <button
                 onClick={() => setIsBookSessionOpen(true)}
-                className="mt-8 rounded-full px-10 py-4 text-base md:text-lg font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 shadow-lg hover:shadow-xl transition-transform duration-300 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
               >
-                TALK TO A GMAT EXPERT
+                <span>Talk to a GMAT Expert</span>
+                <ArrowRight className="h-5 w-5" />
               </button>
             </div>
           </div>
@@ -118,48 +140,42 @@ const GmatPrivateTut: React.FC = () => {
      
     
       <section className="py-12 bg-background">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.28em] text-primary">Why 1-on-1</p>
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
+          <p className="text-center text-2xl md:text-3xl font-semibold uppercase tracking-[0.34em] text-primary">Why 1-on-1</p>
           <h2 className="mt-2 text-center text-5xl md:text-6xl font-extrabold text-primary">Why 1-on-1 works</h2>
           <div className="mx-auto mt-4 h-1.5 w-32 rounded-full bg-gradient-to-r from-primary to-accent" />
 
           <div className="mt-10 grid gap-8 md:grid-cols-3">
             <div className="relative overflow-hidden rounded-[28px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-sky-50/70 to-cyan-50/70 p-8 shadow-md hover:shadow-xl hover:border-blue-400 transition-all duration-300">
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 opacity-15 blur-2xl pointer-events-none" />
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col items-start gap-4">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-lg">
                   <BookOpen className="h-6 w-6" />
                 </div>
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-extrabold text-blue-950">Real diagnosis</h3>
-                  <p className="mt-3 text-base md:text-lg leading-relaxed text-blue-900/80">Mock data + live observation reveals whether your issue is concepts, process or pacing.</p>
-                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-blue-950">Real diagnosis</h3>
+                <p className="mt-3 text-base md:text-lg leading-relaxed text-blue-900/80">Mock data + live observation reveals whether your issue is concepts, process or pacing.</p>
               </div>
             </div>
 
             <div className="relative overflow-hidden rounded-[28px] border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-50/90 via-violet-50/70 to-purple-50/70 p-8 shadow-md hover:shadow-xl hover:border-indigo-400 transition-all duration-300 md:scale-[1.02]">
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-indigo-400 to-violet-400 opacity-15 blur-2xl pointer-events-none" />
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col items-start gap-4">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-600 to-violet-500 text-white shadow-lg">
                   <Activity className="h-6 w-6" />
                 </div>
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-extrabold text-indigo-950">Targeted fixes</h3>
-                  <p className="mt-3 text-base md:text-lg leading-relaxed text-indigo-900/80">Every session attacks your specific faltering points — nothing generic, nothing wasted.</p>
-                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-indigo-950">Targeted fixes</h3>
+                <p className="mt-3 text-base md:text-lg leading-relaxed text-indigo-900/80">Every session attacks your specific faltering points — nothing generic, nothing wasted.</p>
               </div>
             </div>
 
             <div className="relative overflow-hidden rounded-[28px] border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-50/90 via-teal-50/70 to-green-50/70 p-8 shadow-md hover:shadow-xl hover:border-emerald-400 transition-all duration-300">
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-emerald-400 to-teal-400 opacity-15 blur-2xl pointer-events-none" />
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col items-start gap-4">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 text-white shadow-lg">
                   <Zap className="h-6 w-6" />
                 </div>
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-extrabold text-emerald-950">Faster improvement</h3>
-                  <p className="mt-3 text-base md:text-lg leading-relaxed text-emerald-900/80">Our 1-on-1 students typically improve 2x faster than self-study on the same schedule.</p>
-                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-emerald-950">Faster improvement</h3>
+                <p className="mt-3 text-base md:text-lg leading-relaxed text-emerald-900/80">Our 1-on-1 students typically improve 2x faster than self-study on the same schedule.</p>
               </div>
             </div>
           </div>
