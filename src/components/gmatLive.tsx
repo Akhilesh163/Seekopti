@@ -54,11 +54,11 @@ const GmatLive: React.FC = () => {
       <ProgramHero type="gmat" />
 
       <section className="py-20 bg-gradient-to-b from-sky-50 via-white to-slate-50">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="w-full">
             <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-              <div className="relative z-10 max-w-4xl">
+              <div className="relative z-10 max-w-none">
                 <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
                   <Sparkles className="w-4 h-4 stroke-[2.5]" />
                   <span>LIVE GMAT TRAINING</span>
@@ -71,7 +71,7 @@ const GmatLive: React.FC = () => {
                 </p>
 
                 <div className="mt-6 grid gap-6 grid-cols-1 sm:grid-cols-3 justify-items-stretch">
-                  <div className="w-full rounded-[28px] border border-purple-300/80 bg-gradient-to-br from-violet-200 via-fuchsia-200 to-fuchsia-50 p-6 shadow-2xl shadow-slate-200/40">
+                  <div className="w-full rounded-[28px] border border-purple-300/80 bg-gradient-to-br from-violet-200 via-fuchsia-200 to-fuchsia-50 p-6 shadow-2xl shadow-slate-200/40 min-h-[310px]">
                     <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-700 to-fuchsia-500 text-white shadow-lg mb-4">
                       <BookOpen className="h-7 w-7" />
                     </div>
@@ -80,7 +80,7 @@ const GmatLive: React.FC = () => {
                     <p className="text-base md:text-lg text-slate-700 leading-7">Personalised doubt resolution, live explanations, and real-time problem solving for every concept.</p>
                   </div>
 
-                  <div className="w-full rounded-[28px] border border-sky-300/80 bg-gradient-to-br from-cyan-200 via-sky-150 to-sky-50 p-6 shadow-2xl shadow-slate-200/40">
+                  <div className="w-full rounded-[28px] border border-sky-300/80 bg-gradient-to-br from-cyan-200 via-sky-150 to-sky-50 p-6 shadow-2xl shadow-slate-200/40 min-h-[310px]">
                     <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-700 to-cyan-500 text-white shadow-lg mb-4">
                       <BarChart3 className="h-7 w-7" />
                     </div>
@@ -89,7 +89,7 @@ const GmatLive: React.FC = () => {
                     <p className="text-base md:text-lg text-slate-700 leading-7">Weekly mock tests, score reports, and strategic review sessions to keep your preparation sharp.</p>
                   </div>
 
-                  <div className="w-full rounded-[28px] border border-emerald-300/80 bg-gradient-to-br from-emerald-200 via-teal-150 to-teal-50 p-6 shadow-2xl shadow-slate-200/40">
+                  <div className="w-full rounded-[28px] border border-emerald-300/80 bg-gradient-to-br from-emerald-200 via-teal-150 to-teal-50 p-6 shadow-2xl shadow-slate-200/40 min-h-[310px]">
                     <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-700 to-teal-500 text-white shadow-lg mb-4">
                       <Clock3 className="h-7 w-7" />
                     </div>
