@@ -287,7 +287,7 @@ const GmatSelfPaced: React.FC = () => {
               >
                 {/* Floating Top Badge */}
                 {plan.recommended && (
-                  <div className="absolute -top-4 right-8 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-blue-500/30">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-blue-500/30">
                     Best value
                   </div>
                 )}
@@ -297,9 +297,8 @@ const GmatSelfPaced: React.FC = () => {
                     {plan.title}
                   </h3>
 
-                  {/* Price display with vertical accent bar */}
-                  <div className="flex items-center gap-3.5 mb-2">
-                    <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-blue-600 to-indigo-600 flex-shrink-0" />
+                  {/* Price display */}
+                  <div className="mb-2">
                     <p className="text-4xl md:text-5xl font-black text-blue-600 font-display tracking-tight">
                       {plan.price}
                     </p>

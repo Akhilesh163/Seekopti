@@ -214,15 +214,14 @@ const GmatPrivateTut: React.FC = () => {
                 style={{ WebkitTapHighlightColor: 'transparent' }}
               >
                 {plan.recommended && (
-                  <div className="absolute -top-4 right-8 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-blue-500/30">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-blue-500/30">
                     Recommended
                   </div>
                 )}
 
                 <div>
                   <h3 className="text-2xl md:text-3xl font-extrabold font-display text-slate-950 mb-6">{plan.title}</h3>
-                  <div className="flex items-center gap-3.5 mb-2">
-                    <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-blue-600 to-indigo-600 flex-shrink-0" />
+                  <div className="mb-2">
                     <p className="text-4xl md:text-5xl font-black text-blue-600 font-display tracking-tight">{plan.price}</p>
                   </div>
                   <p className="text-slate-600 font-bold mb-8" style={{ fontSize: "18px" }}>{plan.subtitle}</p>
@@ -251,11 +250,6 @@ const GmatPrivateTut: React.FC = () => {
             ))}
           </div>
 
-          <div className="rounded-2xl bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border-2 border-blue-200/80 p-8 text-center shadow-sm">
-            <p className="text-lg text-slate-800 font-medium leading-relaxed">
-              <span className="font-extrabold text-slate-950">How we compare:</span> Private GRE tutoring in India typically runs ₹2,500–4,000 per hour (and US firms like Manhattan Prep or Princeton Review charge $200–300/hr). Our Complete package works out to ~₹2,812/session — with course, mocks and mentoring included free.
-            </p>
-          </div>
         </div>
       </section>
 

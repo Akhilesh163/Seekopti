@@ -72,11 +72,13 @@ const GmatLive: React.FC = () => {
 
                 <div className="mt-6 grid gap-6 grid-cols-1 sm:grid-cols-3 justify-items-stretch">
                   <div className="w-full rounded-[28px] border border-purple-300/80 bg-gradient-to-br from-violet-200 via-fuchsia-200 to-fuchsia-50 p-6 shadow-2xl shadow-slate-200/40 min-h-[310px]">
-                    <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-700 to-fuchsia-500 text-white shadow-lg mb-4">
+                    <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-700 to-fuchsia-500 text-white shadow-lg">
                       <BookOpen className="h-7 w-7" />
                     </div>
-                    <span className="inline-flex items-center rounded-full bg-purple-100 text-purple-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Live Sessions</span>
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 mb-2">Interactive trainer-led sessions</h3>
+                    <div className="mt-4">
+                      <span className="inline-flex items-center rounded-full bg-purple-100 text-purple-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">Live Sessions</span>
+                    </div>
+                    <h3 className="mt-4 text-2xl md:text-3xl font-extrabold text-slate-950 mb-2">Interactive trainer-led sessions</h3>
                     <p className="text-base md:text-lg text-slate-700 leading-7">Personalised doubt resolution, live explanations, and real-time problem solving for every concept.</p>
                   </div>
 

@@ -70,31 +70,37 @@ const SelfPaced = () => {
   const featureCards = [
     {
       icon: since1993Icon,
+      badge: "Proven Legacy",
       title: "Unmatched Scores on the GRE since 1993",
       description: "Proven track record with thousands of 320+ scores."
     },
     {
       icon: analyticsIcon,
+      badge: "Smart Insights",
       title: "Smart analytics help you track and evaluate performance",
       description: "Identify weak spots and track score trajectory."
     },
     {
       icon: teacherIcon,
+      badge: "Adaptive Prep",
       title: "Powerful adaptive technology platform streamlines prep",
       description: "AI-driven practice tailored to your exact level."
     },
     {
       icon: booksIcon,
+      badge: "Structured Plan",
       title: "Targeted study plan & exhaustive full-length tests",
       description: "Comprehensive coverage of Quant and Verbal concepts."
     },
     {
       icon: studentIcon,
+      badge: "Expert Mentoring",
       title: "Mentoring and coaching by expert faculty",
       description: "Learn strategies from master GRE instructors."
     },
     {
       icon: qaIcon,
+      badge: "Personal Support",
       title: "Personalized attention through doubt-clearing sessions",
       description: "Never stay stuck on a problem for long."
     }
@@ -359,6 +365,22 @@ const SelfPaced = () => {
                 </p>
               </div>
             </div>
+
+              <div className="rounded-[28px] border-2 border-rose-200/80 bg-gradient-to-br from-rose-50/80 via-pink-50/50 to-red-50/70 p-8 shadow-md hover:shadow-xl hover:border-rose-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group md:col-span-2 lg:col-span-1">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-rose-400 to-pink-400 opacity-15 blur-2xl pointer-events-none" />
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center text-white shadow-lg mb-6">
+                  <Building2 className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-rose-900 bg-rose-100/70 px-3 py-1 rounded-full border border-rose-200/80">Physical Test Centers</span>
+                <h3 className="text-2xl font-extrabold text-rose-950 mt-4 mb-2">Local Center Access</h3>
+                <div className="inline-block text-rose-700 font-bold mb-3" style={{ fontSize: "19px" }}>Mock tests & computer labs</div>
+                <p className="text-rose-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Access local accredited centers for proctored mock tests and dedicated computer lab facilities.
+                </p>
+              </div>
+            </div>
+
           </div>
 
           {/* Action CTA Button */}
@@ -439,10 +461,12 @@ const SelfPaced = () => {
                   className={`group relative rounded-[28px] border-2 ${colors.shell} p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
                 >
                   <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-white/70 to-transparent opacity-70 blur-2xl pointer-events-none" />
-                  <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl ${colors.icon} text-white shadow-lg`}>
-                    <img src={card.icon} alt={card.title} className="h-8 w-8 object-contain drop-shadow-md brightness-0 invert" />
+                  <div className="mb-6 flex items-center gap-4">
+                    <div className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl ${colors.icon} text-white shadow-lg ring-2 ring-white/80 overflow-hidden`}>
+                      <img src={card.icon} alt={card.title} className="h-9 w-9 object-contain drop-shadow-md" />
+                    </div>
+                    <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] ${colors.badge}`}>{card.badge}</span>
                   </div>
-                  <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] ${colors.badge}`}>Feature</span>
                   <h3 className={`text-2xl font-extrabold ${colors.title} mt-4 mb-3 leading-tight`}>{card.title}</h3>
                   <p className={`text-lg font-medium leading-relaxed ${colors.desc}`}>{card.description}</p>
                 </div>
@@ -478,7 +502,7 @@ const SelfPaced = () => {
               >
                 {/* Floating Top Badge */}
                 {track.badge && (
-                  <div className="absolute -top-4 right-8 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-blue-500/30">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-6 py-1.5 text-xs font-black uppercase tracking-widest text-white shadow-lg shadow-blue-500/30">
                     {track.badge}
                   </div>
                 )}
@@ -488,9 +512,8 @@ const SelfPaced = () => {
                     {track.name}
                   </h3>
 
-                  {/* Price display with vertical accent bar */}
-                  <div className="flex items-center gap-3.5 mb-2">
-                    <div className="w-1.5 h-10 rounded-full bg-gradient-to-b from-blue-600 to-indigo-600 flex-shrink-0" />
+                  {/* Price display */}
+                  <div className="mb-2">
                     <p className="text-4xl md:text-5xl font-black text-blue-600 font-display tracking-tight">
                       {track.price}
                     </p>
@@ -524,11 +547,6 @@ const SelfPaced = () => {
             ))}
           </div>
 
-          <div className="rounded-2xl bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border-2 border-blue-200/80 p-8 text-center shadow-sm">
-            <p className="text-lg text-slate-800 font-medium leading-relaxed">
-              <span className="font-extrabold text-slate-950">How we compare:</span> Princeton Review/Manya online GRE courses run ₹30,000–40,000, Jamboree ₹30,000–35,000, and Magoosh about ₹16,000 (without India-specific mentoring or a full test series). Our Complete track is ₹14,999 with the 30-test series included.
-            </p>
-          </div>
         </div>
       </section>
 

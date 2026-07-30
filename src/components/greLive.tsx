@@ -416,8 +416,7 @@ const GreLive: React.FC = () => {
 
                 <h3 className="mt-6 text-2xl md:text-3xl font-bold bg-gradient-to-r from-slate-950 to-slate-800 bg-clip-text text-transparent">Live Batch Enrollment</h3>
                 
-                <div className="mt-8 relative">
-                  <div className="absolute -left-4 top-0 w-1.5 h-16 bg-gradient-to-b from-blue-600 to-transparent rounded-r-full" />
+                <div className="mt-8">
                   <p className="text-5xl md:text-6xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">₹29,999</p>
                   <p className="mt-2 text-sm text-slate-600 font-medium">One-time • all material included</p>
                 </div>
@@ -478,12 +477,6 @@ const GreLive: React.FC = () => {
             </div>
           </div>
 
-          {/* Comparison Note */}
-          <div className="mt-12 rounded-2xl bg-blue-50 border border-blue-200 p-6">
-            <p className="text-sm md:text-base text-muted-foreground">
-              <span className="font-semibold text-blue-900">How we compare:</span> comparable live GRE programs cost ₹30,000–60,000 (Princeton Review/Manya ₹30–40k, Jamboree ₹30–35k, premium batches higher) — usually with test series sold separately. Ours is ₹29,999 with everything bundled.
-            </p>
-          </div>
         </div>
       </section>
 
