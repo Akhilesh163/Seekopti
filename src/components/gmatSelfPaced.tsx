@@ -203,8 +203,8 @@ const GmatSelfPaced: React.FC = () => {
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {[
-              { id: "mixed", label: "Mixed (Quant + Verbal)" },
-              { id: "quant", label: "Quant Only" },
+              { id: "mixed", label: "Mixed (Quant + DI + Verbal)" },
+              { id: "quant", label: "Quant + DI Only" },
               { id: "verbal", label: "Verbal Only" },
             ].map((track) => (
               <button

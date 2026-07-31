@@ -350,33 +350,34 @@ const SelfPaced = () => {
               </div>
             </div>
 
-            {/* Card 5: Local Test Centers */}
+            {/* Card 5: Practice Environment */}
             <div className="rounded-[28px] border-2 border-rose-200/80 bg-gradient-to-br from-rose-50/80 via-pink-50/50 to-red-50/70 p-8 shadow-md hover:shadow-xl hover:border-rose-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group md:col-span-2 lg:col-span-1">
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-rose-400 to-pink-400 opacity-15 blur-2xl pointer-events-none" />
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center text-white shadow-lg mb-6">
                   <Building2 className="w-7 h-7" />
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-rose-900 bg-rose-100/70 px-3 py-1 rounded-full border border-rose-200/80">Physical Test Centers</span>
-                <h3 className="text-2xl font-extrabold text-rose-950 mt-4 mb-2">Local Center Access</h3>
-                <div className="inline-block text-rose-700 font-bold mb-3" style={{ fontSize: "19px" }}>Mock tests & computer labs</div>
+                <span className="text-xs font-bold uppercase tracking-wider text-rose-900 bg-rose-100/70 px-3 py-1 rounded-full border border-rose-200/80">Practice Environment</span>
+                <h3 className="text-2xl font-extrabold text-rose-950 mt-4 mb-2">Proctored Mock Labs</h3>
+                <div className="inline-block text-rose-700 font-bold mb-3" style={{ fontSize: "19px" }}>Real exam setup & lab practice</div>
                 <p className="text-rose-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
-                  Access local accredited centers for proctored mock tests and dedicated computer lab facilities.
+                  Access supervised centers for timed mocks, computer-based practice and a realistic test-day environment.
                 </p>
               </div>
             </div>
 
-              <div className="rounded-[28px] border-2 border-rose-200/80 bg-gradient-to-br from-rose-50/80 via-pink-50/50 to-red-50/70 p-8 shadow-md hover:shadow-xl hover:border-rose-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group md:col-span-2 lg:col-span-1">
-              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-rose-400 to-pink-400 opacity-15 blur-2xl pointer-events-none" />
+            {/* Card 6: Flexible Learning Pace */}
+            <div className="rounded-[28px] border-2 border-violet-200/80 bg-gradient-to-br from-violet-50/80 via-purple-50/50 to-fuchsia-50/70 p-8 shadow-md hover:shadow-xl hover:border-violet-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-400 opacity-15 blur-2xl pointer-events-none" />
               <div>
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center text-white shadow-lg mb-6">
-                  <Building2 className="w-7 h-7" />
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-500 flex items-center justify-center text-white shadow-lg mb-6">
+                  <Zap className="w-7 h-7" />
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-rose-900 bg-rose-100/70 px-3 py-1 rounded-full border border-rose-200/80">Physical Test Centers</span>
-                <h3 className="text-2xl font-extrabold text-rose-950 mt-4 mb-2">Local Center Access</h3>
-                <div className="inline-block text-rose-700 font-bold mb-3" style={{ fontSize: "19px" }}>Mock tests & computer labs</div>
-                <p className="text-rose-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
-                  Access local accredited centers for proctored mock tests and dedicated computer lab facilities.
+                <span className="text-xs font-bold uppercase tracking-wider text-violet-900 bg-violet-100/70 px-3 py-1 rounded-full border border-violet-200/80">Learning Flexibility</span>
+                <h3 className="text-2xl font-extrabold text-violet-950 mt-4 mb-2">Study at Your Rhythm</h3>
+                <div className="inline-block text-violet-700 font-bold mb-3" style={{ fontSize: "19px" }}>Pause, rewind and revisit anytime</div>
+                <p className="text-violet-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Learn at your own pace with on-demand access, repeatable lessons and no pressure to keep up with a fixed batch.
                 </p>
               </div>
             </div>

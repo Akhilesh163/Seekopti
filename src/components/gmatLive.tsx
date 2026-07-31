@@ -76,7 +76,7 @@ const GmatLive: React.FC = () => {
                       <BookOpen className="h-7 w-7" />
                     </div>
                     <div className="mt-4">
-                      <span className="inline-flex items-center rounded-full bg-purple-100 text-purple-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">Live Sessions</span>
+                      <span className="block rounded-full bg-violet-100 text-violet-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Live Sessions</span>
                     </div>
                     <h3 className="mt-4 text-2xl md:text-3xl font-extrabold text-slate-950 mb-2">Interactive trainer-led sessions</h3>
                     <p className="text-base md:text-lg text-slate-700 leading-7">Personalised doubt resolution, live explanations, and real-time problem solving for every concept.</p>
