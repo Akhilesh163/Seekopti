@@ -34,25 +34,49 @@ const TestSeriesComponent: React.FC = () => {
       title: "10 full-length mocks",
       description: "Adaptive, exam-interface mocks matching real difficulty, timing (12Q/18min ... 15Q/26min) and scoring.",
       icon: FileText,
-      gradient: "from-blue-600 to-blue-400",
+      iconBg: "from-fuchsia-600 via-purple-600 to-indigo-600",
+      cardBg: "border-fuchsia-300/90 bg-gradient-to-br from-fuchsia-100/95 via-violet-100/90 to-indigo-100/95",
+      borderHover: "hover:border-fuchsia-500",
+      pill: "text-fuchsia-950 bg-fuchsia-100/90 border-fuchsia-200/90",
+      titleClass: "text-fuchsia-950",
+      descClass: "text-fuchsia-900/95",
+      glow: "from-fuchsia-500 via-purple-500 to-indigo-500",
     },
     {
       title: "10 Quant sectionals",
       description: "Arithmetic to Data Analysis — topic-weighted exactly like ETS.",
       icon: Calculator,
-      gradient: "from-orange-500 to-pink-500",
+      iconBg: "from-sky-600 via-blue-600 to-cyan-600",
+      cardBg: "border-sky-300/90 bg-gradient-to-br from-sky-100/95 via-blue-100/90 to-cyan-100/95",
+      borderHover: "hover:border-sky-500",
+      pill: "text-sky-950 bg-sky-100/90 border-sky-200/90",
+      titleClass: "text-sky-950",
+      descClass: "text-sky-900/95",
+      glow: "from-sky-500 via-blue-500 to-cyan-500",
     },
     {
       title: "10 Verbal sectionals",
       description: "RC, Critical Reasoning, TC and SE in real section proportions.",
       icon: Languages,
-      gradient: "from-cyan-500 to-blue-500",
+      iconBg: "from-emerald-600 via-green-600 to-lime-600",
+      cardBg: "border-emerald-300/90 bg-gradient-to-br from-emerald-100/95 via-green-100/90 to-lime-100/95",
+      borderHover: "hover:border-emerald-500",
+      pill: "text-emerald-950 bg-emerald-100/90 border-emerald-200/90",
+      titleClass: "text-emerald-950",
+      descClass: "text-emerald-900/95",
+      glow: "from-emerald-500 via-green-500 to-lime-500",
     },
     {
       title: "Live analysis",
       description: "Group analysis session after each mock weekend + error-log templates.",
       icon: Mic,
-      gradient: "from-purple-600 to-indigo-600",
+      iconBg: "from-amber-500 via-orange-500 to-rose-500",
+      cardBg: "border-amber-300/90 bg-gradient-to-br from-amber-100/95 via-orange-100/90 to-rose-100/95",
+      borderHover: "hover:border-amber-500",
+      pill: "text-amber-950 bg-amber-100/90 border-amber-200/90",
+      titleClass: "text-amber-950",
+      descClass: "text-amber-900/95",
+      glow: "from-amber-500 via-orange-500 to-rose-500",
     },
   ];
 
@@ -61,35 +85,60 @@ const TestSeriesComponent: React.FC = () => {
       title: "10 full-length mocks",
       description: "Focus interface, 205–805 scoring, and the review-&-edit tool included.",
       icon: FileText,
-      gradient: "from-blue-600 to-blue-400",
+      iconBg: "from-indigo-600 via-violet-600 to-purple-600",
+      cardBg: "border-indigo-300/90 bg-gradient-to-br from-indigo-50/90 via-violet-50/80 to-purple-50/80",
+      borderHover: "hover:border-indigo-400",
+      pill: "text-indigo-950 bg-indigo-100/80 border-indigo-200/90",
+      titleClass: "text-indigo-950",
+      descClass: "text-indigo-900/90",
+      glow: "from-indigo-500 via-violet-500 to-purple-500",
     },
     {
       title: "10 DI sectionals",
       description: "All five DI types — DS, MSR, tables, graphics, two-part — the section that decides percentiles.",
       icon: BarChart3,
-      gradient: "from-purple-600 to-indigo-600",
+      iconBg: "from-rose-600 via-pink-600 to-fuchsia-600",
+      cardBg: "border-rose-300/90 bg-gradient-to-br from-rose-50/90 via-pink-50/80 to-fuchsia-50/80",
+      borderHover: "hover:border-rose-400",
+      pill: "text-rose-950 bg-rose-100/80 border-rose-200/90",
+      titleClass: "text-rose-950",
+      descClass: "text-rose-900/90",
+      glow: "from-rose-500 via-pink-500 to-fuchsia-500",
     },
     {
       title: "10 Quant + Verbal sectionals",
       description: "Five of each, calibrated to GMAC difficulty curves.",
       icon: Calculator,
-      gradient: "from-orange-500 to-pink-500",
+      iconBg: "from-teal-600 via-emerald-600 to-green-600",
+      cardBg: "border-teal-300/90 bg-gradient-to-br from-teal-50/90 via-emerald-50/80 to-green-50/80",
+      borderHover: "hover:border-teal-400",
+      pill: "text-teal-950 bg-teal-100/80 border-teal-200/90",
+      titleClass: "text-teal-950",
+      descClass: "text-teal-900/90",
+      glow: "from-teal-500 via-emerald-500 to-green-500",
     },
     {
       title: "Live analysis",
       description: "Faculty-led mock debriefs on strategy, pacing and answer-changing tactics.",
       icon: Mic,
-      gradient: "from-purple-600 to-indigo-600",
+      iconBg: "from-orange-500 via-amber-500 to-yellow-500",
+      cardBg: "border-orange-300/90 bg-gradient-to-br from-orange-50/90 via-amber-50/80 to-yellow-50/80",
+      borderHover: "hover:border-orange-400",
+      pill: "text-orange-950 bg-orange-100/80 border-orange-200/90",
+      titleClass: "text-orange-950",
+      descClass: "text-orange-900/90",
+      glow: "from-orange-500 via-amber-500 to-yellow-500",
     },
   ];
 
   return (
     <div className="bg-background text-foreground">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/80 via-white to-indigo-50/70 pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-slate-200/60">
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-blue-500/10 blur-[140px] pointer-events-none" />
-        <div className="absolute top-0 left-1/4 w-[320px] h-[320px] rounded-full bg-indigo-500/10 blur-[120px] pointer-events-none" />
-        <div className="absolute inset-0 pointer-events-none opacity-60">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50/90 via-white to-indigo-50/90 pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-slate-200/60">
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-blue-500/15 blur-[140px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[320px] h-[320px] rounded-full bg-indigo-500/15 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/3 w-[280px] h-[280px] rounded-full bg-violet-500/10 blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none opacity-70">
           <div
             className="h-full w-full"
             style={{
@@ -102,8 +151,8 @@ const TestSeriesComponent: React.FC = () => {
         
         <div className="max-w-[1200px] mx-auto px-6 text-left relative z-10">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2.5 rounded-full border-2 border-blue-400/50 bg-blue-500/10 px-6 py-3 text-sm md:text-base font-black uppercase tracking-[0.18em] text-blue-700 shadow-sm mb-6">
-              <span className="h-2.5 w-2.5 rounded-full bg-blue-600" />
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-[0.24em] text-indigo-700 shadow-sm mb-6">
+              <span className="h-2.5 w-2.5 rounded-full bg-indigo-600" />
               Test Series
             </div>
 
@@ -111,16 +160,19 @@ const TestSeriesComponent: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-5xl sm:text-6xl md:text-7xl font-black font-display leading-[1.05] tracking-tight mb-6 text-slate-950"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display leading-[1.1] tracking-tight mb-6 text-slate-950"
             >
-              GRE & GMAT Test Series
+              Achieve exam momentum with{' '}
+              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500">
+                test series built for scores.
+              </span>
             </motion.h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-xl sm:text-2xl text-slate-700 font-medium leading-relaxed mb-8 max-w-3xl"
+              className="text-lg sm:text-xl md:text-[1.35rem] text-slate-700 font-medium leading-relaxed mb-8 max-w-3xl"
             >
               30 realistic tests per exam — 10 full-length adaptive mocks plus 20 sectionals — with the analytics to turn every attempt into a score improvement.
             </motion.p>
@@ -129,12 +181,23 @@ const TestSeriesComponent: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-wrap gap-4"
             >
               <button 
                 onClick={() => setIsBookSessionOpen(true)}
-                className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-lg font-extrabold text-white shadow-xl shadow-indigo-500/25 transition hover:opacity-95 hover:scale-[1.02] duration-200"
+                className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:opacity-95 hover:-translate-y-0.5 active:translate-y-0"
               >
                 Book a Free Demo
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right h-4 w-4">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setIsBookSessionOpen(true)}
+                className="inline-flex items-center rounded-2xl border border-slate-300 bg-white/80 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-slate-700 transition-all hover:-translate-y-0.5 hover:border-indigo-400 hover:bg-indigo-50/60"
+              >
+                Talk to an Expert
               </button>
             </motion.div>
           </div>
@@ -167,16 +230,16 @@ const TestSeriesComponent: React.FC = () => {
                 <motion.div
                   key={idx}
                   whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(59, 130, 246, 0.2)" }}
-                  className="rounded-[28px] border-2 border-purple-200/80 bg-gradient-to-br from-purple-50/80 via-pink-50/50 to-indigo-50/70 p-8 shadow-md hover:shadow-xl hover:border-purple-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
+                  className={`rounded-[28px] border-2 p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group ${card.cardBg} ${card.borderHover}`}
                 >
-                  <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 opacity-15 blur-2xl pointer-events-none" />
+                  <div className={`absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br ${card.glow} opacity-15 blur-2xl pointer-events-none`} />
                   <div>
-                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-tr ${card.gradient} shadow-lg mb-6`}>
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-tr ${card.iconBg} shadow-lg mb-6`}>
                       <Icon className="w-7 h-7 text-white" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-purple-900 bg-purple-100/70 px-3 py-1 rounded-full border border-purple-200/80">GRE</span>
-                    <h3 className="text-2xl font-extrabold text-purple-950 mt-4 mb-2">{card.title}</h3>
-                    <p className="text-purple-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                    <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${card.pill}`}>GRE</span>
+                    <h3 className={`text-2xl font-extrabold mt-4 mb-2 ${card.titleClass}`}>{card.title}</h3>
+                    <p className={`leading-relaxed font-normal ${card.descClass}`} style={{ fontSize: "22px" }}>
                       {card.description}
                     </p>
                   </div>
@@ -221,16 +284,16 @@ const TestSeriesComponent: React.FC = () => {
                 <motion.div
                   key={idx}
                   whileHover={{ y: -6, boxShadow: "0 20px 40px -15px rgba(79, 70, 229, 0.2)" }}
-                  className="rounded-[28px] border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-50/80 via-violet-50/50 to-purple-50/70 p-8 shadow-md hover:shadow-xl hover:border-indigo-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group"
+                  className={`rounded-[28px] border-2 p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden group ${card.cardBg} ${card.borderHover}`}
                 >
-                  <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-indigo-400 to-violet-400 opacity-15 blur-2xl pointer-events-none" />
+                  <div className={`absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br ${card.glow} opacity-15 blur-2xl pointer-events-none`} />
                   <div>
-                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-tr ${card.gradient} shadow-lg mb-6`}>
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-gradient-to-tr ${card.iconBg} shadow-lg mb-6`}>
                       <Icon className="w-7 h-7 text-white" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-indigo-900 bg-indigo-100/70 px-3 py-1 rounded-full border border-indigo-200/80">GMAT</span>
-                    <h3 className="text-2xl font-extrabold text-indigo-950 mt-4 mb-2">{card.title}</h3>
-                    <p className="text-indigo-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                    <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${card.pill}`}>GMAT</span>
+                    <h3 className={`text-2xl font-extrabold mt-4 mb-2 ${card.titleClass}`}>{card.title}</h3>
+                    <p className={`leading-relaxed font-normal ${card.descClass}`} style={{ fontSize: "22px" }}>
                       {card.description}
                     </p>
                   </div>
