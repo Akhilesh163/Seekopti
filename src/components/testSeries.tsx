@@ -31,6 +31,29 @@ const testSeriesFaqs = [
   }
 ];
 
+const slides = [
+  {
+    image: testSlide0,
+    caption: "Exam preparation scene",
+  },
+  {
+    image: testSlide1,
+    caption: "Pencil and answer sheet",
+  },
+  {
+    image: testSlide2,
+    caption: "Exam paper handoff",
+  },
+  {
+    image: testSlide3,
+    caption: "Writing test answers",
+  },
+  {
+    image: testSlide4,
+    caption: "Desk with exam sheet and pencil",
+  },
+];
+
 const TestSeriesComponent: React.FC = () => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
 
@@ -162,11 +185,16 @@ const TestSeriesComponent: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
+    slides.forEach(({ image }) => {
+      const preloaded = new Image();
+      preloaded.src = image;
+    });
+
     const intervalId = window.setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 4500);
     return () => window.clearInterval(intervalId);
-  }, [slides.length]);
+  }, []);
 
   return (
     <div className="bg-background text-foreground">
@@ -245,15 +273,19 @@ const TestSeriesComponent: React.FC = () => {
             <div className="relative">
               <div className="relative w-full h-[380px] sm:h-[440px] md:h-[480px] rounded-[32px] overflow-hidden border border-white/70 shadow-[0_30px_60px_rgba(15,23,42,0.2)] bg-gradient-to-br from-slate-950 via-blue-950 to-violet-950">
                 <div className="absolute inset-0 w-full h-full" style={{ opacity: 1, transform: 'scale(1.00164)' }}>
-                  <motion.img
-                    key={currentSlide}
-                    src={slides[currentSlide].image}
-                    alt={slides[currentSlide].caption || "Campus image"}
-                    initial={{ opacity: 0, scale: 1.02 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-full h-full object-cover object-center"
-                  />
+                  {slides.map((slide, index) => (
+                    <motion.img
+                      key={slide.caption || index}
+                      src={slide.image}
+                      alt={slide.caption || "Campus image"}
+                      initial={{ opacity: 0, scale: 1.02 }}
+                      animate={{ opacity: index === currentSlide ? 1 : 0, scale: index === currentSlide ? 1 : 1.02 }}
+                      transition={{ duration: 0.6 }}
+                      className="absolute inset-0 w-full h-full object-cover object-center"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  ))}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-slate-950/5 to-black/0"></div>
                 </div>
               </div>
