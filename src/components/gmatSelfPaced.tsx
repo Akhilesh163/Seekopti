@@ -163,23 +163,25 @@ const GmatSelfPaced: React.FC = () => {
         <div className="mx-auto max-w-[1280px] px-6 lg:px-8">
           <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-            <div className="relative z-10 max-w-4xl">
-              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
-                <Sparkles className="w-4 h-4 stroke-[2.5]" />
-                <span>SELF-PACED GMAT PREPARATION</span>
+            <div className="relative z-10 mx-auto text-center">
+              <div className="mx-auto max-w-4xl">
+                <div className="inline-flex items-center justify-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                  <Sparkles className="w-4 h-4 stroke-[2.5]" />
+                  <span>SELF-PACED GMAT PREPARATION</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5 text-center">
+                  Self-Paced GMAT Online Prep <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Built Around Your Schedule</span>
+                </h2>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
-                Self-Paced GMAT Online Prep <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Built Around Your Schedule</span>
-              </h2>
-              <p className="text-slate-700 font-medium leading-relaxed mb-4" style={{ fontSize: "24px" }}>
+              <p className="mx-auto w-full max-w-none text-slate-700 font-medium leading-relaxed mb-4 text-center" style={{ fontSize: "24px" }}>
                 Learn at your own pace with Seekyoury’s self-paced GMAT online prep program. Anytime, anywhere, and at your leisure – our program ensures you are not bound by a schedule, making it ideal for working professionals and busy students.
               </p>
-              <p className="text-slate-600 font-semibold leading-relaxed mb-6" style={{ fontSize: "22px" }}>
+              <p className="mx-auto w-full max-w-none text-slate-600 font-semibold leading-relaxed mb-6 text-center" style={{ fontSize: "22px" }}>
                 Get access to world-class preparation material, practice tests, and expert guidance through a dedicated portal designed for high-scoring GMAT aspirants.
               </p>
               <button 
                 onClick={() => setIsBookSessionOpen(true)}
-                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-9 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
               >
                 <span>Talk to a GMAT Expert</span>
                 <ArrowRight className="w-5 h-5" />

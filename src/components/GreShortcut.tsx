@@ -13,49 +13,29 @@ export const GreShortcut = () => {
     {
       image: booksIcon,
       gradient: "from-purple-600 to-pink-500",
-      cardBg: "bg-white",
-      borderColor: "border-2 border-purple-200 hover:border-purple-500",
-      hoverShadow: "0 20px 40px -15px rgba(168, 85, 247, 0.3)",
-      title: "Shorter & simpler",
-      description: (
-        <>
-          1 hr 58 min vs GMAT's 2 hr 15 min — and{" "}
-          <strong className="font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">no Data Insights section</strong>.
-          Just Quant, Verbal and one essay. Most students reach their target GRE score in less time.
-        </>
-      ),
-      descColor: "text-slate-900 font-bold",
-      titleColor: "bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600",
+      borderColor: "border-purple-200 hover:border-purple-500",
+      title: "CLARITY",
+      description: "We simplify complex concepts and build strong foundations with clear frameworks.",
+      badge: "Concepts that finally make sense",
+      badgeClass: "bg-purple-100/80 text-purple-700 border-purple-200",
     },
     {
       image: studentIcon,
       gradient: "from-blue-600 to-cyan-500",
-      cardBg: "bg-white",
-      borderColor: "border-2 border-blue-200 hover:border-blue-500",
-      hoverShadow: "0 20px 40px -15px rgba(59, 130, 246, 0.3)",
-      title: "Same B-schools",
-      description: (
-        <>
-          ISB, all M7, Ivy League, INSEAD, LBS, NUS and NTU Singapore accept GRE scores at par with GMAT for their MBA programs.
-        </>
-      ),
-      descColor: "text-slate-900 font-bold",
-      titleColor: "bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600",
+      borderColor: "border-blue-200 hover:border-blue-500",
+      title: "STRATEGY",
+      description: "We teach smart problem-solving strategies tailored to each question type and pattern.",
+      badge: "Approach every question with confidence",
+      badgeClass: "bg-blue-100/80 text-blue-700 border-blue-200",
     },
     {
       image: analyticsIcon,
       gradient: "from-emerald-600 to-teal-500",
-      cardBg: "bg-white",
-      borderColor: "border-2 border-emerald-200 hover:border-emerald-500",
-      hoverShadow: "0 20px 40px -15px rgba(16, 185, 129, 0.3)",
-      title: "One test, two doors",
-      description: (
-        <>
-          A single GRE score works for MBA and MS applications — keep both options open with one prep journey.
-        </>
-      ),
-      descColor: "text-slate-900 font-bold",
-      titleColor: "bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600",
+      borderColor: "border-emerald-200 hover:border-emerald-500",
+      title: "RESULTS",
+      description: "We help you practice with purpose and build consistency that shows in your scores.",
+      badge: "Consistent improvement. Better scores.",
+      badgeClass: "bg-emerald-100/80 text-emerald-700 border-emerald-200",
     },
   ];
 
@@ -139,29 +119,39 @@ export const GreShortcut = () => {
               key={idx}
               variants={itemVariants}
               whileHover={{ y: -6, boxShadow: card.hoverShadow }}
-              className={`${card.cardBg} rounded-[28px] ${card.borderColor} p-8 flex flex-col gap-5 relative overflow-hidden transition-all duration-300 shadow-2xl`}
+              className={`group relative rounded-[28px] border p-8 transition-all duration-300 overflow-hidden flex flex-col items-center text-center shadow-md hover:shadow-2xl bg-gradient-to-br from-white via-white to-slate-50 ${card.borderColor}`}
             >
-              {/* Decorative glow blob */}
-              <div className={`absolute -top-6 -right-6 w-32 h-32 rounded-full bg-gradient-to-br ${card.gradient} opacity-20 blur-2xl pointer-events-none`} />
+              <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${card.gradient}`} />
 
-              {/* Big Realistic 3D Icon Container */}
-              <div className={`w-20 h-20 md:w-24 md:h-24 rounded-3xl flex items-center justify-center bg-gradient-to-tr ${card.gradient} shadow-xl p-3.5`}>
+              <span className={`text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full border mb-6 shadow-2xs ${card.badgeClass}`}>
+                {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
+              </span>
+
+              <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 shadow-lg text-white bg-gradient-to-br ${card.gradient} group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300`}>
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-full object-contain filter drop-shadow-md"
+                  className="w-10 h-10 object-contain filter drop-shadow-md"
                 />
               </div>
 
-              {/* Card Title */}
-              <h3 className={`text-[30px] font-extrabold font-display leading-tight ${card.titleColor}`}>
+              <h3 className={`text-xl md:text-2xl font-black text-slate-900 mb-3 tracking-tight ${card.titleColor}`}>
                 {card.title}
               </h3>
 
-              {/* Card Description */}
-              <p className={`leading-relaxed font-medium ${card.descColor}`} style={{ fontSize: "20px" }}>
+              <p className="text-base md:text-lg text-slate-800 font-medium leading-relaxed max-w-[280px]">
                 {card.description}
               </p>
+
+              <div className="mt-4 flex justify-center">
+                <span className={`inline-flex items-center gap-2.5 border text-sm font-bold px-4 py-2 rounded-2xl shadow-inner ${card.badgeClass}`}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-check w-4 h-4 shrink-0">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m9 12 2 2 4-4" />
+                  </svg>
+                  {card.badge}
+                </span>
+              </div>
             </motion.div>
           ))}
         </motion.div>

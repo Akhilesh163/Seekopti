@@ -14,6 +14,7 @@ import {
   Sparkles,
   ArrowRight,
   Check,
+  CircleCheck,
 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { ProgramHero } from "@/components/ProgramHero";
@@ -234,26 +235,29 @@ const SelfPaced = () => {
     const colors = [
       {
         bg: "bg-gradient-to-br from-purple-50/90 via-indigo-50/60 to-pink-50/70",
-        border: "border-2 border-purple-200/90 hover:border-purple-400",
+        border: "border-2 border-purple-200/90",
         icon: "bg-gradient-to-tr from-purple-600 to-indigo-500 text-white shadow-lg shadow-purple-500/30",
         title: "text-purple-950",
         desc: "text-purple-900/90",
+        badge: "text-purple-900 bg-purple-100/70 border-purple-200/80",
         glow: "from-purple-400 to-pink-400",
       },
       {
         bg: "bg-gradient-to-br from-blue-50/90 via-sky-50/60 to-cyan-50/70",
-        border: "border-2 border-blue-200/90 hover:border-blue-400",
+        border: "border-2 border-blue-200/90",
         icon: "bg-gradient-to-tr from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/30",
         title: "text-blue-950",
         desc: "text-blue-900/90",
+        badge: "text-blue-900 bg-blue-100/70 border-blue-200/80",
         glow: "from-blue-400 to-cyan-400",
       },
       {
         bg: "bg-gradient-to-br from-amber-50/90 via-orange-50/60 to-yellow-50/70",
-        border: "border-2 border-amber-200/90 hover:border-amber-400",
+        border: "border-2 border-amber-200/90",
         icon: "bg-gradient-to-tr from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30",
         title: "text-amber-950",
         desc: "text-amber-900/90",
+        badge: "text-amber-900 bg-amber-100/70 border-amber-200/80",
         glow: "from-amber-400 to-orange-400",
       },
     ];
@@ -270,15 +274,17 @@ const SelfPaced = () => {
           {/* Header Card / Intro Banner */}
           <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-            <div className="relative z-10 max-w-4xl">
-              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
-                <Sparkles className="w-4 h-4 stroke-[2.5]" />
-                <span>SELF-PACED PREPARATION</span>
+            <div className="relative z-10 mx-auto text-center">
+              <div className="mx-auto max-w-4xl">
+                <div className="inline-flex items-center justify-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                  <Sparkles className="w-4 h-4 stroke-[2.5]" />
+                  <span>SELF-PACED PREPARATION</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5 text-center">
+                  Flexible GRE Coaching Built Around <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Your Schedule</span>
+                </h2>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
-                Flexible GRE Coaching Built Around <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Your Schedule</span>
-              </h2>
-              <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
+              <p className="mx-auto w-full max-w-none text-slate-700 font-medium leading-relaxed text-center" style={{ fontSize: "24px" }}>
                 GRE Self-paced coaching allows students to prepare for the GRE at their convenience. These are pre-recorded videos that cover all concepts tested on the GRE with examples of applications of those concepts. GRE online training in a self-paced environment ensures that students can speed up or slow down their preparation based on their schedules.
               </p>
             </div>
@@ -288,6 +294,7 @@ const SelfPaced = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Card 1: Concept Videos */}
             <div className="rounded-[28px] border-2 border-purple-200/80 bg-gradient-to-br from-purple-50/80 via-pink-50/50 to-indigo-50/70 p-8 shadow-md hover:shadow-xl hover:border-purple-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 opacity-15 blur-2xl pointer-events-none" />
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-indigo-500 flex items-center justify-center text-white shadow-lg mb-6">
@@ -304,6 +311,7 @@ const SelfPaced = () => {
 
             {/* Card 2: Simulated Exam Tests */}
             <div className="rounded-[28px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/80 via-sky-50/50 to-cyan-50/70 p-8 shadow-md hover:shadow-xl hover:border-blue-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-blue-400 to-cyan-400 opacity-15 blur-2xl pointer-events-none" />
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg mb-6">
@@ -320,6 +328,7 @@ const SelfPaced = () => {
 
             {/* Card 3: Faculty Support */}
             <div className="rounded-[28px] border-2 border-emerald-200/80 bg-gradient-to-br from-emerald-50/80 via-teal-50/50 to-green-50/70 p-8 shadow-md hover:shadow-xl hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-emerald-400 to-teal-400 opacity-15 blur-2xl pointer-events-none" />
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-lg mb-6">
@@ -336,6 +345,7 @@ const SelfPaced = () => {
 
             {/* Card 4: Online Study Material & App */}
             <div className="rounded-[28px] border-2 border-amber-200/80 bg-gradient-to-br from-amber-50/80 via-orange-50/50 to-yellow-50/70 p-8 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 opacity-15 blur-2xl pointer-events-none" />
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-white shadow-lg mb-6">
@@ -352,6 +362,7 @@ const SelfPaced = () => {
 
             {/* Card 5: Practice Environment */}
             <div className="rounded-[28px] border-2 border-rose-200/80 bg-gradient-to-br from-rose-50/80 via-pink-50/50 to-red-50/70 p-8 shadow-md hover:shadow-xl hover:border-rose-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group md:col-span-2 lg:col-span-1">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-rose-400 to-pink-400 opacity-15 blur-2xl pointer-events-none" />
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center text-white shadow-lg mb-6">
@@ -368,6 +379,7 @@ const SelfPaced = () => {
 
             {/* Card 6: Flexible Learning Pace */}
             <div className="rounded-[28px] border-2 border-violet-200/80 bg-gradient-to-br from-violet-50/80 via-purple-50/50 to-fuchsia-50/70 p-8 shadow-md hover:shadow-xl hover:border-violet-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-violet-400 to-fuchsia-400 opacity-15 blur-2xl pointer-events-none" />
               <div>
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-500 flex items-center justify-center text-white shadow-lg mb-6">
@@ -411,65 +423,25 @@ const SelfPaced = () => {
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {featureCards.map((card, index) => {
-              const colors = [
-                {
-                  shell: "border-purple-200/80 bg-gradient-to-br from-purple-50/90 via-fuchsia-50/70 to-indigo-50/80",
-                  icon: "bg-gradient-to-br from-purple-600 to-indigo-500",
-                  title: "text-purple-950",
-                  desc: "text-purple-900/80",
-                  badge: "text-purple-900 bg-purple-100/80 border-purple-200/80",
-                },
-                {
-                  shell: "border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-sky-50/70 to-cyan-50/80",
-                  icon: "bg-gradient-to-br from-blue-600 to-cyan-500",
-                  title: "text-blue-950",
-                  desc: "text-blue-900/80",
-                  badge: "text-blue-900 bg-blue-100/80 border-blue-200/80",
-                },
-                {
-                  shell: "border-emerald-200/80 bg-gradient-to-br from-emerald-50/90 via-teal-50/70 to-green-50/80",
-                  icon: "bg-gradient-to-br from-emerald-600 to-teal-500",
-                  title: "text-emerald-950",
-                  desc: "text-emerald-900/80",
-                  badge: "text-emerald-900 bg-emerald-100/80 border-emerald-200/80",
-                },
-                {
-                  shell: "border-amber-200/80 bg-gradient-to-br from-amber-50/90 via-orange-50/70 to-yellow-50/80",
-                  icon: "bg-gradient-to-br from-amber-500 to-orange-500",
-                  title: "text-amber-950",
-                  desc: "text-amber-900/80",
-                  badge: "text-amber-900 bg-amber-100/80 border-amber-200/80",
-                },
-                {
-                  shell: "border-rose-200/80 bg-gradient-to-br from-rose-50/90 via-pink-50/70 to-red-50/80",
-                  icon: "bg-gradient-to-br from-rose-500 to-pink-500",
-                  title: "text-rose-950",
-                  desc: "text-rose-900/80",
-                  badge: "text-rose-900 bg-rose-100/80 border-rose-200/80",
-                },
-                {
-                  shell: "border-indigo-200/80 bg-gradient-to-br from-indigo-50/90 via-violet-50/70 to-slate-50/80",
-                  icon: "bg-gradient-to-br from-indigo-600 to-violet-500",
-                  title: "text-indigo-950",
-                  desc: "text-indigo-900/80",
-                  badge: "text-indigo-900 bg-indigo-100/80 border-indigo-200/80",
-                },
-              ][index % 6];
-
+              const colors = getCardColors(index);
               return (
                 <div
                   key={index}
-                  className={`group relative rounded-[28px] border-2 ${colors.shell} p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+                  className={`group relative rounded-[28px] border ${colors.border} ${colors.bg} p-8 transition-all duration-300 overflow-hidden flex flex-col items-center text-center shadow-md hover:shadow-2xl hover:border-blue-500`}
                 >
-                  <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-white/70 to-transparent opacity-70 blur-2xl pointer-events-none" />
-                  <div className="mb-6 flex items-center gap-4">
-                    <div className={`inline-flex h-16 w-16 items-center justify-center rounded-2xl ${colors.icon} text-white shadow-lg ring-2 ring-white/80 overflow-hidden`}>
-                      <img src={card.icon} alt={card.title} className="h-9 w-9 object-contain drop-shadow-md" />
-                    </div>
-                    <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] ${colors.badge}`}>{card.badge}</span>
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
+                  <span className={`relative text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full border mb-6 shadow-2xs ${colors.badge}`}>
+                    {card.badge}
+                  </span>
+                  <div className={`relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl ${colors.icon} text-white shadow-lg group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300`}>
+                    <img src={card.icon} alt={card.title} className="h-10 w-10 object-contain filter drop-shadow-md" />
                   </div>
-                  <h3 className={`text-2xl font-extrabold ${colors.title} mt-4 mb-3 leading-tight`}>{card.title}</h3>
-                  <p className={`text-lg font-medium leading-relaxed ${colors.desc}`}>{card.description}</p>
+                  <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3 tracking-tight">
+                    {card.title}
+                  </h3>
+                  <p className="text-base md:text-lg text-slate-800 font-medium leading-relaxed max-w-[280px]">
+                    {card.description}
+                  </p>
                 </div>
               );
             })}

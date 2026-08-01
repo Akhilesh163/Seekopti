@@ -58,18 +58,20 @@ const GrePrivateTut: React.FC = () => {
           {/* Header Banner Card */}
           <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-            <div className="relative z-10 max-w-4xl">
-              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
-                <Sparkles className="w-4 h-4 stroke-[2.5]" />
-                <span>1-ON-1 PRIVATE TUTORING</span>
+            <div className="relative z-10 mx-auto text-center">
+              <div className="mx-auto max-w-4xl">
+                <div className="inline-flex items-center justify-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                  <Sparkles className="w-4 h-4 stroke-[2.5]" />
+                  <span>1-ON-1 PRIVATE TUTORING</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5 text-center">
+                  Elite GRE Coaching <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Tailored Exclusively To You</span>
+                </h2>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
-                Elite GRE Coaching <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Tailored Exclusively To You</span>
-              </h2>
-              <p className="text-slate-700 font-medium leading-relaxed mb-4" style={{ fontSize: "24px" }}>
+              <p className="mx-auto w-full max-w-none text-slate-700 font-medium leading-relaxed mb-4 text-center" style={{ fontSize: "24px" }}>
                 GRE private tutoring is the most personalised form of GRE prep which ensures that you work with the best GRE tutors in India, build a customized study plan and learn in a 1-1 classroom setting. These classes can be done in-person or online or hybrid based on availability.
               </p>
-              <p className="text-slate-600 font-semibold leading-relaxed" style={{ fontSize: "22px" }}>
+              <p className="mx-auto w-full max-w-none text-slate-600 font-semibold leading-relaxed text-center" style={{ fontSize: "22px" }}>
                 Students looking for a very high GRE score or those with uncertain work schedules generally opt for a GRE tutor. The tutor ensures high concept clarity, focused practice and regular test reviews.
               </p>
             </div>

@@ -92,18 +92,20 @@ const GreLive: React.FC = () => {
           {/* Header Card / Intro Banner */}
           <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-            <div className="relative z-10 max-w-4xl">
-              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
-                <Sparkles className="w-4 h-4 stroke-[2.5]" />
-                <span>LIVE INTERACTIVE CLASSES</span>
+            <div className="relative z-10 mx-auto text-center">
+              <div className="mx-auto max-w-4xl">
+                <div className="inline-flex items-center justify-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+                  <Sparkles className="w-4 h-4 stroke-[2.5]" />
+                  <span>LIVE INTERACTIVE CLASSES</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5 text-center">
+                  Master the GRE with <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Expert Live Coaching</span>
+                </h2>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
-                Master the GRE with <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Expert Live Coaching</span>
-              </h2>
-              <p className="text-slate-700 font-medium leading-relaxed mb-4" style={{ fontSize: "24px" }}>
+              <p className="mx-auto w-full max-w-none text-slate-700 font-medium leading-relaxed mb-4 text-center" style={{ fontSize: "24px" }}>
                 GRE online classes are live, scheduled sessions that combine classroom rigor with online convenience. Our live GRE training provides in-depth concept clarity, application practice and continuous doubt resolution so you progress with confidence.
               </p>
-              <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
+              <p className="mx-auto w-full max-w-none text-slate-700 font-medium leading-relaxed text-center" style={{ fontSize: "24px" }}>
                 Students attending live online classes get access to structured schedules, live doubt-clearing, recordings and an integrated LMS to revise lessons at their own pace.
               </p>
             </div>

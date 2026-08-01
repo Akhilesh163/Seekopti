@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
-import { ArrowRight, BookOpen, Zap, Activity, ShieldCheck, Calculator, BarChart3, Sparkles, PlayCircle, Video, UserCheck, CheckCircle2, Clock3, PenTool, Trophy, GraduationCap, Layers, RotateCcw, Globe2 } from "lucide-react";
+import { ArrowRight, BookOpen, Zap, Activity, ShieldCheck, Calculator, BarChart3, Sparkles, Play, PlayCircle, Video, UserCheck, CheckCircle2, Clock3, PenTool, Trophy, GraduationCap, Layers, RotateCcw, Globe2 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { ProgramHero } from "@/components/ProgramHero";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
@@ -410,6 +410,95 @@ const AboutGmat: React.FC = () => {
         </div>
       </section>
 
+
+
+          <section className="py-20 bg-gradient-to-b from-slate-50 via-sky-50 to-white">
+        <div className="max-w-[1180px] mx-auto px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-blue-100/90 px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm ring-1 ring-blue-200">
+                <Sparkles className="w-4 h-4" />
+                <span>Live GMAT Online Prep</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
+                Live GMAT Online Prep That Fits Your Schedule
+              </h2>
+              <p className="max-w-3xl text-lg leading-8 text-slate-700">
+                Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high scoring aspirants.
+              </p>
+
+              <div className="grid gap-3 text-slate-700">
+                <div className="flex items-start gap-3 rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
+                  <span className="mt-1 flex h-8 w-8 items-center justify-center rounded-2xl bg-blue-600 text-white">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </span>
+                  <p className="text-base font-medium">Interactive trainer-led sessions with personalised doubt resolution.</p>
+                </div>
+                <div className="flex items-start gap-3 rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
+                  <span className="mt-1 flex h-8 w-8 items-center justify-center rounded-2xl bg-blue-600 text-white">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </span>
+                  <p className="text-base font-medium">Performance analytics, weekly mocks, and strategy reviews.</p>
+                </div>
+                <div className="flex items-start gap-3 rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
+                  <span className="mt-1 flex h-8 w-8 items-center justify-center rounded-2xl bg-blue-600 text-white">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </span>
+                  <p className="text-base font-medium">Flexible timings that suit both working professionals and students.</p>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsBookSessionOpen(true)}
+                className="inline-flex items-center gap-3 rounded-2xl bg-blue-600 px-7 py-3.5 text-white font-semibold shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition-all duration-200"
+              >
+                TALK TO A GMAT EXPERT
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-50 via-slate-50 to-white p-8 shadow-soft">
+              <div className="space-y-5">
+                <div className="rounded-[26px] border border-slate-200/70 bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-blue-600 text-white shadow-lg">
+                      <Play className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-950">Live problem discussions</p>
+                      <p className="text-sm text-slate-600">Solve GMAT challenges together in real time with expert guidance.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-[26px] border border-slate-200/70 bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-sky-600 text-white shadow-lg">
+                      <BarChart3 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-950">Weekly mock review</p>
+                      <p className="text-sm text-slate-600">Track progress with live mock analytics and improvement plans.</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="rounded-[26px] border border-slate-200/70 bg-white p-6 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-cyan-600 text-white shadow-lg">
+                      <Clock3 className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-950">Flexible study schedule</p>
+                      <p className="text-sm text-slate-600">Join sessions that fit your work or college timetable without compromise.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       <section className="bg-background py-20">
         <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
@@ -773,7 +862,7 @@ const AboutGmat: React.FC = () => {
             </p>
           </div>
 
-          <div className="space-y-4 max-w-4xl mx-auto">
+          <div className="space-y-4 w-full">
             {/* Quantitative Reasoning Accordion */}
             <div className={`rounded-[20px] bg-card shadow-soft transition-all duration-200 overflow-hidden ${
               openSyllabusSection === "quant" 
