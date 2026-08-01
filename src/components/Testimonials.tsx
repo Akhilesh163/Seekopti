@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Sparkles } from "lucide-react";
 import priyaImage from "@/assets/person1.jpg";
 import vikramImage from "@/assets/person2.jpg";
-import praffulImage from "@/assets/student_pics/Prafful.jpeg";
-import balagopalImage from "@/assets/student_pics/Balagopal Jayakumar.jpeg";
-import sabhyataImage from "@/assets/student_pics/Sabhyata.jpeg";
-import manyaImage from "@/assets/student_pics/Manya.jpeg";
+import praffulImage from "@/assets/student_pics/testimonial1.avif";
+import balagopalImage from "@/assets/student_pics/testimonial2.avif";
+import sabhyataImage from "@/assets/student_pics/testimonial3.avif";
+import manyaImage from "@/assets/student_pics/testimonial4.avif";
 
 const testimonials = [
   {

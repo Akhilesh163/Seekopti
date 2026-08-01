@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FileText, Calculator, Languages, Mic, BarChart3, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,6 +6,11 @@ import { Footer } from "@/components/Footer";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
+import testiImage from "@/assets/student_pics/testi.avif";
+import test1Image from "@/assets/student_pics/test1.jpg";
+import test2Image from "@/assets/student_pics/test2.jpg";
+import test3Image from "@/assets/student_pics/test3.jpg";
+import test4Image from "@/assets/student_pics/test4.jpg";
 
 const testSeriesFaqs = [
   {
@@ -131,6 +136,46 @@ const TestSeriesComponent: React.FC = () => {
     },
   ];
 
+  const slides = [
+    {
+      image: "/assets/Universities/INSEAD.jpg",
+      caption: "INSEAD campus",
+    },
+    {
+      image: "/assets/Universities/NUS.jpg",
+      caption: "NUS campus",
+    },
+    {
+      image: testiImage,
+      caption: "Student testimonial",
+    },
+    {
+      image: test1Image,
+      caption: "Test prep pencil",
+    },
+    {
+      image: test2Image,
+      caption: "Exam papers in hand",
+    },
+    {
+      image: test3Image,
+      caption: "Student desk setup",
+    },
+    {
+      image: test4Image,
+      caption: "Answer sheet on desk",
+    },
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4500);
+    return () => window.clearInterval(intervalId);
+  }, [slides.length]);
+
   return (
     <div className="bg-background text-foreground">
       {/* 1. HERO SECTION */}
@@ -149,57 +194,78 @@ const TestSeriesComponent: React.FC = () => {
           />
         </div>
         
-        <div className="max-w-[1200px] mx-auto px-6 text-left relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-[0.24em] text-indigo-700 shadow-sm mb-6">
-              <span className="h-2.5 w-2.5 rounded-full bg-indigo-600" />
-              Test Series
+        <div className="max-w-[1200px] mx-auto px-6 relative z-10">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+            <div>
+              <div className="max-w-4xl">
+                <div className="inline-flex items-center gap-2.5 rounded-full border border-indigo-200 bg-indigo-50 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-[0.24em] text-indigo-700 shadow-sm mb-6">
+                  <span className="h-2.5 w-2.5 rounded-full bg-indigo-600" />
+                  Test Series
+                </div>
+
+                <motion.h1 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display leading-[1.1] tracking-tight mb-6 text-slate-950"
+                >
+                  Achieve exam momentum with{' '}
+                  <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500">
+                    test series built for scores.
+                  </span>
+                </motion.h1>
+                
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-lg sm:text-xl md:text-[1.35rem] text-slate-700 font-medium leading-relaxed mb-8 max-w-3xl"
+                >
+                  30 realistic tests per exam — 10 full-length adaptive mocks plus 20 sectionals — with the analytics to turn every attempt into a score improvement.
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="flex flex-wrap gap-4"
+                >
+                  <button 
+                    onClick={() => setIsBookSessionOpen(true)}
+                    className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:opacity-95 hover:-translate-y-0.5 active:translate-y-0"
+                  >
+                    Book a Free Demo
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right h-4 w-4">
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => setIsBookSessionOpen(true)}
+                    className="inline-flex items-center rounded-2xl border border-slate-300 bg-white/80 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-slate-700 transition-all hover:-translate-y-0.5 hover:border-indigo-400 hover:bg-indigo-50/60"
+                  >
+                    Talk to an Expert
+                  </button>
+                </motion.div>
+              </div>
             </div>
 
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold font-display leading-[1.1] tracking-tight mb-6 text-slate-950"
-            >
-              Achieve exam momentum with{' '}
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500">
-                test series built for scores.
-              </span>
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg sm:text-xl md:text-[1.35rem] text-slate-700 font-medium leading-relaxed mb-8 max-w-3xl"
-            >
-              30 realistic tests per exam — 10 full-length adaptive mocks plus 20 sectionals — with the analytics to turn every attempt into a score improvement.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-wrap gap-4"
-            >
-              <button 
-                onClick={() => setIsBookSessionOpen(true)}
-                className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:opacity-95 hover:-translate-y-0.5 active:translate-y-0"
-              >
-                Book a Free Demo
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right h-4 w-4">
-                  <path d="M5 12h14" />
-                  <path d="m12 5 7 7-7 7" />
-                </svg>
-              </button>
-              <button
-                onClick={() => setIsBookSessionOpen(true)}
-                className="inline-flex items-center rounded-2xl border border-slate-300 bg-white/80 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-slate-700 transition-all hover:-translate-y-0.5 hover:border-indigo-400 hover:bg-indigo-50/60"
-              >
-                Talk to an Expert
-              </button>
-            </motion.div>
+            <div className="relative">
+              <div className="relative w-full h-[380px] sm:h-[440px] md:h-[480px] rounded-[32px] overflow-hidden border border-white/70 shadow-[0_30px_60px_rgba(15,23,42,0.2)] bg-gradient-to-br from-slate-950 via-blue-950 to-violet-950">
+                <div className="absolute inset-0 w-full h-full" style={{ opacity: 1, transform: 'scale(1.00164)' }}>
+                  <motion.img
+                    key={currentSlide}
+                    src={slides[currentSlide].image}
+                    alt={slides[currentSlide].caption || "Campus image"}
+                    initial={{ opacity: 0, scale: 1.02 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                    className="w-full h-full object-cover object-center"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-slate-950/5 to-black/0"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
