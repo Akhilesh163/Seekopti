@@ -6,11 +6,11 @@ import { Footer } from "@/components/Footer";
 import { BookSessionDialog } from "@/components/BookSessionDialog";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
-import testiImage from "@/assets/student_pics/testi.avif";
-import test1Image from "@/assets/student_pics/test1.jpg";
-import test2Image from "@/assets/student_pics/test2.jpg";
-import test3Image from "@/assets/student_pics/test3.jpg";
-import test4Image from "@/assets/student_pics/test4.jpg";
+import testSlide0 from "@/assets/student_pics/test.jpg";
+import testSlide1 from "@/assets/student_pics/test1.jpg";
+import testSlide2 from "@/assets/student_pics/test2.jpg";
+import testSlide3 from "@/assets/student_pics/test3.jpg";
+import testSlide4 from "@/assets/student_pics/test4.jpg";
 
 const testSeriesFaqs = [
   {
@@ -138,32 +138,24 @@ const TestSeriesComponent: React.FC = () => {
 
   const slides = [
     {
-      image: "/assets/Universities/INSEAD.jpg",
-      caption: "INSEAD campus",
+      image: testSlide0,
+      caption: "Exam preparation scene",
     },
     {
-      image: "/assets/Universities/NUS.jpg",
-      caption: "NUS campus",
+      image: testSlide1,
+      caption: "Pencil and answer sheet",
     },
     {
-      image: testiImage,
-      caption: "Student testimonial",
+      image: testSlide2,
+      caption: "Exam paper handoff",
     },
     {
-      image: test1Image,
-      caption: "Test prep pencil",
+      image: testSlide3,
+      caption: "Writing test answers",
     },
     {
-      image: test2Image,
-      caption: "Exam papers in hand",
-    },
-    {
-      image: test3Image,
-      caption: "Student desk setup",
-    },
-    {
-      image: test4Image,
-      caption: "Answer sheet on desk",
+      image: testSlide4,
+      caption: "Desk with exam sheet and pencil",
     },
   ];
 
