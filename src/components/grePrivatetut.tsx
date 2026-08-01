@@ -248,18 +248,18 @@ const GrePrivateTut: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className={`group relative rounded-[28px] ${card.border} ${card.bg} p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+                  className={`group relative rounded-[28px] ${card.border} ${card.bg} p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col items-center text-center`}
                 >
-                  {/* Glowing background blur shape */}
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
                   <div className={`absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br ${card.glow} opacity-20 blur-2xl pointer-events-none`} />
 
-                  <div className="relative">
-                    <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl ${card.iconBg} transition-all duration-300`}>
-                      <IconComponent className="h-8 w-8 text-white stroke-[2.2]" />
-                    </div>
-                    <h3 className={`text-2xl font-extrabold ${card.titleColor} leading-tight mb-3`}>{card.title}</h3>
-                    <p className={`text-base md:text-lg leading-relaxed ${card.descColor} font-medium`}>{card.description}</p>
+                  <div className={`relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl ${card.iconBg} transition-all duration-300`}>
+                    <IconComponent className="h-8 w-8 text-white stroke-[2.2]" />
                   </div>
+                  <h3 className={`text-2xl font-extrabold ${card.titleColor} leading-tight mb-3`}>{card.title}</h3>
+                  <p className={`text-base md:text-lg leading-relaxed ${card.descColor} font-medium`}>
+                    {card.description}
+                  </p>
                 </div>
               );
             })}

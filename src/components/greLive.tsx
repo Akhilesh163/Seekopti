@@ -197,7 +197,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/30",
                   title: "text-blue-950",
                   desc: "text-blue-900/90",
-                  glow: "from-blue-400 to-cyan-400",
                 },
                 {
                   bg: "bg-gradient-to-br from-purple-50/90 via-indigo-50/60 to-pink-50/70",
@@ -205,7 +204,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-purple-600 to-indigo-500 text-white shadow-lg shadow-purple-500/30",
                   title: "text-purple-950",
                   desc: "text-purple-900/90",
-                  glow: "from-purple-400 to-pink-400",
                 },
                 {
                   bg: "bg-gradient-to-br from-amber-50/90 via-orange-50/60 to-yellow-50/70",
@@ -213,7 +211,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30",
                   title: "text-amber-950",
                   desc: "text-amber-900/90",
-                  glow: "from-amber-400 to-orange-400",
                 },
                 {
                   bg: "bg-gradient-to-br from-emerald-50/90 via-teal-50/60 to-green-50/70",
@@ -221,7 +218,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-500/30",
                   title: "text-emerald-950",
                   desc: "text-emerald-900/90",
-                  glow: "from-emerald-400 to-teal-400",
                 },
                 {
                   bg: "bg-gradient-to-br from-rose-50/90 via-pink-50/60 to-red-50/70",
@@ -229,7 +225,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-rose-500 to-pink-500 text-white shadow-lg shadow-rose-500/30",
                   title: "text-rose-950",
                   desc: "text-rose-900/90",
-                  glow: "from-rose-400 to-pink-400",
                 },
                 {
                   bg: "bg-gradient-to-br from-indigo-50/90 via-violet-50/60 to-purple-50/70",
@@ -237,7 +232,6 @@ const GreLive: React.FC = () => {
                   icon: "bg-gradient-to-tr from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/30",
                   title: "text-indigo-950",
                   desc: "text-indigo-900/90",
-                  glow: "from-indigo-400 to-violet-400",
                 },
               ];
               const theme = themes[index % themes.length];
@@ -245,18 +239,19 @@ const GreLive: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className={`group relative rounded-[28px] ${theme.border} ${theme.bg} p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden`}
+                  className={`group relative rounded-[28px] ${theme.border} ${theme.bg} p-8 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col items-center text-center`}
                 >
-                  {/* Glowing background blur shape */}
-                  <div className={`absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br ${theme.glow} opacity-20 blur-2xl pointer-events-none`} />
-
-                  <div className="relative">
-                    <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl ${theme.icon} transition-all duration-300`}>
-                      <IconComponent className="h-8 w-8 text-white stroke-[2.2]" />
-                    </div>
-                    <h3 className={`text-2xl font-extrabold ${theme.title} leading-tight`}>{card.title}</h3>
-                    <p className={`mt-3 text-base md:text-lg leading-relaxed ${theme.desc} font-medium`}>{card.description}</p>
+                  <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
+                  <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-white/0 via-slate-200/30 to-slate-200/0 opacity-80 blur-2xl pointer-events-none" />
+                  <div className={`relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl ${theme.icon} text-white shadow-lg group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300`}>
+                    <IconComponent className="h-9 w-9 text-white stroke-[2.2]" />
                   </div>
+                  <h3 className={`text-2xl md:text-3xl font-extrabold ${theme.title} tracking-tight mb-3`}>
+                    {card.title}
+                  </h3>
+                  <p className={`text-base md:text-lg leading-relaxed ${theme.desc} font-medium max-w-[290px]`}>
+                    {card.description}
+                  </p>
                 </div>
               );
             })}
