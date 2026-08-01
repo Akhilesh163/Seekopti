@@ -528,20 +528,32 @@ const AboutGre = () => {
                     </thead>
                     <tbody className="divide-y divide-slate-300 text-base">
                       {[
-                        { label: "Total tests", seek: "30 tests", official: "3–4 mocks", other: "15–25 tests" },
-                        { label: "Full-length mocks", seek: "10 adaptive mocks", official: "3–4 mocks", other: "5–10 mocks" },
-                        { label: "Sectional drills", seek: "20 sectionals", official: "None", other: "10–15 sectionals" },
-                        { label: "Live mock debriefs", seek: "Faculty-led strategy review", official: "None", other: "Recorded only" },
-                        { label: "Performance tracking", seek: "Advanced gap analysis", official: "Basic score report", other: "Standard report" },
-                        { label: "Approx. price", seek: "₹4,999 (GRE) / ₹5,999 (GMAT)", official: "₹9,200 (GMAT) / ₹10,000 (GRE)", other: "₹6,000 – ₹12,000" },
-                      ].map((row, idx) => (
-                        <tr key={idx} className={idx % 2 === 0 ? "bg-slate-50/80" : "bg-white"}>
-                          <td className="px-6 py-5 md:py-6 font-semibold text-slate-900">{row.label}</td>
-                          <td className="px-6 py-5 md:py-6 text-slate-700">{row.seek}</td>
-                          <td className="px-6 py-5 md:py-6 text-slate-700">{row.official}</td>
-                          <td className="px-6 py-5 md:py-6 text-slate-700">{row.other}</td>
-                        </tr>
-                      ))}
+                        { label: "Total tests", icon: Clock3, iconBg: "bg-sky-100 text-sky-700", seek: "30 tests", official: "3–4 mocks", other: "15–25 tests" },
+                        { label: "Full-length mocks", icon: BookOpen, iconBg: "bg-indigo-100 text-indigo-700", seek: "10 adaptive mocks", official: "3–4 mocks", other: "5–10 mocks" },
+                        { label: "Sectional drills", icon: BarChart3, iconBg: "bg-emerald-100 text-emerald-700", seek: "20 sectionals", official: "None", other: "10–15 sectionals" },
+                        { label: "Live mock debriefs", icon: Video, iconBg: "bg-amber-100 text-amber-700", seek: "Faculty-led strategy review", official: "None", other: "Recorded only" },
+                        { label: "Performance tracking", icon: Trophy, iconBg: "bg-emerald-100 text-emerald-700", seek: "Advanced gap analysis", official: "Basic score report", other: "Standard report" },
+                        { label: "Approx. price", icon: ShieldCheck, iconBg: "bg-amber-100 text-amber-700", seek: "₹4,999 (GRE) / ₹5,999 (GMAT)", official: "₹9,200 (GMAT) / ₹10,000 (GRE)", other: "₹6,000 – ₹12,000" },
+                      ].map((row, idx) => {
+                        const Icon = row.icon;
+                        return (
+                          <tr key={idx} className={idx % 2 === 0 ? "bg-slate-50/80" : "bg-white"}>
+                            <td className="px-6 py-5 md:py-6 font-semibold text-slate-900">
+                              <div className="flex items-center gap-3.5">
+                                <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${row.iconBg} shrink-0 shadow-xs`}>
+                                  <Icon className="w-5 h-5" />
+                                </div>
+                                <div>
+                                  <div className="text-base md:text-lg font-medium text-slate-950">{row.label}</div>
+                                </div>
+                              </div>
+                            </td>
+                            <td className="px-6 py-5 md:py-6 text-slate-700">{row.seek}</td>
+                            <td className="px-6 py-5 md:py-6 text-slate-700">{row.official}</td>
+                            <td className="px-6 py-5 md:py-6 text-slate-700">{row.other}</td>
+                          </tr>
+                        );
+                      })}
                     </tbody>
                   </table>
                 </div>
