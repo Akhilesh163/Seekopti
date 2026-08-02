@@ -165,7 +165,7 @@ export const SeekAdvantageCards: React.FC = () => {
 
                 {/* Badge Tag */}
                 <span
-                  className={`text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full border mb-6 shadow-2xs ${item.badgeBg}`}
+                  className={`text-sm font-black uppercase tracking-wider px-4 py-1.5 rounded-full border mb-6 shadow-2xs ${item.badgeBg}`}
                 >
                   {item.tag}
                 </span>

@@ -176,7 +176,7 @@ const ImageSlideshow: React.FC<{ slides: typeof tutoringSlides }> = ({ slides })
       {/* Slide Title, Subtitle and Progress Dots */}
       <div className="relative z-10 p-6 md:p-8 text-left text-white space-y-2">
         <div className="flex items-center justify-between mb-1">
-          <span className="text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full bg-blue-600/90 text-white shadow-sm">
+          <span className="text-sm font-black uppercase tracking-wider px-3 py-1 rounded-full bg-blue-600/90 text-white shadow-sm">
             0{currentIndex + 1} / 0{slides.length}
           </span>
 

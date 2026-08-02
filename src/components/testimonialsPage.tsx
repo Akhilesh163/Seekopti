@@ -161,6 +161,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Priya M.",
       score: "GRE 331",
       avatar: Person1,
+      bgColor: "bg-violet-50/60",
       text: (
         <>
           I'd done two other courses before this. The difference is the way concepts are taught — as logic, not formulas. Quant went from my weakness to a <strong className="font-bold text-foreground">168</strong>.
@@ -171,6 +172,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Sahil K.",
       score: "GMAT 705",
       avatar: PraffulPhoto,
+      bgColor: "bg-blue-50/60",
       text: (
         <>
           Daily live classes meant I couldn't slack off. The weekly mock analysis sessions alone are worth the fee.
@@ -181,6 +183,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Dev J.",
       score: "GRE 334",
       avatar: BalagopalPhoto,
+      bgColor: "bg-teal-50/60",
       text: (
         <>
           Aman personally reviewed my error log every week during tutoring. That level of attention is rare anywhere.
@@ -191,6 +194,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Neha G.",
       score: "GMAT 715",
       avatar: SabhyataPhoto,
+      bgColor: "bg-violet-50/60",
       text: (
         <>
           The <strong className="font-bold text-foreground">DI module saved my GMAT</strong>. Nobody else takes Data Insights this seriously.
@@ -201,6 +205,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Riya S.",
       score: "GRE 328",
       avatar: ManyaPhoto,
+      bgColor: "bg-blue-50/60",
       text: (
         <>
           They told me honestly that GRE was the smarter route for my MBA target. From diagnostic to <strong className="font-bold text-foreground">Columbia admit in 9 months</strong> — prep, essays and interviews all in one place.
@@ -211,6 +216,7 @@ export const TestimonialsPage: React.FC = () => {
       name: "Vikram T.",
       score: "GRE 319",
       avatar: Person2,
+      bgColor: "bg-teal-50/60",
       text: (
         <>
           As a working professional the flexible tutoring slots were a lifesaver. Worth every rupee.
@@ -489,7 +495,7 @@ export const TestimonialsPage: React.FC = () => {
             {textTestimonials.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[24px] border border-slate-200 shadow-soft p-8 flex flex-col justify-between hover:shadow-md hover:border-slate-300 transition duration-300"
+                className={`${item.bgColor} rounded-[24px] border border-slate-200/50 shadow-soft p-8 flex flex-col justify-between hover:shadow-md hover:border-slate-300 transition duration-300`}
               >
                 <div>
                   {/* Blue Stars */}

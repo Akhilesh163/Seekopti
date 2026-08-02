@@ -461,7 +461,7 @@ export const MethodTimeline: React.FC = () => {
                       </div>
                       <div>
                         <span className={cn(
-                          "text-[11px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full border inline-block mb-1 shadow-xs",
+                          "text-sm font-black uppercase tracking-wider px-3 py-0.5 rounded-full border inline-block mb-1 shadow-xs",
                           item.tagBg
                         )}>
                           STEP 0{index + 1}
@@ -539,7 +539,7 @@ export const MethodTimeline: React.FC = () => {
                   </div>
                   <div>
                     <span className={cn(
-                      "text-[11px] font-black uppercase tracking-wider px-3 py-0.5 rounded-full border inline-block mb-1 shadow-xs",
+                      "text-sm font-black uppercase tracking-wider px-3 py-0.5 rounded-full border inline-block mb-1 shadow-xs",
                       item.tagBg
                     )}>
                       STEP 0{index + 1}
