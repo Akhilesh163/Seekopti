@@ -72,30 +72,40 @@ const GmatLive: React.FC = () => {
 
                 <div className="mt-6 grid gap-6 grid-cols-1 sm:grid-cols-3 justify-items-stretch">
                   <div className="w-full rounded-[28px] border border-purple-300/80 bg-gradient-to-br from-violet-200 via-fuchsia-200 to-fuchsia-50 p-6 shadow-2xl shadow-slate-200/40 min-h-[310px]">
-                    <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-700 to-fuchsia-500 text-white shadow-lg">
+                    <div className="mb-4">
+                    <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-700 to-fuchsia-500 text-white shadow-lg">
                       <BookOpen className="h-7 w-7" />
                     </div>
-                    <div className="mt-4">
-                      <span className="block rounded-full bg-violet-100 text-violet-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Live Sessions</span>
+                    <div className="mt-3">
+                      <span className="inline-flex w-fit rounded-full bg-violet-100 text-violet-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">Live Sessions</span>
                     </div>
-                    <h3 className="mt-4 text-2xl md:text-3xl font-extrabold text-slate-950 mb-2">Interactive trainer-led sessions</h3>
-                    <p className="text-base md:text-lg text-slate-700 leading-7">Personalised doubt resolution, live explanations, and real-time problem solving for every concept.</p>
+                  </div>
+                  <h3 className="mt-2 text-2xl md:text-3xl font-extrabold text-slate-950 mb-2">Interactive trainer-led sessions</h3>
+                  <p className="text-base md:text-lg text-slate-700 leading-7">Personalised doubt resolution, live explanations, and real-time problem solving for every concept.</p>
                   </div>
 
                   <div className="w-full rounded-[28px] border border-sky-300/80 bg-gradient-to-br from-cyan-200 via-sky-150 to-sky-50 p-6 shadow-2xl shadow-slate-200/40 min-h-[310px]">
-                    <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-700 to-cyan-500 text-white shadow-lg mb-4">
-                      <BarChart3 className="h-7 w-7" />
+                    <div className="mb-4">
+                      <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-700 to-cyan-500 text-white shadow-lg">
+                        <BarChart3 className="h-7 w-7" />
+                      </div>
+                      <div className="mt-3">
+                        <span className="inline-flex w-fit rounded-full bg-sky-100 text-sky-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">Analytics</span>
+                      </div>
                     </div>
-                    <span className="block rounded-full bg-sky-100 text-sky-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Analytics</span>
                     <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 mb-2">Performance analytics & mocks</h3>
                     <p className="text-base md:text-lg text-slate-700 leading-7">Weekly mock tests, score reports, and strategic review sessions to keep your preparation sharp.</p>
                   </div>
 
                   <div className="w-full rounded-[28px] border border-emerald-300/80 bg-gradient-to-br from-emerald-200 via-teal-150 to-teal-50 p-6 shadow-2xl shadow-slate-200/40 min-h-[310px]">
-                    <div className="inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-700 to-teal-500 text-white shadow-lg mb-4">
-                      <Clock3 className="h-7 w-7" />
+                    <div className="mb-4">
+                      <div className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-700 to-teal-500 text-white shadow-lg">
+                        <Clock3 className="h-7 w-7" />
+                      </div>
+                      <div className="mt-3">
+                        <span className="inline-flex w-fit rounded-full bg-emerald-100 text-emerald-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">Flexible</span>
+                      </div>
                     </div>
-                    <span className="block rounded-full bg-emerald-100 text-emerald-700 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] mb-3">Flexible</span>
                     <h3 className="text-2xl md:text-3xl font-extrabold text-slate-950 mb-2">Flexible timings that suit you</h3>
                     <p className="text-base md:text-lg text-slate-700 leading-7">Multiple batch options and schedules designed for both working professionals and students.</p>
                   </div>
@@ -185,8 +195,8 @@ const GmatLive: React.FC = () => {
           <div className="space-y-8">
             <div className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
               <div className="border-b border-slate-200/80 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-5 md:px-8 text-white text-center">
-                <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">GMAT Exam Pattern</h3>
-                <p className="text-xs md:text-sm text-slate-300 font-medium mt-1">Breakdown of sections, timing, questions &amp; scoring scale</p>
+                <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">GMAT Focus Edition Specs</h3>
+                <p className="text-xs md:text-sm text-slate-300 font-medium mt-1">Breakdown of exam features, duration, structure &amp; MBA acceptance</p>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
@@ -282,6 +292,200 @@ const GmatLive: React.FC = () => {
                 </svg>
               </span>
             </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-slate-50">
+        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-blue-400/50 bg-blue-500/10 px-6 py-3 text-sm md:text-base font-black uppercase tracking-[0.18em] text-blue-700 shadow-sm mb-5">
+              VALUE CHECK
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-950 tracking-tight text-center">
+              Why this is the <span className="text-blue-600">best-value</span> series anywhere
+            </h2>
+          </div>
+
+          <div className="mt-12 overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
+            <div className="border-b border-slate-200/80 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-5 md:px-8 text-white text-center">
+              <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">GMAT prep value comparison</h3>
+              <p className="text-xs md:text-sm text-slate-300 font-medium mt-1">How Seek Your Y stacks up against official mocks and other prep options</p>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-slate-100/90 border-b-2 border-slate-300 text-sm md:text-base font-semibold uppercase tracking-wider text-slate-700">
+                    <th className="px-6 py-5.5 md:py-6">&nbsp;</th>
+                    <th className="px-6 py-5.5 md:py-6">Seek Your Y</th>
+                    <th className="px-6 py-5.5 md:py-6">Official Mocks</th>
+                    <th className="px-6 py-5.5 md:py-6">Other Prep</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-300 text-base">
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-100 text-sky-700 shrink-0 shadow-xs">
+                          <BookOpen className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Total tests</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Practice volume that actually prepares you</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">30 tests</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">3–4 mocks</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">15–25 tests</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-700 shrink-0 shadow-xs">
+                          <BarChart3 className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Full-length mocks</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Adaptive mocks that mimic exam pressure</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">10 adaptive mocks</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">3–4 mocks</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">5–10 mocks</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 shrink-0 shadow-xs">
+                          <Activity className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Sectional drills</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Targeted work for weak areas and pacing</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">20 sectionals</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">None</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">10–15 sectionals</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-700 shrink-0 shadow-xs">
+                          <Sparkles className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Live mock debriefs</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Faculty-led review after every mock</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">Faculty-led strategy review</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">None</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">None / Recorded only</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 shrink-0 shadow-xs">
+                          <BarChart3 className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Performance tracking</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Detailed gap analysis and weekly progress</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">Advanced gap analysis</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">Basic score report</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">Standard report</span>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-700 shrink-0 shadow-xs">
+                          <Gift className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <div className="text-base md:text-lg font-medium text-slate-950">Approx. price</div>
+                          <div className="text-sm md:text-base text-slate-600 font-normal">Lower cost for a more complete prep experience</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg font-bold">₹4,999 (GRE) / ₹5,999 (GMAT)</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">₹9,200 (GMAT) / ₹10,000 (GRE)</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">₹6,000 – ₹12,000</span>
+                    </td>
+                  </tr>
+
+                  <tr className="bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-blue-500/10 border-t-2 border-blue-400/30">
+                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
+                      <div className="flex items-center gap-3.5">
+                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-white shrink-0 shadow-md">
+                          <Sparkles className="h-5.5 w-5.5" />
+                        </div>
+                        <div>
+                          <span className="font-extrabold text-slate-950 text-xl md:text-2xl block">Value advantage</span>
+                          <span className="text-sm md:text-base text-slate-600 font-medium">More prep, stronger support, better value</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-4 py-2 bg-slate-900 text-white rounded-full font-bold text-base md:text-lg shadow-sm">More practice + live review</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-full font-bold text-base md:text-lg shadow-sm">Limited mock depth</span>
+                    </td>
+                    <td className="px-6 py-6.5 md:py-7 text-center">
+                      <span className="inline-block px-5 py-2 bg-emerald-600 text-white rounded-full font-bold text-base md:text-lg shadow-sm">Good content, less support</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>

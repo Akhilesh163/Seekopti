@@ -412,83 +412,83 @@ const AboutGmat: React.FC = () => {
 
 
 
-          <section className="py-20 bg-gradient-to-b from-slate-50 via-sky-50 to-white">
-        <div className="max-w-[1180px] mx-auto px-6 lg:px-8">
+      <section className="py-20 relative overflow-hidden">
+        <div className="max-w-[1180px] mx-auto px-6 lg:px-8 relative">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full bg-blue-100/90 px-4 py-2 text-sm font-semibold text-blue-700 shadow-sm ring-1 ring-blue-200">
-                <Sparkles className="w-4 h-4" />
+              <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500/10 via-sky-500/10 to-violet-500/10 px-4 py-2 text-sm font-semibold text-cyan-700 shadow-sm ring-1 ring-cyan-200/70">
+                <Sparkles className="w-4 h-4 text-cyan-600" />
                 <span>Live GMAT Online Prep</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-950">
-                Live GMAT Online Prep That Fits Your Schedule
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-[1.15] tracking-tight text-foreground">
+                Achieve GMAT momentum with <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500">coaching built for scores.</span>
               </h2>
-              <p className="max-w-3xl text-lg leading-8 text-slate-700">
-                Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high scoring aspirants.
+              <p className="max-w-3xl text-lg md:text-xl leading-8 text-slate-700">
+                Experience expert-led GMAT classes from anywhere, with live sessions, real-time problem discussions, and a structured plan designed for high-scoring aspirants.
               </p>
 
               <div className="grid gap-3 text-slate-700">
-                <div className="flex items-start gap-3 rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
-                  <span className="mt-1 flex h-8 w-8 items-center justify-center rounded-2xl bg-blue-600 text-white">
-                    <CheckCircle2 className="w-4 h-4" />
+                <div className="flex items-start gap-3 rounded-[24px] border border-cyan-300/90 bg-gradient-to-br from-cyan-100/95 via-cyan-50 to-white p-5 shadow-md shadow-cyan-500/10">
+                  <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-600 to-sky-600 text-white shadow-lg">
+                    <CheckCircle2 className="w-5 h-5" />
                   </span>
-                  <p className="text-base font-medium">Interactive trainer-led sessions with personalised doubt resolution.</p>
+                  <p className="text-lg md:text-xl font-medium text-cyan-900">Interactive trainer-led sessions with personalised doubt resolution.</p>
                 </div>
-                <div className="flex items-start gap-3 rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
-                  <span className="mt-1 flex h-8 w-8 items-center justify-center rounded-2xl bg-blue-600 text-white">
-                    <CheckCircle2 className="w-4 h-4" />
+                <div className="flex items-start gap-3 rounded-[24px] border border-sky-300/90 bg-gradient-to-br from-sky-100/95 via-sky-50 to-white p-5 shadow-md shadow-sky-500/10">
+                  <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-600 to-blue-600 text-white shadow-lg">
+                    <CheckCircle2 className="w-5 h-5" />
                   </span>
-                  <p className="text-base font-medium">Performance analytics, weekly mocks, and strategy reviews.</p>
+                  <p className="text-lg md:text-xl font-medium text-sky-900">Performance analytics, weekly mocks, and strategy reviews.</p>
                 </div>
-                <div className="flex items-start gap-3 rounded-3xl border border-slate-200/80 bg-white/90 p-4 shadow-sm">
-                  <span className="mt-1 flex h-8 w-8 items-center justify-center rounded-2xl bg-blue-600 text-white">
-                    <CheckCircle2 className="w-4 h-4" />
+                <div className="flex items-start gap-3 rounded-[24px] border border-violet-300/90 bg-gradient-to-br from-violet-100/95 via-violet-50 to-white p-5 shadow-md shadow-violet-500/10">
+                  <span className="mt-1 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white shadow-lg">
+                    <CheckCircle2 className="w-5 h-5" />
                   </span>
-                  <p className="text-base font-medium">Flexible timings that suit both working professionals and students.</p>
+                  <p className="text-lg md:text-xl font-medium text-violet-900">Flexible timings that suit both working professionals and students.</p>
                 </div>
               </div>
 
               <button
                 onClick={() => setIsBookSessionOpen(true)}
-                className="inline-flex items-center gap-3 rounded-2xl bg-blue-600 px-7 py-3.5 text-white font-semibold shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition-all duration-200"
+                className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-600 via-sky-600 to-violet-600 px-8 py-4 text-white font-extrabold text-lg shadow-lg hover:opacity-95 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
               >
                 TALK TO A GMAT EXPERT
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-50 via-slate-50 to-white p-8 shadow-soft">
+            <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm">
               <div className="space-y-5">
-                <div className="rounded-[26px] border border-slate-200/70 bg-white p-6 shadow-sm">
+                <div className="rounded-[26px] border border-cyan-300/90 bg-gradient-to-br from-cyan-100/95 via-cyan-50 to-white p-6 shadow-md shadow-cyan-500/10">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-blue-600 text-white shadow-lg">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-cyan-600 to-sky-600 text-white shadow-lg">
                       <Play className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-950">Live problem discussions</p>
-                      <p className="text-sm text-slate-600">Solve GMAT challenges together in real time with expert guidance.</p>
+                      <p className="text-lg font-semibold text-cyan-900">Live problem discussions</p>
+                      <p className="text-base text-cyan-800">Solve GMAT challenges together in real time with expert guidance.</p>
                     </div>
                   </div>
                 </div>
-                <div className="rounded-[26px] border border-slate-200/70 bg-white p-6 shadow-sm">
+                <div className="rounded-[26px] border border-sky-300/90 bg-gradient-to-br from-sky-100/95 via-sky-50 to-white p-6 shadow-md shadow-sky-500/10">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-sky-600 text-white shadow-lg">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-sky-600 to-blue-600 text-white shadow-lg">
                       <BarChart3 className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-950">Weekly mock review</p>
-                      <p className="text-sm text-slate-600">Track progress with live mock analytics and improvement plans.</p>
+                      <p className="text-lg font-semibold text-sky-900">Weekly mock review</p>
+                      <p className="text-base text-sky-800">Track progress with live mock analytics and improvement plans.</p>
                     </div>
                   </div>
                 </div>
-                <div className="rounded-[26px] border border-slate-200/70 bg-white p-6 shadow-sm">
+                <div className="rounded-[26px] border border-violet-300/90 bg-gradient-to-br from-violet-100/95 via-violet-50 to-white p-6 shadow-md shadow-violet-500/10">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-cyan-600 text-white shadow-lg">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-violet-600 to-fuchsia-600 text-white shadow-lg">
                       <Clock3 className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-950">Flexible study schedule</p>
-                      <p className="text-sm text-slate-600">Join sessions that fit your work or college timetable without compromise.</p>
+                      <p className="text-lg font-semibold text-violet-900">Flexible study schedule</p>
+                      <p className="text-base text-violet-800">Join sessions that fit your work or college timetable without compromise.</p>
                     </div>
                   </div>
                 </div>

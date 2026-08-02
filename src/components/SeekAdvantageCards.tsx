@@ -26,8 +26,10 @@ const advantageData = [
       </>
     ),
     gradient: "from-blue-600 to-indigo-600",
-    cardBg: "bg-gradient-to-br from-blue-50/90 via-white to-indigo-50/50 border-blue-200/90 hover:border-blue-400 shadow-blue-500/10",
+    cardBg: "bg-gradient-to-br from-blue-100/95 via-blue-50 to-indigo-100/95 border-blue-300/90 hover:border-blue-500 shadow-blue-500/20",
     badgeBg: "bg-blue-100/80 text-blue-700 border-blue-200",
+    titleColor: "text-blue-900",
+    textColor: "text-blue-800",
     glowColor: "group-hover:shadow-blue-500/20",
     tag: "GUARANTEE",
   },
@@ -36,8 +38,10 @@ const advantageData = [
     title: "Daily Live Classes",
     text: "Daily live classes for maximum accountability & structured progress",
     gradient: "from-indigo-600 to-violet-600",
-    cardBg: "bg-gradient-to-br from-indigo-50/90 via-white to-violet-50/50 border-indigo-200/90 hover:border-indigo-400 shadow-indigo-500/10",
+    cardBg: "bg-gradient-to-br from-indigo-100/95 via-indigo-50 to-violet-100/95 border-indigo-300/90 hover:border-indigo-500 shadow-indigo-500/20",
     badgeBg: "bg-indigo-100/80 text-indigo-700 border-indigo-200",
+    titleColor: "text-indigo-900",
+    textColor: "text-indigo-800",
     glowColor: "group-hover:shadow-indigo-500/20",
     tag: "ACCOUNTABILITY",
   },
@@ -46,8 +50,10 @@ const advantageData = [
     title: "100+ Hours Live Training",
     text: "100+ hours of live training — the highest live instruction in the world",
     gradient: "from-purple-600 to-pink-600",
-    cardBg: "bg-gradient-to-br from-purple-50/90 via-white to-pink-50/50 border-purple-200/90 hover:border-purple-400 shadow-purple-500/10",
+    cardBg: "bg-gradient-to-br from-purple-100/95 via-purple-50 to-pink-100/95 border-purple-300/90 hover:border-purple-500 shadow-purple-500/20",
     badgeBg: "bg-purple-100/80 text-purple-700 border-purple-200",
+    titleColor: "text-purple-900",
+    textColor: "text-purple-800",
     glowColor: "group-hover:shadow-purple-500/20",
     tag: "WORLD RECORD",
   },
@@ -56,8 +62,10 @@ const advantageData = [
     title: "Live Test Discussions",
     text: "Live discussion of all test questions with expert faculty and mentors",
     gradient: "from-emerald-600 to-teal-600",
-    cardBg: "bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/50 border-emerald-200/90 hover:border-emerald-400 shadow-emerald-500/10",
+    cardBg: "bg-gradient-to-br from-emerald-100/95 via-emerald-50 to-teal-100/95 border-emerald-300/90 hover:border-emerald-500 shadow-emerald-500/20",
     badgeBg: "bg-emerald-100/80 text-emerald-700 border-emerald-200",
+    titleColor: "text-emerald-900",
+    textColor: "text-emerald-800",
     glowColor: "group-hover:shadow-emerald-500/20",
     tag: "EXPERT FACULTY",
   },
@@ -66,8 +74,10 @@ const advantageData = [
     title: "World Record Scores",
     text: "Record holders of GMAT 800, GRE 339, and SAT 1580",
     gradient: "from-amber-500 to-orange-600",
-    cardBg: "bg-gradient-to-br from-amber-50/90 via-white to-orange-50/50 border-amber-200/90 hover:border-amber-400 shadow-amber-500/10",
+    cardBg: "bg-gradient-to-br from-amber-100/95 via-amber-50 to-orange-100/95 border-amber-300/90 hover:border-amber-500 shadow-amber-500/20",
     badgeBg: "bg-amber-100/80 text-amber-700 border-amber-200",
+    titleColor: "text-amber-900",
+    textColor: "text-amber-800",
     glowColor: "group-hover:shadow-amber-500/20",
     tag: "PROVEN RESULTS",
   },
@@ -83,8 +93,10 @@ const advantageData = [
       </>
     ),
     gradient: "from-cyan-600 to-blue-600",
-    cardBg: "bg-gradient-to-br from-cyan-50/90 via-white to-blue-50/50 border-cyan-200/90 hover:border-cyan-400 shadow-cyan-500/10",
+    cardBg: "bg-gradient-to-br from-cyan-100/95 via-cyan-50 to-blue-100/95 border-cyan-300/90 hover:border-cyan-500 shadow-cyan-500/20",
     badgeBg: "bg-cyan-100/80 text-cyan-700 border-cyan-200",
+    titleColor: "text-cyan-900",
+    textColor: "text-cyan-800",
     glowColor: "group-hover:shadow-cyan-500/20",
     tag: "COMPREHENSIVE",
   },
@@ -166,12 +178,12 @@ export const SeekAdvantageCards: React.FC = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl md:text-2xl font-black text-slate-900 dark:text-slate-900 mb-3 tracking-tight">
+                <h3 className={`text-xl md:text-2xl font-black mb-3 tracking-tight ${item.titleColor}`}>
                   {item.title}
                 </h3>
 
                 {/* Text Content */}
-                <p className="text-base md:text-lg text-slate-800 dark:text-slate-800 font-medium leading-relaxed max-w-[280px]">
+                <p className={`text-base md:text-lg font-medium leading-relaxed max-w-[280px] ${item.textColor}`}>
                   {item.text}
                 </p>
               </motion.div>

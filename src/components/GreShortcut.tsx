@@ -123,7 +123,7 @@ export const GreShortcut = () => {
             >
               <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${card.gradient}`} />
 
-              <span className={`text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full border mb-6 shadow-2xs ${card.badgeClass}`}>
+              <span className={`text-base md:text-lg font-black uppercase tracking-wider px-5 py-2 rounded-full border mb-6 shadow-2xs ${card.badgeClass}`}>
                 {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
               </span>
 

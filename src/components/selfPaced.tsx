@@ -430,7 +430,7 @@ const SelfPaced = () => {
                   className={`group relative rounded-[28px] border ${colors.border} ${colors.bg} p-8 transition-all duration-300 overflow-hidden flex flex-col items-center text-center shadow-md hover:shadow-2xl hover:border-blue-500`}
                 >
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600" />
-                  <span className={`relative text-[11px] font-black uppercase tracking-wider px-3 py-1 rounded-full border mb-6 shadow-2xs ${colors.badge}`}>
+                  <span className={`relative text-sm md:text-base font-black uppercase tracking-wider px-4 py-1.5 rounded-full border mb-6 shadow-2xs ${colors.badge}`}>
                     {card.badge}
                   </span>
                   <div className={`relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl ${colors.icon} text-white shadow-lg group-hover:scale-110 group-hover:rotate-2 transition-transform duration-300`}>
@@ -526,7 +526,7 @@ const SelfPaced = () => {
       <CallToAction />
       <CustomFAQ faqs={selfPacedFaqs} title="Self-Paced Course FAQs" />
       <Footer />
-      <BookSessionDialog isOpen={isBookSessionOpen} onClose={() => setIsBookSessionOpen(false)} />
+      <BookSessionDialog open={isBookSessionOpen} onOpenChange={setIsBookSessionOpen} />
     </div>
   );
 };
