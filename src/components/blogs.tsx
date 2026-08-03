@@ -18,6 +18,60 @@ const BlogsComponent: React.FC = () => {
   const basePillClassName = "inline-flex w-fit rounded-full bg-gradient-to-r from-slate-700 to-slate-900 px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-white shadow-md";
   const baseOverlayClassName = "absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-slate-500/20";
 
+  const blogThemes: Record<
+    string,
+    {
+      cardGradient: string;
+      border: string;
+      shadow: string;
+      pillGradient: string;
+      overlay: string;
+    }
+  > = {
+    strategy: {
+      cardGradient: "from-blue-50/90 via-indigo-50/60 to-white",
+      border: "border-blue-200/80",
+      shadow: "rgba(59,130,246,0.14)",
+      pillGradient: "from-blue-600 via-indigo-600 to-violet-600",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-indigo-500/20",
+    },
+    roi: {
+      cardGradient: "from-pink-50 via-rose-50 to-orange-50",
+      border: "border-pink-300/80",
+      shadow: "rgba(236,72,153,0.14)",
+      pillGradient: "from-purple-600 via-fuchsia-600 to-pink-600",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/60 via-fuchsia-200/30 to-pink-300/20",
+    },
+    costs: {
+      cardGradient: "from-emerald-50 via-teal-50 to-cyan-50",
+      border: "border-emerald-300/80",
+      shadow: "rgba(34,197,94,0.14)",
+      pillGradient: "from-emerald-600 via-teal-600 to-cyan-600",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/50 via-slate-900/20 to-emerald-500/15",
+    },
+    scholarships: {
+      cardGradient: "from-amber-50 via-yellow-50 to-orange-50",
+      border: "border-amber-300/80",
+      shadow: "rgba(245,158,11,0.14)",
+      pillGradient: "from-amber-600 via-orange-600 to-red-500",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-900/20 to-amber-500/15",
+    },
+    admissions: {
+      cardGradient: "from-cyan-50 via-sky-50 to-blue-50",
+      border: "border-cyan-300/80",
+      shadow: "rgba(56,189,248,0.14)",
+      pillGradient: "from-cyan-600 via-blue-600 to-indigo-600",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-900/20 to-cyan-400/15",
+    },
+    careers: {
+      cardGradient: "from-violet-50 via-fuchsia-50 to-purple-50",
+      border: "border-violet-300/80",
+      shadow: "rgba(139,92,246,0.14)",
+      pillGradient: "from-violet-600 via-fuchsia-600 to-pink-600",
+      overlay: "absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-900/20 to-violet-500/15",
+    },
+  };
+
   const initialBlogs = [
     {
       category: "MBA STRATEGY",
@@ -26,10 +80,7 @@ const BlogsComponent: React.FC = () => {
       icon: GraduationCap,
       image: mbs1st,
       meta: "Jul 8, 2026 • 9 min read",
-      gradient: "from-[#0A192F] to-[#172A45]",
-      cardClassName: "rounded-[28px] border-2 border-blue-200/80 overflow-hidden flex flex-col transition-all duration-300 shadow-[0_20px_45px_rgba(59,130,246,0.14)] bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white",
-      pillClassName: "inline-flex w-fit rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-white shadow-md",
-      overlayClassName: "absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/20 to-indigo-500/20",
+      theme: "strategy",
     },
     {
       category: "MBA ROI",
@@ -38,7 +89,7 @@ const BlogsComponent: React.FC = () => {
       icon: Coins,
       image: mba2nd,
       meta: "Jul 1, 2026 • 11 min read",
-      gradient: "from-[#1E3A8A] to-[#3B82F6]",
+      theme: "roi",
     },
     {
       category: "MBA COSTS",
@@ -47,7 +98,7 @@ const BlogsComponent: React.FC = () => {
       icon: Wallet,
       image: mbacost,
       meta: "Jun 24, 2026 • 10 min read",
-      gradient: "from-[#2563EB] to-[#60A5FA]",
+      theme: "costs",
     },
     {
       category: "SCHOLARSHIPS",
@@ -56,7 +107,7 @@ const BlogsComponent: React.FC = () => {
       icon: TrendingUp,
       image: mbascholarship,
       meta: "May 27, 2026 • 7 min read",
-      gradient: "from-[#0F172A] to-[#1E293B]",
+      theme: "scholarships",
     },
     {
       category: "ADMISSIONS",
@@ -65,7 +116,7 @@ const BlogsComponent: React.FC = () => {
       icon: BookOpen,
       image: mbatestoptionalrecord,
       meta: "May 20, 2026 • 8 min read",
-      gradient: "from-[#1D4ED8] to-[#2563EB]",
+      theme: "admissions",
     },
     {
       category: "CAREERS",
@@ -74,7 +125,7 @@ const BlogsComponent: React.FC = () => {
       icon: Briefcase,
       image: mbafinance,
       meta: "May 13, 2026 • 9 min read",
-      gradient: "from-[#3B82F6] to-[#1D4ED8]",
+      theme: "careers",
     },
   ];
 
@@ -138,23 +189,32 @@ const BlogsComponent: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {initialBlogs.map((blog, idx) => {
               const Icon = blog.icon;
+              const theme = blogThemes[blog.theme] ?? null;
+              const cardClassName = theme
+                ? `rounded-[28px] border-2 ${theme.border} overflow-hidden flex flex-col transition-all duration-300 shadow-[0_20px_45px_${theme.shadow}] bg-gradient-to-br ${theme.cardGradient}`
+                : baseCardClassName;
+              const pillClassName = theme
+                ? `inline-flex w-fit rounded-full bg-gradient-to-r ${theme.pillGradient} px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-white shadow-md`
+                : basePillClassName;
+              const overlayClassName = theme?.overlay ?? baseOverlayClassName;
+
               return (
                 <motion.div
                   key={idx}
                   whileHover={{ y: -8, scale: 1.01, boxShadow: "0 30px 60px -20px rgba(99, 102, 241, 0.25)" }}
-                  className={blog.cardClassName ?? baseCardClassName}
+                  className={cardClassName}
                 >
                   {/* Blog Header Image (Gradient box with Image + Icon overlay) */}
-                  <div className={`relative h-48 w-full overflow-hidden bg-gradient-to-tr ${blog.gradient}`}>
+                  <div className={`relative h-48 w-full overflow-hidden bg-gradient-to-tr ${theme?.cardGradient ?? "from-slate-200 to-slate-300"}`}>
                     <img src={blog.image} alt={blog.title} className="h-full w-full object-cover scale-105 transition duration-500 group-hover:scale-110" />
-                    <div className={blog.overlayClassName ?? baseOverlayClassName} />
+                    <div className={overlayClassName} />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.28),transparent_35%),radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.26),transparent_32%),radial-gradient(circle_at_20%_80%,rgba(167,139,250,0.24),transparent_28%)]" />
                   </div>
 
                   {/* Blog Details */}
                   <div className="p-7 flex flex-col flex-1 justify-between gap-4">
                     <div className="space-y-3">
-                      <span className={blog.pillClassName ?? basePillClassName}>
+                      <span className={pillClassName}>
                         {blog.category}
                       </span>
                       <h3 className="text-xl font-black font-display text-slate-950 leading-snug hover:text-blue-700 transition duration-200">

@@ -255,7 +255,7 @@ export const TestimonialsPage: React.FC = () => {
 
           <button 
             onClick={() => setIsBookSessionOpen(true)}
-            className="rounded-[14px] bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 hover:opacity-95 text-white font-bold px-8 py-4 shadow-lg shadow-indigo-500/20 transition duration-200"
+            className="rounded-[14px] bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 hover:opacity-95 hover:-translate-y-0.5 hover:shadow-2xl text-white font-bold px-8 py-4 shadow-lg shadow-indigo-500/20 transition duration-200"
           >
             Book a Free Demo
           </button>

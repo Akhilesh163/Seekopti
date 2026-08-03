@@ -5,10 +5,49 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MessageCircle, Send } from "lucide-react";
+import { Mail, MessageCircle, Send, MapPin, PhoneCall, Clock } from "lucide-react";
 import { useContactFormSubmit } from "@/hooks/useContactFormSubmit";
 
 const emptyForm = { name: "", email: "", phone: "", message: "" };
+
+const infoCards = [
+  {
+    title: "Office Address",
+    description: "Seek Your Y, UGF 24, Arcadium One, Vrindavan Yojana Sector 16, Lucknow",
+    Icon: MapPin,
+    wrapperClassName: "group relative rounded-[24px] border border-indigo-300/80 bg-gradient-to-br from-indigo-50 via-indigo-100 to-violet-100 p-8 text-center transition-all duration-300 overflow-hidden shadow-md hover:shadow-2xl hover:border-indigo-500",
+    iconClassName: "mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-700 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2",
+    titleClassName: "font-bold text-indigo-950",
+    textClassName: "mt-3 text-sm text-indigo-900/85 font-medium",
+  },
+  {
+    title: "Call Us",
+    description: "+91 7307870773",
+    Icon: PhoneCall,
+    wrapperClassName: "group relative rounded-[28px] border border-purple-300/90 bg-gradient-to-br from-purple-100/95 via-purple-50 to-pink-100/95 p-8 text-center transition-all duration-300 overflow-hidden shadow-md hover:shadow-2xl hover:border-purple-500",
+    iconClassName: "mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2",
+    titleClassName: "font-bold text-purple-900",
+    textClassName: "mt-3 text-sm text-purple-800 font-medium",
+  },
+  {
+    title: "Email Us",
+    description: "seekyoury@gmail.com",
+    Icon: Mail,
+    wrapperClassName: "group relative rounded-[24px] border border-emerald-300/80 bg-gradient-to-br from-emerald-50 via-emerald-100 to-teal-100 p-8 text-center transition-all duration-300 overflow-hidden shadow-md hover:shadow-2xl hover:border-emerald-500",
+    iconClassName: "mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-700 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2",
+    titleClassName: "font-bold text-emerald-950",
+    textClassName: "mt-3 text-sm text-emerald-900/85 font-medium",
+  },
+  {
+    title: "Open Time",
+    description: "Tue - Sun (11:00AM - 08:00PM)",
+    Icon: Clock,
+    wrapperClassName: "group relative rounded-[24px] border border-amber-300/80 bg-gradient-to-br from-amber-50 via-amber-100 to-orange-100 p-8 text-center transition-all duration-300 overflow-hidden shadow-md hover:shadow-2xl hover:border-amber-500",
+    iconClassName: "mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-amber-700 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2",
+    titleClassName: "font-bold text-amber-950",
+    textClassName: "mt-3 text-sm text-amber-900/85 font-medium",
+  },
+];
 
 const ContactUs = () => {
   const [formData, setFormData] = useState(emptyForm);
@@ -71,44 +110,22 @@ const ContactUs = () => {
           {/* Top info cards - overlap hero */}
             <div className="mt-12 mb-10">
             <div className="mx-auto max-w-[1200px] px-2">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="rounded-[24px] border border-white/40 bg-gradient-to-br from-indigo-200/98 via-blue-200/95 to-sky-200/98 p-8 shadow-[0_22px_65px_rgba(79,70,229,0.25)] text-center hover:shadow-[0_28px_75px_rgba(79,70,229,0.35)] transition-all duration-300">
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-indigo-600 to-blue-500 text-white shadow-lg shadow-indigo-500/30">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin w-6 h-6" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              </div>
-              <h3 className="font-bold text-indigo-950">Office Address</h3>
-              <p className="mt-3 text-sm text-indigo-900/85 font-medium">Seek Your Y, UGF 24, Arcadium One, Vrindavan Yojana Sector 16, Lucknow</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {infoCards.map((card) => (
+                <div key={card.title} className={card.wrapperClassName}>
+                  <div className={card.iconClassName}>
+                    <card.Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className={card.titleClassName}>{card.title}</h3>
+                  <p className={card.textClassName}>{card.description}</p>
+                </div>
+              ))}
             </div>
-
-            <div className="rounded-[24px] border border-white/40 bg-gradient-to-br from-sky-200/98 via-cyan-200/95 to-blue-200/98 p-8 shadow-[0_22px_65px_rgba(56,189,248,0.25)] text-center hover:shadow-[0_28px_75px_rgba(56,189,248,0.35)] transition-all duration-300">
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-sky-600 to-cyan-500 text-white shadow-lg shadow-sky-500/30">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone-call w-6 h-6" aria-hidden="true"><path d="M13 2a9 9 0 0 1 9 9"></path><path d="M13 6a5 5 0 0 1 5 5"></path><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
-              </div>
-              <h3 className="font-bold text-sky-950">Call Us</h3>
-              <p className="mt-3 text-sm text-sky-900/85 font-medium">+91 7307870773</p>
-            </div>
-
-            <div className="rounded-[24px] border border-white/40 bg-gradient-to-br from-emerald-200/98 via-teal-200/95 to-cyan-200/98 p-8 shadow-[0_22px_65px_rgba(16,185,129,0.25)] text-center hover:shadow-[0_28px_75px_rgba(16,185,129,0.35)] transition-all duration-300">
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-500/30">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail w-6 h-6" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
-              </div>
-              <h3 className="font-bold text-emerald-950">Email Us</h3>
-              <p className="mt-3 text-sm text-emerald-900/85 font-medium">seekyoury@gmail.com</p>
-            </div>
-
-            <div className="rounded-[24px] border border-white/40 bg-gradient-to-br from-amber-200/98 via-orange-200/95 to-yellow-200/98 p-8 shadow-[0_22px_65px_rgba(251,191,36,0.25)] text-center hover:shadow-[0_28px_75px_rgba(251,191,36,0.35)] transition-all duration-300">
-              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-tr from-amber-600 to-orange-500 text-white shadow-lg shadow-amber-500/30">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-clock w-6 h-6" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
-              </div>
-              <h3 className="font-bold text-amber-950">Open Time</h3>
-              <p className="mt-3 text-sm text-amber-900/85 font-medium">Tue - Sun (11:00AM - 08:00PM)</p>
-            </div>
-              </div>
-            </div>
+          </div>
           </div>
 
           {/* Contact form card */}
-          <div className="rounded-[32px] bg-gradient-to-br from-white/95 via-blue-50/60 to-indigo-50/80 p-0 shadow-[0_25px_60px_rgba(79,70,229,0.15)] overflow-hidden border border-blue-100/50 hover:shadow-[0_35px_80px_rgba(79,70,229,0.2)] transition-all duration-500">
+          <div className="rounded-[32px] bg-transparent p-0 overflow-hidden border border-blue-100/50 transition-all duration-500">
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="hidden md:block relative overflow-hidden">
                 <img src="/assets/gre-asset/contactUI.webp" alt="contact" className="h-full w-full object-cover" />

@@ -267,21 +267,23 @@ const Admission: React.FC = () => {
                   title: "GRE Coaching",
                   desc: "Comprehensive GRE preparation covering Quant & Verbal with formula-free logic techniques.",
                   badge: "GRE",
-                  cardClass: "border-blue-200/80 bg-gradient-to-br from-white via-blue-50/80 to-indigo-50/80 shadow-[0_18px_36px_rgba(59,130,246,0.12)]",
+                  cardClass: "border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-100 to-indigo-100 shadow-[0_18px_36px_rgba(59,130,246,0.18)]",
                   badgeClass: "text-blue-900 bg-blue-100/70 border-blue-200/80",
+                  buttonClass: "inline-flex items-center gap-1 text-base md:text-lg font-extrabold text-blue-700 hover:text-blue-900 hover:-translate-y-0.5 transition duration-200",
                 },
                 {
                   src: CourseGmat,
                   title: "GMAT Focus Edition",
                   desc: "Specialized GMAT prep focusing on Data Insights, Quant, and Verbal Reasoning.",
                   badge: "GMAT",
-                  cardClass: "border-violet-200/80 bg-gradient-to-br from-white via-violet-50/80 to-fuchsia-50/80 shadow-[0_18px_36px_rgba(139,92,246,0.12)]",
+                  cardClass: "border-violet-200/80 bg-gradient-to-br from-fuchsia-50 via-violet-100 to-indigo-100 shadow-[0_18px_36px_rgba(139,92,246,0.18)]",
                   badgeClass: "text-violet-900 bg-violet-100/70 border-violet-200/80",
+                  buttonClass: "inline-flex items-center gap-1 text-base md:text-lg font-extrabold text-violet-700 hover:text-violet-900 hover:-translate-y-0.5 transition duration-200",
                 },
               ].map((course) => (
                 <div
                   key={course.title}
-                  className={`group relative overflow-hidden rounded-[28px] border-2 shadow-md hover:shadow-xl transition-all duration-300 text-left ${course.cardClass}`}
+                  className={`group relative overflow-hidden rounded-[28px] border-2 shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-left ${course.cardClass}`}
                 >
                   <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-blue-400 to-violet-400 opacity-15 blur-2xl pointer-events-none" />
                   <div className="h-48 overflow-hidden">
@@ -295,7 +297,7 @@ const Admission: React.FC = () => {
                     <p className="text-base md:text-lg text-slate-700 font-medium leading-relaxed mb-4">{course.desc}</p>
                     <button
                       onClick={() => setIsBookSessionOpen(true)}
-                      className="inline-flex items-center gap-1 text-base md:text-lg font-extrabold text-blue-700 hover:text-blue-900 transition-colors"
+                      className={course.buttonClass}
                     >
                       <span>Learn More & Book Demo</span>
                       <ArrowRight className="w-4 h-4" />
