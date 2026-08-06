@@ -129,7 +129,7 @@ export const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start gap-8">
-          <p className="text-sm text-white/50">© 2024 SeekYourY. All rights reserved.</p>
+          <p className="text-sm text-white/50">© 2026 SeekYourY. All rights reserved.</p>
         </div>
       </div>
 

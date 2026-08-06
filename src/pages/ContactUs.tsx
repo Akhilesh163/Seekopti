@@ -149,16 +149,22 @@ const ContactUs = () => {
                           <SelectValue placeholder="Interested in" />
                         </SelectTrigger>
                         <SelectContent className="rounded-xl shadow-lg border-border/80 max-h-[320px] p-1.5">
+                          <SelectItem value="GRE Live Class" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                            <div className="flex flex-col gap-0.5">
+                              <span className="font-bold text-sm text-foreground">GRE Live Class</span>
+                              <span className="text-xs text-muted-foreground font-normal">Interactive Live Batch Training</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="GRE Self-Paced" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                            <div className="flex flex-col gap-0.5">
+                              <span className="font-bold text-sm text-foreground">GRE Self-Paced</span>
+                              <span className="text-xs text-muted-foreground font-normal">On-Demand Comprehensive Video Course</span>
+                            </div>
+                          </SelectItem>
                           <SelectItem value="GRE Private Tutoring" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
                             <div className="flex flex-col gap-0.5">
                               <span className="font-bold text-sm text-foreground">GRE Private Tutoring</span>
                               <span className="text-xs text-muted-foreground font-normal">1-on-1 Personalized Tutors</span>
-                            </div>
-                          </SelectItem>
-                          <SelectItem value="GMAT Online" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
-                            <div className="flex flex-col gap-0.5">
-                              <span className="font-bold text-sm text-foreground">GMAT Online</span>
-                              <span className="text-xs text-muted-foreground font-normal">Live Online Coaching & Interactive Sessions</span>
                             </div>
                           </SelectItem>
                           <SelectItem value="GMAT Live Class" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
@@ -171,6 +177,18 @@ const ContactUs = () => {
                             <div className="flex flex-col gap-0.5">
                               <span className="font-bold text-sm text-foreground">GMAT Self-Paced</span>
                               <span className="text-xs text-muted-foreground font-normal">On-Demand Comprehensive Video Course</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="GMAT Private Tutoring" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                            <div className="flex flex-col gap-0.5">
+                              <span className="font-bold text-sm text-foreground">GMAT Private Tutoring</span>
+                              <span className="text-xs text-muted-foreground font-normal">1-on-1 Personalized Tutors</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="Admissions Consulting" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                            <div className="flex flex-col gap-0.5">
+                              <span className="font-bold text-sm text-foreground">Admissions Consulting</span>
+                              <span className="text-xs text-muted-foreground font-normal">B-School Application & Essay Mentoring</span>
                             </div>
                           </SelectItem>
                         </SelectContent>
