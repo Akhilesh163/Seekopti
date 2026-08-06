@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { CustomFAQ } from "@/components/CustomFAQ";
 import { CallToAction } from "@/components/CallToAction";
 import { Footer } from "@/components/Footer";
@@ -35,12 +35,7 @@ const AboutGre = () => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
   const [activeMode, setActiveMode] = useState("classroom");
   const [activeGreFocus, setActiveGreFocus] = useState("concepts");
-  const [activeReviewIndex, setActiveReviewIndex] = useState(0);
   const [openSyllabusSection, setOpenSyllabusSection] = useState<string | null>(null);
-  const [isReviewPaused, setIsReviewPaused] = useState(false);
-  const reviewListRef = useRef<HTMLDivElement | null>(null);
-  const reviewCardsRef = useRef<HTMLDivElement[]>([]);
-  const hasInitializedReviewCarousel = useRef(false);
 
   const studentReviews = [
     {
@@ -77,45 +72,6 @@ const AboutGre = () => {
     },
   ];
 
-  const reviewCardGradients = [
-    "from-cyan-100 via-sky-100 to-blue-100",
-    "from-fuchsia-100 via-pink-100 to-violet-100",
-    "from-emerald-100 via-lime-100 to-teal-100",
-    "from-amber-100 via-orange-100 to-rose-100",
-    "from-slate-100 via-sky-100 to-indigo-100",
-    "from-rose-100 via-orange-100 to-amber-100",
-  ];
-
-  useEffect(() => {
-    if (isReviewPaused || studentReviews.length <= 1) return;
-
-    const timeout = window.setTimeout(() => {
-      setActiveReviewIndex((prev) => (prev + 1) % studentReviews.length);
-    }, 4500);
-
-    return () => window.clearTimeout(timeout);
-  }, [activeReviewIndex, isReviewPaused, studentReviews.length]);
-
-  useEffect(() => {
-    if (!hasInitializedReviewCarousel.current) {
-      hasInitializedReviewCarousel.current = true;
-      return;
-    }
-
-    const reviewList = reviewListRef.current;
-    if (!reviewList) return;
-
-    const rect = reviewList.getBoundingClientRect();
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    const isVisible = rect.top < viewportHeight && rect.bottom > 0;
-    if (!isVisible) return;
-
-    reviewCardsRef.current[activeReviewIndex]?.scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest",
-    });
-  }, [activeReviewIndex]);
 
   const results = [
     {
@@ -356,16 +312,6 @@ const AboutGre = () => {
   ];
 
   const activeFocus = greFocusAreas.find((item) => item.id === activeGreFocus) ?? greFocusAreas[0];
-  reviewCardsRef.current = [];
-
-  const handlePrevReview = () => {
-    setActiveReviewIndex((prev) => (prev - 1 + studentReviews.length) % studentReviews.length);
-  };
-
-  const handleNextReview = () => {
-    setActiveReviewIndex((prev) => (prev + 1) % studentReviews.length);
-  };
-
   return (
     <div className="bg-slate-50 text-foreground">
       <ProgramHero type="gre" />
@@ -1130,29 +1076,162 @@ const AboutGre = () => {
           </p>
         </div>
 
-        <div className="relative w-full py-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
-            {studentReviews.map((review, index) => (
-              <div
-                key={`${review.name}-${review.footer}-${index}`}
-                className="group relative h-full min-h-[300px] rounded-[32px] overflow-hidden border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
-              >
-                <div className="flex items-center gap-4">
-                  <img src={review.image} alt={review.name} className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
-                  <div>
-                    <p className="text-xl md:text-2xl font-semibold text-slate-950">{review.name}</p>
-                    <p className="text-base md:text-lg text-slate-700">{review.title}</p>
-                    <div className="mt-2 flex items-center gap-1 text-amber-500 text-lg">
-                      {Array.from({ length: review.rating }).map((_, starIndex) => (
-                        <span key={starIndex}>★</span>
-                      ))}
-                    </div>
-                  </div>
+        <div className="relative overflow-hidden px-4 pb-8 pt-6">
+          <style>{`
+            @keyframes gmatReviewMarquee {
+              0% { transform: translate3d(0, 0, 0); }
+              100% { transform: translate3d(-50%, 0, 0); }
+            }
+          `}</style>
+
+          <div className="hidden md:block absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+          <div className="hidden md:block absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+
+          <div className="flex gap-5 md:gap-6 w-max min-w-full will-change-transform" style={{ animationName: "gmatReviewMarquee", animationDuration: "70s", animationTimingFunction: "linear", animationIterationCount: "infinite", animationPlayState: "running" }}>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Nishtha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Nishtha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                 </div>
-                <p className="mt-5 text-base md:text-lg leading-8 text-slate-700">{review.text}</p>
-                <p className="mt-5 text-base font-semibold text-slate-900">{review.footer}</p>
               </div>
-            ))}
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Nishtha ma'am is excellent at explaining concepts in a simple and easy to understand way. She is patient, supportive, and always encourages me to do my best.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sandeep, 1 week ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Dhruv" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Dhruv</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Hello Dhruv, thank you for the excellent teaching and support you've given to our 10 years old son Thomas. Your clear explanations and friendly approach have made math enjoyable for him.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Fabio, 2 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Arjun%20M%20S.jpeg" alt="Pratyush" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Pratyush</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Pratyush has been an excellent calculus tutor for my son. He explains complex concepts in a clear, patient, and easy-to-understand manner, which has greatly improved my son's confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Devesh, 2 weeks ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Balagopal%20Jayakumar.jpeg" alt="Balagopal" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Balagopal</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Handling a 5 year old homeschooler with ease. Dhruv is an amazing teacher. I sincerely appreciate his patience with my daughter and the fun learning vibe.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sreethy, 3 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Sneha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Sneha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT coach</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Sneha is incredibly clear and motivating. Her structured approach helped me finally improve my timing and accuracy on both Quant and Verbal.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Aarav, 1 month ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Rohan" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Rohan</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT mentor</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Rohan tailored each session to my weak areas and kept me accountable. The personalized feedback made a real difference in my confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Nisha, 3 weeks ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Nishtha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Nishtha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Nishtha ma'am is excellent at explaining concepts in a simple and easy to understand way. She is patient, supportive, and always encourages me to do my best.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sandeep, 1 week ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Dhruv" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Dhruv</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Hello Dhruv, thank you for the excellent teaching and support you've given to our 10 years old son Thomas. Your clear explanations and friendly approach have made math enjoyable for him.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Fabio, 2 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Arjun%20M%20S.jpeg" alt="Pratyush" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Pratyush</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Pratyush has been an excellent calculus tutor for my son. He explains complex concepts in a clear, patient, and easy-to-understand manner, which has greatly improved my son's confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Devesh, 2 weeks ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Balagopal%20Jayakumar.jpeg" alt="Balagopal" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Balagopal</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT teacher</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Handling a 5 year old homeschooler with ease. Dhruv is an amazing teacher. I sincerely appreciate his patience with my daughter and the fun learning vibe.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Sreethy, 3 months ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Manya.jpeg" alt="Sneha" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Sneha</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT coach</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Sneha is incredibly clear and motivating. Her structured approach helped me finally improve my timing and accuracy on both Quant and Verbal.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Aarav, 1 month ago</p>
+            </div>
+            <div className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
+              <div className="flex items-center gap-4">
+                <img src="/src/assets/student_pics/Prafful.jpeg" alt="Rohan" className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                <div>
+                  <p className="text-2xl md:text-3xl font-semibold text-slate-950">Rohan</p>
+                  <p className="text-lg md:text-xl text-slate-700">GMAT mentor</p>
+                  <div className="mt-2 flex items-center gap-1 text-amber-500 text-xl"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                </div>
+              </div>
+              <p className="mt-5 text-lg md:text-xl leading-8 text-slate-700">Rohan tailored each session to my weak areas and kept me accountable. The personalized feedback made a real difference in my confidence.</p>
+              <p className="mt-5 text-base md:text-lg font-semibold text-slate-900">Nisha, 3 weeks ago</p>
+            </div>
           </div>
         </div>
 

@@ -50,16 +50,16 @@ const ContactUs = () => {
       <Navbar />
 
       {/* Hero */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-blue-100/80 via-indigo-50/75 to-sky-50/90 pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-blue-200/40">
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-blue-400/25 blur-[140px] pointer-events-none" />
-        <div className="absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full bg-indigo-400/20 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-0 right-1/3 w-[300px] h-[300px] rounded-full bg-cyan-400/15 blur-[100px] pointer-events-none" />
+      <header className="relative overflow-hidden bg-background pt-[76px] md:pt-[84px] pb-24 text-slate-900 border-b border-slate-200/70">
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-slate-400/10 blur-[140px] pointer-events-none" />
+        <div className="absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full bg-indigo-300/10 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/3 w-[300px] h-[300px] rounded-full bg-slate-200/10 blur-[100px] pointer-events-none" />
         <div className="absolute inset-0 pointer-events-none opacity-40">
           <div
             className="h-full w-full"
             style={{
               backgroundImage:
-                "radial-gradient(rgba(30,58,138,0.04) 1px, transparent 1px)",
+                "radial-gradient(rgba(15,23,42,0.03) 1px, transparent 1px)",
               backgroundSize: "25px 25px",
             }}
           />
@@ -91,7 +91,10 @@ const ContactUs = () => {
                     <div className={card.iconClassName}>
                       <card.Icon className="w-6 h-6" />
                     </div>
-                    <h3 className={card.titleClassName}>{card.title}</h3>
+                    <h3 className={`${card.titleClassName} flex items-center justify-center gap-2`}> 
+                      <card.Icon className="w-4 h-4 text-indigo-700" />
+                      {card.title}
+                    </h3>
                     <p className={card.textClassName}>{card.description}</p>
                   </div>
                 ))}
