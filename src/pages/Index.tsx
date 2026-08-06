@@ -98,8 +98,8 @@ const Index = () => {
         {/* METHODOLOGY STICKY SCROLL TIMELINE */}
         <MethodTimeline />
 
-        {/* METHOD/SOLUTION SECTION */}
-        <SeekMethod />
+       
+       
 
         {/* WHAT YOU GET ONLY WITH SEEK YOUR Y (EXCLUSIVE ADVANTAGE CARDS) */}
         <SeekAdvantageCards />

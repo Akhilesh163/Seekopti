@@ -255,10 +255,7 @@ const TestSeriesComponent: React.FC = () => {
                     className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white shadow-lg shadow-indigo-500/25 transition-all hover:opacity-95 hover:-translate-y-0.5 active:translate-y-0"
                   >
                     Book a Free Demo
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right h-4 w-4">
-                      <path d="M5 12h14" />
-                      <path d="m12 5 7 7-7 7" />
-                    </svg>
+                    <ChevronRight className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => setIsBookSessionOpen(true)}
@@ -295,19 +292,19 @@ const TestSeriesComponent: React.FC = () => {
       </section>
 
       {/* 2. GRE TEST SERIES SECTION */}
-      <section className="py-20 px-6 bg-slate-50/60">
+      <section className="py-20 px-6 bg-slate-950">
         <div className="max-w-[1280px] mx-auto text-center">
-          <div className="rounded-[32px] border-2 border-blue-200/80 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
+          <div className="rounded-[32px] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.2),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(139,92,246,0.16),transparent_42%),#030712] p-8 md:p-12 shadow-[0_30px_80px_rgba(15,23,42,0.35)] mb-14 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
             <div className="relative z-10 max-w-4xl mx-auto">
-              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-slate-800/85 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-lg mb-5">
                 <span className="h-2.5 w-2.5 rounded-full bg-white" />
                 GRE
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
-                GRE Test Series — <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">₹4,999</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-white tracking-tight leading-[1.15] mb-5">
+                GRE Test Series — <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-indigo-300 to-violet-400">₹4,999</span>
               </h2>
-              <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
+              <p className="text-slate-300 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
                 Section-adaptive mocks calibrated to the shorter GRE, with percentile benchmarking against thousands of test-takers.
               </p>
             </div>
@@ -343,25 +340,25 @@ const TestSeriesComponent: React.FC = () => {
             className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-10 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
           >
             <span>Get GRE Test Series</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-5 h-5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+            <ChevronRight className="w-5 h-5" />
           </button>
         </div>
       </section>
 
       {/* 3. GMAT TEST SERIES SECTION */}
-      <section className="py-20 px-6 bg-white border-t border-slate-200/70">
+      <section className="py-20 px-6 bg-slate-950">
         <div className="max-w-[1280px] mx-auto text-center">
-          <div className="rounded-[32px] border-2 border-indigo-200/80 bg-gradient-to-br from-indigo-50/90 via-violet-50/60 to-white p-8 md:p-12 shadow-lg mb-14 relative overflow-hidden">
+          <div className="rounded-[32px] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(79,70,229,0.18),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.14),transparent_42%),#020617] p-8 md:p-12 shadow-[0_30px_80px_rgba(15,23,42,0.35)] mb-14 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
             <div className="relative z-10 max-w-4xl mx-auto">
-              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-indigo-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-md mb-5">
+              <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-slate-800/85 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest shadow-lg mb-5">
                 <span className="h-2.5 w-2.5 rounded-full bg-white" />
                 GMAT
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-[1.15] mb-5">
-                GMAT Focus Test Series — <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">₹5,999</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-white tracking-tight leading-[1.15] mb-5">
+                GMAT Focus Test Series — <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-violet-300 to-fuchsia-400">₹5,999</span>
               </h2>
-              <p className="text-slate-700 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
+              <p className="text-slate-300 font-medium leading-relaxed" style={{ fontSize: "24px" }}>
                 Question-adaptive Focus Edition mocks with sectional and sub-sectional gap analysis across Quant, Verbal and DI.
               </p>
             </div>
@@ -397,222 +394,13 @@ const TestSeriesComponent: React.FC = () => {
             className="inline-flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 px-10 py-4 text-white font-extrabold text-lg shadow-xl shadow-indigo-500/25 hover:opacity-95 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
           >
             <span>Get GMAT Test Series</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right w-5 h-5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+            <ChevronRight className="w-5 h-5" />
           </button>
         </div>
       </section>
 
       {/* 4. VALUE CHECK SECTION */}
-      <section className="py-20 px-6 bg-slate-50/70 border-t border-slate-200/70">
-        <div className="max-w-[1200px] mx-auto text-center">
-          <div className="inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-blue-400/50 bg-blue-500/10 px-6 py-3 text-sm md:text-base font-black uppercase tracking-[0.18em] text-blue-700 shadow-sm mb-5">
-            VALUE CHECK
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-slate-950 tracking-tight text-center">
-            Why this is the <span className="text-blue-600">best-value</span> series anywhere
-          </h2>
 
-          <div className="mt-12 overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50 text-left">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-slate-100/90 border-b-2 border-slate-300 text-sm md:text-base font-semibold uppercase tracking-wider text-slate-700">
-                    <th className="px-6 py-5.5 md:py-6">&nbsp;</th>
-                    <th className="px-6 py-5.5 md:py-6">Seek Your Y</th>
-                    <th className="px-6 py-5.5 md:py-6">Official Mocks</th>
-                    <th className="px-6 py-5.5 md:py-6">Other Prep</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-300 text-base">
-                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
-                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
-                      <div className="flex items-center gap-3.5">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-100 text-sky-700 shrink-0 shadow-xs">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-list-check h-5 w-5">
-                            <path d="M9 11l1 1 3-3" />
-                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-                            <path d="M7 7h.01" />
-                            <path d="M7 17h.01" />
-                          </svg>
-                        </div>
-                        <div>
-                          <div className="text-base md:text-lg font-medium text-slate-950">Total tests</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        30 tests
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        3–4 mocks
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        15–25 tests
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
-                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
-                      <div className="flex items-center gap-3.5">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-700 shrink-0 shadow-xs">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-book-open h-5 w-5">
-                            <path d="M2 6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14H4a2 2 0 0 1-2-2V6z" />
-                            <path d="M22 6a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v14h8a2 2 0 0 0 2-2V6z" />
-                          </svg>
-                        </div>
-                        <div>
-                          <div className="text-base md:text-lg font-medium text-slate-950">Full-length mocks</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        10 adaptive mocks
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        3–4 mocks
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        5–10 mocks
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
-                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
-                      <div className="flex items-center gap-3.5">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 shrink-0 shadow-xs">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-pie-chart h-5 w-5">
-                            <path d="M21 12A9 9 0 1 1 12 3v9z" />
-                            <path d="M12 3.22v8.78h8.78A8.98 8.98 0 0 0 12 3.22z" />
-                          </svg>
-                        </div>
-                        <div>
-                          <div className="text-base md:text-lg font-medium text-slate-950">Sectional drills</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        20 sectionals
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        None
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        10–15 sectionals
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
-                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
-                      <div className="flex items-center gap-3.5">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-700 shrink-0 shadow-xs">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mic h-5 w-5">
-                            <path d="M12 1a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V4a3 3 0 0 1 3-3z" />
-                            <path d="M5 10a7 7 0 0 0 14 0" />
-                            <path d="M12 19v4" />
-                            <path d="M8 23h8" />
-                          </svg>
-                        </div>
-                        <div>
-                          <div className="text-base md:text-lg font-medium text-slate-950">Live mock debriefs</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        Faculty-led strategy review
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        None
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        None / Recorded only
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
-                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
-                      <div className="flex items-center gap-3.5">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 shrink-0 shadow-xs">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-bar-chart-3 h-5 w-5">
-                            <path d="M3 3v18h18" />
-                            <path d="M18 17v-7" />
-                            <path d="M13 17v-4" />
-                            <path d="M8 17V9" />
-                          </svg>
-                        </div>
-                        <div>
-                          <div className="text-base md:text-lg font-medium text-slate-950">Performance tracking</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        Advanced gap analysis
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        Basic score report
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        Standard report
-                      </span>
-                    </td>
-                  </tr>
-                  <tr className="hover:bg-blue-50/40 transition-colors duration-150 group">
-                    <td className="px-6 py-6.5 md:py-7 font-semibold text-slate-900">
-                      <div className="flex items-center gap-3.5">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-700 shrink-0 shadow-xs">
-                          <span className="text-base font-black">₹</span>
-                        </div>
-                        <div>
-                          <div className="text-base md:text-lg font-medium text-slate-950">Approx. price</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg font-bold">
-                        ₹4,999 (GRE) / ₹5,999 (GMAT)
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        ₹9,200 (GMAT) / ₹10,000 (GRE)
-                      </span>
-                    </td>
-                    <td className="px-6 py-6.5 md:py-7 text-center">
-                      <span className="inline-block px-4 py-1.5 bg-slate-100 text-slate-900 rounded-full border border-slate-200/80 text-base md:text-lg">
-                        ₹6,000 – ₹12,000
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 5. DIAGNOSTIC CTA */}
       <section className="py-20 px-6 bg-white border-t border-slate-200/70">

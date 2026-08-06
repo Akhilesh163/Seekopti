@@ -84,7 +84,7 @@ const supportTabs = [
     listItems: [
       {
         title: "Customized study plans",
-        desc: "Plans designed just for you based on your goals and learning pace.",
+        desc: "Built from your diagnostic and your test date, revised after every mock.",
         icon: FileText,
         cardBg: "bg-gradient-to-r from-blue-50 via-indigo-50/50 to-blue-50/30",
         borderColor: "border-blue-200/90 hover:border-blue-400",
@@ -94,8 +94,18 @@ const supportTabs = [
       },
       {
         title: "Targeted practice sessions",
-        desc: "Focus on weak areas with expert-guided practice and feedback.",
+        desc: "Drill sets sized to the exact sub-skills your analytics flag.",
         icon: Target,
+        cardBg: "bg-gradient-to-r from-emerald-50 via-teal-50/50 to-emerald-50/30",
+        borderColor: "border-emerald-200/90 hover:border-emerald-400",
+        iconBg: "bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-md shadow-emerald-500/30",
+        badge: "High Yield",
+        badgeBg: "bg-emerald-100/90 text-emerald-700 border border-emerald-200/80",
+      },
+      {
+        title: "Weekly progress review",
+        desc: "A standing check-in on accuracy, timing and what changes next week.",
+        icon: Calendar,
         cardBg: "bg-gradient-to-r from-emerald-50 via-teal-50/50 to-emerald-50/30",
         borderColor: "border-emerald-200/90 hover:border-emerald-400",
         iconBg: "bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-md shadow-emerald-500/30",

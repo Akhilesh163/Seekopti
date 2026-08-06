@@ -79,11 +79,10 @@ export const Hero = () => {
         <div className="max-w-[620px] flex flex-col justify-center order-2 xl:order-1">
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground leading-[1.1] tracking-tight mb-6">
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="block">Prep doesn't</motion.span>
-            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15 }} className="block">have to be scary.</motion.span>
+            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="block">Understand the why.</motion.span>
             <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.25 }}
               className="block bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 bg-clip-text text-transparent"
-            >Master GRE & GMAT!</motion.span>
+            >The score follows.</motion.span>
           </h1>
 
           {/* Subheadline */}
@@ -93,7 +92,7 @@ export const Hero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-lg md:text-xl font-normal text-muted-foreground leading-relaxed max-w-[540px] mb-8"
           >
-            Build confidence with a logic-first approach that translates directly to test-day speed and accuracy.
+            Logic-first GRE & GMAT preparation — from your first concept to your final mock. Self-paced courses, live classes, one-on-one mentoring and admissions guidance, led by Aman.
           </motion.p>
 
           {/* CTA Button Row */}
@@ -110,7 +109,7 @@ export const Hero = () => {
               className="h-[60px] px-8 bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 hover:opacity-95 text-white font-bold text-sm rounded-[14px] flex items-center justify-center gap-2.5 transition-all duration-200 shadow-lg shadow-indigo-500/25"
             >
               <Calendar className="w-5 h-5 stroke-[2.5]" />
-              Book a Call
+              Book a free demo
             </motion.button>
 
             {/* Secondary button */}
@@ -120,7 +119,7 @@ export const Hero = () => {
               className="h-[60px] px-8 bg-white border-2 border-indigo-200 text-indigo-700 font-semibold text-sm rounded-[14px] flex items-center justify-center gap-2.5 transition-colors duration-200 hover:border-indigo-400"
             >
               <Play className="w-5 h-5 fill-indigo-600 stroke-indigo-600" />
-              Explore Programs
+              Explore Courses
             </motion.button>
           </motion.div>
 
@@ -131,8 +130,8 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-wrap sm:flex-nowrap gap-6 md:gap-10 border-t border-indigo-100 pt-8"
           >
-            <StatCounter value="4000+" label="Students Mentored" icon={Users} color="blue" />
-            <StatCounter value="80%" label="Success Rate" icon={ShieldCheck} color="emerald" />
+            <StatCounter value="1000+" label="students mentored" icon={Users} color="blue" />
+            <StatCounter value="10+" label="avg. GRE point gain" icon={ShieldCheck} color="emerald" />
             <StatCounter value="9+" label="Years of Experience" icon={GraduationCap} color="violet" />
           </motion.div>
         </div>

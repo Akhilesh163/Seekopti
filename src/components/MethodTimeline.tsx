@@ -31,9 +31,9 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
-    title: "Conceptual Clarity",
+    title: "Prework before the session",
     description:
-      "We break down every complex topic into intuitive frameworks so that concepts finally click. No rote memorization — only deep understanding that lasts.",
+      "Before every class you get a short prework set on the upcoming topic. You arrive already having thought about it — so the session is a discussion, not a lecture you sit through.",
     icon: Lightbulb,
     gradient: "from-blue-600 to-indigo-600",
     iconColor: "bg-blue-50 text-blue-600 border-blue-200/50",
@@ -67,9 +67,9 @@ const timelineData: TimelineItem[] = [
     ),
   },
   {
-    title: "Strategic Problem-Solving",
+    title: "The session itself",
     description:
-      "Learn pattern recognition and smart shortcuts tailored for every question type. Approach each problem with confidence and a clear plan of attack.",
+      "We build the concept from first principles and pressure-test it against real questions. You talk, you attempt, you get corrected in the moment. Nobody watches quietly.",
     icon: Target,
     gradient: "from-indigo-600 to-violet-600",
     iconColor: "bg-indigo-50 text-indigo-600 border-indigo-200/50",
@@ -118,9 +118,9 @@ const timelineData: TimelineItem[] = [
     ),
   },
   {
-    title: "Score-Driven Results",
+    title: "Practice the same day",
     description:
-      "Practice with purpose. Our structured drills and analytics help you build consistency that shows up in your actual test scores — no more random plateaus.",
+      "You go home and solve a targeted set on exactly the topic just covered, while it is still fresh. Same topic, harder questions, no delay.",
     icon: LineChart,
     gradient: "from-emerald-500 to-teal-600",
     iconColor: "bg-emerald-50 text-emerald-600 border-emerald-200/50",
@@ -169,9 +169,9 @@ const timelineData: TimelineItem[] = [
     ),
   },
   {
-    title: "Expert-Led Live Classes",
+    title: "Revise, clear doubts, go deeper",
     description:
-      "Interactive, scheduled sessions with real-time doubt solving, peer learning, and accountability. Never feel lost — our mentors guide you every step.",
+      "Once the sessions are done, you revise the full syllabus, bring every unresolved doubt to a live session, and work through extra practice on your weakest areas.",
     icon: Video,
     gradient: "from-rose-500 to-pink-600",
     iconColor: "bg-rose-50 text-rose-600 border-rose-200/50",
@@ -219,9 +219,9 @@ const timelineData: TimelineItem[] = [
     ),
   },
   {
-    title: "1-on-1 Private Mentoring",
+    title: "Test, debrief, repeat",
     description:
-      "Personalized attention tailored directly to your score goals, weak areas, and timeline. Work with a dedicated mentor who knows your journey inside out.",
+      "Now you take mocks — sectional first, then full-length. Every mock is followed by a debrief: what went wrong, why, and what changes before the next one.",
     icon: Users,
     gradient: "from-amber-500 to-orange-600",
     iconColor: "bg-amber-50 text-amber-600 border-amber-200/50",

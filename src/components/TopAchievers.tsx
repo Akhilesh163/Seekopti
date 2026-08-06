@@ -274,7 +274,7 @@ export const TopAchievers: React.FC = () => {
 
         {/* Bottom Stats Row */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8 md:gap-16 lg:gap-24 mt-16 border-t border-slate-100 pt-14 max-w-[1000px] mx-auto px-4">
-          <StatCounter value="4000+" label="Students Mentored" icon={Users} color="blue" />
+          <StatCounter value="1000+" label="students mentored" icon={Users} color="blue" />
           <StatCounter value="96th" label="Percentile Achievers" icon={Award} color="violet" />
           <StatCounter value="8+" label="Years Experience" icon={GraduationCap} color="emerald" />
         </div>

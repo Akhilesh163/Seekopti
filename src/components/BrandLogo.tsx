@@ -11,15 +11,17 @@ type BrandLogoProps = {
 
 export function BrandLogo({ className, size = "nav", variant = "onLight" }: BrandLogoProps) {
   return (
-    <img
-      src={seekYourYLogo}
-      alt="Seek Your Y"
-      className={cn(
-        "w-auto object-contain",
-        size === "nav" && "h-10 md:h-16",
-        size === "lg" && "h-10 md:h-20",
-        className,
-      )}
-    />
+    <div className={cn("flex items-center gap-3 font-semibold tracking-wide", className)}>
+      <img
+        src={seekYourYLogo}
+        alt="Seek Your Y"
+        className={cn(
+          "w-auto object-contain",
+          size === "nav" && "h-10 md:h-16",
+          size === "lg" && "h-10 md:h-20",
+        )}
+      />
+      <span className={cn("text-xl md:text-2xl font-black tracking-tight", variant === "onDark" ? "text-white" : "text-slate-900")}>Seek Your Y</span>
+    </div>
   );
 }

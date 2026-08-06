@@ -12,23 +12,44 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    question: "What courses do you offer?",
+    question: "What exactly does Seek Your Y offer?",
     answer:
-      "We currently provide GRE and GMAT Quant preparation through self-paced courses, one-on-one private tutoring, high-quality GMAT & GRE Quant test series, and live doubt-clearing sessions.",
+      "Six things: a self-paced course, live online classes, one-on-one private tutoring, a full test series, live doubt-solving sessions, and admissions consulting — for both the GRE and the GMAT.",
   },
   {
-    question: "How do I enroll in a course?",
-    answer: "",
+    question: "Do you teach only Quant?",
+    answer:
+      "No. We cover the complete GRE (Quant, Verbal and Analytical Writing) and the complete GMAT Focus Edition (Quant, Verbal and Data Insights). Logic-first teaching is our method — it isn't a restriction on the syllabus.",
   },
   {
-    question: "Are the courses live or recorded?",
+    question: "Are the classes live or recorded?",
     answer:
-      "Our core courses are self-paced and recorded so you can study anytime. In addition, we conduct personalized live sessions where you can interact directly with Aman.",
+      "Both, and you choose. The self-paced course is fully recorded and available immediately. Live classes are taught in real time in small batches. Every live-class student also gets the recorded course, so nothing is missed if you skip a session.",
   },
   {
-    question: "How long is the course valid for?",
+    question: "How do I enrol in a course?",
     answer:
-      "Each self-paced course comes with 6 months validity from the date of purchase, giving you plenty of time to complete the course at your own pace.",
+      "Book a free demo, take a short diagnostic, and we'll recommend the track that fits your target score and timeline. You enrol online and get access the same day.",
+  },
+  {
+    question: "How long is my course valid for?",
+    answer:
+      "Six months from the date of enrolment — and that applies to everything: self-paced course, live class recordings, study material and test series.",
+  },
+  {
+    question: "Do you offer one-on-one mentoring?",
+    answer:
+      "Yes, and it's a core part of what we do. Private tutoring is built entirely around your diagnostic, your weak areas and your calendar. Sessions can be online or in person at our Nagpur centre.",
+  },
+  {
+    question: "How much time should I study outside class?",
+    answer:
+      "Plan for roughly 2 to 2.5 hours a day alongside the course. You'll get a written action plan with daily targets, so you always know what \"enough\" looks like.",
+  },
+  {
+    question: "Do I need to buy any other books or material?",
+    answer:
+      "No. Everything you need — concept videos, notes, question banks and mocks — is included in your enrolment.",
   },
 ];
 
@@ -86,13 +107,7 @@ export const FAQ = () => {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent className="text-base text-slate-600 pb-6 leading-relaxed pt-1">
-                    {index === 1 ? (
-                      <>
-                        You can enroll by booking a free demo session on our website, or you can contact us directly. We will guide you through the enrollment process and get you started on your preparation journey with Seek Your Y.
-                      </>
-                    ) : (
-                      faq.answer
-                    )}
+                    {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
               );

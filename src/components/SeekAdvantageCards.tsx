@@ -16,89 +16,69 @@ import {
 const advantageData = [
   {
     icon: ShieldCheck,
-    title: "100% Score Guarantee",
-    text: (
-      <>
-        100% score guarantee for{" "}
-        <a href="/gmat" className="underline font-bold text-blue-600 hover:text-blue-800 transition-colors">GMAT</a>,{" "}
-        <a href="/gre" className="underline font-bold text-blue-600 hover:text-blue-800 transition-colors">GRE</a> and{" "}
-        <span className="font-bold text-blue-600">SAT</span>
-      </>
-    ),
+    text: "The complete concept library — videos, notes and quizzes — for GRE or GMAT, available the moment you enrol.",
     gradient: "from-blue-600 to-indigo-600",
     cardBg: "bg-gradient-to-br from-blue-100/95 via-blue-50 to-indigo-100/95 border-blue-300/90 hover:border-blue-500 shadow-blue-500/20",
     badgeBg: "bg-blue-100/80 text-blue-700 border-blue-200",
     titleColor: "text-blue-900",
     textColor: "text-blue-800",
     glowColor: "group-hover:shadow-blue-500/20",
-    tag: "GUARANTEE",
+    tag: "Self-Paced Course",
   },
   {
     icon: CalendarDays,
-    title: "Daily Live Classes",
-    text: "Daily live classes for maximum accountability & structured progress",
+    text: "Weekly small-batch live sessions with timed in-class drills and space to ask.",
     gradient: "from-indigo-600 to-violet-600",
     cardBg: "bg-gradient-to-br from-indigo-100/95 via-indigo-50 to-violet-100/95 border-indigo-300/90 hover:border-indigo-500 shadow-indigo-500/20",
     badgeBg: "bg-indigo-100/80 text-indigo-700 border-indigo-200",
     titleColor: "text-indigo-900",
     textColor: "text-indigo-800",
     glowColor: "group-hover:shadow-indigo-500/20",
-    tag: "ACCOUNTABILITY",
+    tag: "Live Classes",
   },
   {
     icon: Presentation,
-    title: "100+ Hours Live Training",
-    text: "100+ hours of live training — the highest live instruction in the world",
+    text: "School shortlisting, application timelines and essay guidance — from test day through to the offer.",
     gradient: "from-purple-600 to-pink-600",
     cardBg: "bg-gradient-to-br from-purple-100/95 via-purple-50 to-pink-100/95 border-purple-300/90 hover:border-purple-500 shadow-purple-500/20",
     badgeBg: "bg-purple-100/80 text-purple-700 border-purple-200",
     titleColor: "text-purple-900",
     textColor: "text-purple-800",
     glowColor: "group-hover:shadow-purple-500/20",
-    tag: "WORLD RECORD",
+    tag: "Admissions Consulting",
   },
   {
     icon: MessagesSquare,
-    title: "Live Test Discussions",
-    text: "Live discussion of all test questions with expert faculty and mentors",
+    text: "Regular live doubt clearing so nothing stays stuck for more than a few days.",
     gradient: "from-emerald-600 to-teal-600",
     cardBg: "bg-gradient-to-br from-emerald-100/95 via-emerald-50 to-teal-100/95 border-emerald-300/90 hover:border-emerald-500 shadow-emerald-500/20",
     badgeBg: "bg-emerald-100/80 text-emerald-700 border-emerald-200",
     titleColor: "text-emerald-900",
     textColor: "text-emerald-800",
     glowColor: "group-hover:shadow-emerald-500/20",
-    tag: "EXPERT FACULTY",
+    tag: "Live Doubt Solving",
   },
   {
     icon: Trophy,
-    title: "World Record Scores",
-    text: "Record holders of GMAT 800, GRE 339, and SAT 1580",
+    text: "A guided walkthrough of your mock — error patterns, timing leaks and the fix for each.",
     gradient: "from-amber-500 to-orange-600",
     cardBg: "bg-gradient-to-br from-amber-100/95 via-amber-50 to-orange-100/95 border-amber-300/90 hover:border-amber-500 shadow-amber-500/20",
     badgeBg: "bg-amber-100/80 text-amber-700 border-amber-200",
     titleColor: "text-amber-900",
     textColor: "text-amber-800",
     glowColor: "group-hover:shadow-amber-500/20",
-    tag: "PROVEN RESULTS",
+    tag: "Mock Debrief Sessions",
   },
   {
     icon: BookOpen,
-    title: "18+ Specialized Courses",
-    text: (
-      <>
-        18+ unique courses to prepare for{" "}
-        <a href="/gmat" className="underline font-bold text-cyan-600 hover:text-cyan-800 transition-colors">GMAT</a>,{" "}
-        <a href="/gre" className="underline font-bold text-cyan-600 hover:text-cyan-800 transition-colors">GRE</a> and{" "}
-        <span className="font-bold text-cyan-600">SAT</span>
-      </>
-    ),
+    text: "Sectional and full-length mocks built to the current GRE / GMAT Focus interface.",
     gradient: "from-cyan-600 to-blue-600",
     cardBg: "bg-gradient-to-br from-cyan-100/95 via-cyan-50 to-blue-100/95 border-cyan-300/90 hover:border-cyan-500 shadow-cyan-500/20",
     badgeBg: "bg-cyan-100/80 text-cyan-700 border-cyan-200",
     titleColor: "text-cyan-900",
     textColor: "text-cyan-800",
     glowColor: "group-hover:shadow-cyan-500/20",
-    tag: "COMPREHENSIVE",
+    tag: "Test Series",
   },
 ];
 

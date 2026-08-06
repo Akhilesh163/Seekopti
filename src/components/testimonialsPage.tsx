@@ -320,7 +320,7 @@ export const TestimonialsPage: React.FC = () => {
             <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">RESULTS</span>
             <div className="h-px w-12 bg-primary/40" />
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-display text-foreground tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-foreground tracking-tight">
             Score improvements
           </h2>
           <p className="text-base text-slate-600 max-w-2xl mx-auto leading-relaxed mt-4">
@@ -367,7 +367,7 @@ export const TestimonialsPage: React.FC = () => {
             <div className="flex justify-center items-center text-center px-4 pt-2">
               <span className="inline-flex items-center gap-2.5 rounded-full border border-blue-200/80 bg-blue-50/90 px-6 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.22em] text-blue-700 shadow-sm backdrop-blur-sm">
                 <TrendingUp className="h-4 w-4 text-blue-600 stroke-[2.5]" />
-                GRE Score Improvements
+                GRE / GMAT Score Improvements
               </span>
             </div>
             <div className="w-full overflow-hidden">
@@ -424,7 +424,7 @@ export const TestimonialsPage: React.FC = () => {
             <div className="flex justify-center items-center text-center px-4">
               <span className="inline-flex items-center gap-2.5 rounded-full border border-indigo-200/80 bg-indigo-50/90 px-6 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.22em] text-indigo-700 shadow-sm backdrop-blur-sm">
                 <TrendingUp className="h-4 w-4 text-indigo-600 stroke-[2.5]" />
-                GMAT Score Improvements
+                GRE / GMAT Score Improvements
               </span>
             </div>
             <div className="w-full overflow-hidden">
@@ -498,27 +498,39 @@ export const TestimonialsPage: React.FC = () => {
                 className={`${item.bgColor} rounded-[24px] border border-slate-200/50 shadow-soft p-8 flex flex-col justify-between hover:shadow-md hover:border-slate-300 transition duration-300`}
               >
                 <div>
-                  {/* Blue Stars */}
-                  <div className="flex gap-1 text-blue-600 text-lg mb-5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <span key={i}>★</span>
-                    ))}
+                  {/* Google-style review stars */}
+                  <div className="flex flex-wrap items-center gap-3 mb-5">
+                    <div className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <span key={i} className="text-amber-500 text-[1rem] leading-none">★</span>
+                      ))}
+                    </div>
+                    <span className="text-sm font-medium text-slate-500">5.0</span>
+                    <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-500">
+                      <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21.35 11.1H12v2.8h5.35c-.22 1.1-.9 2.04-1.92 2.66v2.2h3.1c1.8-1.65 2.85-4.08 2.85-6.86 0-.6-.06-1.18-.17-1.75Z" fill="#4285F4"/>
+                        <path d="M12 22c2.43 0 4.47-.8 5.96-2.16l-3.1-2.2c-.86.57-1.96.9-2.86.9-2.2 0-4.08-1.48-4.75-3.48H3.96v2.18C5.46 19.84 8.51 22 12 22Z" fill="#34A853"/>
+                        <path d="M7.25 13.06A5.96 5.96 0 0 1 6.96 12c0-.41.05-.82.1-1.2V8.62H3.96A9.98 9.98 0 0 0 2 12c0 1.7.41 3.3 1.14 4.7l2.11-2.09Z" fill="#FBBC05"/>
+                        <path d="M12 5.4c1.3 0 2.47.45 3.4 1.34l2.55-2.55C16.47 2.7 14.43 2 12 2 8.51 2 5.46 4.16 3.96 7.18l2.1 2.18C7.92 7.02 9.8 5.4 12 5.4Z" fill="#EA4335"/>
+                      </svg>
+                      <span className="text-slate-400">Google review</span>
+                    </span>
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-slate-700 text-[15px] leading-relaxed mb-6 font-normal">
+                  <p className="text-slate-700 text-base md:text-lg leading-relaxed mb-6 font-normal">
                     "{item.text}"
                   </p>
                 </div>
 
                 {/* User avatar and name info */}
                 <div className="flex items-center gap-4 border-t border-slate-100 pt-5 mt-auto">
-                  <div className="w-10 h-10 rounded-full overflow-hidden bg-slate-100 border border-slate-200">
+                  <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-100 border border-slate-200">
                     <img src={item.avatar} alt={item.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 text-[15px]">{item.name}</h4>
-                    <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">{item.score}</p>
+                    <h4 className="font-bold text-slate-900 text-lg">{item.name}</h4>
+                    <p className="text-sm text-slate-500 font-semibold uppercase tracking-wider">{item.score}</p>
                   </div>
                 </div>
               </div>
@@ -528,7 +540,6 @@ export const TestimonialsPage: React.FC = () => {
       </section>
 
       <CallToAction />
-      <CustomFAQ faqs={testimonialsFaqs} title="Testimonials & Success FAQs" />
       <Footer />
       <BookSessionDialog open={isBookSessionOpen} onOpenChange={setIsBookSessionOpen} />
     </div>

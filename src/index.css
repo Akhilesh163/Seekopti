@@ -247,6 +247,19 @@
     animation: marquee 35s linear infinite;
   }
 
+  .animate-radar {
+    animation: radar 8s linear infinite;
+  }
+
+  @keyframes radar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .mesh-blue-indigo {
     background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),

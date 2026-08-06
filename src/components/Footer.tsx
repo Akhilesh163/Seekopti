@@ -18,14 +18,20 @@ type FooterLink = {
 
 const footerLinks: Record<string, FooterLink[]> = {
   Courses: [
-    { label: "GMAT QUANT", href: LMS_GMAT_QUANT, external: true },
-    { label: "GRE QUANT", href: LMS_GRE_QUANT, external: true },
-    { label: "Private Tutoring", href: "/tutoring" },
-    { label: "Test Series", href: LMS_TEST_SERIES, external: true },
+    { label: "GRE Self-Paced Course", href: "/self-paced" },
+    { label: "GRE Live Classes", href: "/gre-live" },
+    { label: "GRE Private Tutoring", href: "/tutoring" },
+    { label: "GMAT Self-Paced Course", href: "/gmat-self-paced" },
+    { label: "GMAT Live Classes", href: "/gmat-live" },
+    { label: "GMAT Private Tutoring", href: "/gmat-private-tutoring" },
+    { label: "Test Series", href: "/test-series" },
+    { label: "Admissions Consulting", href: "/admissions" },
   ],
   Company: [
-    { label: "About Aman", href: "/about" },
-    { label: "Testimonials", href: "/testimonials" },
+    { label: "About GRE", href: "/about-gmat" },
+    { label: "About GMAT", href: "/about-gmat" },
+    { label: "Success Stories", href: "/success-stories" },
+    { label: "Blog", href: "/blogs" },
     { label: "Contact", href: "/contact" },
   ],
   Legal: [
@@ -73,17 +79,17 @@ export const Footer = () => {
   return (
     <footer className="bg-black text-white relative">
       <div className="absolute top-0 left-0 right-0 h-1" style={{ backgroundImage: "var(--gradient-primary)" }} />
-      <div className="container-narrow pt-20 md:pt-28 lg:pt-32 pb-8 md:pb-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+      <div className="w-full px-4 sm:px-6 lg:px-8 pt-20 md:pt-28 lg:pt-32 pb-8 md:pb-12">
+        <div className="max-w-[1380px] mx-auto grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6 isolate">
               <BrandLogo variant="onDark" size="lg" />
             </Link>
             <p className="text-base text-white/70 mb-4 max-w-sm">
-              Led by Aman with 8+ years of experience mentoring 4000+ students to conquer GMAT & GRE Quant.
+              It was never about the quant. It's about the prep.
             </p>
             <p className="text-base text-white/70 mb-6 max-w-sm italic">
-              "Quant doesn't have To be scary."
+              Led by Aman — nine years, a thousand-plus students, one question: *why?*
             </p>
             <Button
               size="lg"
@@ -105,9 +111,24 @@ export const Footer = () => {
               </ul>
             </div>
           ))}
+
+          <div className="lg:col-span-1">
+            <h4 className="font-semibold text-white mb-4">Get in touch</h4>
+            <ul className="space-y-2 text-sm text-white/70">
+              <li>S-3, Third Floor,</li>
+              <li>Metro Plaza, Gorewada Square,</li>
+              <li>Nagpur, Maharashtra – 440013</li>
+              <li>
+                <a href="tel:+917020183495" className="hover:text-white transition-colors">
+                  +91 70201 83495
+                </a>
+              </li>
+              <li>Monday to Sunday</li>
+            </ul>
+          </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start gap-8">
           <p className="text-sm text-white/50">© 2024 SeekYourY. All rights reserved.</p>
         </div>
       </div>

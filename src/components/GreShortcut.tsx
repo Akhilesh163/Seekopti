@@ -6,6 +6,7 @@ import { BookSessionDialog } from "@/components/BookSessionDialog";
 import booksIcon from "@/assets/paced-icon/books.webp";
 import studentIcon from "@/assets/paced-icon/student.webp";
 import analyticsIcon from "@/assets/paced-icon/analytics.webp";
+import qaIcon from "@/assets/paced-icon/qa.webp";
 
 export const GreShortcut = () => {
   const [isBookSessionOpen, setIsBookSessionOpen] = useState(false);
@@ -37,6 +38,15 @@ export const GreShortcut = () => {
       badge: "Consistent improvement. Better scores.",
       badgeClass: "bg-emerald-100/80 text-emerald-700 border-emerald-200",
     },
+    {
+      image: qaIcon,
+      gradient: "from-amber-500 to-orange-500",
+      borderColor: "border-amber-200 hover:border-amber-500",
+      title: "Support",
+      description: "Your doubts are answered by the mentor who taught the class, not by a helpdesk. Live doubt sessions run through the entire course.",
+      badge: "Consistent improvement. Better scores.",
+      badgeClass: "bg-amber-100/80 text-amber-700 border-amber-200",
+    },
   ];
 
   const containerVariants = {
@@ -59,7 +69,7 @@ export const GreShortcut = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-blue-600/15 blur-3xl pointer-events-none -z-10" />
       <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-purple-600/10 blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-[1200px] mx-auto text-center">
+      <div className="max-w-full mx-auto text-center">
         {/* Top Text Pill */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -101,9 +111,10 @@ export const GreShortcut = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto mt-2"
         >
-          Over the past 18 months, more and more MBA aspirants have switched from GMAT to GRE —
-          largely to skip GMAT's Data Insights section. The same business schools, a shorter and
-          friendlier test.
+          Over the past eighteen months, more and more MBA aspirants have moved from the GMAT to the
+          GRE — largely to <strong>sidestep</strong> the GMAT's Data Insights section. Over 1,300 MBA
+          programmes now accept the GRE, most of them on equal footing with the GMAT. Same business
+          schools. Same seat in the class. A shorter test with fewer surprises.
         </motion.p>
 
         {/* Cards Grid */}
@@ -112,7 +123,7 @@ export const GreShortcut = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-14 text-left"
+          className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-14 text-left w-full"
         >
           {cards.map((card, idx) => (
             <motion.div

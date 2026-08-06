@@ -4,48 +4,22 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MessageCircle, Send, MapPin, PhoneCall, Clock } from "lucide-react";
+import { Send, MapPin, User, Phone, Mail, BookOpen } from "lucide-react";
 import { useContactFormSubmit } from "@/hooks/useContactFormSubmit";
 
-const emptyForm = { name: "", email: "", phone: "", message: "" };
+const emptyForm = { name: "", email: "", phone: "", message: "", course: "" };
 
 const infoCards = [
   {
     title: "Office Address",
-    description: "Seek Your Y, UGF 24, Arcadium One, Vrindavan Yojana Sector 16, Lucknow",
+    description: "S-3, Third Floor, Metro Plaza, Gorewada Square, Nagpur, Maharashtra – 440013",
     Icon: MapPin,
     wrapperClassName: "group relative rounded-[24px] border border-indigo-300/80 bg-gradient-to-br from-indigo-50 via-indigo-100 to-violet-100 p-8 text-center transition-all duration-300 overflow-hidden shadow-md hover:shadow-2xl hover:border-indigo-500",
     iconClassName: "mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-indigo-700 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2",
     titleClassName: "font-bold text-indigo-950",
     textClassName: "mt-3 text-sm text-indigo-900/85 font-medium",
-  },
-  {
-    title: "Call Us",
-    description: "+91 7307870773",
-    Icon: PhoneCall,
-    wrapperClassName: "group relative rounded-[28px] border border-purple-300/90 bg-gradient-to-br from-purple-100/95 via-purple-50 to-pink-100/95 p-8 text-center transition-all duration-300 overflow-hidden shadow-md hover:shadow-2xl hover:border-purple-500",
-    iconClassName: "mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2",
-    titleClassName: "font-bold text-purple-900",
-    textClassName: "mt-3 text-sm text-purple-800 font-medium",
-  },
-  {
-    title: "Email Us",
-    description: "seekyoury@gmail.com",
-    Icon: Mail,
-    wrapperClassName: "group relative rounded-[24px] border border-emerald-300/80 bg-gradient-to-br from-emerald-50 via-emerald-100 to-teal-100 p-8 text-center transition-all duration-300 overflow-hidden shadow-md hover:shadow-2xl hover:border-emerald-500",
-    iconClassName: "mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-700 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2",
-    titleClassName: "font-bold text-emerald-950",
-    textClassName: "mt-3 text-sm text-emerald-900/85 font-medium",
-  },
-  {
-    title: "Open Time",
-    description: "Tue - Sun (11:00AM - 08:00PM)",
-    Icon: Clock,
-    wrapperClassName: "group relative rounded-[24px] border border-amber-300/80 bg-gradient-to-br from-amber-50 via-amber-100 to-orange-100 p-8 text-center transition-all duration-300 overflow-hidden shadow-md hover:shadow-2xl hover:border-amber-500",
-    iconClassName: "mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-amber-700 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2",
-    titleClassName: "font-bold text-amber-950",
-    textClassName: "mt-3 text-sm text-amber-900/85 font-medium",
   },
 ];
 
@@ -65,6 +39,7 @@ const ContactUs = () => {
         email: formData.email,
         phone: formData.phone,
         message: formData.message,
+        course: formData.course,
       },
       () => setFormData(emptyForm),
     );
@@ -108,20 +83,20 @@ const ContactUs = () => {
       <main className="section-padding -mt-12 pb-20">
         <div className="mx-auto max-w-[1200px] px-6">
           {/* Top info cards - overlap hero */}
-            <div className="mt-12 mb-10">
+          <div className="mt-12 mb-10">
             <div className="mx-auto max-w-[1200px] px-2">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {infoCards.map((card) => (
-                <div key={card.title} className={card.wrapperClassName}>
-                  <div className={card.iconClassName}>
-                    <card.Icon className="w-6 h-6" />
+              <div className="grid grid-cols-1 gap-6">
+                {infoCards.map((card) => (
+                  <div key={card.title} className={card.wrapperClassName}>
+                    <div className={card.iconClassName}>
+                      <card.Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className={card.titleClassName}>{card.title}</h3>
+                    <p className={card.textClassName}>{card.description}</p>
                   </div>
-                  <h3 className={card.titleClassName}>{card.title}</h3>
-                  <p className={card.textClassName}>{card.description}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
           </div>
 
           {/* Contact form card */}
@@ -139,25 +114,65 @@ const ContactUs = () => {
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div className="space-y-5">
                     <div>
-                      <Label htmlFor="contact-name" className="block text-sm font-semibold text-slate-900 mb-2">Your Name</Label>
+                      <Label htmlFor="contact-name" className="flex items-center gap-2 text-sm font-semibold text-slate-900 mb-2">
+                        <User className="w-4 h-4 text-slate-500" />
+                        Your Name
+                      </Label>
                       <Input id="contact-name" name="name" placeholder="John Doe" value={formData.name} onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))} required className="mt-0 rounded-xl border-2 border-blue-100/50 bg-blue-50/50 px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-200/50 transition-all duration-300" />
                     </div>
                     <div>
-                      <Label htmlFor="contact-email" className="block text-sm font-semibold text-slate-900 mb-2">Your Email</Label>
+                      <Label htmlFor="contact-phone" className="flex items-center gap-2 text-sm font-semibold text-slate-900 mb-2">
+                        <Phone className="w-4 h-4 text-slate-500" />
+                        Phone Number
+                      </Label>
+                      <Input id="contact-phone" name="phone" type="tel" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={(e) => setFormData((p) => ({ ...p, phone: e.target.value }))} className="mt-0 rounded-xl border-2 border-blue-100/50 bg-blue-50/50 px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-200/50 transition-all duration-300" />
+                    </div>
+                    <div>
+                      <Label htmlFor="contact-email" className="flex items-center gap-2 text-sm font-semibold text-slate-900 mb-2">
+                        <Mail className="w-4 h-4 text-slate-500" />
+                        Your Email
+                      </Label>
                       <Input id="contact-email" name="email" type="email" placeholder="john@example.com" value={formData.email} onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))} required className="mt-0 rounded-xl border-2 border-blue-100/50 bg-blue-50/50 px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-200/50 transition-all duration-300" />
                     </div>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="contact-phone" className="block text-sm font-semibold text-slate-900 mb-2">Phone Number</Label>
-                    <Input id="contact-phone" name="phone" type="tel" placeholder="+91 XXXXX XXXXX" value={formData.phone} onChange={(e) => setFormData((p) => ({ ...p, phone: e.target.value }))} className="mt-0 rounded-xl border-2 border-blue-100/50 bg-blue-50/50 px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-200/50 transition-all duration-300" />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="contact-message" className="block text-sm font-semibold text-slate-900 mb-2">Message</Label>
-                    <Textarea id="contact-message" name="message" placeholder="Tell us about your prep goals, current level, and timeline..." value={formData.message} onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))} required className="mt-0 rounded-xl border-2 border-blue-100/50 bg-blue-50/50 px-4 py-3 text-slate-900 placeholder:text-slate-500 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-blue-200/50 transition-all duration-300 min-h-[140px] resize-none" />
+                    <div className="space-y-1.5">
+                      <Label htmlFor="contact-course" className="flex items-center gap-2 text-sm font-semibold text-slate-900 mb-2">
+                        <BookOpen className="w-4 h-4 text-slate-500" />
+                        Course
+                      </Label>
+                      <Select value={formData.course} onValueChange={(val) => setFormData((p) => ({ ...p, course: val }))}>
+                        <SelectTrigger id="contact-course" className="min-h-[54px] h-auto py-2.5 px-4 border-border/80 focus:ring-primary/20 focus:border-primary transition-all rounded-xl text-left bg-background [&>span]:line-clamp-none flex items-center justify-between gap-3">
+                          <SelectValue placeholder="Interested in" />
+                        </SelectTrigger>
+                        <SelectContent className="rounded-xl shadow-lg border-border/80 max-h-[320px] p-1.5">
+                          <SelectItem value="GRE Private Tutoring" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                            <div className="flex flex-col gap-0.5">
+                              <span className="font-bold text-sm text-foreground">GRE Private Tutoring</span>
+                              <span className="text-xs text-muted-foreground font-normal">1-on-1 Personalized Tutors</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="GMAT Online" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                            <div className="flex flex-col gap-0.5">
+                              <span className="font-bold text-sm text-foreground">GMAT Online</span>
+                              <span className="text-xs text-muted-foreground font-normal">Live Online Coaching & Interactive Sessions</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="GMAT Live Class" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                            <div className="flex flex-col gap-0.5">
+                              <span className="font-bold text-sm text-foreground">GMAT Live Class</span>
+                              <span className="text-xs text-muted-foreground font-normal">Interactive Live Batch Training</span>
+                            </div>
+                          </SelectItem>
+                          <SelectItem value="GMAT Self-Paced" className="py-3 px-3 cursor-pointer rounded-lg focus:bg-primary/5 focus:text-primary transition-colors">
+                            <div className="flex flex-col gap-0.5">
+                              <span className="font-bold text-sm text-foreground">GMAT Self-Paced</span>
+                              <span className="text-xs text-muted-foreground font-normal">On-Demand Comprehensive Video Course</span>
+                            </div>
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
 
                   <div className="pt-4">

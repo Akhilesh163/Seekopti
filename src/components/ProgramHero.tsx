@@ -79,14 +79,6 @@ export const ProgramHero: React.FC<ProgramHeroProps> = ({ type }) => {
           <div className="relative w-full flex items-center justify-center overflow-visible">
             <div className="absolute -left-6 top-10 hidden h-48 w-48 rounded-full bg-primary/5 blur-3xl lg:block" />
             <div className="w-full max-w-[520px] lg:max-w-none overflow-visible">
-              <div className="text-center lg:text-left mb-2 md:mb-4 px-2">
-                <h3 className="text-sm md:text-base uppercase tracking-[0.24em] font-extrabold text-muted-foreground" style={{ fontSize: "16px" }}>
-                  {isGre ? "Top GRE Achievers" : "Top GMAT Results"}
-                </h3>
-                <p className="mt-1 text-muted-foreground font-medium" style={{ fontSize: "18px" }}>
-                  Real students. Real scores. Verified results.
-                </p>
-              </div>
               <StudentScoreCarousel type={type} />
             </div>
           </div>

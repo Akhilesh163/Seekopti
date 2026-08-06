@@ -111,8 +111,8 @@ const GreLive: React.FC = () => {
             </div>
           </div>
 
-          {/* 3 Colorful Professional Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* 6 Colorful Professional Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {/* Card 1: Comprehensive GRE Online Course */}
             <div className="rounded-[28px] border-2 border-purple-200/80 bg-gradient-to-br from-purple-50/80 via-pink-50/50 to-indigo-50/70 p-8 shadow-md hover:shadow-xl hover:border-purple-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
               <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-purple-400 to-indigo-400 opacity-15 blur-2xl pointer-events-none" />
@@ -157,6 +157,54 @@ const GreLive: React.FC = () => {
                 <div className="inline-block text-emerald-700 font-bold mb-3" style={{ fontSize: "19px" }}>Complete prep kit & test series</div>
                 <p className="text-emerald-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
                   Includes study books, full-length computer-adaptive tests, and online preparation tools for full test readiness.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 4: Live Mentoring & Strategy */}
+            <div className="rounded-[28px] border-2 border-amber-200/80 bg-gradient-to-br from-amber-50/80 via-orange-50/50 to-yellow-50/70 p-8 shadow-md hover:shadow-xl hover:border-amber-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-amber-400 to-orange-400 opacity-15 blur-2xl pointer-events-none" />
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center text-white shadow-lg mb-6">
+                  <Users className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-900 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200/80">Live Mentorship</span>
+                <h3 className="text-2xl font-extrabold text-amber-950 mt-4 mb-2">Personalized Guidance</h3>
+                <div className="inline-block text-amber-700 font-bold mb-3" style={{ fontSize: "19px" }}>One-on-one mentor support throughout your prep</div>
+                <p className="text-amber-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Get strategy guidance, progress tracking, and feedback tailored to your strengths and weak areas.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 5: Performance Tracking */}
+            <div className="rounded-[28px] border-2 border-rose-200/80 bg-gradient-to-br from-rose-50/80 via-pink-50/50 to-red-50/70 p-8 shadow-md hover:shadow-xl hover:border-rose-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-rose-400 to-pink-400 opacity-15 blur-2xl pointer-events-none" />
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-600 to-pink-500 flex items-center justify-center text-white shadow-lg mb-6">
+                  <BarChart3 className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-rose-900 bg-rose-100/70 px-3 py-1 rounded-full border border-rose-200/80">Progress Insights</span>
+                <h3 className="text-2xl font-extrabold text-rose-950 mt-4 mb-2">Performance Tracking</h3>
+                <div className="inline-block text-rose-700 font-bold mb-3" style={{ fontSize: "19px" }}>Measure improvement with detailed analytics</div>
+                <p className="text-rose-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Follow your mock performance, topic-wise accuracy, and readiness score with actionable insights.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 6: Flexible Revision Access */}
+            <div className="rounded-[28px] border-2 border-slate-200/80 bg-gradient-to-br from-slate-50/80 via-zinc-50/50 to-stone-50/70 p-8 shadow-md hover:shadow-xl hover:border-slate-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+              <div className="absolute -top-4 -right-4 w-28 h-28 rounded-full bg-gradient-to-br from-slate-400 to-zinc-400 opacity-15 blur-2xl pointer-events-none" />
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-700 to-zinc-600 flex items-center justify-center text-white shadow-lg mb-6">
+                  <BookOpen className="w-7 h-7" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-800 bg-slate-100/70 px-3 py-1 rounded-full border border-slate-200/80">Revision Access</span>
+                <h3 className="text-2xl font-extrabold text-slate-950 mt-4 mb-2">Flexible Study Replays</h3>
+                <div className="inline-block text-slate-700 font-bold mb-3" style={{ fontSize: "19px" }}>Revisit live sessions and class notes anytime</div>
+                <p className="text-slate-900/80 leading-relaxed font-normal" style={{ fontSize: "22px" }}>
+                  Review recorded sessions, revise concepts, and keep your prep moving even on busy days.
                 </p>
               </div>
             </div>

@@ -251,13 +251,13 @@ const Admission: React.FC = () => {
         </section>
 
         {/* COURSES GALLERY */}
-        <section className="pt-12 pb-16">
+        <section className="pt-12 pb-16 bg-slate-950">
           <div className="max-w-[1200px] mx-auto px-4">
-            <div className="rounded-[36px] border border-blue-100/80 bg-gradient-to-br from-white/90 via-blue-50/70 to-violet-50/70 p-8 md:p-10 shadow-[0_25px_60px_rgba(15,23,42,0.06)]">
+            <div className="rounded-[36px] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(79,70,229,0.16),transparent_40%),#020617] p-8 md:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
               <div className="text-center mb-8">
-                <div className="inline-block px-4 py-1 rounded-full bg-white/80 border border-blue-200/70 text-base md:text-lg font-extrabold text-blue-700 mb-4 shadow-sm">Test Prep</div>
-                <h3 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-950">Ace Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500">Entrance Exams</span></h3>
-                <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-600 mt-4 leading-relaxed">Expert-led coaching with proven strategies for every major standardized test. Personalized guidance to maximize your scores.</p>
+                <div className="inline-block px-4 py-1 rounded-full bg-white/10 border border-white/10 text-base md:text-lg font-extrabold text-white/90 mb-4 shadow-sm backdrop-blur">Test Prep</div>
+                <h3 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white">Ace Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400">Entrance Exams</span></h3>
+                <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-300 mt-4 leading-relaxed">Expert-led coaching with proven strategies for every major standardized test. Personalized guidance to maximize your scores.</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -267,18 +267,18 @@ const Admission: React.FC = () => {
                   title: "GRE Coaching",
                   desc: "Comprehensive GRE preparation covering Quant & Verbal with formula-free logic techniques.",
                   badge: "GRE",
-                  cardClass: "border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-100 to-indigo-100 shadow-[0_18px_36px_rgba(59,130,246,0.18)]",
-                  badgeClass: "text-blue-900 bg-blue-100/70 border-blue-200/80",
-                  buttonClass: "inline-flex items-center gap-1 text-base md:text-lg font-extrabold text-blue-700 hover:text-blue-900 hover:-translate-y-0.5 transition duration-200",
+                  cardClass: "border-white/10 bg-white/5 shadow-[0_18px_36px_rgba(0,0,0,0.32)]",
+                  badgeClass: "text-white/90 bg-white/10 border-white/10",
+                  buttonClass: "inline-flex items-center gap-1 text-base md:text-lg font-extrabold text-white hover:text-white/80 hover:-translate-y-0.5 transition duration-200",
                 },
                 {
                   src: CourseGmat,
                   title: "GMAT Focus Edition",
                   desc: "Specialized GMAT prep focusing on Data Insights, Quant, and Verbal Reasoning.",
                   badge: "GMAT",
-                  cardClass: "border-violet-200/80 bg-gradient-to-br from-fuchsia-50 via-violet-100 to-indigo-100 shadow-[0_18px_36px_rgba(139,92,246,0.18)]",
-                  badgeClass: "text-violet-900 bg-violet-100/70 border-violet-200/80",
-                  buttonClass: "inline-flex items-center gap-1 text-base md:text-lg font-extrabold text-violet-700 hover:text-violet-900 hover:-translate-y-0.5 transition duration-200",
+                  cardClass: "border-white/10 bg-white/5 shadow-[0_18px_36px_rgba(0,0,0,0.32)]",
+                  badgeClass: "text-white/90 bg-white/10 border-white/10",
+                  buttonClass: "inline-flex items-center gap-1 text-base md:text-lg font-extrabold text-white hover:text-white/80 hover:-translate-y-0.5 transition duration-200",
                 },
               ].map((course) => (
                 <div
@@ -293,8 +293,8 @@ const Admission: React.FC = () => {
                     <span className={`inline-flex items-center rounded-full border px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] ${course.badgeClass}`}>
                       {course.badge}
                     </span>
-                    <h4 className="font-extrabold text-2xl mt-3 mb-2 text-slate-950">{course.title}</h4>
-                    <p className="text-base md:text-lg text-slate-700 font-medium leading-relaxed mb-4">{course.desc}</p>
+                    <h4 className="font-extrabold text-2xl mt-3 mb-2 text-white">{course.title}</h4>
+                    <p className="text-base md:text-lg text-slate-300 font-medium leading-relaxed mb-4">{course.desc}</p>
                     <button
                       onClick={() => setIsBookSessionOpen(true)}
                       className={course.buttonClass}
@@ -327,10 +327,6 @@ const Admission: React.FC = () => {
         {/* BOTTOM CALL TO ACTION */}
         <CallToAction />
 
-        {/* ADMISSIONS FAQS */}
-        <CustomFAQ faqs={admissionsFaqs} title="Admissions Consulting FAQs" />
-
-     
       </main>
 
       <Footer />

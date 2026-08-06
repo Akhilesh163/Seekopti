@@ -95,10 +95,10 @@ export const WebinarSection: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-600 text-white text-xs md:text-sm font-extrabold uppercase tracking-widest mb-4 shadow-md">
             <Sparkles className="w-4 h-4 stroke-[2.5]" />
-            <span>EXCLUSIVE MASTERCLASSES</span>
+            <span>Exclusive masterclasses & webinars</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-slate-950 tracking-tight leading-tight mb-4">
-            Masterclasses & <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Webinars</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Watch a session before you enrol.</span>
           </h2>
           <p className="text-lg md:text-xl text-slate-700 font-medium leading-relaxed">
             Watch insider sessions on scoring top percentiles, crafting ISB applications, and conquering MBA admissions.

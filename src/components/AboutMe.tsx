@@ -165,10 +165,8 @@ export const AboutMe = () => {
                 transition={{ duration: 0.5, delay: 0.14 }}
                 style={{ fontSize: "22px" }}
               >
-                For the past 9 years, I've dedicated my life to one mission:{" "}
-                <strong className="text-black font-extrabold">
-                  making Quant accessible and conquerable for everyone.
-                </strong>
+                For the past nine years I've dedicated myself to one mission: helping students understand the{" "}
+                <strong className="text-black font-extrabold">why</strong>.
               </motion.p>
 
               <motion.p
@@ -178,9 +176,8 @@ export const AboutMe = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 style={{ fontSize: "22px" }}
               >
-                I've mentored over 10,000 students from all backgrounds—engineers, artists, working professionals, and fresh
-                graduates. Many came to me believing they were "just not math people." Today, they're in top business schools
-                and thriving careers.
+                I've mentored over a thousand students through the GRE and the GMAT — not by handing them formulas, but by
+                showing them what each question is really asking.
               </motion.p>
 
               <motion.p
@@ -190,20 +187,8 @@ export const AboutMe = () => {
                 transition={{ duration: 0.5, delay: 0.26 }}
                 style={{ fontSize: "22px" }}
               >
-                My approach is simple:{" "}
-                <strong className="text-black font-extrabold">understand the "why" behind every concept.</strong> When you
-                stop memorizing formulas and start seeing patterns, Quant transforms from a nightmare to an empowering skill.
-              </motion.p>
-
-              <motion.p
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.32 }}
-                style={{ fontSize: "22px" }}
-              >
-                I don't just teach test strategies—I rebuild confidence. I help students bridge the gap between understanding
-                concepts and executing under pressure on test day.
+                I don't just teach strategies. I build confidence. That is the difference students notice in week one, and the
+                reason their scores move by week six.
               </motion.p>
             </div>
 

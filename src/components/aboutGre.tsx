@@ -504,60 +504,14 @@ const AboutGre = () => {
      
 
       <section className="bg-slate-50 py-20">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-8">
           <div className="w-full">
             <div className="space-y-8 flex flex-col">
 
 
               {/* Premium GRE Exam Pattern Table */}
-              <div className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
-                <div className="border-b border-slate-200/80 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-5 md:px-8 text-white text-center">
-                  <p className="text-xs md:text-sm uppercase tracking-[0.24em] text-slate-300 font-semibold mb-2">Value Check</p>
-                  <h3 className="text-xl md:text-2xl font-black text-white tracking-tight">Why this is the best-value series anywhere</h3>
-                </div>
-
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse">
-                    <thead>
-                      <tr className="bg-slate-100/90 border-b-2 border-slate-300 text-sm md:text-base font-semibold uppercase tracking-wider text-slate-700">
-                        <th className="px-6 py-5.5 md:py-6">&nbsp;</th>
-                        <th className="px-6 py-5.5 md:py-6">Seek Your Y</th>
-                        <th className="px-6 py-5.5 md:py-6">Official Mocks</th>
-                        <th className="px-6 py-5.5 md:py-6">Other Prep</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-300 text-base">
-                      {[
-                        { label: "Total tests", icon: Clock3, iconBg: "bg-sky-100 text-sky-700", seek: "30 tests", official: "3–4 mocks", other: "15–25 tests" },
-                        { label: "Full-length mocks", icon: BookOpen, iconBg: "bg-indigo-100 text-indigo-700", seek: "10 adaptive mocks", official: "3–4 mocks", other: "5–10 mocks" },
-                        { label: "Sectional drills", icon: BarChart3, iconBg: "bg-emerald-100 text-emerald-700", seek: "20 sectionals", official: "None", other: "10–15 sectionals" },
-                        { label: "Live mock debriefs", icon: Video, iconBg: "bg-amber-100 text-amber-700", seek: "Faculty-led strategy review", official: "None", other: "Recorded only" },
-                        { label: "Performance tracking", icon: Trophy, iconBg: "bg-emerald-100 text-emerald-700", seek: "Advanced gap analysis", official: "Basic score report", other: "Standard report" },
-                        { label: "Approx. price", icon: ShieldCheck, iconBg: "bg-amber-100 text-amber-700", seek: "₹4,999 (GRE) / ₹5,999 (GMAT)", official: "₹9,200 (GMAT) / ₹10,000 (GRE)", other: "₹6,000 – ₹12,000" },
-                      ].map((row, idx) => {
-                        const Icon = row.icon;
-                        return (
-                          <tr key={idx} className={idx % 2 === 0 ? "bg-slate-50/80" : "bg-white"}>
-                            <td className="px-6 py-5 md:py-6 font-semibold text-slate-900">
-                              <div className="flex items-center gap-3.5">
-                                <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${row.iconBg} shrink-0 shadow-xs`}>
-                                  <Icon className="w-5 h-5" />
-                                </div>
-                                <div>
-                                  <div className="text-base md:text-lg font-medium text-slate-950">{row.label}</div>
-                                </div>
-                              </div>
-                            </td>
-                            <td className="px-6 py-5 md:py-6 text-slate-700">{row.seek}</td>
-                            <td className="px-6 py-5 md:py-6 text-slate-700">{row.official}</td>
-                            <td className="px-6 py-5 md:py-6 text-slate-700">{row.other}</td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+            
+            
 
               <div className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-xl shadow-slate-200/50">
                 {/* Header Title Bar */}
@@ -708,15 +662,15 @@ const AboutGre = () => {
                 </div>
               </div>
 
-              <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-soft">
-                <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-center">
-                  <div className="space-y-4">
+              <div className="rounded-[32px] border border-slate-200 bg-white p-7 shadow-soft -mt-2">
+                <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] items-start">
+                  <div className="space-y-3">
                     <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
                       <Globe2 className="h-4 w-4" />
                       GRE for Global MS
                     </div>
-                    <h3 className="text-3xl font-semibold text-foreground">The GRE advantage for your next master’s application</h3>
-                    <p className="font-medium text-slate-800 leading-relaxed" style={{ fontSize: "clamp(1.125rem, 1.4vw, 1.35rem)" }}>
+                    <h3 className="text-3xl font-semibold text-foreground -mt-1">The GRE advantage for your next master’s application</h3>
+                    <p className="font-medium text-slate-800 leading-relaxed -mt-1" style={{ fontSize: "clamp(1.125rem, 1.4vw, 1.35rem)" }}>
                       GRE gives you a flexible, globally accepted score report that works for top MS programs while keeping your application options open across business, engineering and science.
                     </p>
                   </div>
@@ -1162,63 +1116,54 @@ const AboutGre = () => {
           </div>
         </section>
 
-
             <section className="py-20 md:py-28 bg-gradient-to-b from-background via-blue-50/20 to-background border-t border-b border-border/40 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.08),_transparent_35%)] pointer-events-none" />
-        <div className="mx-auto max-w-[1180px] relative px-4">
-          <div className="rounded-[36px] border border-slate-200/80 bg-white/80 p-6 sm:p-8 md:p-10 shadow-[0_20px_70px_-28px_rgba(2,8,23,0.22)] backdrop-blur-sm">
-            <div className="text-center mb-8 md:mb-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-primary">GMAT Tutor Reviews</p>
-              <h2 className="mt-4 text-4xl md:text-5xl font-semibold text-foreground">What our students say</h2>
-              <p className="mt-3 mx-auto max-w-2xl text-base md:text-lg leading-8 text-muted-foreground">
-                Read the experiences of students who improved their GMAT score with Seekyoury coaching.
-              </p>
-            </div>
-
-            <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white/80 shadow-[0_24px_70px_-32px_rgba(15,23,42,0.24)]">
-              <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-sky-100/70 to-transparent pointer-events-none" />
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-slate-100/80 to-transparent pointer-events-none" />
-
-              <div className="flex items-center justify-center pt-6">
-                <span className="inline-flex items-center rounded-full bg-gradient-to-r from-blue-600 via-cyan-500 to-violet-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white shadow-lg shadow-blue-500/20">
-                  GRE Tutor Reviews
-                </span>
-              </div>
-
-              <style>{`
-                @keyframes gmatReviewMarquee {
-                  0% { transform: translate3d(0, 0, 0); }
-                  100% { transform: translate3d(-50%, 0, 0); }
-                }
-              `}</style>
-
-              <div className="relative overflow-hidden px-4 pb-8 pt-6">
-                <div className="hidden md:block absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
-                <div className="hidden md:block absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
-
-                <div className="flex gap-5 md:gap-6 w-max min-w-full will-change-transform" style={{ animationName: "gmatReviewMarquee", animationDuration: "70s", animationTimingFunction: "linear", animationIterationCount: "infinite", animationPlayState: "running" }}>
-                  {[...studentReviews, ...studentReviews].map((review, index) => (
-                    <div key={`${review.name}-${review.footer}-${index}`} className="w-[320px] md:w-[360px] flex-shrink-0 rounded-[32px] border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] transition-transform duration-300 hover:-translate-y-1">
-                      <div className="flex items-center gap-4">
-                        <img src={review.image} alt={review.name} className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
-                        <div>
-                          <p className="text-xl md:text-2xl font-semibold text-slate-950">{review.name}</p>
-                          <p className="text-base md:text-lg text-slate-700">{review.title}</p>
-                          <div className="mt-2 flex items-center gap-1 text-amber-500 text-lg">
-                            {Array.from({ length: review.rating }).map((_, starIndex) => (
-                              <span key={starIndex}>★</span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      <p className="mt-5 text-base md:text-lg leading-8 text-slate-700">{review.text}</p>
-                      <p className="mt-5 text-base md:text-base font-semibold text-slate-900">{review.footer}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[350px] bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+        <div className="max-w-[1250px] mx-auto text-center px-4 mb-16">
+          <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-blue-500/10 border border-blue-400/40 text-blue-600 text-base md:text-lg font-extrabold uppercase tracking-[0.14em] shadow-sm mb-5">
+            <Sparkles className="w-4 h-4 text-blue-600" />
+            <span>GMAT TUTOR REVIEWS</span>
           </div>
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-black font-display text-foreground tracking-tight uppercase">What our students say</h3>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 rounded-full mx-auto mt-5" />
+          <p className="mt-6 mx-auto max-w-3xl text-base md:text-lg leading-8 text-muted-foreground">
+            Read the experiences of students who improved their GMAT score with Seekyoury coaching.
+          </p>
+        </div>
+
+        <div className="relative w-full py-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
+            {studentReviews.map((review, index) => (
+              <div
+                key={`${review.name}-${review.footer}-${index}`}
+                className="group relative h-full min-h-[300px] rounded-[32px] overflow-hidden border border-blue-200/80 bg-gradient-to-br from-blue-100 via-sky-50 to-cyan-100 p-5 md:p-6 shadow-[0_16px_40px_-24px_rgba(15,23,42,0.28)] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="flex items-center gap-4">
+                  <img src={review.image} alt={review.name} className="h-16 w-16 md:h-18 md:w-18 rounded-full object-cover ring-2 ring-white shadow-sm" />
+                  <div>
+                    <p className="text-xl md:text-2xl font-semibold text-slate-950">{review.name}</p>
+                    <p className="text-base md:text-lg text-slate-700">{review.title}</p>
+                    <div className="mt-2 flex items-center gap-1 text-amber-500 text-lg">
+                      {Array.from({ length: review.rating }).map((_, starIndex) => (
+                        <span key={starIndex}>★</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p className="mt-5 text-base md:text-lg leading-8 text-slate-700">{review.text}</p>
+                <p className="mt-5 text-base font-semibold text-slate-900">{review.footer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-12 text-center flex justify-center z-10 relative">
+          <button
+            onClick={() => setIsBookSessionOpen(true)}
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-primary text-primary-foreground font-extrabold text-base md:text-lg shadow-lg shadow-blue-500/20 hover:bg-primary/90 hover:scale-105 transition-all duration-200 cursor-pointer"
+          >
+            <ArrowRight className="w-5 h-5 text-white" />
+            <span>Book a Session</span>
+          </button>
         </div>
       </section>
 
